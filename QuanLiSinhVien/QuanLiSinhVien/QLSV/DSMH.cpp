@@ -14,7 +14,7 @@ PTRNODEMH DSMH::newNODEMH()
 
 void DSMH::insertNODEMH(PTRNODEMH &p, int x, int a)
 {
-
+	//
 }
 
 void DSMH::nhapDSMH()
