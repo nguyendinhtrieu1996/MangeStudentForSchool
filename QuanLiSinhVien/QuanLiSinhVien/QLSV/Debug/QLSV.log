@@ -1,33 +1,7 @@
-﻿  SINHVIEN.cpp
-  NODESV.cpp
-  NODEMH.cpp
-  NODEDIEM.cpp
-  MyLibrary.cpp
-  MONHOC.cpp
-  main.cpp
-  LOP.cpp
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(422): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(484): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(521): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(552): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(586): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(644): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(691): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(703): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(724): warning C4566: character represented by universal-character-name '\u0110' cannot be represented in the current code page (1252)
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(724): warning C4566: character represented by universal-character-name '\u1EED' cannot be represented in the current code page (1252)
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(727): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(752): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(766): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(770): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(774): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(778): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(790): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(794): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(798): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(802): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-  DSMH.cpp
-  DSLOP.cpp
+﻿  DSLOP.cpp
+c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.h(1): error C2014: preprocessor command must start as first nonwhite space
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2361): error C2144: syntax error: 'int' should be preceded by ';'
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2361): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
 c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(342): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
 c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(404): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
 c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(440): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
@@ -43,8 +17,10 @@ c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisi
 c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(793): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
 c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(845): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
 c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(888): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-  DIEM.cpp
   Generating Code...
-  LINK : C:\Users\NGUYEN DINH TRIEU\Desktop\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe not found or not built by the last incremental link; performing full link
-  QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe
-  QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.pdb (Partial PDB)
+  Compiling...
+  main.cpp
+c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.h(1): error C2014: preprocessor command must start as first nonwhite space
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2361): error C2144: syntax error: 'int' should be preceded by ';'
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2361): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  Generating Code...
