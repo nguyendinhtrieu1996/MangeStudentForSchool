@@ -1,5 +1,5 @@
 ﻿#include "DSLOP.h"
-
+//ahihihihihihi
 DSLOP::DSLOP()
 {
 	SL = 0;
