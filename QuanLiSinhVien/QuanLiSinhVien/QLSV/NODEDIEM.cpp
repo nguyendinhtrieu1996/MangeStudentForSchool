@@ -1,0 +1,10 @@
+#include "NODEDIEM.h"
+
+NODEDIEM::NODEDIEM()
+{
+}
+
+
+NODEDIEM::~NODEDIEM()
+{
+}

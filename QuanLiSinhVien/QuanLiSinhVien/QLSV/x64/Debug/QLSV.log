@@ -1,0 +1,43 @@
+﻿Build started 5/17/2017 2:55:15 PM.
+     1>Project "C:\Users\User\Desktop\New folder (2)\QuanLiSinhVien\QLSV\QLSV.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt LOP.cpp
+         LOP.cpp
+     1>LOP.cpp(422): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(484): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(521): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(552): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(586): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(644): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(691): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(703): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(724): warning C4566: character represented by universal-character-name '\u0110' cannot be represented in the current code page (1252)
+     1>LOP.cpp(724): warning C4566: character represented by universal-character-name '\u1EED' cannot be represented in the current code page (1252)
+     1>LOP.cpp(727): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(752): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(766): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(770): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(774): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(778): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(790): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(794): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(798): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(802): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\User\Desktop\New folder (2)\QuanLiSinhVien\x64\Debug\QLSV.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"C:\Users\User\Desktop\New folder (2)\QuanLiSinhVien\x64\Debug\QLSV.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\User\Desktop\New folder (2)\QuanLiSinhVien\x64\Debug\QLSV.lib" /MACHINE:X64 x64\Debug\DIEM.obj
+         x64\Debug\DSLOP.obj
+         x64\Debug\DSMH.obj
+         x64\Debug\LOP.obj
+         x64\Debug\main.obj
+         x64\Debug\MONHOC.obj
+         x64\Debug\MyLibrary.obj
+         x64\Debug\NODEDIEM.obj
+         x64\Debug\NODEMH.obj
+         x64\Debug\NODESV.obj
+         x64\Debug\SINHVIEN.obj
+         QLSV.vcxproj -> C:\Users\User\Desktop\New folder (2)\QuanLiSinhVien\x64\Debug\QLSV.exe
+     1>Done Building Project "C:\Users\User\Desktop\New folder (2)\QuanLiSinhVien\QLSV\QLSV.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.54
