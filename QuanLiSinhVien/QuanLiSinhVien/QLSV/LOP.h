@@ -26,12 +26,14 @@ public:
 	void xuatDSSV();
 	void inSVTheoHang(PTRNODESV sv, int y, int stt);
 	void suaSVTheoMaSo(char _MASO[]);
-	void suaSV();
+	void suaSVtheoConTro(PTRNODESV);
 	void insertFirst(SINHVIEN);
 	void insertAfter(SINHVIEN , PTRNODESV);
 	void insertLast(SINHVIEN);
 	void createDSSV();
 	PTRNODESV searchSV(char maSV[]);
+	void xoaSVtheoConTro(PTRNODESV);
+	void hienThiTTSV(PTRNODESV);
 	~LOP();
 	friend class DSLOP;
 };

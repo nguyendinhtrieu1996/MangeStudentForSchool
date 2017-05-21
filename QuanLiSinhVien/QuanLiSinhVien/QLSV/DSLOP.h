@@ -21,7 +21,9 @@ public:
 	bool inDiemTrungBinh(char MLOP[]);
 	void inDiemTongKet(char MLOP[]);
 	void inLOPTheoHang(LOP lop, int y, int stt);
-	PTRNODESV searchAllSV(char MSV[]);
+	PTRNODESV searchAllSV(char MSV[], int &);
+	int suaTTSinhVien();
+	void xoaSV();
 	~DSLOP();
 	friend class LOP;
 };

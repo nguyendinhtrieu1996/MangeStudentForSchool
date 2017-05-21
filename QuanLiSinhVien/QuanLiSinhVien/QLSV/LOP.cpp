@@ -6,13 +6,274 @@ LOP::LOP()
 }
 void LOP::suaSVTheoMaSo(char _MASO[])
 {
-
-}
-void LOP::suaSV()
-{
-
 	//veKhungNhapTTSinhVien();
+	
+}
+void LOP::suaSVtheoConTro(PTRNODESV p)
+{
+	SINHVIEN SVIEN = p->SV;
+	hienThiTTSV(p);
+	char maSV[10], hoSV[20], tenSV[10], phai[4], sdt[12];
+	maSV[0] = '\0';
+	hoSV[0] = '\0';
+	tenSV[0] = '\0';
+	phai[0] = '\0';
+	sdt[0] = '\0';
+	strcpy(maSV, p->SV.getMASV());
+	strcpy(hoSV, p->SV.getHO());
+	strcpy(tenSV, p->SV.getTEN());
+	strcpy(phai, p->SV.getPHAI());
+	strcpy(sdt, p->SV.getSDT());
+	//Cho biết nếu bấm F2 sẽ vào cột nào để chỉnh sửa (nếu nhấn F5 sẽ giảm 1, F6 sẽ tăng 1)
+	int viTriChinhSua = 1;
+	int y = MINY_BSV + 4;
+	gotoxy(MINX_BSV + 1 + strlen(maSV), y);
 
+	int kiTu = 0;
+	do{
+		kiTu = 0;
+		char temp = getch();
+		if (temp == -32 || temp == 0)
+		{
+			temp = getch();
+			kiTu = temp + 1000;
+		}
+		else
+		{
+			kiTu = temp;
+		}
+		switch (kiTu)
+		{
+		case ESC:
+			return;
+			break;
+		case Left:
+		{
+					 if (viTriChinhSua >1)
+					 {
+						 viTriChinhSua--;
+						 if (viTriChinhSua == 1)
+						 {
+							 gotoxy(MINX_BSV + strlen(maSV) + 1,y);
+						 }
+						 else if (viTriChinhSua == 2)
+						 {
+							 gotoxy(svCot1 + strlen(hoSV) + 2,y);
+						 }
+						 else if (viTriChinhSua == 3)
+						 {
+							 gotoxy(svCot2 + strlen(tenSV) + 2, y);
+						 }
+						 else if (viTriChinhSua == 4)
+						 {
+							 gotoxy(svCot3 + strlen(phai) + 1, y);
+						 }
+					 }
+					 break;
+		}
+		case Right:
+		{
+					  if (viTriChinhSua <5)
+					  {
+						  viTriChinhSua++;
+						  if (viTriChinhSua == 5)
+						  {
+							  gotoxy(svCot4 + strlen(sdt) + 1, y);
+						  }
+						  else if (viTriChinhSua == 4)
+						  {
+							  gotoxy(svCot3 + strlen(phai) + 1, y);
+						  }
+						  else if (viTriChinhSua == 3)
+						  {
+							  gotoxy(svCot2 + strlen(tenSV) + 2, y);
+						  }
+						  else if (viTriChinhSua == 2)
+						  {
+							  gotoxy(svCot1 + strlen(hoSV) + 2, y);
+						  }
+
+					  }
+					  break;
+		}
+		case F2:
+			if (viTriChinhSua == 1){
+				do
+				{
+					int kiTu = NhapChuoiVaChuSo(maSV, 15, MINX_BSV + 1, y);
+					//Chuỗi mã Sinh viên trả về bị rỗng
+					if (kiTu == -1)
+					{
+						char title[] = "THONG BAO";
+						char message[] = "Ma SV khong duoc rong!";
+						char td[2][10] = { "Chinh sua", "    Huy" };
+						normal();
+						gotoxy(MINX_ALERTTB, MINY_ALERTTB);
+						int select = veKhungThongBao(title, message, td);
+						if (select == 0)
+						{
+							//Cho biet chuoi dang rong
+							maSV[0] = '\0';
+							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
+							continue;
+						}
+						else if (select == 1)
+						{
+							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
+							gotoxy(MINX_XSV + 1, y);
+							for (int i = 0; i < widthBANG_XLOP - 2; ++i)
+							{
+								cout << " ";
+							}
+						//	inSVTheoHang(k, y, viTri + 1);
+							break;
+						}
+
+
+					}
+					else if (strcmp(maSV, p->SV.getMASV()) == 0)
+					{
+						break;
+					}
+					else if (searchSV(maSV) == NULL && kiTu == 0)
+					{
+						p->SV.setMASV(maSV);
+						gotoxy(MINX_ALERTTB, 24);
+						cout << "da sua ma sv";
+						Sleep(1000);
+						xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+						gotoxy(MINX_BSV +1 + strlen(maSV), y);
+						break;
+					}
+					
+					//Mã sinh viên bị trùng
+					else if (searchSV(maSV) != NULL && kiTu == 0)
+					{
+						char title[] = "THONG BAO";
+						char message[] = "Ma sinh vien bi trung!";
+						char td[2][10] = { "Chinh sua", "Huy" };
+						normal();
+						gotoxy(MINX_ALERTTB, MINY_ALERTTB);
+						int select = veKhungThongBao(title, message, td);
+						if (select == 0)
+						{
+							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
+							continue;
+						}
+						else if (select == 1)
+						{
+							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
+							gotoxy(MINX_XSV + 1, y);
+							for (int i = 0; i < widthBANG_XSV - 2; i++)
+							{
+								cout << " ";
+							}
+							//inSVTheoHang(k, y, viTri + 1);
+							break;
+						}
+					}
+				} while (1);
+			}
+			else if (viTriChinhSua == 2){
+				do{
+					int kiTu = NhapChuoi(hoSV, 20, svCot1 + 2, y);
+					if (hoSV[0] == '/0')
+					{
+						gotoxy(MINX_ALERTTB, 24);
+						cout << "Ho khong hop le!";
+						Sleep(1000);
+						xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+
+
+					}
+					else {
+						p->SV.setHO(hoSV);
+						gotoxy(MINX_ALERTTB, 24);
+						cout << "Da sua Ho SV";
+						Sleep(1000);
+						xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+						strcpy(hoSV, p->SV.getHO());
+						gotoxy(svCot1 + 2 + strlen(hoSV), y);
+						break;
+					}
+				} while (1);
+			}
+			else if (viTriChinhSua == 3){
+				do{
+					int kiTu = NhapChuoi(tenSV, 10, svCot2 + 2, y);
+					if (tenSV[0]=='/0')
+					{
+						gotoxy(MINX_ALERTTB, 24);
+						cout << "Ten khong hop le!";
+						Sleep(1000);
+						xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+
+
+					}
+					else {
+						p->SV.setTEN(tenSV);
+						gotoxy(MINX_ALERTTB, 24);
+						cout << "Da sua Ten SV";
+						Sleep(1000);
+						xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+						strcpy(tenSV, p->SV.getTEN());
+						gotoxy(svCot2 + 2 + strlen(tenSV), y);
+						break;
+					}
+				} while (1);
+			}
+			else if (viTriChinhSua == 4){
+				do{
+					int kiTu = NhapChuoi(phai, 4, svCot3 + 1, y);
+					if (strcmp(phai, "NAM") != 0 && strcmp(phai, "NU") != 0)
+					{
+						gotoxy(MINX_ALERTTB, 24);
+						cout << "GT khong hop le!";
+						Sleep(1000);
+						xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+
+
+					}
+					else {
+						p->SV.setPHAI(phai);
+						gotoxy(MINX_ALERTTB, 24);
+						cout << "Da chinh sua gioi tinh";
+						Sleep(1000);
+						xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+						strcpy(phai, p->SV.getPHAI());
+						gotoxy(svCot3 + 1 + strlen(phai), y);
+						break;
+					}
+				} while (1);
+			}
+			else if (viTriChinhSua == 5){
+				do{
+					int kiTu = NhapSo(sdt, 12, svCot4 + 1,y);
+					if (strlen(sdt)<10)
+					{
+						gotoxy(MINX_ALERTTB, 24);
+						cout << "sdt khong hop le!";
+						Sleep(1000);
+						xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+
+					}
+					else {
+						p->SV.setSDT(sdt);
+						gotoxy(MINX_ALERTTB, 24);
+						cout << "Da sua sdt";
+						Sleep(1000);
+						xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+						strcpy(sdt, p->SV.getSDT());
+						gotoxy(svCot4 + 1 + strlen(sdt), y);
+						break;
+					}
+				} while (1);
+			}
+			break;
+		default:
+			break;
+		}
+	} while (1);
 }
 void LOP::nhapLOP(char MLOP[], char TENL[], int NH)
 {
@@ -852,4 +1113,35 @@ void LOP::xuatDSSV(){
 
 LOP::~LOP()
 {
+}
+void LOP::xoaSVtheoConTro(PTRNODESV p)
+{
+	if (First == p){
+		
+		First = p->next;
+		delete p;
+	}
+	else{
+		PTRNODESV q;
+		for ( q = First; q->next != p; q = q->next){		}
+		q->next = p->next;
+		delete p;
+	}
+	
+}
+void LOP:: hienThiTTSV(PTRNODESV p){
+	SINHVIEN SVIEN = p->SV;
+	veKhungNhapTTSinhVien();
+	// xuat thong tin sinh vien	
+	gotoxy(MINX_BSV + 1, MINY_BSV + 4);
+	cout << p->SV.getMASV();
+	gotoxy(svCot1 + 2, MINY_BSV + 4);
+	cout << p->SV.getHO();
+	gotoxy(svCot2 + 2, MINY_BSV + 4);
+	cout << p->SV.getTEN();
+	gotoxy(svCot3 + 1, MINY_BSV + 4);
+	cout << p->SV.getPHAI();
+	gotoxy(svCot4 + 1, MINY_BSV + 4);
+	cout << p->SV.getSDT();
+
 }

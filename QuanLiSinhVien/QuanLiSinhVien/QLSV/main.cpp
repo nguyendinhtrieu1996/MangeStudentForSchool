@@ -64,13 +64,17 @@ int main() {
 			break;
 
 		case SUASV:
-			//dsLOP.sua();
+			dsLOP.suaTTSinhVien();
 			break;
 
 		case INDSSV:
 			dsLOP.xuatDSSVLOP();
 			break;
-		
+
+		case XOASV:
+			dsLOP.xoaSV();
+			break;
+
 		case THEMMH:
 		{
 			DANHSACHMH.nhapDSMH();

@@ -1125,30 +1125,39 @@ bool DSLOP::xuatDSSVLOP()
 	char title[] = "THONG BAO";
 	char message[] = "Nhap Ma Lop xem sinh vien";
 	char maLop[15];
+	//i la vi tri cua lop trong dsLop
 	int i = -1;
+
 	maLop[0] = '\0';
 	do {
 		gotoxy(MINX_ALERTTB, MINY_ALERTNL - 3);
-		switch (veTextFieldNhapKituSo(maLop, title, message))
+		switch (veTextFieldNhapKituSo(maLop, title, message)) 
 		{
 		case ESC:
 			return false;
 			break;
 		case 0:
-			if (searchLOP(maLop) == -1 && maLop[0] != '\0')
-			{
-				gotoxy(MINX_ALERTTB + 4, MINY_ALERTNL + 3);
-				SetColor(red_hightlight);
-				cout << "Khong ton tai " << maLop;
-				Sleep(1000);
-				xoaNoiDungVe(MINX_ALERTTB + 4, MINY_ALERTNL + 3, 20, 1);
+			if (maLop[0] == '/0'){
 
 			}
+			else{
+				i = searchLOP(maLop);
+				if (i == -1 )
+				{
+					gotoxy(MINX_ALERTTB + 4, MINY_ALERTNL + 3);
+					SetColor(red_hightlight);
+					cout << "Khong ton tai " << maLop;
+					/*Sleep(1000);
+					xoaNoiDungVe(MINX_ALERTTB + 4, MINY_ALERTNL + 3, 20, 1);*/
+
+				} 
+			}
+			
 			break;
 		default:
 			break;
 		}
-		i = searchLOP(maLop);
+		
 	} while (i == -1);
 	Sleep(100);
 	xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL - 3, widthAlert, heightTextField);
@@ -1190,10 +1199,130 @@ void DSLOP::inDiemTongKet(char MLOP[])
 DSLOP::~DSLOP()
 {
 }
-PTRNODESV DSLOP:: searchAllSV(char MSV[]){
-	for (int i = 0; i < SL; ++i){
-		if (DANHSACHLOP[i].searchSV(MSV) != NULL) return DANHSACHLOP[i].searchSV(MSV);
+PTRNODESV DSLOP:: searchAllSV(char MSV[],int &k){
+	for (int i = 0; i < SL; i++){
+		if (DANHSACHLOP[i].searchSV(MSV) != NULL)
+		{
+			k = i;
+			return DANHSACHLOP[i].searchSV(MSV);
+		}
 
 	}
+	k = -1;
 	return NULL;
+}
+int DSLOP::suaTTSinhVien(){
+	char labelTb[20] = "SUA TT SINH VIEN";
+	labelTable(labelTb);
+	char title[] = "THONG BAO";
+	char message[] = "Nhap ma sinh vien chinh sua";
+	char maSV[10];
+	int k=-1;
+	PTRNODESV i = NULL;
+	maSV[0] = '\0';
+	do {
+		gotoxy(MINX_ALERTTB, MINY_ALERTNL - 3);
+		switch (veTextFieldNhapKituSo(maSV, title, message))
+		{
+		case ESC:
+			return -1;
+			break;
+		case 0:
+			if (searchAllSV(maSV,k) == NULL && maSV[0] != '\0')
+			{
+				gotoxy(MINX_ALERTTB + 4, MINY_ALERTNL + 3);
+				SetColor(red_hightlight);
+				cout << "Khong ton tai " << maSV;
+				Sleep(1000);
+				xoaNoiDungVe(MINX_ALERTTB + 4, MINY_ALERTNL + 3, 20, 1);
+				//maSV[0] = '\0';
+
+			}
+			break;
+		default:
+			break;
+		}
+		i = searchAllSV(maSV,k);
+	} while (i == NULL);
+	Sleep(100);
+	xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL - 3, widthAlert, heightTextField);
+	DANHSACHLOP[k].suaSVtheoConTro(i);
+	return -1;
+}
+void DSLOP::xoaSV(){
+	int lop=0;
+	PTRNODESV SV;
+	char maSV[10];
+	gotoxy(77, 2);
+	setGreenText();
+	cout << "XOA SINH VIEN";
+	normal();
+	do
+	{
+		maSV[0] = '\0';
+		char title[] = "THONG BAO";
+		char message[] = "Nhap ma sinh vien can xoa  ";
+		do
+		{
+			gotoxy(MINX_ALERTTB, MINY_ALERTNL - 3);
+			int kiTu = veTextFieldNhapKituSo(maSV, title, message);
+			if (kiTu == ESC)
+			{
+				return;
+			}
+			gotoxy(MINX_ALERTTB + 4, MINY_ALERTNL + 3);
+			for (int i = 0; i < widthAlert - 4; ++i)
+			{
+				cout << " ";
+			}
+			SV = searchAllSV(maSV,lop);
+			if (SV==NULL)
+			{
+				gotoxy(MINX_ALERTTB + 4, MINY_ALERTNL + 3);
+				SetColor(red_hightlight);
+				cout << " Ma SV khong hop le!";
+				continue;
+			}
+			else
+			{
+				break;
+			}
+		} while (1);
+
+		xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL - 3, widthAlert, heightTextField);
+
+		DANHSACHLOP[lop].hienThiTTSV(SV);
+		
+
+		char message1[] = "Ban co chac chan xoa?";
+		char td[2][10] = { "  Co", "   Khong" };
+		gotoxy(MINX_ALERTTB, MINY_ALERTNL);
+		int select = veKhungThongBao(title, message1, td);
+		if (select == 0)
+		{
+			xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+			
+				DANHSACHLOP[lop].xoaSVtheoConTro(SV);
+				char title[] = "THONG BAO";
+				char message[] = "    Xoa thanh cong";
+				char td[2][10] = { "Tiep tuc", "  Thoat" };
+				gotoxy(MINX_ALERTTB, MINY_ALERTNL);
+				int select = veKhungThongBao(title, message, td);
+				if (select == 0)
+				{
+					xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+					xoaNoiDungVe(MINX_BSV, MINY_BSV, 70, 10);
+				}
+				else
+				{
+					return;
+				}
+			
+		}
+		else
+		{
+			return;
+		}
+
+	} while (1);
 }

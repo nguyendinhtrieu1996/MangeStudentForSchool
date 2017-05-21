@@ -1203,4 +1203,3 @@ void veKhungXuatSVTheoLop()
 	gotoxy(X_XSV_COT5 + 3, MINY_XSV + 1);
 	cout << "SDT";
 }
-
