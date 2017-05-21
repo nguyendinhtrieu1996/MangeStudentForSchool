@@ -76,15 +76,7 @@ PTRNODESV LOP::newNODESV()
 	return p;
 }
 
-void LOP::insertFirst()
-{
-}
-
-void LOP::insertAfter()
-{
-}
-
-void LOP::insertLast(SINHVIEN SVIEN)
+void LOP::insertFirst(SINHVIEN SVIEN)
 {
 	PTRNODESV p = newNODESV();
 	if (First == NULL)
@@ -97,6 +89,42 @@ void LOP::insertLast(SINHVIEN SVIEN)
 	}
 	p->SV = SVIEN;
 	First = p;
+}
+
+void LOP::insertAfter(SINHVIEN SVIEN, PTRNODESV p)
+{
+
+	if (p == NULL)
+		printf("khong them phan tu vao danh sach duoc");
+	else
+	{
+		PTRNODESV q = newNODESV();
+		q->SV = SVIEN;
+		q->next = p->next;
+		p->next = q;
+	}
+
+}
+
+void LOP::insertLast(SINHVIEN SVIEN)
+{
+	
+	if (First == NULL)
+	{
+		insertFirst(SVIEN);
+	}
+	else
+	{
+		PTRNODESV p = newNODESV();
+		p = First;
+		while (p->next != NULL){
+			p = p->next;
+			
+		}
+		// theem sinh vien vao cuoi danh sach
+		insertAfter(SVIEN, p);
+	}
+	
 }
 PTRNODESV LOP::searchSV(char maSV[])
 {

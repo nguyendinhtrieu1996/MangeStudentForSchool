@@ -27,8 +27,8 @@ public:
 	void inSVTheoHang(PTRNODESV sv, int y, int stt);
 	void suaSVTheoMaSo(char _MASO[]);
 	void suaSV();
-	void insertFirst();
-	void insertAfter();
+	void insertFirst(SINHVIEN);
+	void insertAfter(SINHVIEN , PTRNODESV);
 	void insertLast(SINHVIEN);
 	void createDSSV();
 	PTRNODESV searchSV(char maSV[]);
