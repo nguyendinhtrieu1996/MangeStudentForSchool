@@ -1,5 +1,5 @@
 #include "DIEM.h"
-
+//eu tin dc :))
 DIEM::DIEM()
 {
 }

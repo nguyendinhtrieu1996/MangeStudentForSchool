@@ -1,7 +1,8 @@
 #pragma once
 #include "NODESV.h"
-//Hello guide
+//Cho trieu
 //#include "DSLOP.h"
+
 class LOP
 {
 private:
