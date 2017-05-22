@@ -1,4 +1,4 @@
-﻿Build started 5/22/2017 9:32:33 AM.
+﻿Build started 5/22/2017 12:51:45 PM.
      1>Project "C:\Users\User\Desktop\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\QLSV\QLSV.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt LOP.cpp
@@ -17,26 +17,26 @@
      1>LOP.cpp(224): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
      1>LOP.cpp(249): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
      1>LOP.cpp(272): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(720): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(782): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(819): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(850): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(884): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(942): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(989): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(1001): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(1022): warning C4566: character represented by universal-character-name '\u0110' cannot be represented in the current code page (1252)
-     1>LOP.cpp(1022): warning C4566: character represented by universal-character-name '\u1EED' cannot be represented in the current code page (1252)
-     1>LOP.cpp(1025): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(1050): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(1064): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(1068): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(1072): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(1076): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(1088): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(1092): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(1096): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
-     1>LOP.cpp(1100): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(721): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(784): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(821): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(857): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(891): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(951): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(998): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(1010): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(1031): warning C4566: character represented by universal-character-name '\u0110' cannot be represented in the current code page (1252)
+     1>LOP.cpp(1031): warning C4566: character represented by universal-character-name '\u1EED' cannot be represented in the current code page (1252)
+     1>LOP.cpp(1034): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(1059): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(1074): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(1078): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(1082): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(1086): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(1099): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(1103): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(1107): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
+     1>LOP.cpp(1111): warning C4267: 'argument' : conversion from 'size_t' to 'short', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\User\Desktop\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\x64\Debug\QLSV.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"C:\Users\User\Desktop\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\x64\Debug\QLSV.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\User\Desktop\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\x64\Debug\QLSV.lib" /MACHINE:X64 x64\Debug\DIEM.obj
          x64\Debug\DSLOP.obj
@@ -54,4 +54,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.96
+Time Elapsed 00:00:02.53

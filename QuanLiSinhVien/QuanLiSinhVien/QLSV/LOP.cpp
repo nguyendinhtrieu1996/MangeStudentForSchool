@@ -705,6 +705,7 @@ void LOP::xuatDSSV(){
 				}
 				break;
 			case Enter:
+				
 				//highlight sinh viên đầu tiên của trang
 				firstItem = (trangHT - 1) * 10;
 				PTRNODESV k = conTro[firstItem];
@@ -767,11 +768,12 @@ void LOP::xuatDSSV(){
 									cout << " ";
 
 							}
+							
 							inSVTheoHang(k, y, viTri + 1);
 							//Hight light dòng mới
 							//k lúc này sẽ chứa chỉ số dòng mới
 							k = conTro[++viTri];
-
+							
 							SetBGColor(green_Dark);
 							gotoxy(MINX_XLOP + 1, wherey() + 1);
 							for (int i = 0; i < widthBANG_XSV - 2; ++i)
@@ -779,7 +781,7 @@ void LOP::xuatDSSV(){
 								cout << " ";
 							}
 							inSVTheoHang(k, wherey(), viTri + 1);
-							gotoxy(X_XSV_COT1 + strlen(k->SV.getMASV()) + 2, Y_FIST_SV + viTri);
+							gotoxy(X_XSV_COT1 + strlen(k->SV.getMASV()) + 2, wherey());
 
 						}
 						else if (trangHT < TSTrang)
@@ -816,7 +818,7 @@ void LOP::xuatDSSV(){
 									cout << " ";
 								}
 								inSVTheoHang(k, y, viTri + 1);
-								gotoxy(X_XSV_COT1 + strlen(k->SV.getMASV()) + 2, Y_FIST_SV + viTri);
+								gotoxy(X_XSV_COT1 + strlen(k->SV.getMASV()) + 2,y);
 							}
 						}
 						break;//kết thúc lệnh trong case pagedown
@@ -831,11 +833,16 @@ void LOP::xuatDSSV(){
 									   k = conTro[viTri];
 									   gotoxy(MINX_XSV + 1, y);
 									   SetBGColor(black);
-									   for (int i = 0; i < widthBANG_XSV - 2; ++i)
+									   for (int i = MINX_XSV + 1; i <= MAXX_XSV; ++i)
 									   {
-										   cout << " ";
+										   if (i == X_XSV_COT1 || i == X_XSV_COT2 || i == X_XSV_COT3 || i == X_XSV_COT4 || i == X_XSV_COT5 || i == MAXX_XSV){
+											   cout << (char)179;
+										   }
+										   else
+											   cout << " ";
+
 									   }
-									   veKhungXuatSVTheoLop();
+
 									   inSVTheoHang(k, y, viTri + 1);
 
 									   //Hight light dòng mới
@@ -847,7 +854,7 @@ void LOP::xuatDSSV(){
 										   cout << " ";
 									   }
 									   inSVTheoHang(k, wherey(), viTri + 1);
-									   gotoxy(X_XSV_COT1 + strlen(k->SV.getMASV()) + 2, Y_FIST_LOP + viTri);
+									   gotoxy(X_XSV_COT1 + strlen(k->SV.getMASV()) + 2, wherey());// Y_FIST_LOP + viTri);
 
 								   }
 								   else if (trangHT > 0 && viTri > 0)
@@ -881,7 +888,7 @@ void LOP::xuatDSSV(){
 										   }
 
 										   inSVTheoHang(k, y, viTri + 1);
-										   gotoxy(X_XLOP_COT1 + strlen(k->SV.getMASV()) + 2, Y_FIST_SV + viTri);
+										   gotoxy(X_XLOP_COT1 + strlen(k->SV.getMASV()) + 2, y);// Y_FIST_SV + viTri);
 									   }
 								   }
 								   break;
@@ -892,12 +899,14 @@ void LOP::xuatDSSV(){
 					}
 					case F2:
 					{
+							   int y = Y_FIST_SV + viTri - (trangHT-1) * 10;
 							   if (viTriChinhSua == 1)
 							   {
 								   do
 								   {
+									   
 									   SetBGColor(green_Dark);
-									   int kiTu = NhapChuoiVaChuSo(maSV, 15, X_XSV_COT1 + 2, Y_FIST_SV + viTri);
+									   int kiTu = NhapChuoiVaChuSo(maSV, 15, X_XSV_COT1 + 2,y); //Y_FIST_SV + viTri);
 									   //Chuỗi mã Sinh viên trả về bị rỗng
 									   if (kiTu == -1)
 									   {
@@ -918,7 +927,7 @@ void LOP::xuatDSSV(){
 										   else if (select == 1)
 										   {
 											   xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
-											   int y = Y_FIST_SV + viTri;
+											 
 											   k = conTro[viTri];
 											   SetBGColor(green_Dark);
 											   gotoxy(MINX_XSV + 1, y);
@@ -939,7 +948,7 @@ void LOP::xuatDSSV(){
 										  cout << "da sua ma sv";
 										  Sleep(1000);
 										  xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
-										  gotoxy(X_XSV_COT1 + 2+strlen(maSV), Y_FIST_SV + viTri);
+										  gotoxy(X_XSV_COT1 + 2+strlen(maSV), y);
 										   break;
 									   }
 									   else if (strcmp(maSV, k->SV.getMASV()) == 0)
@@ -980,25 +989,25 @@ void LOP::xuatDSSV(){
 							   else if (viTriChinhSua == 2)
 							   {
 								   SetBGColor(green_Dark);
-								   int kiTu = NhapChuoi(hoSV, 39, X_XSV_COT2 + 2, Y_FIST_SV + viTri);
+								   int kiTu = NhapChuoi(hoSV, 39, X_XSV_COT2 + 2,y);
 								   k->SV.setHO(hoSV);
 								   gotoxy(MINX_ALERTTB, 24);
 								   cout << " Da sua ho sv ";
 								   Sleep(1000);
 								   xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
-								   gotoxy(X_XSV_COT2 + 2 + strlen(hoSV), Y_FIST_SV + viTri);
+								   gotoxy(X_XSV_COT2 + 2 + strlen(hoSV),y);
 							   }
 							   else if (viTriChinhSua == 3)
 							   {
 								  
 								   SetBGColor(green_Dark);
-								   int kiTu = NhapChuoi(tenSV, 10, X_XSV_COT3 + 2, Y_FIST_SV + viTri);
+								   int kiTu = NhapChuoi(tenSV, 10, X_XSV_COT3 + 2,y);
 								   k->SV.setTEN(tenSV);
 								   gotoxy(MINX_ALERTTB, 24);
 								   cout << " Da sua ten SV ";
 								   Sleep(1000);
 								   xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
-								   gotoxy(X_XSV_COT3 + 1 + strlen(tenSV), Y_FIST_SV + viTri);
+								   gotoxy(X_XSV_COT3 + 2 + strlen(tenSV), y);
 							   }
 							   else if (viTriChinhSua == 4)
 							   {
@@ -1006,7 +1015,7 @@ void LOP::xuatDSSV(){
 
 								   
 								   SetBGColor(green_Dark);
-								   int kiTu = NhapChuoi(phai, 4, X_XSV_COT4 + 2, Y_FIST_SV + viTri);
+								   int kiTu = NhapChuoi(phai, 4, X_XSV_COT4 + 2,y);
 								   if (strcmp(phai, "NAM") != 0 && strcmp(phai, "NU") != 0)
 								   {
 									   gotoxy(MINX_ALERTTB, 24);
@@ -1022,7 +1031,7 @@ void LOP::xuatDSSV(){
 									 cout << "Đã sửa Phái";
 									 Sleep(1000);
 									 xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
-									 gotoxy(X_XSV_COT4 + 2 + strlen(phai), Y_FIST_SV + viTri);
+									 gotoxy(X_XSV_COT4 + 2 + strlen(phai), y);
 									 break;
 								   }
 								   } while (true);
@@ -1032,7 +1041,7 @@ void LOP::xuatDSSV(){
 								   do{
 
 									   SetBGColor(green_Dark);
-									   int kiTu = NhapSo(sdt, 12, X_XSV_COT5 + 2, Y_FIST_SV + viTri);
+									   int kiTu = NhapSo(sdt, 12, X_XSV_COT5 + 2,y);
 									   if (strlen(sdt)<10)
 									   {
 										   gotoxy(MINX_ALERTTB, 24);
@@ -1047,7 +1056,7 @@ void LOP::xuatDSSV(){
 										   cout << "Da sua sdt";
 										   Sleep(1000);
 										   xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
-										   gotoxy(X_XSV_COT5 + 2 + strlen(sdt), Y_FIST_SV + viTri);
+										   gotoxy(X_XSV_COT5 + 2 + strlen(sdt),y);
 										   break;
 									   }
 								   } while (true);
@@ -1056,48 +1065,50 @@ void LOP::xuatDSSV(){
 					}
 					case Left:
 					{
+								 int y = Y_FIST_SV + viTri - (trangHT - 1) * 10;
 								 if (viTriChinhSua >1)
 								 {
 									 viTriChinhSua--;
 									 if (viTriChinhSua == 1)
 									 {
-										 gotoxy(X_XSV_COT1 + strlen(maSV) + 2, Y_FIST_SV + viTri);
+										 gotoxy(X_XSV_COT1 + strlen(maSV) + 2,y);
 									 }
 									 else if (viTriChinhSua == 2)
 									 {
-										 gotoxy(X_XSV_COT2 + strlen(hoSV) + 2, Y_FIST_SV + viTri);
+										 gotoxy(X_XSV_COT2 + strlen(hoSV) + 2,y);
 									 }
 									 else if (viTriChinhSua == 3)
 									 {
-										 gotoxy(X_XSV_COT3 + strlen(tenSV) + 2, Y_FIST_SV + viTri);
+										 gotoxy(X_XSV_COT3 + strlen(tenSV) + 2,y);
 									 }
 									 else if (viTriChinhSua == 4)
 									 {
-										 gotoxy(X_XSV_COT4 + strlen(phai) + 2, Y_FIST_SV + viTri);
+										 gotoxy(X_XSV_COT4 + strlen(phai) + 2,y);
 									 }
 								 }
 								 break;
 					}
 					case Right:
 					{
+								  int y = Y_FIST_SV + viTri - (trangHT - 1) * 10;
 								  if (viTriChinhSua <5)
 								  {
 									  viTriChinhSua++;
 									  if (viTriChinhSua == 5)
 									  {
-										  gotoxy(X_XSV_COT5 + strlen(sdt) + 2, Y_FIST_SV + viTri);
+										  gotoxy(X_XSV_COT5 + strlen(sdt) + 2, y);
 									  }
 									  else if (viTriChinhSua == 4)
 									  {
-										  gotoxy(X_XSV_COT4 + strlen(phai) + 2, Y_FIST_SV + viTri);
+										  gotoxy(X_XSV_COT4 + strlen(phai) + 2,y);
 									  }
 									  else if (viTriChinhSua == 3)
 									  {
-										  gotoxy(X_XSV_COT3 + strlen(tenSV) + 2, Y_FIST_SV + viTri);
+										  gotoxy(X_XSV_COT3 + strlen(tenSV) + 2, y);
 									  }
 									  else if (viTriChinhSua == 2)
 									  {
-										  gotoxy(X_XSV_COT2 + strlen(hoSV) + 2, Y_FIST_SV + viTri);
+										  gotoxy(X_XSV_COT2 + strlen(hoSV) + 2,y);
 									  }
 									 
 								  }
