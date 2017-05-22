@@ -4,11 +4,13 @@ LOP::LOP()
 {
 	First = NULL;
 }
+
 void LOP::suaSVTheoMaSo(char _MASO[])
 {
 	//veKhungNhapTTSinhVien();
 	
 }
+
 void LOP::suaSVtheoConTro(PTRNODESV p)
 {
 	SINHVIEN SVIEN = p->SV;
@@ -144,6 +146,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 						xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
 						gotoxy(MINX_BSV +1 + strlen(maSV), y);
 						break;
+
 					}
 					
 					//Mã sinh viên bị trùng
@@ -170,6 +173,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 							}
 							//inSVTheoHang(k, y, viTri + 1);
 							break;
+
 						}
 					}
 				} while (1);
@@ -184,7 +188,6 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 						Sleep(1000);
 						xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
 
-
 					}
 					else {
 						p->SV.setHO(hoSV);
@@ -195,6 +198,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 						strcpy(hoSV, p->SV.getHO());
 						gotoxy(svCot1 + 2 + strlen(hoSV), y);
 						break;
+
 					}
 				} while (1);
 			}
@@ -208,9 +212,9 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 						Sleep(1000);
 						xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
 
-
 					}
 					else {
+
 						p->SV.setTEN(tenSV);
 						gotoxy(MINX_ALERTTB, 24);
 						cout << "Da sua Ten SV";
@@ -219,6 +223,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 						strcpy(tenSV, p->SV.getTEN());
 						gotoxy(svCot2 + 2 + strlen(tenSV), y);
 						break;
+
 					}
 				} while (1);
 			}
@@ -275,6 +280,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 		}
 	} while (1);
 }
+
 void LOP::nhapLOP(char MLOP[], char TENL[], int NH)
 {
 	strcpy(MALOP, MLOP);
@@ -387,6 +393,7 @@ void LOP::insertLast(SINHVIEN SVIEN)
 	}
 	
 }
+
 PTRNODESV LOP::searchSV(char maSV[])
 {
 
@@ -398,6 +405,7 @@ PTRNODESV LOP::searchSV(char maSV[])
 	}
 	return p;
 }
+
 void LOP::createDSSV()
 {
 	char title[10] = "THONG BAO";
@@ -568,6 +576,7 @@ NHAPTTSV:
 	
 }
 }
+
 void LOP::inSVTheoHang(PTRNODESV sv, int y, int stt)
 {
 
@@ -1114,6 +1123,7 @@ void LOP::xuatDSSV(){
 LOP::~LOP()
 {
 }
+
 void LOP::xoaSVtheoConTro(PTRNODESV p)
 {
 	if (First == p){
@@ -1129,6 +1139,7 @@ void LOP::xoaSVtheoConTro(PTRNODESV p)
 	}
 	
 }
+
 void LOP:: hienThiTTSV(PTRNODESV p){
 	SINHVIEN SVIEN = p->SV;
 	veKhungNhapTTSinhVien();
