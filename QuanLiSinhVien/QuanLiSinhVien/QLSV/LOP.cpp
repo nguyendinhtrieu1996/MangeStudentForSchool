@@ -362,7 +362,7 @@ void LOP::insertAfter(SINHVIEN SVIEN, PTRNODESV p)
 {
 
 	if (p == NULL)
-		printf("khong them phan tu vao danh sach duoc");
+		cout << "khong them phan tu vao danh sach duoc";
 	else
 	{
 		PTRNODESV q = newNODESV();
@@ -370,7 +370,6 @@ void LOP::insertAfter(SINHVIEN SVIEN, PTRNODESV p)
 		q->next = p->next;
 		p->next = q;
 	}
-
 }
 
 void LOP::insertLast(SINHVIEN SVIEN)
@@ -385,13 +384,11 @@ void LOP::insertLast(SINHVIEN SVIEN)
 		PTRNODESV p = newNODESV();
 		p = First;
 		while (p->next != NULL){
-			p = p->next;
-			
+			p = p->next;	
 		}
-		// theem sinh vien vao cuoi danh sach
+		// them sinh vien vao cuoi danh sach
 		insertAfter(SVIEN, p);
-	}
-	
+	}	
 }
 
 PTRNODESV LOP::searchSV(char maSV[])
@@ -399,7 +396,7 @@ PTRNODESV LOP::searchSV(char maSV[])
 
 	PTRNODESV p;
 	p = First;
-	while (p != NULL&& strcmp(p->SV.getMASV(), maSV) != 0)
+	while (p != NULL && strcmp(p->SV.getMASV(), maSV) != 0)
 	{
 		p = p->next;
 	}
@@ -431,12 +428,11 @@ void LOP::createDSSV()
 	phai[0] = '\0';
 	sdt[0] = '\0';
 NHAPTTSV:
-	//Nếu MASV rỗng thì trả về 0 nếu lớp hợp lệ, -1 nếu chuỗi rỗng
+	//check nhận giá trị 0 nếu MASV nhập đúng chuẩn, -1 nếu chuỗi rỗng, ESC nếu người dùng bấm thoát
 	int check1 = NhapChuoiVaChuSo(maSV, 11, MINX_BSV + 1, MINY_BSV + 4);
 	if (check1 == 0)
 	{
 		//Kiểm tra mã sinh viên có tồn tại không, nếu không tồn tại trả về NULL
-		
 		if (searchSV(maSV) != NULL){ //mã sv đã tồn tại
 			gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 			char td2[2][10] = { "Chinh Sua", "    Thoat" };
@@ -459,7 +455,6 @@ NHAPTTSV:
 			int check2 = NhapChuoi(hoSV, 20, svCot1 + 1, MINY_BSV + 4);
 			if (check2 == ESC)
 			{
-
 				gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 				int check2 = veKhungThongBao(title, message, td);
 				if (check2 == 0)
@@ -490,7 +485,7 @@ NHAPTTSV:
 				}
 			}
 		NHAP_PHAI:
-			int check4 = NhapChuoi(phai, 3, svCot3 + 1, MINY_BSV + 4);
+			int check4 = NhapChuoi(phai, 4, svCot3 + 1, MINY_BSV + 4);
 			if (check4 == 0){
 				if (strcmp(phai, "NAM") != 0 && strcmp(phai, "NU") != 0)
 				{
@@ -504,8 +499,7 @@ NHAPTTSV:
 
 				}
 			}
-			else
-			if (check4 == ESC)
+			else if (check4 == ESC)
 			{
 				gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 				int check4 = veKhungThongBao(title, message, td);
@@ -520,7 +514,7 @@ NHAPTTSV:
 				}
 			}
 		NHAP_SDT:
-			int check5 = NhapSo(sdt, 11, svCot4 + 1, MINY_BSV + 4);
+			int check5 = NhapSo(sdt, 12, svCot4 + 1, MINY_BSV + 4);
 			if (check5 == 0){
 				if (strlen(sdt)<10)
 				{
@@ -534,8 +528,7 @@ NHAPTTSV:
 
 				}
 			}
-			else
-			if (check5 == ESC)
+			else if (check5 == ESC)
 			{
 				gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 				int check5 = veKhungThongBao(title, message, td);
@@ -552,14 +545,9 @@ NHAPTTSV:
 		}
 		SINHVIEN sv(maSV, hoSV, tenSV, phai, sdt);
 		insertLast(sv);
-		
-
 	}
 	else if (check1 == ESC || check1 == -1)
 	{
-		char title[10] = "THONG BAO";
-		char message[30] = "Ban co muon thoat?";
-		char td[2][10] = { "    Co", "    Khong" };
 		gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 		int check2 = veKhungThongBao(title, message, td);
 		if (check2 == 0)
@@ -573,7 +561,6 @@ NHAPTTSV:
 		}
 
 	}
-	
 }
 }
 

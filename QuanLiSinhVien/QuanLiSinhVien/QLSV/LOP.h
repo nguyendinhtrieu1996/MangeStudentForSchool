@@ -1,7 +1,5 @@
 #pragma once
 #include "NODESV.h"
-//Cho trieu
-//#include "DSLOP.h"
 
 class LOP
 {

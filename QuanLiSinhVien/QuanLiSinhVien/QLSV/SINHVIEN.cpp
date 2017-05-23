@@ -1,13 +1,11 @@
 #include "SINHVIEN.h"
 
-
-
 SINHVIEN::SINHVIEN()
 {
 	dsDiem = NULL;
 }
 
-SINHVIEN::SINHVIEN(char _MASV[10], char _HO[20], char _TEN[10], char _PHAI[4], char _SDT[12])
+SINHVIEN::SINHVIEN(char _MASV[], char _HO[], char _TEN[], char _PHAI[], char _SDT[])
 {
 	strcpy_s(MASV, _MASV);
 	strcpy_s(HO, _HO);

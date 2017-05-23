@@ -1087,6 +1087,7 @@ bool DSLOP::nhapDSSVLOP()
 	char title[] = "THONG BAO";
 	char message[] = "Nhap Ma Lop de them sinh vien";
 	char maLop[15];
+	// i lưu chỉ số lớp khi sreach trả về
 	int i = -1;
 	maLop[0] = '\0';
 	do {
@@ -1095,16 +1096,17 @@ bool DSLOP::nhapDSSVLOP()
 		{
 		case ESC:
 			return false;
-			break;
+		//hàm vẽ textfield return 0 đã nhận được kết quả
 		case 0:
+			//Tại sao malopp[0] != '\0' khi veTextField trả về không đã nhận được mã lớp rồi
+			//=> kiểm tra lại
 			if (searchLOP(maLop) == -1 && maLop[0] != '\0')
 			{
 				gotoxy(MINX_ALERTTB + 4, MINY_ALERTNL + 3);
 				SetColor(red_hightlight);
 				cout << "Khong ton tai " << maLop;
 				Sleep(1000);
-				xoaNoiDungVe(MINX_ALERTTB + 4, MINY_ALERTNL + 3, 20, 1);
-
+				xoaNoiDungVe(MINX_ALERTTB + 4, MINY_ALERTNL + 3, 25, 1);
 			}
 			break;
 		default:
@@ -1202,6 +1204,7 @@ void DSLOP::inDiemTongKet(char MLOP[])
 DSLOP::~DSLOP()
 {
 }
+
 PTRNODESV DSLOP:: searchAllSV(char MSV[],int &k){
 	for (int i = 0; i < SL; i++){
 		if (DANHSACHLOP[i].searchSV(MSV) != NULL)
@@ -1214,6 +1217,7 @@ PTRNODESV DSLOP:: searchAllSV(char MSV[],int &k){
 	k = -1;
 	return NULL;
 }
+
 int DSLOP::suaTTSinhVien(){
 	char labelTb[20] = "SUA TT SINH VIEN";
 	labelTable(labelTb);
@@ -1252,6 +1256,7 @@ int DSLOP::suaTTSinhVien(){
 	DANHSACHLOP[k].suaSVtheoConTro(i);
 	return -1;
 }
+
 void DSLOP::xoaSV(){
 	int lop=0;
 	PTRNODESV SV;

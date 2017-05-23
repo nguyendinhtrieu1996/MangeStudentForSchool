@@ -108,7 +108,6 @@ void themKiTu(char a[], int & n, int & i, char c)
 //Nhap chuoi co khoang trang (khong chua chu so)
 int NhapChuoi(char a[], int MAX, int x, int y)
 {
-
 	int length = strlen(a);
 	if (length == 0)
 	{
@@ -137,7 +136,7 @@ int NhapChuoi(char a[], int MAX, int x, int y)
 			kiTu = temp;
 		}
 
-			if (n >= MAX && kiTu != Enter && kiTu != BackSpace && kiTu != Left && kiTu != Right && kiTu != ESC)
+			if (n >= MAX - 1 && kiTu != Enter && kiTu != BackSpace && kiTu != Left && kiTu != Right && kiTu != ESC)
 			{
 				continue;
 			}
@@ -238,15 +237,10 @@ int NhapChuoi(char a[], int MAX, int x, int y)
 int NhapChuoiVaChuSo(char a[], int MAX, int x, int y)
 {
 	int length = strlen(a);
-	if (length == 0)
-	{
-		gotoxy(x, y);
-	}
-	else
-	{
-		gotoxy(x + length, y);
-	}
+	gotoxy(x + length, y);
+
 	int kiTu = 0;
+	//i lưu vị trí con nháy
 	int i = length;
 	//n cho biet so luong cac ki tu trong mang a
 	int n = length;
@@ -264,7 +258,7 @@ int NhapChuoiVaChuSo(char a[], int MAX, int x, int y)
 		{
 			kiTu = temp;
 		}
-		if (n >= MAX && kiTu != Enter && kiTu != BackSpace && kiTu != Left && kiTu != Right && kiTu != ESC)
+		if (n >= MAX - 1 && kiTu != Enter && kiTu != BackSpace && kiTu != Left && kiTu != Right && kiTu != ESC)
 		{
 			continue;
 		}
@@ -380,7 +374,7 @@ int NhapSo(char a[], int MAX, int x, int y)
 		{
 			kiTu = temp;
 		}
-		if (n >= MAX && kiTu != Enter && kiTu != BackSpace && kiTu != Left && kiTu != Right && kiTu != ESC)
+		if (n >= MAX - 1 && kiTu != Enter && kiTu != BackSpace && kiTu != Left && kiTu != Right && kiTu != ESC)
 		{
 			continue;
 		}
@@ -488,7 +482,7 @@ int NhapTen(char a[], int MAX, int x, int y)
 		{
 			kiTu = temp;
 		}
-		if (n >= MAX && kiTu != Enter && kiTu != BackSpace && kiTu != Left && kiTu != Right && kiTu != ESC)
+		if (n >= MAX - 1 && kiTu != Enter && kiTu != BackSpace && kiTu != Left && kiTu != Right && kiTu != ESC)
 		{
 			continue;
 		}
@@ -1004,31 +998,6 @@ int getNamHienTai()
 	return namHienTai;
 }
 
-int soSanhChuoi(char s1[], char s2[])
-{
-	int length;
-	if (strlen(s1) <= strlen(s2))
-	{
-		length = strlen(s1);
-	}
-	else
-	{
-		length = strlen(s2);
-	}
-
-	for (int i = 0; i < length; ++i)
-	{
-		if (int(s1[i]) > int(s2[i]))
-		{
-			return -1;
-		}
-		else if (s1[i] < s2[i])
-		{
-			return 0;
-		}
-	}
-	return 0;
-}
 void labelTable(char label[])
 {
 	xoaNoiDungVe(72, 2, 30, 1);
@@ -1037,6 +1006,7 @@ void labelTable(char label[])
 	cout << label;
 	normal();
 }
+
 void veKhungNhapTTSinhVien()
 {
 	for (int i = MINY_BSV + 1; i < MAXY_BSV; ++i)
