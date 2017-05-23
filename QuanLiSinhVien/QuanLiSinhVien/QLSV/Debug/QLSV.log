@@ -1,26 +1,17 @@
 ﻿  DSLOP.cpp
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.h(1): error C2014: preprocessor command must start as first nonwhite space
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2361): error C2144: syntax error: 'int' should be preceded by ';'
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2361): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(342): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(404): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(440): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(471): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(504): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(644): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(648): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(660): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(664): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(743): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(775): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(788): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(793): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(845): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(888): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-  Generating Code...
-  Compiling...
-  main.cpp
-c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.h(1): error C2014: preprocessor command must start as first nonwhite space
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2361): error C2144: syntax error: 'int' should be preceded by ';'
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2361): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-  Generating Code...
+c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(346): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(410): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(474): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(507): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(647): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(651): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(663): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(667): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(746): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(778): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(791): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(796): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(848): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(891): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+  QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe
+  QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.pdb (Partial PDB)

@@ -175,8 +175,10 @@ void DSLOP::xuatDSLOPNK()
 {
 	int TSTrang;
 	int trangHT = 1;
-	char c_NH[5];  // Luu nam hoc
+	// Luu nam hoc dạng chuỗi
+	char c_NH[5];
 	c_NH[0] = '\0';
+	// Lưu  năm học dạng số
 	int NH;
 
 	gotoxy(72, 2);
@@ -232,7 +234,8 @@ void DSLOP::xuatDSLOPNK()
 	cout << "NAM HOC: " << c_NH;
 	veKhungXuatLopTheoNK();
 
-	//Thuc hien chuc nang
+	//-----------------------------------THỰC HIỆN CHỨC NĂNG------------------------------------------
+
 	//Luu tong so LOP thoa dieu kien
 	int stt = 0;
 	//Mảng chiSo dùng để lưu chỉ số các phan tu trong mang DANHSACHLOP có năm nhap hoc = nam do do nguoi dung nhap
@@ -248,8 +251,6 @@ void DSLOP::xuatDSLOPNK()
 			}
 		}
 	}
-
-
 
 	//tinh tong so trang va in ra mang hinh
 	if (stt % 10 == 0)
@@ -284,6 +285,7 @@ void DSLOP::xuatDSLOPNK()
 		{
 			kiTu = temp;
 		}
+
 		switch (kiTu)
 		{
 		case PageUp:
@@ -328,7 +330,9 @@ void DSLOP::xuatDSLOPNK()
 		case Enter:
 		{
 			firstItem = (trangHT - 1) * 10;
+			//K lưu giá trị trong mảng chiSo tại vị trí FirstItem
 			int k = chiSo[firstItem];
+
 			gotoxy(MINX_XLOP + 1, Y_FIST_LOP);
 			SetBGColor(green_Dark);
 			for (int i = 0; i < widthBANG_XLOP - 2; ++i)
@@ -342,10 +346,11 @@ void DSLOP::xuatDSLOPNK()
 			gotoxy(X_XLOP_COT1 + strlen(DANHSACHLOP[k].MALOP) + 2, Y_FIST_LOP);
 
 			int kiTu;
-			int viTri = firstItem;
+			//Vi tri dang hien thi
+			int currentIndex = firstItem;
 			do
 			{
-				k = chiSo[viTri];
+				k = chiSo[currentIndex];
 
 				char ML[15];
 				char TENL[38];
@@ -375,11 +380,12 @@ void DSLOP::xuatDSLOPNK()
 				{
 				case PageDown:
 				{
-					if (viTri < (firstItem + 9) && viTri < stt - 1)
+					//currentIndex đang ở trong trang đang hiển thị và nhỏ hơn tổng số lớp
+					if (currentIndex < (firstItem + 9) && currentIndex < stt - 1)
 					{
-						k = chiSo[viTri];
+						k = chiSo[currentIndex];
 						viTriChinhSua = 1;
-						//sua noi dung tại dòng cũ
+						// y lưu tọa độ y hiện tại
 						int y = wherey();
 						gotoxy(MINX_XLOP + 1, y);
 						SetBGColor(black);
@@ -388,11 +394,11 @@ void DSLOP::xuatDSLOPNK()
 							cout << " ";
 						}
 						veKhungXuatLopTheoNK();
-						inLOPTheoHang(DANHSACHLOP[k], y, viTri + 1);
+						inLOPTheoHang(DANHSACHLOP[k], y, currentIndex + 1);
 
-						//Hight light dòng mới
-						//k lúc này sẽ chứa chỉ số dòng mới
-						k = chiSo[++viTri];
+						//-------------------HIGHLIGHT DÒNG MỚI--------------------------------
+						//k chứa chỉ số dòng mới
+						k = chiSo[++currentIndex];
 						
 						SetBGColor(green_Dark);
 						gotoxy(MINX_XLOP + 1, wherey() + 1);
@@ -400,56 +406,53 @@ void DSLOP::xuatDSLOPNK()
 						{
 							cout << " ";
 						}
-						inLOPTheoHang(DANHSACHLOP[k], wherey(), viTri + 1);
-						gotoxy(X_XLOP_COT1 + strlen(DANHSACHLOP[k].MALOP) + 2, Y_FIST_LOP + viTri);
+						inLOPTheoHang(DANHSACHLOP[k], wherey(), currentIndex + 1);
+						gotoxy(X_XLOP_COT1 + strlen(DANHSACHLOP[k].MALOP) + 2, wherey());
 						break;
 					}
 					else if (trangHT < TSTrang)
 					{
-	
-						viTriChinhSua = 1;
 						xoaNoiDungVe(MINX_XLOP - 1, MINY_XLOP - 1, widthBANG_XLOP + 1, heightBANG_XLOP + 1);
 						trangHT++;
 						gotoxy(X_XLOP_COT3 - 10, MINY_XLOP - 1);
 						cout << "Trang: " << trangHT << " / " << TSTrang;
 						veKhungXuatLopTheoNK();
 						firstItem = (trangHT - 1) * 10;
-						viTri = firstItem;
+						currentIndex = firstItem;
 						for (int i = 0; i < 10; ++i)
 						{
-							if (viTri < stt)
+							if (currentIndex < stt)
 							{
-								k = chiSo[viTri++];
-								inLOPTheoHang(DANHSACHLOP[k], Y_FIST_LOP + i, viTri);
+								k = chiSo[currentIndex++];
+								inLOPTheoHang(DANHSACHLOP[k], Y_FIST_LOP + i, currentIndex);
 							}
 						}
 
-						//hightLight dong dau tien trang moi
-						viTri = firstItem;
-						if (viTri < (firstItem + 9) && viTri < stt - 1)
+						//-----------HIGHLIGHT DÒNG ĐẦU TIÊN CỦA TRANG MỚI--------------
+						currentIndex = firstItem;
+						if (currentIndex < (firstItem + 9) && currentIndex < stt - 1)
 						{
-							int y = Y_FIST_LOP;
-							k = chiSo[viTri];
-							gotoxy(MINX_XLOP + 1, y);
+
+							k = chiSo[currentIndex];
+							gotoxy(MINX_XLOP + 1, Y_FIST_LOP);
 							SetBGColor(green_Dark);
 							for (int i = 0; i < widthBANG_XLOP - 2; ++i)
 							{
 								cout << " ";
 							}
-							inLOPTheoHang(DANHSACHLOP[k], y, viTri + 1);
-							gotoxy(X_XLOP_COT1 + strlen(DANHSACHLOP[k].MALOP) + 2, Y_FIST_LOP + viTri);
+							inLOPTheoHang(DANHSACHLOP[k], Y_FIST_LOP, currentIndex + 1);
 						}
 					}
 					break;
 				}
 				case PageUp:
 				{
-					if (viTri > 0 && viTri > firstItem)
+					if (currentIndex > 0 && currentIndex > firstItem)
 					{
 						viTriChinhSua = 1;
 						//sua noi dung tại dòng cũ
 						int y = wherey();
-						k = chiSo[viTri];
+						k = chiSo[currentIndex];
 						gotoxy(MINX_XLOP + 1, y);
 						SetBGColor(black);
 						for (int i = 0; i < widthBANG_XLOP - 2; ++i)
@@ -457,20 +460,20 @@ void DSLOP::xuatDSLOPNK()
 							cout << " ";
 						}
 						veKhungXuatLopTheoNK();
-						inLOPTheoHang(DANHSACHLOP[k], y, viTri + 1);
+						inLOPTheoHang(DANHSACHLOP[k], y, currentIndex + 1);
 
 						//Hight light dòng mới
-						k = chiSo[--viTri];
+						k = chiSo[--currentIndex];
 						SetBGColor(green_Dark);
 						gotoxy(MINX_XLOP + 1, wherey() - 1);
 						for (int i = 0; i < widthBANG_XLOP - 2; ++i)
 						{
 							cout << " ";
 						}
-						inLOPTheoHang(DANHSACHLOP[k], wherey(), viTri + 1);
-						gotoxy(X_XLOP_COT1 + strlen(DANHSACHLOP[k].MALOP) + 2, Y_FIST_LOP + viTri);
+						inLOPTheoHang(DANHSACHLOP[k], wherey(), currentIndex + 1);
+						gotoxy(X_XLOP_COT1 + strlen(DANHSACHLOP[k].MALOP) + 2, wherey());
 					}
-					else if (trangHT > 0 && viTri > 0)
+					else if (trangHT > 0 && currentIndex > 0)
 					{
 						viTriChinhSua = 1;
 						xoaNoiDungVe(MINX_XLOP - 1, MINY_XLOP - 1, widthBANG_XLOP + 1, heightBANG_XLOP + 1);
@@ -479,20 +482,20 @@ void DSLOP::xuatDSLOPNK()
 						cout << "Trang: " << trangHT << " / " << TSTrang;
 						veKhungXuatLopTheoNK();
 						firstItem = (trangHT - 1) * 10;
-						viTri = firstItem;
+						currentIndex = firstItem;
 						for (int i = 0; i < 10; ++i)
 						{
-							if (viTri < stt)
+							if (currentIndex < stt)
 							{
-								k = chiSo[viTri++];
-								inLOPTheoHang(DANHSACHLOP[k], Y_FIST_LOP + i, viTri);
+								k = chiSo[currentIndex++];
+								inLOPTheoHang(DANHSACHLOP[k], Y_FIST_LOP + i, currentIndex);
 							}
 						}
-						viTri = firstItem + 9;
-						if (viTri > 0)
+						currentIndex = firstItem + 9;
+						if (currentIndex > 0)
 						{
 							int y = Y_FIST_LOP + 9;
-							k = chiSo[viTri];
+							k = chiSo[currentIndex];
 							gotoxy(MINX_XLOP + 1, y);
 							SetBGColor(green_Dark);
 							for (int i = 0; i < widthBANG_XLOP - 2; ++i)
@@ -500,8 +503,8 @@ void DSLOP::xuatDSLOPNK()
 								cout << " ";
 							}
 
-							inLOPTheoHang(DANHSACHLOP[k], y, viTri + 1);
-							gotoxy(X_XLOP_COT1 + strlen(DANHSACHLOP[k].MALOP) + 2, Y_FIST_LOP + viTri);
+							inLOPTheoHang(DANHSACHLOP[k], y, currentIndex + 1);
+							gotoxy(X_XLOP_COT1 + strlen(DANHSACHLOP[k].MALOP) + 2, y);
 						}
 					}
 					break;
@@ -513,7 +516,7 @@ void DSLOP::xuatDSLOPNK()
 						do
 						{
 							SetBGColor(green_Dark);
-							int kiTu = NhapChuoiVaChuSo(ML, 15, X_XLOP_COT1 + 2, Y_FIST_LOP + viTri);
+							int kiTu = NhapChuoiVaChuSo(ML, 15, X_XLOP_COT1 + 2, Y_FIST_LOP + currentIndex);
 							//Chuỗi mã lớp trả về bị rỗng
 							if (kiTu == -1)
 							{
@@ -534,15 +537,15 @@ void DSLOP::xuatDSLOPNK()
 								else if (select == 1)
 								{
 									xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
-									int y = Y_FIST_LOP + viTri;
-									k = chiSo[viTri];
+									int y = Y_FIST_LOP + currentIndex;
+									k = chiSo[currentIndex];
 									SetBGColor(green_Dark);
 									gotoxy(MINX_XLOP + 1, y);
 									for (int i = 0; i < widthBANG_XLOP - 2; ++i)
 									{
 										cout << " ";
 									}
-									inLOPTheoHang(DANHSACHLOP[k], y, viTri + 1);
+									inLOPTheoHang(DANHSACHLOP[k], y, currentIndex + 1);
 									break;
 								}
 
@@ -574,15 +577,15 @@ void DSLOP::xuatDSLOPNK()
 								else if (select == 1)
 								{
 									xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
-									int y = Y_FIST_LOP + viTri;
-									k = chiSo[viTri];
+									int y = Y_FIST_LOP + currentIndex;
+									k = chiSo[currentIndex];
 									SetBGColor(green_Dark);
 									gotoxy(MINX_XLOP + 1, y);
 									for (int i = 0; i < widthBANG_XLOP - 2; ++i)
 									{
 										cout << " ";
 									}
-									inLOPTheoHang(DANHSACHLOP[k], y, viTri + 1);
+									inLOPTheoHang(DANHSACHLOP[k], y, currentIndex + 1);
 									break;
 								}
 							}
@@ -591,7 +594,7 @@ void DSLOP::xuatDSLOPNK()
 					else if (viTriChinhSua == 2)
 					{
 						SetBGColor(green_Dark);
-						int kiTu = NhapChuoi(TENL, 39, X_XLOP_COT2 + 3, Y_FIST_LOP + viTri);
+						int kiTu = NhapChuoi(TENL, 39, X_XLOP_COT2 + 3, Y_FIST_LOP + currentIndex);
 						DANHSACHLOP[k].setTENL(TENL);
 					}
 					else if (viTriChinhSua == 3)
@@ -599,7 +602,7 @@ void DSLOP::xuatDSLOPNK()
 						int NHOC;
 						do
 						{
-							NhapSo(namhoc, 5, X_XLOP_COT3 + 2, Y_FIST_LOP + viTri);
+							NhapSo(namhoc, 5, X_XLOP_COT3 + 2, Y_FIST_LOP + currentIndex);
 							NHOC = atoi(namhoc);
 							if (NHOC > namHT)
 							{
@@ -617,15 +620,15 @@ void DSLOP::xuatDSLOPNK()
 								else if (select == 1)
 								{
 									xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
-									int y = Y_FIST_LOP + viTri;
-									k = chiSo[viTri];
+									int y = Y_FIST_LOP + currentIndex;
+									k = chiSo[currentIndex];
 									SetBGColor(green_Dark);
 									gotoxy(MINX_XLOP + 1, y);
 									for (int i = 0; i < widthBANG_XLOP - 2; ++i)
 									{
 										cout << " ";
 									}
-									inLOPTheoHang(DANHSACHLOP[k], y, viTri + 1);
+									inLOPTheoHang(DANHSACHLOP[k], y, currentIndex + 1);
 									break;
 								}
 							}
@@ -641,11 +644,11 @@ void DSLOP::xuatDSLOPNK()
 						viTriChinhSua--;
 						if (viTriChinhSua == 1)
 						{
-							gotoxy(X_XLOP_COT1 + strlen(ML) + 2, Y_FIST_LOP + viTri);
+							gotoxy(X_XLOP_COT1 + strlen(ML) + 2, wherey());
 						}
 						else if (viTriChinhSua == 2)
 						{
-							gotoxy(X_XLOP_COT2 + strlen(TENL) + 3, Y_FIST_LOP + viTri);
+							gotoxy(X_XLOP_COT2 + strlen(TENL) + 3, wherey());
 						}
 					}
 					break;
@@ -657,11 +660,11 @@ void DSLOP::xuatDSLOPNK()
 						viTriChinhSua++;
 						if (viTriChinhSua == 3)
 						{
-							gotoxy(X_XLOP_COT3 + strlen(namhoc) + 2, Y_FIST_LOP + viTri);
+							gotoxy(X_XLOP_COT3 + strlen(namhoc) + 2, wherey());
 						}
 						else if (viTriChinhSua == 2)
 						{
-							gotoxy(X_XLOP_COT2+ strlen(TENL) + 3, Y_FIST_LOP + viTri);
+							gotoxy(X_XLOP_COT2+ strlen(TENL) + 3, wherey());
 						}
 					}
 					break;
