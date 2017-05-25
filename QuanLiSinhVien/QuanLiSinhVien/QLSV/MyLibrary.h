@@ -120,17 +120,43 @@ void normalButton();//button nền đỏ thẫm chữ trắng
 void highLight();   //Button nền đỏ sáng chữ trắng
 void colorStroke(); //Set color text màu đỏ đậm
 
-//Các hàm xử lí chuỗi
+//------------CÁC HÀM XỬ LÍ TRÊN CHUỖI--------------------------
 void xoaKiTu(char a[], int& n, int i);
 void themKiTu(char a[], int& n,int& i, char c);
 
-//Các hàm nhập chuỗi
+//-----------------------CÁC HÀM NHẬP CHUỖI------------------
+
+/*---------------------------------------------------------------
+	Hàm nhập chuỗi có khoảng trắng (chuỗi chỉ chứa kí tự)
+	hàm sẽ trả về 
+	=> ESC nếu đang nhập người dùng bâm ESC để kết thúc việc nhập chuỗi
+*/
 int NhapChuoi(char a[], int MAX, int x, int y);
+
+/*---------------------------------------------------------------
+	hàm này dùng để nhập chuỗi và chữ số không có khoảng trắng
+	hàm sẽ trả về 
+	=> 0 nếu nhập thành công
+	=> -1 nếu chuỗi rỗng => người dùng muốn thoát
+	=> ESC nếu đang nhập người dùng bấm ESC
+*/
 int NhapChuoiVaChuSo(char a[], int MAX, int x, int y);
+
+/*------------------------------------------------------------------
+	Hàm để nhập số không chứa khoảng trắng
+	=> hàm trả về ESC nếu đang nhập người dùng bấm ESC để dừng việc nhập
+*/
 int NhapSo(char a[], int MAX, int x, int y);
+
+/*---------------------------------------------------------------------------
+	Hàm dùng để nhập kí tự không chứa khoảng trắng (không nhận số và các kí tự đặc biệt)
+	=> Hàm trả về ESC nếu đang nhập người dùng bâm ESC để kết thúc việc nhập
+*/
 int NhapTen(char a[], int MAX, int x, int y);
 
-//Các hàm vẽ đường line và các góc 
+//--------------------------------------------------------------------------------------
+
+//---------------------------CÁC HÀM VẼ GIAO DIỆN--------------------------
 void veLineNamNgang(int x, int y, int width, int maMau);
 void veLineThangDung(int x, int y, int height, int maMau);
 void veGocTrenBenTrai(int x, int y, int maMau);
@@ -138,7 +164,7 @@ void veGocTrenBenPhai(int x, int y, int maMau);
 void veGocDuoiBenTrai(int x, int y, int maMau);
 void veGocDuoiBenPhai(int x, int y, int maMau);
 
-//Ham ve button
+//--------HÀM VẼ BUTTON
 /*
 	x: Tọa độ x góc trên bên trái
 	y: Tọa độ y góc trên bên trái

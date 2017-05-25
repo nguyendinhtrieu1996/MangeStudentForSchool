@@ -104,7 +104,7 @@ void themKiTu(char a[], int & n, int & i, char c)
 	n++;
 }
 
-//Các hàm nhập chuỗi
+//-----------------CÁC HÀM NHẬP CHUỖI-----------------------
 //Nhap chuoi co khoang trang (khong chua chu so)
 int NhapChuoi(char a[], int MAX, int x, int y)
 {
@@ -233,6 +233,7 @@ int NhapChuoi(char a[], int MAX, int x, int y)
 		}
 		return 0;
 }
+
 //Chuoi va chu so khong co khoang trang
 int NhapChuoiVaChuSo(char a[], int MAX, int x, int y)
 {

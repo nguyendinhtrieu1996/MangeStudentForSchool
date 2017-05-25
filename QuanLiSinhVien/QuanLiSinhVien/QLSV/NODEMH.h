@@ -12,5 +12,7 @@ private:
 public:
 	NODEMH();
 	~NODEMH();
+
+	friend class DSMONHOC;
 };
 
