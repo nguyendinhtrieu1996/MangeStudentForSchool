@@ -348,15 +348,11 @@ int NhapChuoiVaChuSo(char a[], int MAX, int x, int y)
 int NhapSo(char a[], int MAX, int x, int y)
 {
 	int length = strlen(a);
-	if (length == 0)
-	{
-		gotoxy(x, y);
-	}
-	else
-	{
-		gotoxy(x + length, y);
-	}
+	
+	gotoxy(x + length, y);
+
 	int kiTu = 0;
+	//Lưu vị trí con nháy
 	int i = length;
 	//n cho biet so luong cac ki tu trong mang a
 	int n = length;

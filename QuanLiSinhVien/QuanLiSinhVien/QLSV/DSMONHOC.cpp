@@ -32,6 +32,8 @@ void DSMONHOC::createDSMONHOC()
 NHAPDSMONHOC:
 	maMH[0] = '\0';
 	tenMH[0] = '\0';
+	c_STCLT[0] = '\0';
+	c_STCTH[0] = '\0';
 	sTCLT = 0;
 	sTCTH = 0;
 
@@ -53,6 +55,9 @@ NHAPTENMONHOC:
 		//Mã môn học không bị trùng
 		if (kiemTraMH(maMH) == NULL)
 		{
+
+		NHAPTENMH:
+
 			/*
 				Hàm nhập tên môn học => gồm kí tự và chứa khoảng trắng
 				=> hàm trả về
@@ -64,14 +69,48 @@ NHAPTENMONHOC:
 			{
 
 			}
-			else // Nhập chuỗi thành công
+			// Nhập chuỗi thành công
+			else
 			{
-				/*
-					Nhập số lượng tín chỉ lí thuyết => chỉ nhập số
-				*/
+			NHAPSOTCLT:
+
+					//Nhập số lượng tín chỉ lí thuyết => chỉ nhập số
+					//=> hàm trả về ESC nếu đang nhập người dùng bấm ESC
+				int checkSTCLT = NhapSo(c_STCLT, 3, XCOT2_NDSMH + 2, MINY_NDSMH + 4);
+
+				// Nhập thành công
+				if (checkSTCLT != ESC) 
+				{
+				NHAPSOTCTH:
+					//Nhập số lượng tín chỉ thực hành => chỉ nhập số
+					//=> hàm trả về ESC nếu đang nhập người dùng bấm ESC
+					int checkSTCTH = NhapSo(c_STCTH, 3, XCOT3_NDSMH + 2, MINY_NDSMH + 4);
+
+					//Nhập thành công
+					if (checkSTCTH != ESC)
+					{
+						sTCLT = atoi(c_STCLT);
+						sTCTH = atoi(c_STCTH);
+						monHoc.nhapMH(maMH, tenMH, sTCLT, sTCTH);
+						insertNodeMH(monHoc);
+
+						goto NHAPDSMONHOC;
+					}
+					//Người dùng bấm ESC
+					else
+					{
+
+					}
+				}
+				// người dùng bấm ESC
+				else 
+				{
+
+				}
 			}
 		}
-		else // Mã môn học bị trùng
+		// Mã môn học bị trùng
+		else
 		{
 
 		}
