@@ -740,14 +740,89 @@ void veKhungXuatLopTheoNK()
 	gotoxy(X_XLOP_COT3 + 1, MINY_XLOP + 1);
 	cout << "NAM HOC";
 }
+
+//Hàm vẽ khung nhập danh sách môn học
 void veKhungNhapDSMONHOC()
 {
 	//Ve cot
-	for (int i = MINY_NDSMH; i < MAXY_NDSMH; ++i)
+	for (int i = MINY_NDSMH + 1; i < MAXY_NDSMH; ++i)
 	{
 		gotoxy(MINX_NDSMH, i);
 		cout << char(179);
+		//Ve cot 1
+		gotoxy(XCOT1_NDSMH, i);
+		cout << char(179);
+		//Ve cot 2
+		gotoxy(XCOT2_NDSMH, i);
+		cout << char(179);
+		//ve cot 3
+		gotoxy(XCOT3_NDSMH, i);
+		cout << char(179);
+		gotoxy(MAXX_NDSMH, i);
+		cout << char(179);
 	}
+
+	//ve Hang
+	for (int i = MINX_NDSMH + 1; i < MAXX_NDSMH; ++i)
+	{
+		gotoxy(i, MINY_NDSMH);
+		cout << char(196);
+		gotoxy(i, MINY_NDSMH + 2);
+		cout << char(196);
+		gotoxy(i, MAXY_NDSMH);
+		cout << char(196);
+	}
+
+	//Vẽ góc trên bên trái
+	gotoxy(MINX_NDSMH, MINY_NDSMH);
+	cout << char(218);
+
+	//Vẽ góc trên bên phải
+	gotoxy(MAXX_NDSMH, MINY_NDSMH);
+	cout << char(191);
+
+	//Vẽ góc duoi bên trái
+	gotoxy(MINX_NDSMH, MAXY_NDSMH);
+	cout << char(192);
+
+	//Vẽ góc duoi bên phải
+	gotoxy(MAXX_NDSMH, MAXY_NDSMH);
+	cout << char(217);
+
+	//Ve cac diem giao nhau
+	gotoxy(XCOT1_NDSMH, MINY_NDSMH);
+	cout << char(194);
+	gotoxy(XCOT2_NDSMH, MINY_NDSMH);
+	cout << char(194);
+	gotoxy(XCOT3_NDSMH, MINY_NDSMH);
+	cout << char(194);
+
+	gotoxy(XCOT1_NDSMH, MAXY_NDSMH);
+	cout << char(193);
+	gotoxy(XCOT2_NDSMH, MAXY_NDSMH);
+	cout << char(193);
+	gotoxy(XCOT3_NDSMH, MAXY_NDSMH);
+	cout << char(193);
+
+	gotoxy(MINX_NDSMH, MINY_NDSMH + 2);
+	cout << char(195);
+	gotoxy(XCOT1_NDSMH, MINY_NDSMH + 2);
+	cout << char(197);
+	gotoxy(XCOT2_NDSMH, MINY_NDSMH + 2);
+	cout << char(197);
+	gotoxy(XCOT3_NDSMH, MINY_NDSMH + 2);
+	cout << char(197);
+	gotoxy(MAXX_NDSMH, MINY_NDSMH + 2);
+	cout << char(180);
+
+	//title bảng
+	char titleMAMH[] = "MA MON HOC";
+	char titleTENMH[] = "TEN MON HOC";
+	char titleLT[] = "LT";
+	char titleTH[] = "TH";
+	int x1 = MINX_NDSMH + (XCOT1_NDSMH - MINX_NDSMH) / 2 - strlen(titleMAMH) / 2;
+	gotoxy(x1, MINY_NDSMH + 1);
+	cout << titleMAMH;
 }
 
 int veKhungThongBao(char title[], char message[], char td[][10])

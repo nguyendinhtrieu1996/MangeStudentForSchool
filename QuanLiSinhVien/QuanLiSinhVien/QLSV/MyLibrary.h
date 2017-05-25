@@ -164,7 +164,9 @@ void paintColorButton(int x, int y, char label[], int width, int height, int col
 void xoaNoiDungVe(int x, int y, int width, int height);
 void veKhungNhapTTLop();
 void veKhungXuatLopTheoNK();
+//Hàm vẽ khung nhập danh sách môn học
 void veKhungNhapDSMONHOC();
+
 /*	vẽ alert thông báo cho người dùng.
 	title: Tên thông báo, message: nội dung thông báo, thực đơn: menu chọn
 	hàm này sẽ trả về 0 nếu chọn vào menu 0 (có), 1 nếu chọn menu 1(không)

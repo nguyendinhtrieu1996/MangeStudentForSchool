@@ -24,7 +24,7 @@ NHAPDSMONHOC:
 
 	veKhungNhapDSMONHOC();
 
-	Sleep(1000);
+	Sleep(10000);
 }
 
 void DSMONHOC::insertNodeMH(MONHOC monHoc)
