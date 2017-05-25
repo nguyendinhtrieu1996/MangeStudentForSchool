@@ -37,6 +37,14 @@ NHAPDSMONHOC:
 	sTCLT = 0;
 	sTCTH = 0;
 
+	//Tô đen phần thông tin Môn học vừa nhập
+	normal();
+	for (int i = MINX_NDSMH; i < MAXX_NDSMH; ++i)
+	{
+		gotoxy(i, MINY_NDSMH + 4);
+		cout << " ";
+	}
+	//Vẽ khung nhập thông tin môn học
 	veKhungNhapDSMONHOC();
 
 NHAPTENMONHOC:
