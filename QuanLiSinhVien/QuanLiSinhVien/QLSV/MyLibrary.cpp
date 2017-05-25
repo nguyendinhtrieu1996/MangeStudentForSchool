@@ -820,9 +820,22 @@ void veKhungNhapDSMONHOC()
 	char titleTENMH[] = "TEN MON HOC";
 	char titleLT[] = "LT";
 	char titleTH[] = "TH";
-	int x1 = MINX_NDSMH + (XCOT1_NDSMH - MINX_NDSMH) / 2 - strlen(titleMAMH) / 2;
+
+	//Tọa độ x bắt đầu in tiêu đề
+	int x1 = MINX_NDSMH + (XCOT1_NDSMH - MINX_NDSMH) / 2 - strlen(titleMAMH) / 2 + 1;
+	int x2 = XCOT1_NDSMH + (XCOT2_NDSMH - XCOT1_NDSMH) / 2 - strlen(titleTENMH) / 2 + 1;
+
+	normal();
+
 	gotoxy(x1, MINY_NDSMH + 1);
 	cout << titleMAMH;
+	gotoxy(x2, MINY_NDSMH + 1);
+	cout << titleTENMH;
+
+	gotoxy(XCOT2_NDSMH + 2, MINY_NDSMH + 1);
+	cout << titleLT;
+	gotoxy(XCOT3_NDSMH + 2, MINY_NDSMH + 1);
+	cout << titleTH;
 }
 
 int veKhungThongBao(char title[], char message[], char td[][10])
@@ -1000,44 +1013,6 @@ int veTextFieldNhapKituSo(char KQ[], char title[], char message[])
 	normal();
 	int kiTu = NhapChuoiVaChuSo(KQ, 15, MINX_ALERTTB + 10, wherey() - 1);
 	return kiTu;
-}
-
-void veKhungNhapMH()
-{
-	veLineNamNgang(MINX_BMH, MINY_BMH, width_BMH, 15);
-	veLineNamNgang(MINX_BMH, MAXY_BMH, width_BMH, 15);
-	veLineThangDung(MINX_BMH, MINY_BMH + 1, height_BMH - 1, 15);
-	veLineThangDung(MAXX_BMH, MINY_BMH + 1, height_BMH - 1, 15);
-
-	veGocTrenBenTrai(MINX_BMH, MINY_BMH, 15);
-	veGocTrenBenPhai(MAXX_BMH, MINY_BMH, 15);
-	veGocDuoiBenTrai(MINX_BMH, MAXY_BMH, 15);
-	veGocDuoiBenPhai(MAXX_BMH, MAXY_BMH, 15);
-
-	veLineThangDung(X_BMH_COT1, MINY_BMH + 1, height_BMH - 1);
-	veLineThangDung(X_BMH_COT2, MINY_BMH + 1, height_BMH - 1);
-	veLineThangDung(X_BMH_COT3, MINY_BMH + 1, height_BMH - 1);
-
-	veLineNamNgang(MINX_BMH, MINY_BMH + 2, width_BMH, 15);
-
-	gotoxy(X_BMH_COT1, MINY_BLOP);
-	cout << (char)194;
-	gotoxy(X_BMH_COT2, MINY_BLOP);
-	cout << (char)194;
-	gotoxy(X_BMH_COT3, MINY_BLOP);
-	cout << (char)194;
-
-	gotoxy(X_BMH_COT1, MAXY_BLOP);
-	cout << (char)193;
-	gotoxy(X_BMH_COT2, MAXY_BLOP);
-	cout << (char)193;
-	gotoxy(X_BMH_COT3, MAXY_BLOP);
-	cout << (char)193;
-
-	gotoxy(MINX_BMH, MINY_BMH + 2);
-	cout << (char)195;
-	gotoxy(MAXX_BMH, MINY_BMH + 2);
-	cout << (char)180;
 }
 
 //cac ham ve button

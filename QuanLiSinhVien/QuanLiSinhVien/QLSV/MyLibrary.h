@@ -76,17 +76,6 @@ const int widthBANG_XLOP = 70;
 const int heightBANG_XLOP = 14;
 const int Y_FIST_LOP = MINY_XLOP + 3;
 
-//Tọa độ bảng nhập môn học
-const int MINX_BMH = 46;
-const int MAXX_BMH = 115;
-const int MINY_BMH = 4;
-const int MAXY_BMH = 10;
-const int X_BMH_COT1 = 56;
-const int X_BMH_COT2 = 101;
-const int X_BMH_COT3 = 108;
-const int width_BMH = 70;
-const int height_BMH = 6;
-
 //Tọa độ bảng xuất danh sách sinh viên
 const int MINX_XSV = 46;
 const int MAXX_XSV = 115;
@@ -174,7 +163,6 @@ void veKhungNhapDSMONHOC();
 int veKhungThongBao(char title[], char message[], char td[][10]);
 void veTextField(char KQ[], char title[], char message[]);
 int veTextFieldNhapKituSo(char KQ[], char title[], char message[]);
-void veKhungNhapMH();
 void labelTable(char label[]);
 //hàm trả về năm hiện tại
 int getNamHienTai();
