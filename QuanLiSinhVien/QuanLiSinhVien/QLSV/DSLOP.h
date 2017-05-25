@@ -1,6 +1,6 @@
 #pragma once
 #include "LOP.h"
-#include "DSMH.h"
+#include "DSMONHOC.h"
 
 class DSLOP
 {
@@ -16,8 +16,8 @@ public:
 	int searchLOP(char MLOP[]);
 	void chinhSuaTTLOP();
 	void xoaLOP();
-	bool nhapDiemLOP(DSMH ds, char MLOP[], char MAMH[], int lanThi);
-	bool inBangDiemTheoLanThi(DSMH ds, char MLOP[], char MAMH[], int lanThi);
+	bool nhapDiemLOP(DSMONHOC ds, char MLOP[], char MAMH[], int lanThi);
+	bool inBangDiemTheoLanThi(DSMONHOC ds, char MLOP[], char MAMH[], int lanThi);
 	bool inDiemTrungBinh(char MLOP[]);
 	void inDiemTongKet(char MLOP[]);
 	void inLOPTheoHang(LOP lop, int y, int stt);

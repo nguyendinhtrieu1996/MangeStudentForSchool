@@ -1182,12 +1182,12 @@ int DSLOP::searchLOP(char MLOP[])
 	return -1;
 }
 
-bool DSLOP::nhapDiemLOP(DSMH ds, char MLOP[], char MAMH[], int lanThi)
+bool DSLOP::nhapDiemLOP(DSMONHOC ds, char MLOP[], char MAMH[], int lanThi)
 {
 	return false;
 }
 
-bool DSLOP::inBangDiemTheoLanThi(DSMH ds, char MLOP[], char MAMH[], int lanThi)
+bool DSLOP::inBangDiemTheoLanThi(DSMONHOC ds, char MLOP[], char MAMH[], int lanThi)
 {
 	return false;
 }

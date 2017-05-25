@@ -740,6 +740,16 @@ void veKhungXuatLopTheoNK()
 	gotoxy(X_XLOP_COT3 + 1, MINY_XLOP + 1);
 	cout << "NAM HOC";
 }
+void veKhungNhapDSMONHOC()
+{
+	//Ve cot
+	for (int i = MINY_NDSMH; i < MAXY_NDSMH; ++i)
+	{
+		gotoxy(MINX_NDSMH, i);
+		cout << char(179);
+	}
+}
+
 int veKhungThongBao(char title[], char message[], char td[][10])
 {
 	int kiTu; 

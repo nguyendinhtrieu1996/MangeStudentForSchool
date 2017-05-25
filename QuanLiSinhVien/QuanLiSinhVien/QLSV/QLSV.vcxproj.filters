@@ -42,9 +42,6 @@
     <ClCompile Include="NODEMH.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DSMH.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MyLibrary.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -75,9 +72,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NODEMH.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DSMH.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="menu.h">

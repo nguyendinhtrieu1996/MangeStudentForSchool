@@ -102,6 +102,15 @@ const int widthBANG_XSV = 70;
 const int heightBANG_XSV = 14;
 const int Y_FIST_SV = MINY_XSV + 3;
 
+//Tọa độ bảng nhập danh sách môn học
+const int MINX_NDSMH = 46;
+const int MAXX_NDSMH = 115;
+const int MINY_NDSMH = 4;
+const int MAXY_NDSMH = 10;
+const int XCOT1_NDSMH = 63;
+const int XCOT2_NDSMH = 105;
+const int XCOT3_NDSMH = 110;
+
 //Khởi tạo mặc định các tham số
 const int SoChuSo = 4;
 
@@ -155,6 +164,7 @@ void paintColorButton(int x, int y, char label[], int width, int height, int col
 void xoaNoiDungVe(int x, int y, int width, int height);
 void veKhungNhapTTLop();
 void veKhungXuatLopTheoNK();
+void veKhungNhapDSMONHOC();
 /*	vẽ alert thông báo cho người dùng.
 	title: Tên thông báo, message: nội dung thông báo, thực đơn: menu chọn
 	hàm này sẽ trả về 0 nếu chọn vào menu 0 (có), 1 nếu chọn menu 1(không)

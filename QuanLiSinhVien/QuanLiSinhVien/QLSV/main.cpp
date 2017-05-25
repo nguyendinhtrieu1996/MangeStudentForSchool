@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "DSLOP.h"
+#include "DSMONHOC.h"
 #include "menu.h"
 
 #define THEMLOP 11
@@ -27,7 +28,7 @@
 
 
 int main() {
-	DSMH DANHSACHMH;
+	 DSMONHOC DANHSACHMH;
 	DSLOP dsLOP;
 	int mainMenu = 0, childMenu = 0;
 	do
@@ -77,7 +78,7 @@ int main() {
 
 		case THEMMH:
 		{
-			DANHSACHMH.nhapDSMH();
+			DANHSACHMH.createDSMONHOC();
 			break;
 		}
 		}
