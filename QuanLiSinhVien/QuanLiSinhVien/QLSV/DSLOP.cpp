@@ -65,7 +65,7 @@ void DSLOP::nhapDSLOP()
 				{
 					//Nhập năm học
 				NHAPNAMHOC:
-					int check3 = NhapSo(c_NH, 4, xCot2 + 3, MINY_BLOP + 4);
+					int check3 = NhapSo(c_NH, 5, xCot2 + 3, MINY_BLOP + 4);
 					if (check3 == ESC)
 					{
 						char title[10] = "THONG BAO";
