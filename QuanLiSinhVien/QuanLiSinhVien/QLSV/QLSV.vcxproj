@@ -113,6 +113,7 @@
     <ClCompile Include="DIEM.cpp" />
     <ClCompile Include="DSLOP.cpp" />
     <ClCompile Include="DSMH.cpp" />
+    <ClCompile Include="DSMONHOC.cpp" />
     <ClCompile Include="LOP.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MONHOC.cpp" />
@@ -126,6 +127,7 @@
     <ClInclude Include="DIEM.h" />
     <ClInclude Include="DSLOP.h" />
     <ClInclude Include="DSMH.h" />
+    <ClInclude Include="DSMONHOC.h" />
     <ClInclude Include="LOP.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="MONHOC.h" />

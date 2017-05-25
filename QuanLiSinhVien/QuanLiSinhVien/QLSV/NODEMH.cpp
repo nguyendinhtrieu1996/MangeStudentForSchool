@@ -6,7 +6,6 @@ NODEMH::NODEMH()
 	right = NULL;
 }
 
-
 NODEMH::~NODEMH()
 {
 }
