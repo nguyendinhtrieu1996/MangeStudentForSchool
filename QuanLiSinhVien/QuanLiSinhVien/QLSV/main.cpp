@@ -28,8 +28,9 @@
 
 
 int main() {
-	 DSMONHOC DANHSACHMH;
+	DSMONHOC DANHSACHMH;
 	DSLOP dsLOP;
+
 	int mainMenu = 0, childMenu = 0;
 	do
 	{
@@ -41,8 +42,6 @@ int main() {
 		case THEMLOP:
 		{
 			dsLOP.nhapDSLOP();
-		
-
 			break;
 		}
 		case SUALOP:

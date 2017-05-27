@@ -13,6 +13,6 @@ public:
 	void nhapMH(char _maMh[], char _tenMh[], int _sTCLT, int _sTCTH);
 	void xuatMH();
 	~MONHOC();
-	friend class DSMH;
+	friend class DSMONHOC;
 };
 

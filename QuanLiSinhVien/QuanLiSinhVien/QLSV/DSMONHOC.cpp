@@ -1,7 +1,5 @@
 ﻿#include "DSMONHOC.h"
 
-
-
 DSMONHOC::DSMONHOC()
 {
 	root = NULL;
@@ -47,7 +45,7 @@ NHAPDSMONHOC:
 	//Vẽ khung nhập thông tin môn học
 	veKhungNhapDSMONHOC();
 
-NHAPTENMONHOC:
+NHAPMAMH:
 	
 	/*
 		Hàm nhập mã môn học => gồm kí tự và chữ số không chứa khoảng tắng
@@ -73,9 +71,24 @@ NHAPTENMONHOC:
 			*/
 			int checkTENMH = NhapChuoi(tenMH, 40, XCOT1_NDSMH + 2, MINY_NDSMH + 4);
 			//Người dùng muốn kết thúc việc nhập chuỗi
-			if (checkMH == ESC)
+			if (checkTENMH == ESC)
 			{
-
+				char titleExit[] = "THONG BAO";
+				char message[] = "Ban co muon thoat khong?";
+				char td[2][10] = { "    Co", "    Khong" };
+				gotoxy(MINX_ALERTTB, MINY_ALERTNL);
+				int check2 = veKhungThongBao(titleExit, message, td);
+				//Người dùng chọn thoát
+				if (check2 == 0)
+				{
+					return;
+				}
+				//Người dùng chọn tiếp tục
+				else
+				{
+					xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+					goto NHAPTENMH;
+				}
 			}
 			// Nhập chuỗi thành công
 			else
@@ -100,38 +113,117 @@ NHAPTENMONHOC:
 						sTCLT = atoi(c_STCLT);
 						sTCTH = atoi(c_STCTH);
 						monHoc.nhapMH(maMH, tenMH, sTCLT, sTCTH);
-						insertNodeMH(monHoc);
+						insertNodeMH(root, monHoc);
 
 						goto NHAPDSMONHOC;
 					}
 					//Người dùng bấm ESC
 					else
 					{
-
+						char titleExit[] = "THONG BAO";
+						char message[] = "Ban co muon thoat khong?";
+						char td[2][10] = { "    Co", "    Khong" };
+						gotoxy(MINX_ALERTTB, MINY_ALERTNL);
+						int check2 = veKhungThongBao(titleExit, message, td);
+						//Người dùng chọn thoát
+						if (check2 == 0)
+						{
+							return;
+						}
+						//Người dùng chọn tiếp tục
+						else
+						{
+							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+							goto NHAPSOTCTH;
+						}
 					}
 				}
 				// người dùng bấm ESC
 				else 
 				{
-
+					char titleExit[] = "THONG BAO";
+					char message[] = "Ban co muon thoat khong?";
+					char td[2][10] = { "    Co", "    Khong" };
+					gotoxy(MINX_ALERTTB, MINY_ALERTNL);
+					int check2 = veKhungThongBao(titleExit, message, td);
+					//Người dùng chọn thoát
+					if (check2 == 0)
+					{
+						return;
+					}
+					//Người dùng chọn tiếp tục
+					else
+					{
+						xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+						goto NHAPSOTCLT;
+					}
 				}
 			}
 		}
 		// Mã môn học bị trùng
 		else
 		{
-
+			char titleExit[] = "THONG BAO";
+			char message[] = "Ma mon hoc bi trung?";
+			char td[2][10] = { "Chinh sua", "  Thoat" };
+			gotoxy(MINX_ALERTTB, MINY_ALERTNL);
+			int check2 = veKhungThongBao(titleExit, message, td);
+			//Người dùng chọn thoát
+			if (check2 == 1)
+			{
+				return;
+			}
+			//Người dùng chọn tiếp tục
+			else
+			{
+				xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+				goto NHAPMAMH;
+			}
 		}
 	}
 	else if (checkMH == ESC || checkMH == -1)
 	{
-
+		char titleExit[] = "THONG BAO";
+		char message[] = "Ban co muon thoat khong?";
+		char td[2][10] = { "    Co", "    Khong" };
+		gotoxy(MINX_ALERTTB, MINY_ALERTNL);
+		int check2 = veKhungThongBao(titleExit, message, td);
+		//Người dùng chọn thoát
+		if (check2 == 0)
+		{
+			return;
+		}
+		//Người dùng chọn tiếp tục
+		else
+		{
+			xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+			goto NHAPMAMH;
+		}
+	
 	}
 }
 
-void DSMONHOC::insertNodeMH(MONHOC monHoc)
+void DSMONHOC::insertNodeMH(PTRNODEMH &p, MONHOC monHoc)
 {
-
+	if (p == NULL)
+	{
+		p = new NODEMH;
+		strcpy(p->MAMH, monHoc.MAMH);
+		p->MH = monHoc;
+		p->left = NULL;
+		p->right = NULL;
+	}
+	else
+	{
+		if (strcmp(monHoc.MAMH, p->MAMH) < 0)
+		{
+			insertNodeMH(p->left, monHoc);
+		}
+		else if (strcmp(monHoc.MAMH, p->MAMH) > 0)
+		{
+			insertNodeMH(p->right, monHoc);
+		}
+	}
 }
 
 PTRNODEMH DSMONHOC::kiemTraMH(char maMH[])
