@@ -1230,3 +1230,110 @@ void veKhungXuatSVTheoLop()
 	gotoxy(X_XSV_COT5 + 3, MINY_XSV + 1);
 	cout << "SDT";
 }
+
+void veKhungXuatMonHoc()
+{
+	//Ve cot
+	for (int i = MINY_XDSMH + 1; i < MAXY_XDSMH; ++i)
+	{
+		gotoxy(MINX_XDSMH, i);
+		cout << char(179);
+		//Ve cot 1
+		gotoxy(XCOT1_XDSMH, i);
+		cout << char(179);
+		//Ve cot 2
+		gotoxy(XCOT2_XDSMH, i);
+		cout << char(179);
+		//ve cot 3
+		gotoxy(XCOT3_XDSMH, i);
+		cout << char(179);
+		//ve cot 4
+		gotoxy(XCOT4_XDSMH, i);
+		cout << char(179);
+		gotoxy(MAXX_XDSMH, i);
+		cout << char(179);
+	}
+
+	//ve Hang
+	for (int i = MINX_XDSMH + 1; i < MAXX_XDSMH; ++i)
+	{
+		gotoxy(i, MINY_XDSMH);
+		cout << char(196);
+		gotoxy(i, MINY_XDSMH + 2);
+		cout << char(196);
+		gotoxy(i, MAXY_XDSMH);
+		cout << char(196);
+	}
+
+	//Vẽ góc trên bên trái
+	gotoxy(MINX_XDSMH, MINY_XDSMH);
+	cout << char(218);
+
+	//Vẽ góc trên bên phải
+	gotoxy(MAXX_XDSMH, MINY_XDSMH);
+	cout << char(191);
+
+	//Vẽ góc duoi bên trái
+	gotoxy(MINX_XDSMH, MAXY_XDSMH);
+	cout << char(192);
+
+	//Vẽ góc duoi bên phải
+	gotoxy(MAXX_XDSMH, MAXY_XDSMH);
+	cout << char(217);
+
+	//Ve cac diem giao nhau
+	gotoxy(XCOT1_XDSMH, MINY_XDSMH);
+	cout << char(194);
+	gotoxy(XCOT2_XDSMH, MINY_XDSMH);
+	cout << char(194);
+	gotoxy(XCOT3_XDSMH, MINY_XDSMH);
+	cout << char(194);
+	gotoxy(XCOT4_XDSMH, MINY_XDSMH);
+	cout << char(194);
+
+	gotoxy(XCOT1_XDSMH, MAXY_XDSMH);
+	cout << char(193);
+	gotoxy(XCOT2_XDSMH, MAXY_XDSMH);
+	cout << char(193);
+	gotoxy(XCOT3_XDSMH, MAXY_XDSMH);
+	cout << char(193);
+	gotoxy(XCOT3_XDSMH, MAXY_XDSMH);
+	cout << char(193);
+	gotoxy(XCOT4_XDSMH, MAXY_XDSMH);
+	cout << char(193);
+
+	gotoxy(MINX_XDSMH, MINY_XDSMH + 2);
+	cout << char(195);
+	gotoxy(XCOT1_XDSMH, MINY_XDSMH + 2);
+	cout << char(197);
+	gotoxy(XCOT2_XDSMH, MINY_XDSMH + 2);
+	cout << char(197);
+	gotoxy(XCOT3_XDSMH, MINY_XDSMH + 2);
+	cout << char(197);
+	gotoxy(XCOT4_XDSMH, MINY_XDSMH + 2);
+	cout << char(197);
+	gotoxy(MAXX_XDSMH, MINY_XDSMH + 2);
+	cout << char(180);
+
+	//title bảng
+	char titleSTT[] = "STT";
+	char titleMAMH[] = "MA MON HOC";
+	char titleTENMH[] = "TEN MON HOC";
+	char titleLT[] = "LT";
+	char titleTH[] = "TH";
+
+	
+	normal();
+
+	gotoxy(MINX_XDSMH +1, MINY_XDSMH + 1);
+	cout << titleSTT;
+	gotoxy(XCOT1_XDSMH+2, MINY_XDSMH + 1);
+	cout << titleMAMH;
+
+	gotoxy(XCOT2_XDSMH + 5, MINY_XDSMH + 1);
+	cout << titleTENMH;
+	gotoxy(XCOT3_XDSMH + 1, MINY_XDSMH + 1);
+	cout << titleLT;
+	gotoxy(XCOT4_XDSMH + 1, MINY_XDSMH + 1);
+	cout << titleTH;
+}

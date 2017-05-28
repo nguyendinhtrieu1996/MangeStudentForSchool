@@ -586,8 +586,6 @@ void LOP::xuatDSSV(){
 
 	labelTable("DANH SACH SINH VIEN");
 
-	
-
 	gotoxy(76, 3);
 
 	cout << "LOP: " << MALOP;

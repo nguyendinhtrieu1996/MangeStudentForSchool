@@ -100,6 +100,17 @@ const int XCOT1_NDSMH = 63;
 const int XCOT2_NDSMH = 105;
 const int XCOT3_NDSMH = 110;
 
+//Tọa độ bảng xuất danh sách môn học
+const int MINX_XDSMH = 46;
+const int MAXX_XDSMH = 115;
+const int MINY_XDSMH = 5;
+const int MAXY_XDSMH = 18;
+const int XCOT1_XDSMH = 50;
+const int XCOT2_XDSMH = 65;
+const int XCOT3_XDSMH = 107;
+const int XCOT4_XDSMH = 111;
+const int Y_FIST_MON= MINY_XDSMH + 3;
+
 //Khởi tạo mặc định các tham số
 const int SoChuSo = 4;
 
@@ -208,7 +219,7 @@ int soSanhChuoi(char s1[], char s2[]);
 
 void veKhungNhapTTSinhVien();
 void veKhungXuatSVTheoLop();
-
+void veKhungXuatMonHoc();
 
 
 

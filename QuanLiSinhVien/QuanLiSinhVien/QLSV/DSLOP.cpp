@@ -39,7 +39,7 @@ void DSLOP::nhapDSLOP()
 			//Kiểm tra lớp có tồn tại không, nếu không tồn tại trả về -1
 			if (searchLOP(MLOP) == -1)
 			{
-			NHAPTENLOP:
+			NHAPTENLOP: 
 				//Nhập tên lớp, không cho phép rỗng
 				int check2 = NhapChuoi(TENL, 38, xCot1 + 2, MINY_BLOP + 4);
 				if (check2 == ESC)

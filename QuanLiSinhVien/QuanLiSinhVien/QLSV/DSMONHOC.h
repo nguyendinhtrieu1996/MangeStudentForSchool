@@ -15,6 +15,12 @@ public:
 	//	Hàm này kiểm tra mã môn học có tồn tại trong danh sách môn học hay không
 	//	=> kết quả trả về con trỏ trỏ đến NODE môn học đó
 	PTRNODEMH kiemTraMH(char maMH[]);
+
+	void xuatDSLMON();
+	void duyetMAMHtang(PTRNODEMH, PTRNODEMH*, int&);
+	void xepDSTangTheoTenMH(PTRNODEMH*, int,int);
+	void xepDSTangTheoTenMHdemo(PTRNODEMH*, int);
+	void inMonHocTheoHang(PTRNODEMH, int, int);
 	~DSMONHOC();
 };
 
