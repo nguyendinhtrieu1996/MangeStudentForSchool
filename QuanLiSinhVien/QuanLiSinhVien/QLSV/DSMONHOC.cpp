@@ -285,12 +285,24 @@ void DSMONHOC::xuatDSLMON()
 		xepDSTangTheoTenMHdemo(conTro, size);
 
 		//in 10 phần tử đầu tiên
+		if (size >= 10) {
 			for(int i=0;i<10;i++)
 			{	
 				stt = i+1;
 				inMonHocTheoHang(conTro[i], Y_FIST_MON + stt-1 , stt);
 				
 			}
+		}
+		else {
+			for (int i = 0; i<size; i++)
+			{
+				stt = i + 1;
+				inMonHocTheoHang(conTro[i], Y_FIST_MON + stt - 1, stt);
+
+			}
+		}
+			
+
 			stt = size;
 			int TSTrang;
 			int trangHT = 1;
@@ -371,7 +383,388 @@ void DSMONHOC::xuatDSLMON()
 					}
 					break;
 
+				case Enter:
+					//highlight môn học đầu tiên của trang
+					firstItem = (trangHT - 1) * 10;
+					PTRNODEMH k = conTro[firstItem];
+					gotoxy(MINX_XDSMH + 1, Y_FIST_MON);
+					SetBGColor(green_Dark);
+					for (int i = 0; i < widthBANG_XMON - 2; i++)
+					{
+						cout << " ";
+					}
+					inMonHocTheoHang(k, Y_FIST_MON, firstItem + 1);
 
+					//đưa con trỏ về sau mã môn của dòng môn học đang chọn
+					gotoxy(XCOT1_XDSMH + strlen(k->MH.getMAMH()) + 2, Y_FIST_MON);
+					int kiTu;
+					int viTri = firstItem;
+					do
+					{
+						char _MAMH[15];
+						char _TENMH[40];
+						char c_STCLT[3], c_STCTH[3];
+						int _STCLT;
+						int _STCTH;
+						_MAMH[0] = '\0';
+						_TENMH[0] = '\0';
+						c_STCLT[0] = '\0';
+						c_STCTH[0] = '\0';
+						strcpy(_MAMH, k->MH.getMAMH());
+						strcpy(_TENMH, k->MH.getTENMH());
+
+						_STCLT = k->MH.getLT();
+						_STCTH = k->MH.getTH();
+						sprintf(c_STCLT, "%d", _STCLT);
+						sprintf(c_STCTH, "%d", _STCTH);
+						kiTu = 0;
+						fflush(stdin);
+						char temp = getch();
+						if (temp == -32 || temp == 0)
+						{
+							temp = getch();
+							kiTu = temp + 1000;
+						}
+						else
+						{
+							kiTu = temp;
+						}
+						switch (kiTu)
+						{
+						case PageDown:
+							if (viTri < firstItem + 9 && viTri < stt - 1) {
+								k = conTro[viTri];
+								viTriChinhSua = 1;
+								//sua noi dung tại dòng cũ
+								int y = wherey();
+								gotoxy(MINX_XDSMH + 1, y);
+								SetBGColor(black);
+								for (int i = MINX_XSV + 1; i <= MAXX_XSV; ++i)
+								{
+									if (i == XCOT1_XDSMH || i == XCOT2_XDSMH || i == XCOT3_XDSMH || i == XCOT4_XDSMH || i == MAXX_XDSMH) {
+										cout << (char)179;
+									}
+									else
+										cout << " ";
+
+								}
+
+								inMonHocTheoHang(k, y, viTri + 1);
+								//Hight light dòng mới
+								//k lúc này sẽ chứa chỉ số dòng mới
+								k = conTro[++viTri];
+
+								SetBGColor(green_Dark);
+								gotoxy(MINX_XLOP + 1, wherey() + 1);
+								for (int i = 0; i < widthBANG_XMON - 2; ++i)
+								{
+									cout << " ";
+								}
+								inMonHocTheoHang(k, wherey(), viTri + 1);
+								gotoxy(XCOT1_XDSMH + strlen(k->MH.getMAMH()) + 2, wherey());
+
+							}
+							else if (trangHT < TSTrang)
+							{
+
+								viTriChinhSua = 1;
+								xoaNoiDungVe(MINX_XSV - 1, MINY_XSV - 1, widthBANG_XSV + 1, heightBANG_XSV + 1);
+								trangHT++;
+								gotoxy(XCOT4_XDSMH - 10, MINY_XDSMH - 1);
+								cout << "Trang: " << trangHT << " / " << TSTrang;
+								veKhungXuatMonHoc();
+								firstItem = (trangHT - 1) * 10;
+								viTri = firstItem;
+								//viTri = 1;
+								for (int i = 0; i < 10; ++i)
+								{
+									if (viTri < stt)
+									{
+										k = conTro[viTri++];
+										inMonHocTheoHang(k, Y_FIST_MON + i, viTri);
+									}
+								}
+
+								//hightLight dong dau tien trang moi
+								viTri = firstItem;
+								if (viTri < (firstItem + 9) && viTri < stt - 1)
+								{
+									int y = Y_FIST_SV;
+									k = conTro[viTri];
+									gotoxy(MINX_XDSMH + 1, y);
+									SetBGColor(green_Dark);
+									for (int i = 0; i < widthBANG_XMON - 2; ++i)
+									{
+										cout << " ";
+									}
+									inMonHocTheoHang(k, y, viTri + 1);
+									gotoxy(XCOT1_XDSMH + strlen(k->MH.getMAMH()) + 2, y);
+								}
+							}
+							break;//kết thúc lệnh trong case pagedown
+
+						case PageUp:
+							if (viTri > 0 && viTri > firstItem)
+							{
+								viTriChinhSua = 1;
+								//sua noi dung tại dòng cũ
+								int y = wherey();
+								k = conTro[viTri];
+								gotoxy(MINX_XDSMH + 1, y);
+								SetBGColor(black);
+								for (int i = MINX_XDSMH + 1; i <= MAXX_XDSMH; ++i)
+								{
+									if (i == XCOT1_XDSMH || i == XCOT2_XDSMH || i == XCOT3_XDSMH || i == XCOT4_XDSMH || i == MAXX_XDSMH) {
+										cout << (char)179;
+									}
+									else
+										cout << " ";
+
+								}
+								inMonHocTheoHang(k, y, viTri + 1);
+
+								//Hight light dòng mới
+								k = conTro[--viTri];
+								SetBGColor(green_Dark);
+								gotoxy(MINX_XDSMH + 1, wherey() - 1);
+								for (int i = 0; i < widthBANG_XMON - 2; ++i)
+								{
+									cout << " ";
+								}
+								inMonHocTheoHang(k, wherey(), viTri + 1);
+								gotoxy(XCOT1_XDSMH + strlen(k->MH.getMAMH()) + 2, wherey());
+
+							}
+							else if (trangHT > 0 && viTri > 0)
+							{
+								viTriChinhSua = 1;
+								xoaNoiDungVe(MINX_XSV - 1, MINY_XSV - 1, widthBANG_XSV + 1, heightBANG_XSV + 1);
+								trangHT--;
+								gotoxy(XCOT4_XDSMH - 10, MINY_XSV - 1);
+								cout << "Trang: " << trangHT << " / " << TSTrang;
+								veKhungXuatMonHoc();
+								firstItem = (trangHT - 1) * 10;
+								viTri = firstItem;
+								for (int i = 0; i < 10; ++i)
+								{
+									if (viTri < stt)
+									{
+										k = conTro[viTri++];
+										inMonHocTheoHang(k, Y_FIST_MON + i, viTri);
+									}
+								}
+								viTri = firstItem + 9;
+								if (viTri > 0)
+								{
+									int y = Y_FIST_MON + 9;
+									k = conTro[viTri];
+									gotoxy(MINX_XDSMH + 1, y);
+									SetBGColor(green_Dark);
+									for (int i = 0; i < widthBANG_XMON - 2; ++i)
+									{
+										cout << " ";
+									}
+
+									inMonHocTheoHang(k, y, viTri + 1);
+									gotoxy(XCOT1_XDSMH + strlen(k->MH.getMAMH()) + 2, y);
+								}
+							}
+
+						break;//kết thúc lệnh pageup
+						case ESC:
+						{
+							return;
+						}
+						case F2:
+						{
+							int y = Y_FIST_MON + viTri - (trangHT - 1) * 10;
+							if (viTriChinhSua == 1)
+							{
+								do
+								{
+
+									SetBGColor(green_Dark);
+									int kiTu = NhapChuoiVaChuSo(_MAMH, 15, XCOT1_XDSMH + 2, y); //Y_FIST_SV + viTri);
+																							  //Chuỗi mã Sinh viên trả về bị rỗng
+									if (kiTu == -1)
+									{
+
+										char title[] = "THONG BAO";
+										char message[] = "MAMH khong duoc rong!";
+										char td[2][10] = { "Chinh sua", "    Huy" };
+										normal();
+										gotoxy(MINX_ALERTTB, MINY_ALERTTB);
+										int select = veKhungThongBao(title, message, td);
+										if (select == 0)
+										{
+											//Cho biet chuoi dang rong
+											_MAMH[0] = '\0';
+											xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
+											continue;
+										}
+										else if (select == 1)
+										{
+											xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
+
+											k = conTro[viTri];
+											SetBGColor(green_Dark);
+											gotoxy(MINX_XDSMH + 1, y);
+											for (int i = 0; i < widthBANG_XMON - 2; ++i)
+											{
+												cout << " ";
+											}
+											inMonHocTheoHang(k, y, viTri + 1);
+											break;
+										}
+
+
+									}
+									else if (kiemTraMH(_MAMH) == NULL && kiTu == 0)
+									{
+										k->MH.setMAMH(_MAMH);
+										gotoxy(MINX_ALERTTB, 24);
+										cout << "da sua MAMH";
+										Sleep(1000);
+										xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+										gotoxy(XCOT1_XDSMH + 2 + strlen(_MAMH), y);
+										break;
+									}
+									else if (strcmp(_MAMH, k->MH.getMAMH()) == 0)
+									{
+										break;
+									}
+									//Mãmôn học bị trùng
+									else if (kiemTraMH(_MAMH) != NULL && kiTu == 0)
+									{
+										char title[] = "THONG BAO";
+										char message[] = "MAMH bi trung!";
+										char td[2][10] = { "Chinh sua", "Huy" };
+										normal();
+										gotoxy(MINX_ALERTTB, MINY_ALERTTB);
+										int select = veKhungThongBao(title, message, td);
+										if (select == 0)
+										{
+											xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
+											continue;
+										}
+										else if (select == 1)
+										{
+											xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
+											int y = Y_FIST_MON + viTri;
+											k = conTro[viTri];
+											SetBGColor(green_Dark);
+											gotoxy(MINX_XDSMH + 1, y);
+											for (int i = 0; i < widthBANG_XSV - 2; i++)
+											{
+												cout << " ";
+											}
+											inMonHocTheoHang(k, y, viTri + 1);
+											break;
+										}
+									}
+								} while (true);
+							}
+							else if (viTriChinhSua == 2)
+							{
+								SetBGColor(green_Dark);
+								int kiTu = NhapChuoi(_TENMH, 40, XCOT2_XDSMH + 2, y);
+								k->MH.setTENMH(_TENMH);
+								gotoxy(MINX_ALERTTB, 24);
+								cout << " Da sua Ten MH ";
+								Sleep(1000);
+								xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+								gotoxy(XCOT2_XDSMH + 2 + strlen(_TENMH), y);
+							}
+							else if (viTriChinhSua == 3)
+							{
+
+								SetBGColor(green_Dark);
+								int checkSTCLT = NhapSo(c_STCLT, 3, XCOT3_XDSMH + 2,y);
+
+								//Nhập thành công
+								if (checkSTCLT != ESC)
+								{
+
+									_STCLT = atoi(c_STCLT);
+									k->MH.setLT(_STCLT);
+									gotoxy(MINX_ALERTTB, 24);
+									cout << " Da sua STCLT ";
+									Sleep(1000);
+									xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+									gotoxy(XCOT3_XDSMH + 2 + strlen(c_STCLT), y);
+
+								}
+							}
+							else if (viTriChinhSua == 4)
+							{
+								SetBGColor(green_Dark);
+								int checkSTCTH = NhapSo(c_STCTH, 3, XCOT4_XDSMH + 2, y);
+
+								//Nhập thành công
+								if (checkSTCTH != ESC)
+								{
+									_STCLT = atoi(c_STCTH);
+									k->MH.setLT(_STCTH);
+									gotoxy(MINX_ALERTTB, 24);
+									cout << " Da sua STCTH";
+									Sleep(1000);
+									xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+									gotoxy(XCOT4_XDSMH + 2 + strlen(c_STCTH), y);
+
+								}
+								
+							}
+							
+							break;
+						}
+						case Left:
+						{
+							int y = Y_FIST_MON + viTri - (trangHT - 1) * 10;
+							if (viTriChinhSua >1)
+							{
+								viTriChinhSua--;
+								if (viTriChinhSua == 1)
+								{
+									gotoxy(XCOT1_XDSMH + strlen(_MAMH) + 2, y);
+								}
+								else if (viTriChinhSua == 2)
+								{
+									gotoxy(XCOT2_XDSMH + strlen(_TENMH) + 2, y);
+								}
+								else if (viTriChinhSua == 3)
+								{
+									gotoxy(XCOT3_XDSMH + strlen(c_STCLT) + 1, y);
+								}
+								
+							}
+							break;
+						} //hết lệnh left
+						case Right:
+						{
+							int y = Y_FIST_MON + viTri - (trangHT - 1) * 10;
+							if (viTriChinhSua <4)
+							{
+								viTriChinhSua++;
+								}
+								else if (viTriChinhSua == 4)
+								{
+									gotoxy(XCOT4_XDSMH + strlen(c_STCTH) + 1, y);
+								}
+								else if (viTriChinhSua == 3)
+								{
+									gotoxy(XCOT3_XDSMH + strlen(c_STCLT) + 1, y);
+								}
+								else if (viTriChinhSua == 2)
+								{
+									gotoxy(XCOT2_XDSMH + strlen(_TENMH) + 1, y);
+								}
+
+							}
+							break;
+						
+						}
+					} while (1);
+					break;//hết lệnh f2
 				}
 
 			} while (1);

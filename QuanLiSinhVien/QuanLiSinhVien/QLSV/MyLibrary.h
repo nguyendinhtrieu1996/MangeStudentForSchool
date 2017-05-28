@@ -110,6 +110,8 @@ const int XCOT2_XDSMH = 65;
 const int XCOT3_XDSMH = 107;
 const int XCOT4_XDSMH = 111;
 const int Y_FIST_MON= MINY_XDSMH + 3;
+const int widthBANG_XMON = 70;
+const int heightBANG_XMON = 14;
 
 //Khởi tạo mặc định các tham số
 const int SoChuSo = 4;
