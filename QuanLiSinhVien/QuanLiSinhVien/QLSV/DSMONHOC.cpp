@@ -274,8 +274,8 @@ void DSMONHOC::xuatDSLMON()
 		
 		int stt = 0;
 		int size = 0;
-		//PTRNODEMH conTro[50];
-		PTRNODEMH* conTro = new PTRNODEMH[50];
+		PTRNODEMH conTro[50];
+		//PTRNODEMH* conTro = new PTRNODEMH[50];
 
 		
 		PTRNODEMH p=root;
@@ -584,8 +584,8 @@ void DSMONHOC::xuatDSLMON()
 								{
 
 									SetBGColor(green_Dark);
-									int kiTu = NhapChuoiVaChuSo(_MAMH, 15, XCOT1_XDSMH + 2, y); //Y_FIST_SV + viTri);
-																							  //Chuỗi mã Sinh viên trả về bị rỗng
+									int kiTu = NhapChuoiVaChuSo(_MAMH, 15, XCOT1_XDSMH + 2, y);
+									//Chuỗi mã môn học trả về bị rỗng
 									if (kiTu == -1)
 									{
 
@@ -595,13 +595,14 @@ void DSMONHOC::xuatDSLMON()
 										normal();
 										gotoxy(MINX_ALERTTB, MINY_ALERTTB);
 										int select = veKhungThongBao(title, message, td);
+										//chọn chỉnh sửa
 										if (select == 0)
 										{
-											//Cho biet chuoi dang rong
 											_MAMH[0] = '\0';
 											xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
 											continue;
 										}
+										//chọn hủy
 										else if (select == 1)
 										{
 											xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
@@ -769,7 +770,7 @@ void DSMONHOC::xuatDSLMON()
 
 			} while (1);
 
-			delete[] conTro;
+			//delete[] conTro;
 		getch();
 	}
 }
