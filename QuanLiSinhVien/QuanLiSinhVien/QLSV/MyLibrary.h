@@ -200,7 +200,7 @@ void veKhungNhapDSMONHOC();
 	hàm này sẽ trả về 0 nếu chọn vào menu 0 (có), 1 nếu chọn menu 1(không)
 */
 int veKhungThongBao(char title[], char message[], char td[][10]);
-void veTextField(char KQ[], char title[], char message[]);
+int veTextFieldNhapNamHoc(char KQ[], char title[], char message[]);
 int veTextFieldNhapKituSo(char KQ[], char title[], char message[]);
 void labelTable(char label[]);
 //hàm trả về năm hiện tại

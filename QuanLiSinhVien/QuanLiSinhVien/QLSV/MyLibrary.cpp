@@ -942,7 +942,7 @@ int veKhungThongBao(char title[], char message[], char td[][10])
 	} while (true);
 	return 0;
 }
-void veTextField(char KQ[], char title[], char message[])
+int veTextFieldNhapNamHoc(char KQ[], char title[], char message[])
 {
 	int x = wherex();
 	int y = wherey();
@@ -974,7 +974,8 @@ void veTextField(char KQ[], char title[], char message[])
 		cout << (char)196;
 	}
 	normal();
-	NhapSo(KQ, 4, MINX_ALERTTB + 13, wherey() - 1);
+	int kitu = NhapSo(KQ, 5, MINX_ALERTTB + 13, wherey() - 1);
+	return kitu;
 }
 int veTextFieldNhapKituSo(char KQ[], char title[], char message[])
 {

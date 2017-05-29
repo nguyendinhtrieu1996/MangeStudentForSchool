@@ -53,11 +53,11 @@ void DSLOP::nhapDSLOP()
 					{
 						return;
 					}
-					else if (check2 == 1)
+					else if (check2 == 1 || check2 == ESC)
 					{
 						xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
 						goto NHAPTENLOP;
-					}
+					} 
 				}
 				//Get năm hiện tại
 				int namHienTai = getNamHienTai();
@@ -65,19 +65,20 @@ void DSLOP::nhapDSLOP()
 				{
 					//Nhập năm học
 				NHAPNAMHOC:
-					int check3 = NhapSo(c_NH, 5, xCot2 + 3, MINY_BLOP + 4);
-					if (check3 == ESC)
+					int checkNH = NhapSo(c_NH, 5, xCot2 + 3, MINY_BLOP + 4);
+					if (checkNH == ESC)
 					{
 						char title[10] = "THONG BAO";
 						char message[30] = "Ban co muon thoat?";
 						char td[2][10] = { "    Co", "    Khong" };
 						gotoxy(MINX_ALERTTB, MINY_ALERTNL);
-						int check2 = veKhungThongBao(title, message, td);
-						if (check2 == 0)
+						int checkEXit = veKhungThongBao(title, message, td);
+						if (checkEXit == 0)
 						{
+							normal();
 							return;
 						}
-						else if (check2 == 1)
+						else if (checkEXit == 1 || checkEXit == ESC)
 						{
 							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
 							goto NHAPNAMHOC;
@@ -121,7 +122,7 @@ void DSLOP::nhapDSLOP()
 				gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 				int check2 = veKhungThongBao(title, message, td);
 				//Nguoi dung chon chinh sua noi dung bi trung
-				if (check2 == 0)
+				if (check2 == 0 || check2 == ESC)
 				{
 					xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
 					//Quay lại cho người dung chỉnh sửa thông tin bị trùng
@@ -144,7 +145,7 @@ void DSLOP::nhapDSLOP()
 			{
 				return;
 			}
-			else if (check2 == 1)
+			else if (check2 == 1 || check2 == ESC)
 			{
 				xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
 				goto NHAPTTLOP;
@@ -192,7 +193,12 @@ void DSLOP::xuatDSLOPNK()
 	bool flat = false;
 	do {
 		gotoxy(MINX_ALERTTB, MINY_ALERTNL - 3);
-		veTextField(c_NH, title, message);
+		int checkNH = veTextFieldNhapNamHoc(c_NH, title, message);
+		//Người dùng bấm ESC khi đang nhập năm học
+		if (checkNH == ESC)
+		{
+			return;
+		}
 		gotoxy(MINX_ALERTTB + 4, MINY_ALERTNL + 3);
 		for (int i = 0; i < widthAlert - 4; ++i)
 		{
