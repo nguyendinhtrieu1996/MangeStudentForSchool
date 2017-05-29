@@ -977,7 +977,7 @@ int veTextFieldNhapNamHoc(char KQ[], char title[], char message[])
 	int kitu = NhapSo(KQ, 5, MINX_ALERTTB + 13, wherey() - 1);
 	return kitu;
 }
-int veTextFieldNhapKituSo(char KQ[], char title[], char message[])
+int veTextFieldNhapKituSo(char KQ[], int MAX, char title[], char message[])
 {
 	int x = wherex();
 	int y = wherey();
@@ -1009,7 +1009,7 @@ int veTextFieldNhapKituSo(char KQ[], char title[], char message[])
 		cout << (char)196;
 	}
 	normal();
-	int kiTu = NhapChuoiVaChuSo(KQ, 15, MINX_ALERTTB + 10, wherey() - 1);
+	int kiTu = NhapChuoiVaChuSo(KQ, MAX, MINX_ALERTTB + 10, wherey() - 1);
 	return kiTu;
 }
 

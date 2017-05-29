@@ -82,9 +82,9 @@ const int MAXX_XSV = 115;
 const int MINY_XSV = 5;
 const int MAXY_XSV = 18;
 const int X_XSV_COT1 = 50;
-const int X_XSV_COT2 = 62;
-const int X_XSV_COT3 = 84;
-const int X_XSV_COT4 = 96;
+const int X_XSV_COT2 = 63;
+const int X_XSV_COT3 = 85;
+const int X_XSV_COT4 = 97;
 const int X_XSV_COT5 = 102;
 
 const int widthBANG_XSV = 70;
@@ -201,7 +201,7 @@ void veKhungNhapDSMONHOC();
 */
 int veKhungThongBao(char title[], char message[], char td[][10]);
 int veTextFieldNhapNamHoc(char KQ[], char title[], char message[]);
-int veTextFieldNhapKituSo(char KQ[], char title[], char message[]);
+int veTextFieldNhapKituSo(char KQ[], int MAX, char title[], char message[]);
 void labelTable(char label[]);
 //hàm trả về năm hiện tại
 int getNamHienTai();
@@ -215,9 +215,6 @@ void xoaPhanTu(T a[], int&n, int i)
 	}
 	--n;
 }
-
-//0 neu chuoi s1 > s2, tra ve -1 neu s1 < s2
-int soSanhChuoi(char s1[], char s2[]);
 
 void veKhungNhapTTSinhVien();
 void veKhungXuatSVTheoLop();

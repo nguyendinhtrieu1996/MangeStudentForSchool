@@ -15,7 +15,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 {
 	SINHVIEN SVIEN = p->SV;
 	hienThiTTSV(p);
-	char maSV[10], hoSV[20], tenSV[10], phai[4], sdt[12];
+	char maSV[11], hoSV[20], tenSV[10], phai[4], sdt[12];
 	maSV[0] = '\0';
 	hoSV[0] = '\0';
 	tenSV[0] = '\0';
@@ -75,7 +75,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 		}
 		case Right:
 		{
-					  if (viTriChinhSua <5)
+					  if (viTriChinhSua < 5)
 					  {
 						  viTriChinhSua++;
 						  if (viTriChinhSua == 5)
@@ -102,7 +102,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 			if (viTriChinhSua == 1){
 				do
 				{
-					int kiTu = NhapChuoiVaChuSo(maSV, 15, MINX_BSV + 1, y);
+					int kiTu = NhapChuoiVaChuSo(maSV, 11, MINX_BSV + 1, y);
 					//Chuỗi mã Sinh viên trả về bị rỗng
 					if (kiTu == -1)
 					{
@@ -608,9 +608,6 @@ void LOP::xuatDSSV(){
 			{
 				inSVTheoHang(p, Y_FIST_SV + stt - 1, stt);
 			}
-			//inSVTheoHang(p, MINY_XSV + 3 + stt, stt);
-			//cout << p->SV.getMASV() << p->SV.getHO() << p->SV.getPHAI() << p->SV.getSDT();
-			//stt++;
 		}
 		int TSTrang;
 		int trangHT = 1;

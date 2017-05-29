@@ -709,7 +709,7 @@ void DSLOP::chinhSuaTTLOP()
 	do
 	{
 		gotoxy(MINX_ALERTTB, MINY_ALERTNL - 3);
-		int kiTu = veTextFieldNhapKituSo(MLOP, title, message);
+		int kiTu = veTextFieldNhapKituSo(MLOP, 15, title, message);
 		if (kiTu == ESC)
 		{
 			return;
@@ -996,7 +996,7 @@ void DSLOP::xoaLOP()
 		do
 		{
 			gotoxy(MINX_ALERTTB, MINY_ALERTNL - 3);
-			int kiTu = veTextFieldNhapKituSo(MLOP, title, message);
+			int kiTu = veTextFieldNhapKituSo(MLOP, 15, title, message);
 			if (kiTu == ESC)
 			{
 				return;
@@ -1098,7 +1098,7 @@ bool DSLOP::nhapDSSVLOP()
 	maLop[0] = '\0';
 	do {
 		gotoxy(MINX_ALERTTB, MINY_ALERTNL - 3);
-		switch (veTextFieldNhapKituSo(maLop, title, message))
+		switch (veTextFieldNhapKituSo(maLop, 15, title, message))
 		{
 		case ESC:
 			return false;
@@ -1110,7 +1110,7 @@ bool DSLOP::nhapDSSVLOP()
 			{
 				gotoxy(MINX_ALERTTB + 4, MINY_ALERTNL + 3);
 				SetColor(red_hightlight);
-				cout << "Khong ton tai " << maLop;
+				cout << "Ma lop khong ton tai ";
 				Sleep(1000);
 				xoaNoiDungVe(MINX_ALERTTB + 4, MINY_ALERTNL + 3, 25, 1);
 			}
@@ -1142,7 +1142,7 @@ bool DSLOP::xuatDSSVLOP()
 	maLop[0] = '\0';
 	do {
 		gotoxy(MINX_ALERTTB, MINY_ALERTNL - 3);
-		switch (veTextFieldNhapKituSo(maLop, title, message)) 
+		switch (veTextFieldNhapKituSo(maLop, 15, title, message)) 
 		{
 		case ESC:
 			return false;
@@ -1157,7 +1157,7 @@ bool DSLOP::xuatDSSVLOP()
 				{
 					gotoxy(MINX_ALERTTB + 4, MINY_ALERTNL + 3);
 					SetColor(red_hightlight);
-					cout << "Khong ton tai " << maLop;
+					cout << "Ma lop khong ton tai";
 					/*Sleep(1000);
 					xoaNoiDungVe(MINX_ALERTTB + 4, MINY_ALERTNL + 3, 20, 1);*/
 
@@ -1229,13 +1229,13 @@ int DSLOP::suaTTSinhVien(){
 	labelTable(labelTb);
 	char title[] = "THONG BAO";
 	char message[] = "Nhap ma sinh vien chinh sua";
-	char maSV[10];
+	char maSV[11];
 	int k=-1;
 	PTRNODESV i = NULL;
 	maSV[0] = '\0';
 	do {
 		gotoxy(MINX_ALERTTB, MINY_ALERTNL - 3);
-		switch (veTextFieldNhapKituSo(maSV, title, message))
+		switch (veTextFieldNhapKituSo(maSV, 11, title, message))
 		{
 		case ESC:
 			return -1;
@@ -1243,11 +1243,11 @@ int DSLOP::suaTTSinhVien(){
 		case 0:
 			if (searchAllSV(maSV,k) == NULL && maSV[0] != '\0')
 			{
-				gotoxy(MINX_ALERTTB + 4, MINY_ALERTNL + 3);
+				gotoxy(MINX_ALERTTB + 2, MINY_ALERTNL + 3);
 				SetColor(red_hightlight);
-				cout << "Khong ton tai " << maSV;
+				cout << "Ma sinh vien khong ton tai ";
 				Sleep(1000);
-				xoaNoiDungVe(MINX_ALERTTB + 4, MINY_ALERTNL + 3, 20, 1);
+				xoaNoiDungVe(MINX_ALERTTB + 2, MINY_ALERTNL + 2, 25, 1);
 				//maSV[0] = '\0';
 
 			}
@@ -1266,7 +1266,7 @@ int DSLOP::suaTTSinhVien(){
 void DSLOP::xoaSV(){
 	int lop=0;
 	PTRNODESV SV;
-	char maSV[10];
+	char maSV[11];
 	gotoxy(77, 2);
 	setGreenText();
 	cout << "XOA SINH VIEN";
@@ -1279,22 +1279,24 @@ void DSLOP::xoaSV(){
 		do
 		{
 			gotoxy(MINX_ALERTTB, MINY_ALERTNL - 3);
-			int kiTu = veTextFieldNhapKituSo(maSV, title, message);
+			int kiTu = veTextFieldNhapKituSo(maSV, 11, title, message);
 			if (kiTu == ESC)
 			{
 				return;
 			}
-			gotoxy(MINX_ALERTTB + 4, MINY_ALERTNL + 3);
-			for (int i = 0; i < widthAlert - 4; ++i)
-			{
-				cout << " ";
-			}
+
 			SV = searchAllSV(maSV,lop);
 			if (SV==NULL)
 			{
-				gotoxy(MINX_ALERTTB + 4, MINY_ALERTNL + 3);
+				gotoxy(MINX_ALERTTB + 2, MINY_ALERTNL + 3);
 				SetColor(red_hightlight);
-				cout << " Ma SV khong hop le!";
+				cout << " Ma sinh vien khong ton tai!";
+				Sleep(1000);
+				gotoxy(MINX_ALERTTB + 2, MINY_ALERTNL + 3);
+				for (int i = 0; i < widthAlert - 1; ++i)
+				{
+					cout << " ";
+				}
 				continue;
 			}
 			else
