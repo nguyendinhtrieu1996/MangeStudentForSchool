@@ -989,7 +989,7 @@ void LOP::xuatDSSV(){
 							   {
 								  
 								   SetBGColor(green_Dark);
-								   int kiTu = NhapChuoi(tenSV, constTEN, X_XSV_COT3 + 2,y);
+								   int kiTu = NhapChuoi(tenSV, constTENSV, X_XSV_COT3 + 2,y);
 								   k->SV.setTEN(tenSV);
 								   gotoxy(MINX_ALERTTB, 24);
 								   cout << " Da sua ten SV ";
