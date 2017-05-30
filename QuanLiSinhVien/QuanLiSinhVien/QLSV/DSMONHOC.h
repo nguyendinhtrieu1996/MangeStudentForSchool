@@ -17,9 +17,9 @@ public:
 	PTRNODEMH kiemTraMH(char maMH[]);
 
 	void xuatDSLMON();
-	void duyetMAMHtang(PTRNODEMH, PTRNODEMH*, int&);
-	void xepDSTangTheoTenMH(PTRNODEMH*, int,int);
-	void xepDSTangTheoTenMHdemo(PTRNODEMH*, int);
+	void duyetMAMHtang(PTRNODEMH, PTRNODEMH a[], int&);
+	void xepDSTangTheoTenMH(PTRNODEMH a[], int,int);
+	void xepDSTangTheoTenMHdemo(PTRNODEMH a[], int);
 	void inMonHocTheoHang(PTRNODEMH, int, int);
 	~DSMONHOC();
 };

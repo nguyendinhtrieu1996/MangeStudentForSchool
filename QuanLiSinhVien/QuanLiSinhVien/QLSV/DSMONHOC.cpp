@@ -275,10 +275,8 @@ void DSMONHOC::xuatDSLMON()
 		int stt = 0;
 		int size = 0;
 		PTRNODEMH conTro[50];
-		//PTRNODEMH* conTro = new PTRNODEMH[50];
 
-		
-		PTRNODEMH p=root;
+		PTRNODEMH p = root;
 		duyetMAMHtang(p, conTro, size);
 
 		//xep danh sách tăng dần theo tên môn học
@@ -634,7 +632,7 @@ void DSMONHOC::xuatDSLMON()
 									{
 										break;
 									}
-									//Mãmôn học bị trùng
+									//Mã môn học bị trùng
 									else if (kiemTraMH(_MAMH) != NULL && kiTu == 0)
 									{
 										char title[] = "THONG BAO";
@@ -775,18 +773,20 @@ void DSMONHOC::xuatDSLMON()
 	}
 }
 
-void DSMONHOC::duyetMAMHtang(PTRNODEMH p, PTRNODEMH *a, int &size)
+void DSMONHOC::duyetMAMHtang(PTRNODEMH p, PTRNODEMH a[], int &size)
 {
 	if (p != NULL)
 	{
-		duyetMAMHtang(p->left, a,size);
+		gotoxy(10, 60 + size);
+		cout << p->MAMH;
 		a[size++] = p;
+		duyetMAMHtang(p->left, a,size);
 		duyetMAMHtang(p->right, a,size);
 	}
 }
 
 //xếp qicksort :)) nhiều phần tử bị đứng ko biết sao hết :))
-void DSMONHOC::xepDSTangTheoTenMH(PTRNODEMH *a, int q,int r)
+void DSMONHOC::xepDSTangTheoTenMH(PTRNODEMH a[], int q,int r)
 {
 	PTRNODEMH temp;
 	int i = q;
@@ -807,12 +807,10 @@ void DSMONHOC::xepDSTangTheoTenMH(PTRNODEMH *a, int q,int r)
 	} while (i <= j);
 	if (q < j) xepDSTangTheoTenMH(a, q, j);
 	if (i < r) xepDSTangTheoTenMH(a, i, r);
-
-
 }
 
 //cách xếp củ chuối :))) củ chuối nhưng chạy ổn định 
-void DSMONHOC::xepDSTangTheoTenMHdemo(PTRNODEMH *a, int size)
+void DSMONHOC::xepDSTangTheoTenMHdemo(PTRNODEMH a[], int size)
 {
 	PTRNODEMH temp;
 	
@@ -826,12 +824,6 @@ void DSMONHOC::xepDSTangTheoTenMHdemo(PTRNODEMH *a, int size)
 		}
 	}
 }
-
-
-
-
-
-
 
 void DSMONHOC::inMonHocTheoHang(PTRNODEMH p, int y, int stt)
 {

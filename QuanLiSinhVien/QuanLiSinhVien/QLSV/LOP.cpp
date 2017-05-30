@@ -888,7 +888,7 @@ void LOP::xuatDSSV(){
 								   {
 									   
 									   SetBGColor(green_Dark);
-									   int kiTu = NhapChuoiVaChuSo(maSV, 15, X_XSV_COT1 + 2,y); //Y_FIST_SV + viTri);
+									   int kiTu = NhapChuoiVaChuSo(maSV, 11, X_XSV_COT1 + 2,y); //Y_FIST_SV + viTri);
 									   //Chuỗi mã Sinh viên trả về bị rỗng
 									   if (kiTu == -1)
 									   {
