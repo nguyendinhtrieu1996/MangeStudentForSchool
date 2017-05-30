@@ -217,7 +217,6 @@ NHAPMAMH:
 			xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
 			goto NHAPMAMH;
 		}
-	
 	}
 }
 
