@@ -11,6 +11,6 @@ const int constNumberDSLOP = 100;
 //Hằng số sinh viên
 const int constMASV = 11;
 const int constHO = 20;
-const int constTEN = 10;
+//const int constTENSV = 10;
 const int constPHAI = 4;
 const int constSDT = 12;

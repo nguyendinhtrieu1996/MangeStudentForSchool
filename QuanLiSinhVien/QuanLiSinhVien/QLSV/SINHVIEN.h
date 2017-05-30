@@ -7,7 +7,7 @@ class SINHVIEN
 private:
 	char MASV[constMASV];
 	char HO[constHO];
-	char TEN[constTEN];
+	char TEN[constTENSV];
 	char PHAI[constPHAI];
 	char SDT[constSDT];
 	PTRNODEDIEM dsDiem;

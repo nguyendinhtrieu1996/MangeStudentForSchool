@@ -265,6 +265,7 @@ int NhapChuoiVaChuSo(char a[], int MAX, int x, int y)
 		}
 		if (n == 0 && kiTu == Enter)
 		{
+			a[n] = '\0';
 			return -1;
 		}
 		else
@@ -1026,7 +1027,7 @@ void paintNormalButton(int x, int y, char label[], int width, int height) {
 }
 void highLightButton(int x, int y, char label[], int width, int height) {
 	highLight();
-	for (int i = 0; i < height; ++i)
+	for (int i = 0; i < height; ++i) 
 	{
 		gotoxy(x, y + i);
 		cout << setw(width) << "  ";

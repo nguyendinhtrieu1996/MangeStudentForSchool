@@ -15,7 +15,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 {
 	SINHVIEN SVIEN = p->SV;
 	hienThiTTSV(p);
-	char maSV[constMASV], hoSV[constHO], tenSV[constTEN], phai[constPHAI], sdt[constSDT];
+	char maSV[constMASV], hoSV[constHO], tenSV[constTENSV], phai[constPHAI], sdt[constSDT];
 	maSV[0] = '\0';
 	hoSV[0] = '\0';
 	tenSV[0] = '\0';
@@ -207,7 +207,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 			}
 			else if (viTriChinhSua == 3){
 				do{
-					int kiTu = NhapChuoi(tenSV, constTEN, svCot2 + 2, y);
+					int kiTu = NhapChuoi(tenSV, constTENSV, svCot2 + 2, y);
 					if (tenSV[0]=='/0')
 					{
 						gotoxy(MINX_ALERTTB, 24);
@@ -424,7 +424,7 @@ void LOP::createDSSV()
 		SetColor(15);
 	veKhungNhapTTSinhVien();
 	
-	char maSV[constMASV], hoSV[constHO], tenSV[constTEN], phai[constPHAI], sdt[constSDT];
+	char maSV[constMASV], hoSV[constHO], tenSV[constTENSV], phai[constPHAI], sdt[constSDT];
 	maSV[0] = '\0';
 	hoSV[0] = '\0';
 	tenSV[0] = '\0';
@@ -472,7 +472,7 @@ NHAPTTSV:
 				}
 			}
 		NHAP_TENSV:
-			int checkTEN = NhapChuoi(tenSV, constTEN, svCot2 + 1, MINY_BSV + 4);
+			int checkTEN = NhapChuoi(tenSV, constTENSV, svCot2 + 1, MINY_BSV + 4);
 			if (checkTEN == ESC)
 			{
 
@@ -711,7 +711,7 @@ void LOP::xuatDSSV(){
 				{
 					k = conTro[viTri]; 
 
-					char maSV[constMASV], hoSV[constHO], tenSV[constTEN], phai[constPHAI], sdt[constSDT];
+					char maSV[constMASV], hoSV[constHO], tenSV[constTENSV], phai[constPHAI], sdt[constSDT];
 					maSV[0] = '\0';
 					hoSV[0] = '\0';
 					tenSV[0] = '\0';
@@ -989,7 +989,7 @@ void LOP::xuatDSSV(){
 							   {
 								  
 								   SetBGColor(green_Dark);
-								   int kiTu = NhapChuoi(tenSV, constTEN, X_XSV_COT3 + 2,y);
+								   int kiTu = NhapChuoi(tenSV, constTENSV, X_XSV_COT3 + 2,y);
 								   k->SV.setTEN(tenSV);
 								   gotoxy(MINX_ALERTTB, 24);
 								   cout << " Da sua ten SV ";
