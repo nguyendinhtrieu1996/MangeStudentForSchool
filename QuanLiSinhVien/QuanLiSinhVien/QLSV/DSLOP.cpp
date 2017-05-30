@@ -36,7 +36,7 @@ void DSLOP::nhapDSLOP()
 
 	NHAPTTLOP:
 		//Nếu MLOP rỗng thì trả về 0 nếu lớp hợp lệ, -1 nếu chuỗi rỗng
-	int checkMALOP = NhapChuoiVaChuSo(MLOP, constMALOP, MINX_BLOP + 2, MINY_BLOP + 4);
+		int checkMALOP = NhapChuoiVaChuSo(MLOP, constMALOP, MINX_BLOP + 2, MINY_BLOP + 4);
 		if (checkMALOP == successfull)
 		{
 			//Kiểm tra lớp có tồn tại không, nếu không tồn tại trả về -1
@@ -67,8 +67,6 @@ void DSLOP::nhapDSLOP()
 
 				//Get năm hiện tại
 				int namHienTai = getNamHienTai();
-				do
-				{
 				//Nhập năm học
 				NHAPNAMHOC:
 					int checkNH = NhapSo(c_NH, 5, xCot2 + 3, MINY_BLOP + 4);
@@ -92,30 +90,31 @@ void DSLOP::nhapDSLOP()
 					}
 					NH = atoi(c_NH);
 					/*
-						năm học phải <= năm hiện tại
+						năm học phải <= năm hiện tại và > 1900
 						Nếu năm học lớn hơn năm hiện tại hiện bảng thông báo cho người dùng
 						cho họ chọn sửa lại hoặc thoát khỏi chức năng
+
 					*/
 
-					if (NH > namHienTai)
+					if (NH > namHienTai || NH < 1900)
 					{
 						char title[10] = "THONG BAO";
 						char message[30] = "Nam hoc khong hop le!";
 						char td[2][10] = { "Chinh sua", "    Thoat" };
 						gotoxy(MINX_ALERTTB, MINY_ALERTNL);
-						int check2 = veKhungThongBao(title, message, td);
+						int checkNAMHOC = veKhungThongBao(title, message, td);
 						//Nguoi dung chon chinh sua noi dung bi trung
-						if (check2 == 0)
+						if (checkNAMHOC == 0 || checkNAMHOC == ESC)
 						{
 							//Xóa bảng thông báo vừa in ra
 							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+							goto NHAPNAMHOC;
 						}
-						else if (check2 == -1)
+						else if (checkNAMHOC == 1)
 						{
 							return;
 						}
 					}
-				} while (NH > namHienTai);
 
 				DANHSACHLOP[SL].nhapLOP(MLOP, TENL, NH);
 				SL++;
