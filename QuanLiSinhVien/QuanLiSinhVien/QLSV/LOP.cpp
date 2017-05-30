@@ -15,17 +15,20 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 {
 	SINHVIEN SVIEN = p->SV;
 	hienThiTTSV(p);
-	char maSV[11], hoSV[20], tenSV[10], phai[4], sdt[12];
+	char maSV[constMASV], hoSV[constHO], tenSV[constTEN], phai[constPHAI], sdt[constSDT];
 	maSV[0] = '\0';
 	hoSV[0] = '\0';
 	tenSV[0] = '\0';
 	phai[0] = '\0';
 	sdt[0] = '\0';
+
+	//gan gia tri
 	strcpy(maSV, p->SV.getMASV());
 	strcpy(hoSV, p->SV.getHO());
 	strcpy(tenSV, p->SV.getTEN());
 	strcpy(phai, p->SV.getPHAI());
 	strcpy(sdt, p->SV.getSDT());
+
 	//Cho biết nếu bấm F2 sẽ vào cột nào để chỉnh sửa (nếu nhấn F5 sẽ giảm 1, F6 sẽ tăng 1)
 	int viTriChinhSua = 1;
 	int y = MINY_BSV + 4;
@@ -102,7 +105,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 			if (viTriChinhSua == 1){
 				do
 				{
-					int kiTu = NhapChuoiVaChuSo(maSV, 11, MINX_BSV + 1, y);
+					int kiTu = NhapChuoiVaChuSo(maSV, constMASV, MINX_BSV + 1, y);
 					//Chuỗi mã Sinh viên trả về bị rỗng
 					if (kiTu == -1)
 					{
@@ -141,7 +144,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 					{
 						p->SV.setMASV(maSV);
 						gotoxy(MINX_ALERTTB, 24);
-						cout << "da sua ma sv";
+						cout << "Da sua MASV";
 						Sleep(1000);
 						xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
 						gotoxy(MINX_BSV +1 + strlen(maSV), y);
@@ -180,7 +183,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 			}
 			else if (viTriChinhSua == 2){
 				do{
-					int kiTu = NhapChuoi(hoSV, 20, svCot1 + 2, y);
+					int kiTu = NhapChuoi(hoSV, constHO, svCot1 + 2, y);
 					if (hoSV[0] == '/0')
 					{
 						gotoxy(MINX_ALERTTB, 24);
@@ -204,7 +207,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 			}
 			else if (viTriChinhSua == 3){
 				do{
-					int kiTu = NhapChuoi(tenSV, 10, svCot2 + 2, y);
+					int kiTu = NhapChuoi(tenSV, constTEN, svCot2 + 2, y);
 					if (tenSV[0]=='/0')
 					{
 						gotoxy(MINX_ALERTTB, 24);
@@ -229,7 +232,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 			}
 			else if (viTriChinhSua == 4){
 				do{
-					int kiTu = NhapChuoi(phai, 4, svCot3 + 1, y);
+					int kiTu = NhapChuoi(phai, constPHAI, svCot3 + 1, y);
 					if (strcmp(phai, "NAM") != 0 && strcmp(phai, "NU") != 0)
 					{
 						gotoxy(MINX_ALERTTB, 24);
@@ -253,7 +256,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 			}
 			else if (viTriChinhSua == 5){
 				do{
-					int kiTu = NhapSo(sdt, 12, svCot4 + 1,y);
+					int kiTu = NhapSo(sdt, constSDT, svCot4 + 1,y);
 					if (strlen(sdt)<10)
 					{
 						gotoxy(MINX_ALERTTB, 24);
@@ -421,16 +424,17 @@ void LOP::createDSSV()
 		SetColor(15);
 	veKhungNhapTTSinhVien();
 	
-	char maSV[11], hoSV[20], tenSV[10], phai[4], sdt[12];
+	char maSV[constMASV], hoSV[constHO], tenSV[constTEN], phai[constPHAI], sdt[constSDT];
 	maSV[0] = '\0';
 	hoSV[0] = '\0';
 	tenSV[0] = '\0';
 	phai[0] = '\0';
 	sdt[0] = '\0';
+
 NHAPTTSV:
 	//check nhận giá trị 0 nếu MASV nhập đúng chuẩn, -1 nếu chuỗi rỗng, ESC nếu người dùng bấm thoát
-	int check1 = NhapChuoiVaChuSo(maSV, 11, MINX_BSV + 1, MINY_BSV + 4);
-	if (check1 == 0)
+	int checkMASV = NhapChuoiVaChuSo(maSV, constMASV, MINX_BSV + 1, MINY_BSV + 4);
+	if (checkMASV == 0)
 	{
 		//Kiểm tra mã sinh viên có tồn tại không, nếu không tồn tại trả về NULL
 		if (searchSV(maSV) != NULL){ //mã sv đã tồn tại
@@ -452,8 +456,8 @@ NHAPTTSV:
 		{
 		NHAP_HOSV:
 			//Nhập Ho sv, không cho phép rỗng
-			int check2 = NhapChuoi(hoSV, 20, svCot1 + 1, MINY_BSV + 4);
-			if (check2 == ESC)
+			int checkHO = NhapChuoi(hoSV, constHO, svCot1 + 1, MINY_BSV + 4);
+			if (checkHO == ESC)
 			{
 				gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 				int check2 = veKhungThongBao(title, message, td);
@@ -468,8 +472,8 @@ NHAPTTSV:
 				}
 			}
 		NHAP_TENSV:
-			int check3 = NhapChuoi(tenSV, 10, svCot2 + 1, MINY_BSV + 4);
-			if (check3 == ESC)
+			int checkTEN = NhapChuoi(tenSV, constTEN, svCot2 + 1, MINY_BSV + 4);
+			if (checkTEN == ESC)
 			{
 
 				gotoxy(MINX_ALERTTB, MINY_ALERTNL);
@@ -485,8 +489,8 @@ NHAPTTSV:
 				}
 			}
 		NHAP_PHAI:
-			int check4 = NhapChuoi(phai, 4, svCot3 + 1, MINY_BSV + 4);
-			if (check4 == 0){
+			int checkPHAI = NhapChuoi(phai, constPHAI, svCot3 + 1, MINY_BSV + 4);
+			if (checkPHAI == 0){
 				if (strcmp(phai, "NAM") != 0 && strcmp(phai, "NU") != 0)
 				{
 					gotoxy(MINX_ALERTTB, MINY_ALERTNL);
@@ -499,7 +503,7 @@ NHAPTTSV:
 
 				}
 			}
-			else if (check4 == ESC)
+			else if (checkPHAI == ESC)
 			{
 				gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 				int check4 = veKhungThongBao(title, message, td);
@@ -514,8 +518,8 @@ NHAPTTSV:
 				}
 			}
 		NHAP_SDT:
-			int check5 = NhapSo(sdt, 12, svCot4 + 1, MINY_BSV + 4);
-			if (check5 == 0){
+			int checkSDT = NhapSo(sdt, constSDT, svCot4 + 1, MINY_BSV + 4);
+			if (checkSDT == 0){
 				if (strlen(sdt)<10)
 				{
 					gotoxy(MINX_ALERTTB, MINY_ALERTNL);
@@ -528,7 +532,7 @@ NHAPTTSV:
 
 				}
 			}
-			else if (check5 == ESC)
+			else if (checkSDT == ESC)
 			{
 				gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 				int check5 = veKhungThongBao(title, message, td);
@@ -546,7 +550,7 @@ NHAPTTSV:
 		SINHVIEN sv(maSV, hoSV, tenSV, phai, sdt);
 		insertLast(sv);
 	}
-	else if (check1 == ESC || check1 == -1)
+	else if (checkMASV == ESC || checkMASV == -1)
 	{
 		gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 		int check2 = veKhungThongBao(title, message, td);
@@ -706,12 +710,14 @@ void LOP::xuatDSSV(){
 				do
 				{
 					k = conTro[viTri]; 
-					char maSV[11], hoSV[20], tenSV[10], phai[4], sdt[12];
+
+					char maSV[constMASV], hoSV[constHO], tenSV[constTEN], phai[constPHAI], sdt[constSDT];
 					maSV[0] = '\0';
 					hoSV[0] = '\0';
 					tenSV[0] = '\0';
 					phai[0] = '\0';
 					sdt[0] = '\0';
+
 					//gán giá trị 
 					strcpy(maSV, k->SV.getMASV());
 					strcpy(hoSV, k->SV.getHO());
@@ -888,7 +894,7 @@ void LOP::xuatDSSV(){
 								   {
 									   
 									   SetBGColor(green_Dark);
-									   int kiTu = NhapChuoiVaChuSo(maSV, 11, X_XSV_COT1 + 2,y); //Y_FIST_SV + viTri);
+									   int kiTu = NhapChuoiVaChuSo(maSV, constMASV, X_XSV_COT1 + 2,y); 
 									   //Chuỗi mã Sinh viên trả về bị rỗng
 									   if (kiTu == -1)
 									   {
@@ -971,7 +977,7 @@ void LOP::xuatDSSV(){
 							   else if (viTriChinhSua == 2)
 							   {
 								   SetBGColor(green_Dark);
-								   int kiTu = NhapChuoi(hoSV, 39, X_XSV_COT2 + 2,y);
+								   int kiTu = NhapChuoi(hoSV, constHO, X_XSV_COT2 + 2,y);
 								   k->SV.setHO(hoSV);
 								   gotoxy(MINX_ALERTTB, 24);
 								   cout << " Da sua ho sv ";
@@ -983,7 +989,7 @@ void LOP::xuatDSSV(){
 							   {
 								  
 								   SetBGColor(green_Dark);
-								   int kiTu = NhapChuoi(tenSV, 10, X_XSV_COT3 + 2,y);
+								   int kiTu = NhapChuoi(tenSV, constTEN, X_XSV_COT3 + 2,y);
 								   k->SV.setTEN(tenSV);
 								   gotoxy(MINX_ALERTTB, 24);
 								   cout << " Da sua ten SV ";
@@ -991,13 +997,13 @@ void LOP::xuatDSSV(){
 								   xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
 								   gotoxy(X_XSV_COT3 + 2 + strlen(tenSV), y);
 							   }
+
 							   else if (viTriChinhSua == 4)
 							   {
 								   do{
 
-								   
 								   SetBGColor(green_Dark);
-								   int kiTu = NhapChuoi(phai, 4, X_XSV_COT4 + 2,y);
+								   int kiTu = NhapChuoi(phai, constPHAI, X_XSV_COT4 + 2,y);
 								   if (strcmp(phai, "NAM") != 0 && strcmp(phai, "NU") != 0)
 								   {
 									   gotoxy(MINX_ALERTTB, 24);
@@ -1023,7 +1029,9 @@ void LOP::xuatDSSV(){
 								   do{
 
 									   SetBGColor(green_Dark);
-									   int kiTu = NhapSo(sdt, 12, X_XSV_COT5 + 2,y);
+
+									   int kiTu = NhapSo(sdt, constSDT, X_XSV_COT5 + 2,y);
+
 									   if (strlen(sdt)<10)
 									   {
 										   gotoxy(MINX_ALERTTB, 24);

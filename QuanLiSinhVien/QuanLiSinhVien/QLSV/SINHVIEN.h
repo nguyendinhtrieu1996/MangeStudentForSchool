@@ -1,14 +1,15 @@
 #pragma once
 #include "NODEDIEM.h"
+#include "Constant.h"
 
 class SINHVIEN
 {
 private:
-	char MASV[11];
-	char HO[20];
-	char TEN[10];
-	char PHAI[4];
-	char SDT[12];
+	char MASV[constMASV];
+	char HO[constHO];
+	char TEN[constTEN];
+	char PHAI[constPHAI];
+	char SDT[constSDT];
 	PTRNODEDIEM dsDiem;
 public:
 	SINHVIEN();
