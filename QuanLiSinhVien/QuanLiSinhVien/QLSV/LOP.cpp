@@ -743,7 +743,7 @@ void LOP::xuatDSSV(){
 							SetBGColor(black);
 							for (int i = MINX_XSV + 1; i <=MAXX_XSV; ++i)
 							{
-								if (i == X_XSV_COT1 || i == X_XSV_COT2 || i == X_XSV_COT3 || i == X_XSV_COT4 || i == X_XSV_COT5 || i == MAXX_XSV){
+								if (i == X_XSV_COT1 || i == X_XSV_COT2 || i == X_XSV_COT3 || i == X_XSV_COT4 || i == X_XSV_COT5 || i == MAXX_XSV) {
 									cout << (char)179;
 								}
 								else

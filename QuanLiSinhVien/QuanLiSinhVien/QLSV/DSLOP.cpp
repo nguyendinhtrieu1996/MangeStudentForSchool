@@ -1,5 +1,5 @@
 ﻿#include "DSLOP.h"
-//ahihihihihihi
+
 DSLOP::DSLOP()
 {
 	SL = 0;
@@ -15,7 +15,9 @@ void DSLOP::nhapDSLOP()
 		char MLOP[15];
 		char TENL[38];
 		int NH;
+		//Lưu năm học dạng chuỗi
 		char c_NH[5];
+		/*Khỏi tạo tất cả các chuỗi ban đầu là rỗng*/
 		MLOP[0] = '\0';
 		TENL[0] = '\0';
 		c_NH[0] = '\0';
@@ -31,39 +33,43 @@ void DSLOP::nhapDSLOP()
 
 		setNormallText();
 		veKhungNhapTTLop();
+
 	NHAPTTLOP:
 		//Nếu MLOP rỗng thì trả về 0 nếu lớp hợp lệ, -1 nếu chuỗi rỗng
-	int check1 = NhapChuoiVaChuSo(MLOP, 15, MINX_BLOP + 2, MINY_BLOP + 4);
-		if (check1 == 0)
+	int checkMALOP = NhapChuoiVaChuSo(MLOP, constMALOP, MINX_BLOP + 2, MINY_BLOP + 4);
+		if (checkMALOP == successfull)
 		{
 			//Kiểm tra lớp có tồn tại không, nếu không tồn tại trả về -1
-			if (searchLOP(MLOP) == -1)
+			if (searchLOP(MLOP) == fail)
 			{
 			NHAPTENLOP: 
 				//Nhập tên lớp, không cho phép rỗng
-				int check2 = NhapChuoi(TENL, 38, xCot1 + 2, MINY_BLOP + 4);
-				if (check2 == ESC)
+				int checkTENLOP = NhapChuoi(TENL, constTENLOP, xCot1 + 2, MINY_BLOP + 4);
+				if (checkTENLOP == ESC)
 				{
 					char title[10] = "THONG BAO";
 					char message[30] = "Ban co muon thoat?";
 					char td[2][10] = { "    Co", "    Khong" };
 					gotoxy(MINX_ALERTTB, MINY_ALERTNL);
-					int check2 = veKhungThongBao(title, message, td);
-					if (check2 == 0)
+					int checkTHONGBAO = veKhungThongBao(title, message, td);
+					//Nguoi dung chon Thoat
+					if (checkTHONGBAO == 0)
 					{
 						return;
 					}
-					else if (check2 == 1 || check2 == ESC)
+					//Nguoi dung chon tiep tuc
+					else if (checkTHONGBAO == 1 || checkTHONGBAO == ESC)
 					{
 						xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
 						goto NHAPTENLOP;
 					} 
 				}
+
 				//Get năm hiện tại
 				int namHienTai = getNamHienTai();
 				do
 				{
-					//Nhập năm học
+				//Nhập năm học
 				NHAPNAMHOC:
 					int checkNH = NhapSo(c_NH, 5, xCot2 + 3, MINY_BLOP + 4);
 					if (checkNH == ESC)
@@ -134,7 +140,7 @@ void DSLOP::nhapDSLOP()
 				}
 			}
 		}
-		else if (check1 == ESC || check1 == -1)
+		else if (checkMALOP == ESC || checkMALOP == -1)
 		{
 			char title[10] = "THONG BAO";
 			char message[30] = "Ban co muon thoat?";
