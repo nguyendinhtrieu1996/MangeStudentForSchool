@@ -9,6 +9,7 @@
 #include <iomanip> 
 #include <stdlib.h>
 #include <ctime>
+#include "Constant.h"
 using namespace std;
 
 // Tọa độ bảng nhập thông tin của lớp

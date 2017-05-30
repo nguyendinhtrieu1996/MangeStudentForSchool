@@ -12,8 +12,8 @@ void DSLOP::nhapDSLOP()
 	cout << "NHAP DANH SACH LOP";
 	for (int i = 0; i < 100; ++i)
 	{
-		char MLOP[15];
-		char TENL[38];
+		char MLOP[constMALOP];
+		char TENL[constTENLOP];
 		int NH;
 		//Lưu năm học dạng chuỗi
 		char c_NH[5];
@@ -182,7 +182,8 @@ void DSLOP::xuatDSLOPNK()
 	int TSTrang;
 	int trangHT = 1;
 	// Luu nam hoc dạng chuỗi
-	char c_NH[5];
+	char c_NH[constNAMHOC];
+
 	c_NH[0] = '\0';
 	// Lưu  năm học dạng số
 	int NH;
@@ -209,6 +210,7 @@ void DSLOP::xuatDSLOPNK()
 		{
 			cout << " ";
 		}
+		//Chuyển chuỗi năm học sang dạng số
 		NH = atoi(c_NH);
 
 		if (NH > namHT)
@@ -220,6 +222,8 @@ void DSLOP::xuatDSLOPNK()
 		}
 
 		flat = false;
+		//Duyệt qua danh sách lớp kiểm tra xem có lớp nào có năm học
+		// trùng với năm người dùng nhập không
 		for (int i = 0; i < SL; ++i)
 		{
 			if (NH == DANHSACHLOP[i].getNH())
@@ -250,7 +254,7 @@ void DSLOP::xuatDSLOPNK()
 	//Luu tong so LOP thoa dieu kien
 	int stt = 0;
 	//Mảng chiSo dùng để lưu chỉ số các phan tu trong mang DANHSACHLOP có năm nhap hoc = nam do do nguoi dung nhap
-	int chiSo[100];
+	int chiSo[constNumberDSLOP];
 	for (int i = 0; i < SL; ++i)
 	{
 		if (NH == DANHSACHLOP[i].NAMHOC)
@@ -363,9 +367,9 @@ void DSLOP::xuatDSLOPNK()
 			{
 				k = chiSo[currentIndex];
 
-				char ML[15];
-				char TENL[38];
-				char namhoc[5];
+				char ML[constMALOP];
+				char TENL[constTENLOP];
+				char namhoc[constNAMHOC];
 
 				ML[0] = '\0';
 				TENL[0] = '\0';
@@ -527,7 +531,7 @@ void DSLOP::xuatDSLOPNK()
 						do
 						{
 							SetBGColor(green_Dark);
-							int kiTu = NhapChuoiVaChuSo(ML, 15, X_XLOP_COT1 + 2, Y_FIST_LOP + currentIndex);
+							int kiTu = NhapChuoiVaChuSo(ML, constMALOP, X_XLOP_COT1 + 2, Y_FIST_LOP + currentIndex);
 							//Chuỗi mã lớp trả về bị rỗng
 							if (kiTu == -1)
 							{
@@ -605,7 +609,7 @@ void DSLOP::xuatDSLOPNK()
 					else if (viTriChinhSua == 2)
 					{
 						SetBGColor(green_Dark);
-						int kiTu = NhapChuoi(TENL, 39, X_XLOP_COT2 + 3, Y_FIST_LOP + currentIndex);
+						int kiTu = NhapChuoi(TENL, constTENLOP, X_XLOP_COT2 + 3, Y_FIST_LOP + currentIndex);
 						DANHSACHLOP[k].setTENL(TENL);
 					}
 					else if (viTriChinhSua == 3)
@@ -613,7 +617,7 @@ void DSLOP::xuatDSLOPNK()
 						int NHOC;
 						do
 						{
-							NhapSo(namhoc, 5, X_XLOP_COT3 + 2, Y_FIST_LOP + currentIndex);
+							NhapSo(namhoc, constNAMHOC, X_XLOP_COT3 + 2, Y_FIST_LOP + currentIndex);
 							NHOC = atoi(namhoc);
 							if (NHOC > namHT)
 							{
@@ -700,10 +704,10 @@ void DSLOP::xuatDSLOPNK()
 void DSLOP::chinhSuaTTLOP()
 {
 	int x;
-	char TENL[38];
-	char c_NH[5];
+	char TENL[constTENLOP];
+	char c_NH[constNAMHOC];
 	int NAMHOC;
-	char MLOP[15];
+	char MLOP[constMALOP];
 	MLOP[0] = '\0';
 	gotoxy(72, 2);
 	setGreenText();
@@ -714,7 +718,7 @@ void DSLOP::chinhSuaTTLOP()
 	do
 	{
 		gotoxy(MINX_ALERTTB, MINY_ALERTNL - 3);
-		int kiTu = veTextFieldNhapKituSo(MLOP, 15, title, message);
+		int kiTu = veTextFieldNhapKituSo(MLOP, constMALOP, title, message);
 		if (kiTu == ESC)
 		{
 			return;
@@ -813,7 +817,7 @@ void DSLOP::chinhSuaTTLOP()
 			{
 				do
 				{
-					int check = NhapChuoiVaChuSo(MLOP, 15, MINX_BLOP + 2, MINY_BLOP + 4);
+					int check = NhapChuoiVaChuSo(MLOP, constMALOP, MINX_BLOP + 2, MINY_BLOP + 4);
 					if (check == -1)
 					{
 
@@ -909,7 +913,7 @@ void DSLOP::chinhSuaTTLOP()
 			{
 				do
 				{
-					int check = NhapChuoi(TENL, 38, xCot1 + 2, MINY_BLOP + 4);
+					int check = NhapChuoi(TENL, constTENLOP, xCot1 + 2, MINY_BLOP + 4);
 					if (check == ESC)
 					{
 						TENL[0] = '\0';
@@ -926,7 +930,7 @@ void DSLOP::chinhSuaTTLOP()
 			{
 				do
 				{
-					int check = NhapSo(c_NH, 5, xCot2 + 3, MINY_BLOP + 4);
+					int check = NhapSo(c_NH, constNAMHOC, xCot2 + 3, MINY_BLOP + 4);
 					NAMHOC = atoi(c_NH);
 					int namHT = getNamHienTai();
 
@@ -984,10 +988,10 @@ void DSLOP::chinhSuaTTLOP()
 void DSLOP::xoaLOP()
 {
 	int x;
-	char TENL[38];
-	char c_NH[5];
+	char TENL[constTENLOP];
+	char c_NH[constNAMHOC];
 	int NAMHOC;
-	char MLOP[15];
+	char MLOP[constMALOP];
 
 	gotoxy(77, 2);
 	setGreenText();
@@ -1001,7 +1005,7 @@ void DSLOP::xoaLOP()
 		do
 		{
 			gotoxy(MINX_ALERTTB, MINY_ALERTNL - 3);
-			int kiTu = veTextFieldNhapKituSo(MLOP, 15, title, message);
+			int kiTu = veTextFieldNhapKituSo(MLOP, constMALOP, title, message);
 			if (kiTu == ESC)
 			{
 				return;

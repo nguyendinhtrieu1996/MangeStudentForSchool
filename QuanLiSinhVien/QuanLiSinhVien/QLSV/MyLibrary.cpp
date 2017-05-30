@@ -975,7 +975,7 @@ int veTextFieldNhapNamHoc(char KQ[], char title[], char message[])
 		cout << (char)196;
 	}
 	normal();
-	int kitu = NhapSo(KQ, 5, MINX_ALERTTB + 13, wherey() - 1);
+	int kitu = NhapSo(KQ, constNAMHOC, MINX_ALERTTB + 13, wherey() - 1);
 	return kitu;
 }
 int veTextFieldNhapKituSo(char KQ[], int MAX, char title[], char message[])
