@@ -162,8 +162,8 @@ void DSLOP::nhapDSLOP()
 
 void DSLOP::inLOPTheoHang(LOP lop, int y, int stt)
 {
-	char MAL[15];
-	char TENL[50];
+	char MAL[constMALOP];
+	char TENL[constTENLOP];
 	lop.getMALOP(MAL);
 	lop.getTENLOP(TENL);
 
