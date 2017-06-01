@@ -80,6 +80,11 @@ int main() {
 			DANHSACHMH.createDSMONHOC();
 			break;
 		}
+		case XOAMH:
+		{
+			DANHSACHMH.xoaMON();
+			break;
+		}
 		case INDSMH:
 		{
 			DANHSACHMH.xuatDSLMON();

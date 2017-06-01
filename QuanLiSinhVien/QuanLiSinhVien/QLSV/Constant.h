@@ -15,3 +15,9 @@ const int constHO = 20;
 const int constTENSV = 10;
 const int constPHAI = 4;
 const int constSDT = 12;
+
+//Hằng số môn học
+const int constMAMON = 15;
+const int constTENMH = 40;
+const int constcSTCLT = 3;
+const int constcSTCTH = 3;
