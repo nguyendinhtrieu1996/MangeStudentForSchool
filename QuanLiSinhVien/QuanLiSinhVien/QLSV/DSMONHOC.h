@@ -21,6 +21,10 @@ public:
 	void xepDSTangTheoTenMH(PTRNODEMH a[], int,int);
 	void xepDSTangTheoTenMHdemo(PTRNODEMH a[], int);
 	void inMonHocTheoHang(PTRNODEMH, int, int);
+	//Xóa môn học
+	int XoaNODEMonHoc( PTRNODEMH,char[]);
+	void xoaMON();
+	void hienThiTTMON(PTRNODEMH);
 	~DSMONHOC();
 };
 

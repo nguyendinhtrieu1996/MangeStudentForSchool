@@ -838,6 +838,129 @@ void DSMONHOC::inMonHocTheoHang(PTRNODEMH p, int y, int stt)
 	cout << p->MH.getTH();
 }
 
+int DSMONHOC::XoaNODEMonHoc(PTRNODEMH t,char maMH[])
+{
+	if (t == NULL) return 0;
+	else if (strcmp(t->MAMH, maMH)>0) return XoaNODEMonHoc(t->left, maMH);
+	else if (strcmp(t->MAMH, maMH)<0) return  XoaNODEMonHoc(t->right, maMH);
+	else // T->key == x
+	{
+		PTRNODEMH p = t;
+		if (t->left == NULL) t = t->right;    // Node chi co cay con phai
+		else if (t->right == NULL) t = t->left;   // Node chi co cay con trai
+		else // Node co ca 2 con
+		{
+			PTRNODEMH s = t, q = s->left;
+			// S la cha cua Q, Q la Node phai nhat cua cay con trai cua P
+			while (q->right != NULL)
+			{
+				s = q;
+				q = q->right;
+			}
+			strcpy(p->MAMH, q->MAMH);
+			s->right = q->left;
+			delete q ;
+		}
+	}
+	return 1;
+}
+
+void DSMONHOC::xoaMON()
+{
+	PTRNODEMH mh;
+	char _maMH[constMAMON];
+	gotoxy(77, 2);
+	setGreenText();
+	cout << "XOA MON HOC";
+	normal();
+	do
+	{
+		_maMH[0] = '\0';
+		char title[] = "THONG BAO";
+		char message[] = "Nhap ma mon hoc can xoa  ";
+		do
+		{
+			gotoxy(MINX_ALERTTB, MINY_ALERTNL - 3);
+			int kiTu = veTextFieldNhapKituSo(_maMH, constMAMON, title, message);
+			if (kiTu == ESC)
+			{
+				return;
+			}
+
+			mh = kiemTraMH(_maMH);
+			if (mh == NULL)
+			{
+				gotoxy(MINX_ALERTTB + 2, MINY_ALERTNL + 3);
+				SetColor(red_hightlight);
+				cout << " MAMON khong ton tai!";
+				Sleep(1000);
+				gotoxy(MINX_ALERTTB + 2, MINY_ALERTNL + 3);
+				for (int i = 0; i < widthAlert - 1; ++i)
+				{
+					cout << " ";
+				}
+				continue;
+			}
+			else
+			{
+				break;
+			}
+		} while (1);
+
+		xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL - 3, widthAlert, heightTextField);
+
+		hienThiTTMON(mh);
+
+
+		char message1[] = "Ban co chac chan xoa?";
+		char td[2][10] = { "  Co", "   Khong" };
+		gotoxy(MINX_ALERTTB, MINY_ALERTNL);
+		int select = veKhungThongBao(title, message1, td);
+		if (select == 0)
+		{
+			xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+
+			XoaNODEMonHoc(root,_maMH );
+			char title[] = "THONG BAO";
+			char message[] = "    Xoa thanh cong";
+			char td[2][10] = { "Tiep tuc", "  Thoat" };
+			gotoxy(MINX_ALERTTB, MINY_ALERTNL);
+			int select = veKhungThongBao(title, message, td);
+			if (select == 0)
+			{
+				xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+				xoaNoiDungVe(MINX_BSV, MINY_BSV, 70, 10);
+			}
+			else
+			{
+				return;
+			}
+
+		}
+		else
+		{
+			return;
+		}
+
+	} while (1);
+}
+
+void DSMONHOC::hienThiTTMON(PTRNODEMH p)
+{
+	veKhungNhapDSMONHOC();
+	// xuat thong tin sinh vien	
+	gotoxy(MINX_NDSMH + 1, MINY_NDSMH + 4);
+	cout << p->MH.getMAMH();
+	gotoxy(XCOT1_NDSMH + 2, MINY_NDSMH + 4);
+	cout << p->MH.getTENMH();
+	gotoxy(XCOT2_NDSMH + 2, MINY_NDSMH + 4);
+	cout << p->MH.getLT();
+	gotoxy(XCOT3_NDSMH + 1, MINY_NDSMH + 4);
+	cout << p->MH.getTH();
+}
+
+
+
 DSMONHOC::~DSMONHOC()
 {
 }
