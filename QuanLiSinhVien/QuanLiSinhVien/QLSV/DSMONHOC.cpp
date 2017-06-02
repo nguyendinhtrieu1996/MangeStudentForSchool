@@ -827,7 +827,8 @@ void DSMONHOC::XoaNODEMonHoc(PTRNODEMH p,char maMH[])
 			XoaNODEMonHoc(p->left, maMH);
 		else if (strcmp(maMH, p->MH.getMAMH()) > 0)
 			XoaNODEMonHoc(p->right, maMH);
-		else // truong hop tim thay key can xoa
+		else 
+			// truong hop tim thay key can xoa
 		{
 			r = p;
 			if (r->right == NULL)
