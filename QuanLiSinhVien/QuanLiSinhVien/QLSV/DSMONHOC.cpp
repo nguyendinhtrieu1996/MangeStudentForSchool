@@ -258,7 +258,7 @@ void DSMONHOC::xuatDSLMON()
 		duyetMAMHtang(p, conTro, size);
 
 		//xep danh sách tăng dần theo tên môn học
-		xepDSTangTheoTenMHdemo(conTro, size);
+		xepDSTangTheoTenMH(conTro, 0, size - 1);
 
 		//in 10 phần tử đầu tiên
 		if (size >= 10) {
@@ -758,13 +758,13 @@ void DSMONHOC::duyetMAMHtang(PTRNODEMH p, PTRNODEMH a[], int &size)
 		gotoxy(10, 60 + size);
 		cout << p->MAMH;
 		a[size++] = p;
-		duyetMAMHtang(p->left, a,size);
-		duyetMAMHtang(p->right, a,size);
+		duyetMAMHtang(p->left, a, size);
+		duyetMAMHtang(p->right, a, size);
 	}
 }
 
 //xếp qicksort :)) nhiều phần tử bị đứng ko biết sao hết :))
-void DSMONHOC::xepDSTangTheoTenMH(PTRNODEMH a[], int q,int r)
+void DSMONHOC::xepDSTangTheoTenMH(PTRNODEMH a[], int q, int r)
 {
 	PTRNODEMH temp;
 	int i = q;
@@ -816,7 +816,7 @@ void DSMONHOC::inMonHocTheoHang(PTRNODEMH p, int y, int stt)
 	cout << p->MH.getTH();
 }
 
-void DSMONHOC::XoaNODEMonHoc(PTRNODEMH p,char maMH[])
+void DSMONHOC::XoaNODEMonHoc(PTRNODEMH &p,char maMH[])
 {
 	if (p == NULL){
 	
@@ -853,7 +853,9 @@ void DSMONHOC::XoaTruongHop3(PTRNODEMH &rp, PTRNODEMH &r)
 		r = rp->right;
 	}
 	else
+	{
 		XoaTruongHop3(rp, r);
+	}
 }
 
 void DSMONHOC::xoaMON()
@@ -911,7 +913,7 @@ void DSMONHOC::xoaMON()
 		{
 			xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
 
-			XoaNODEMonHoc(root,_maMH );
+			XoaNODEMonHoc(root,_maMH);
 			char title[] = "THONG BAO";
 			char message[] = "    Xoa thanh cong";
 			char td[2][10] = { "Tiep tuc", "  Thoat" };
@@ -948,6 +950,18 @@ void DSMONHOC::hienThiTTMON(PTRNODEMH p)
 	cout << p->MH.getLT();
 	gotoxy(XCOT3_NDSMH + 1, MINY_NDSMH + 4);
 	cout << p->MH.getTH();
+}
+
+void DSMONHOC::PTRNODEMHPushBack(PTRNODEMH *&a, int &n, PTRNODEMH p)
+{
+	int m = n + 1;
+	PTRNODEMH* aNew = (PTRNODEMH*)realloc(a, m * sizeof(PTRNODEMH));
+	//Cấp phát thành công
+	if (aNew != NULL) {
+		aNew[n] = p;
+		n++;
+		a = aNew;
+	}
 }
 
 DSMONHOC::~DSMONHOC()

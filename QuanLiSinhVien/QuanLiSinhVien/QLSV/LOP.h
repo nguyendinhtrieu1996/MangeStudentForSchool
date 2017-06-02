@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "NODESV.h"
 #include "Constant.h"
 
@@ -25,6 +25,8 @@ public:
 	void inDiem(char MAMH[], int lanThi);
 	//-------------------XU LI CHUC NANG SINH VIEN------------
 	//*****************CAC HAM HO TRO SU LI NODESV*************
+	//Thêm con trỏ sinh viên vào cuối mảng động
+	void PTRNODESVPushBack(PTRNODESV *&, int &, PTRNODESV);
 	PTRNODESV newNODESV();
 	void insertFirst(SINHVIEN);
 	void insertAfter(SINHVIEN , PTRNODESV);

@@ -396,6 +396,17 @@ void LOP::inDiem(char MAMH[], int lanThi)
 {
 }
 
+void LOP::PTRNODESVPushBack(PTRNODESV *&a, int &n, PTRNODESV sv)
+{
+	int m = n + 1;
+	PTRNODESV* aNew = (PTRNODESV*)realloc(a, m * sizeof(PTRNODESV));
+	if (aNew != NULL) {
+		aNew[n] = sv;
+		n++;
+		a = aNew;
+	}
+}
+
 PTRNODESV LOP::newNODESV()
 {
 	PTRNODESV p;

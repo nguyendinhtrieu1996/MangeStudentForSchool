@@ -9,6 +9,7 @@
 #include <iomanip> 
 #include <stdlib.h>
 #include <ctime>
+#include <malloc.h>
 #include "Constant.h"
 using namespace std;
 
