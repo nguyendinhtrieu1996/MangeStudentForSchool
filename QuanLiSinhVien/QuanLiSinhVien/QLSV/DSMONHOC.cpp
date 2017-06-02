@@ -816,31 +816,50 @@ void DSMONHOC::inMonHocTheoHang(PTRNODEMH p, int y, int stt)
 	cout << p->MH.getTH();
 }
 
-int DSMONHOC::XoaNODEMonHoc(PTRNODEMH t,char maMH[])
+void DSMONHOC::XoaNODEMonHoc(PTRNODEMH p,char maMH[])
 {
-	if (t == NULL) return 0;
-	else if (strcmp(t->MAMH, maMH)>0) return XoaNODEMonHoc(t->left, maMH);
-	else if (strcmp(t->MAMH, maMH)<0) return  XoaNODEMonHoc(t->right, maMH);
-	else // T->key == x
+	if (p == NULL){
+	
+	}
+	else
 	{
-		PTRNODEMH p = t;
-		if (t->left == NULL) t = t->right;    // Node chi co cay con phai
-		else if (t->right == NULL) t = t->left;   // Node chi co cay con trai
-		else // Node co ca 2 con
+		if (strcmp(maMH, p->MH.getMAMH()) < 0)
+			XoaNODEMonHoc(p->left, maMH);
+		else if (strcmp(maMH, p->MH.getMAMH()) > 0)
+			XoaNODEMonHoc(p->right, maMH);
+		else // truong hop tim thay key can xoa
 		{
-			PTRNODEMH s = t, q = s->left;
-			// S la cha cua Q, Q la Node phai nhat cua cay con trai cua P
-			while (q->right != NULL)
-			{
-				s = q;
-				q = q->right;
+			r = p;
+			if (r->right == NULL)
+				p = r->left;
+			else if (r->left == NULL)
+				p = r->right;
+			else {
+				XoaTruongHop3(r->right);
 			}
-			strcpy(p->MAMH, q->MAMH);
-			s->right = q->left;
-			delete q ;
+			delete r;
 		}
 	}
-	return 1;
+}
+
+void DSMONHOC::XoaTruongHop3(PTRNODEMH p)
+{
+	if (p->left == NULL)
+	{
+		//gán khóa
+		r->setMAMH(p->getMAMH());
+		//gán giá trị
+		/*r->MH.setMAMH(p->MH.getMAMH());
+		r->MH.setTENMH(p->MH.getTENMH());
+		r->MH.setTH(p->MH.getTH());
+		r->MH.setLT(p->MH.getLT());*/
+		r->MH = p->MH;
+
+		r = p;
+		p = r->right;
+	}
+	else
+		XoaTruongHop3(p->left);
 }
 
 void DSMONHOC::xoaMON()

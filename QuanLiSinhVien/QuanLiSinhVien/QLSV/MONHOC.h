@@ -4,7 +4,11 @@
 class MONHOC
 {
 private:
+<<<<<<< HEAD
 	char MAMH[15];
+=======
+	char MAMH[constMAMON];
+>>>>>>> 747d2841e66a3d7665905081e67162f6680d375d
 	char TENMH[constTENMH];
 	int STCLT;
 	int STCTH;
