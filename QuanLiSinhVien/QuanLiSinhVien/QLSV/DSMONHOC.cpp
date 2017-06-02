@@ -9,10 +9,10 @@ void DSMONHOC::createDSMONHOC()
 {
 	MONHOC monHoc;
 
-	char maMH[15];
-	char tenMH[40];
-	char c_STCLT[3];
-	char c_STCTH[3];
+	char maMH[constMAMON];
+	char tenMH[constTENMH];
+	char c_STCLT[constcSTCLT];
+	char c_STCTH[constcSTCTH];
 	int sTCLT;
 	int sTCTH;
 
@@ -54,7 +54,7 @@ NHAPMAMH:
 			-1 nếu chuỗi rỗng và người dùng muốn kết thúc việc nhập chuỗi
 			ESC nếu đang nhập người dùng bấm ESC để thoát ra
 	*/
-	int checkMH = NhapChuoiVaChuSo(maMH, 15, MINX_NDSMH + 1, MINY_NDSMH + 4);
+	int checkMH = NhapChuoiVaChuSo(maMH, constMAMON, MINX_NDSMH + 1, MINY_NDSMH + 4);
 	//Nhập mã môn học thành công
 	if (checkMH == 0)
 	{
@@ -64,9 +64,9 @@ NHAPMAMH:
 			char message[] = "Ma Mon hoc bi trung";
 			char td[2][10] = { "Chinh sua", "    Thoat" };
 			gotoxy(MINX_ALERTTB, MINY_ALERTNL);
-			int check7 = veKhungThongBao(titleTB, message, td);
+			int checkTHONGBAO = veKhungThongBao(titleTB, message, td);
 			//Người dùng chọn chinh sua
-			if (check7 == 0)
+			if (checkTHONGBAO == 0 || checkTHONGBAO == ESC )
 			{
 				xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
 				goto NHAPMAMH;
@@ -76,9 +76,8 @@ NHAPMAMH:
 			{
 				return;
 			}
-		} else 
-		if (kiemTraMH(maMH) == NULL)
-		{
+		} 
+		else if (kiemTraMH(maMH) == NULL) {
 
 		NHAPTENMH:
 
@@ -87,7 +86,7 @@ NHAPMAMH:
 				=> hàm trả về
 				ESC nếu đang nhập người dùng bấm ESC kết thúc việc nhập chuỗi
 			*/
-			int checkTENMH = NhapChuoi(tenMH, 40, XCOT1_NDSMH + 2, MINY_NDSMH + 4);
+			int checkTENMH = NhapChuoi(tenMH, constTENMH, XCOT1_NDSMH + 2, MINY_NDSMH + 4);
 			//Người dùng muốn kết thúc việc nhập chuỗi
 			if (checkTENMH == ESC)
 			{
@@ -95,9 +94,9 @@ NHAPMAMH:
 				char message[] = "Ban co muon thoat khong?";
 				char td[2][10] = { "    Co", "    Khong" };
 				gotoxy(MINX_ALERTTB, MINY_ALERTNL);
-				int check2 = veKhungThongBao(titleExit, message, td);
+				int checkTHONGBAO = veKhungThongBao(titleExit, message, td);
 				//Người dùng chọn thoát
-				if (check2 == 0)
+				if (checkTHONGBAO == 0)
 				{
 					return;
 				}
@@ -115,7 +114,7 @@ NHAPMAMH:
 
 					//Nhập số lượng tín chỉ lí thuyết => chỉ nhập số
 					//=> hàm trả về ESC nếu đang nhập người dùng bấm ESC
-				int checkSTCLT = NhapSo(c_STCLT, 3, XCOT2_NDSMH + 2, MINY_NDSMH + 4);
+				int checkSTCLT = NhapSo(c_STCLT, constcSTCLT, XCOT2_NDSMH + 2, MINY_NDSMH + 4);
 
 				// Nhập thành công
 				if (checkSTCLT != ESC) 
@@ -123,7 +122,7 @@ NHAPMAMH:
 				NHAPSOTCTH:
 					//Nhập số lượng tín chỉ thực hành => chỉ nhập số
 					//=> hàm trả về ESC nếu đang nhập người dùng bấm ESC
-					int checkSTCTH = NhapSo(c_STCTH, 3, XCOT3_NDSMH + 2, MINY_NDSMH + 4);
+					int checkSTCTH = NhapSo(c_STCTH, constcSTCTH, XCOT3_NDSMH + 2, MINY_NDSMH + 4);
 
 					//Nhập thành công
 					if (checkSTCTH != ESC)
@@ -142,9 +141,9 @@ NHAPMAMH:
 						char message[] = "Ban co muon thoat khong?";
 						char td[2][10] = { "    Co", "    Khong" };
 						gotoxy(MINX_ALERTTB, MINY_ALERTNL);
-						int check2 = veKhungThongBao(titleExit, message, td);
+						int checkTHONGBAO = veKhungThongBao(titleExit, message, td);
 						//Người dùng chọn thoát
-						if (check2 == 0)
+						if (checkTHONGBAO == 0)
 						{
 							return;
 						}
@@ -163,39 +162,19 @@ NHAPMAMH:
 					char message[] = "Ban co muon thoat khong?";
 					char td[2][10] = { "    Co", "    Khong" };
 					gotoxy(MINX_ALERTTB, MINY_ALERTNL);
-					int check2 = veKhungThongBao(titleExit, message, td);
+					int checkTHONGBAO = veKhungThongBao(titleExit, message, td);
 					//Người dùng chọn thoát
-					if (check2 == 0)
+					if (checkTHONGBAO == 0)
 					{
 						return;
 					}
-					//Người dùng chọn tiếp tục
+					//Người dùng chọn tiếp tục => ESC va 1
 					else
 					{
 						xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
 						goto NHAPSOTCLT;
 					}
 				}
-			}
-		}
-		// Mã môn học bị trùng
-		else
-		{
-			char titleExit[] = "THONG BAO";
-			char message[] = "Ma mon hoc bi trung?";
-			char td[2][10] = { "Chinh sua", "  Thoat" };
-			gotoxy(MINX_ALERTTB, MINY_ALERTNL);
-			int check2 = veKhungThongBao(titleExit, message, td);
-			//Người dùng chọn thoát
-			if (check2 == 1)
-			{
-				return;
-			}
-			//Người dùng chọn tiếp tục
-			else
-			{
-				xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
-				goto NHAPMAMH;
 			}
 		}
 	}
