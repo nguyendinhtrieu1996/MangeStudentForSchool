@@ -4,7 +4,6 @@
 class DSMONHOC
 {
 	PTRNODEMH root;
-	PTRNODEMH r;
 public:
 	DSMONHOC();
 	 
@@ -24,7 +23,7 @@ public:
 	void inMonHocTheoHang(PTRNODEMH, int, int);
 	//Xóa môn học
 	void XoaNODEMonHoc( PTRNODEMH,char[]);
-	void XoaTruongHop3(PTRNODEMH);
+	void XoaTruongHop3(PTRNODEMH &, PTRNODEMH &);
 	void xoaMON();
 	void hienThiTTMON(PTRNODEMH);
 	~DSMONHOC();

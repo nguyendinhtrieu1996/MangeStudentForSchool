@@ -830,37 +830,30 @@ void DSMONHOC::XoaNODEMonHoc(PTRNODEMH p,char maMH[])
 		else 
 			// truong hop tim thay key can xoa
 		{
-			r = p;
-			if (r->right == NULL)
-				p = r->left;
-			else if (r->left == NULL)
-				p = r->right;
+			PTRNODEMH rp = p;
+			if (rp->right == NULL)
+				p = rp->left;
+			else if (rp->left == NULL)
+				p = rp->right;
 			else {
-				XoaTruongHop3(r->right);
+				XoaTruongHop3(rp, rp->right);
 			}
-			delete r;
+			delete rp;
 		}
 	}
 }
 
-void DSMONHOC::XoaTruongHop3(PTRNODEMH p)
+void DSMONHOC::XoaTruongHop3(PTRNODEMH &rp, PTRNODEMH &r)
 {
-	if (p->left == NULL)
+	if (r->left == NULL)
 	{
-		//gán khóa
-		r->setMAMH(p->getMAMH());
-		//gán giá trị
-		/*r->MH.setMAMH(p->MH.getMAMH());
-		r->MH.setTENMH(p->MH.getTENMH());
-		r->MH.setTH(p->MH.getTH());
-		r->MH.setLT(p->MH.getLT());*/
-		r->MH = p->MH;
-
-		r = p;
-		p = r->right;
+		strcpy(rp->MAMH, r->MAMH);
+		rp->MH = r->MH;
+		rp = r;
+		r = rp->right;
 	}
 	else
-		XoaTruongHop3(p->left);
+		XoaTruongHop3(rp, r);
 }
 
 void DSMONHOC::xoaMON()
