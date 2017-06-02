@@ -769,18 +769,17 @@ void DSMONHOC::xepDSTangTheoTenMH(PTRNODEMH a[], int q,int r)
 	PTRNODEMH temp;
 	int i = q;
 	int j = r;
-	char x[40]; 
+	char x[constTENMH]; 
 	strcpy(x, a[(q + r) / 2]->MH.getTENMH());
 	do {
-		while (strcmp(x, a[i]->MH.getTENMH())>0) i++;
-		while (strcmp(x, a[i]->MH.getTENMH())<0) j--;
+		while (strcmp(x, a[i]->MH.getTENMH()) > 0) i++;
+		while (strcmp(x, a[i]->MH.getTENMH()) < 0) j--;
 		if (i <= j) {
 			temp = a[i];
 			a[i] = a[j];
 			a[j] = temp;
 			i++;
 			j--;
-
 		}
 	} while (i <= j);
 	if (q < j) xepDSTangTheoTenMH(a, q, j);
@@ -937,8 +936,6 @@ void DSMONHOC::hienThiTTMON(PTRNODEMH p)
 	gotoxy(XCOT3_NDSMH + 1, MINY_NDSMH + 4);
 	cout << p->MH.getTH();
 }
-
-
 
 DSMONHOC::~DSMONHOC()
 {
