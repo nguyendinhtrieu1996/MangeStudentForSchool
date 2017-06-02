@@ -4,8 +4,8 @@
 class MONHOC
 {
 private:
-	char MAMH[15];
-	char TENMH[40];
+	char MAMH[constMAMON];
+	char TENMH[constTENMH];
 	int STCLT;
 	int STCTH;
 public:
