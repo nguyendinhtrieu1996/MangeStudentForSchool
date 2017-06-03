@@ -1004,10 +1004,224 @@ void DSMONHOC::suaMON()
 	
 }
 
-void DSMONHOC::suaTTMON(char _MAMH[], PTRNODEMH p)
+void DSMONHOC::suaTTMON(char cMAMH[], PTRNODEMH p)
 {
 	hienThiTTMON(p);
-	MONHOC mh = p->MH;
+
+	MONHOC mon = p->MH;
+
+	char _MAMH[constMAMON];
+	char _TENMH[constTENMH];
+	char c_STCLT[constcSTCLT], c_STCTH[constcSTCTH];
+	int _STCLT;
+	int _STCTH;
+	_MAMH[0] = '\0';
+	_TENMH[0] = '\0';
+	c_STCLT[0] = '\0';
+	c_STCTH[0] = '\0';
+	strcpy(_MAMH, p->MH.getMAMH());
+	strcpy(_TENMH, p->MH.getTENMH());
+
+	_STCLT = p->MH.getLT();
+	_STCTH = p->MH.getTH();
+	sprintf(c_STCLT, "%d", _STCLT);
+	sprintf(c_STCTH, "%d", _STCTH);
+
+	int viTriChinhSua = 1;
+	int y = MINY_NDSMH + 4;
+	gotoxy(MINX_NDSMH + 1 + strlen(_MAMH), y);
+
+	int kiTu = 0;
+	do {
+		kiTu = 0;
+		char temp = getch();
+		if (temp == -32 || temp == 0)
+		{
+			temp = getch();
+			kiTu = temp + 1000;
+		}
+		else
+		{
+			kiTu = temp;
+		}
+		switch (kiTu)
+		{
+		case ESC:
+			return;
+			break;
+		case Left:
+		{
+			if (viTriChinhSua >1)
+			{
+				viTriChinhSua--;
+				if (viTriChinhSua == 1)
+				{
+					gotoxy(MINX_NDSMH + strlen(_MAMH) + 1, y);
+				}
+				else if (viTriChinhSua == 2)
+				{
+					gotoxy(XCOT1_NDSMH + strlen(_TENMH) + 2, y);
+				}
+				else if (viTriChinhSua == 3)
+				{
+					gotoxy(XCOT2_NDSMH + strlen(c_STCLT) + 2, y);
+				}
+				
+			}
+			break;
+		}
+		case Right:
+		{
+			if (viTriChinhSua < 4)
+			{
+				viTriChinhSua++;
+				 if (viTriChinhSua == 4)
+				{
+					 gotoxy(XCOT3_NDSMH + strlen(c_STCTH) + 1, y);
+				}
+				else if (viTriChinhSua == 3)
+				{
+					gotoxy(XCOT2_NDSMH + strlen(c_STCLT) + 2, y);
+				}
+				else if (viTriChinhSua == 2)
+				{
+					gotoxy(XCOT1_NDSMH + strlen(_TENMH) + 2, y);
+				}
+
+			}
+			break;
+		}
+		case F2:
+			if (viTriChinhSua == 1) {
+				do
+				{
+					int kiTu = NhapChuoiVaChuSo(_MAMH, constMAMON, MINX_NDSMH + 1, y);
+					//Chuỗi mã Sinh viên trả về bị rỗng
+					if (kiTu == fail)
+					{
+						char title[] = "THONG BAO";
+						char message[] = "Ma MH khong duoc rong!";
+						char td[2][10] = { "Chinh sua", "    Huy" };
+						normal();
+						gotoxy(MINX_ALERTTB, MINY_ALERTTB);
+						int select = veKhungThongBao(title, message, td);
+						if (select == 0)
+						{
+							//Cho biet chuoi dang rong
+							_MAMH[0] = '\0';
+							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
+							continue;
+						}
+						else if (select == 1)
+						{
+							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
+							gotoxy(MINX_NDSMH + 1, y);
+							for (int i = 0; i < widthBANG_XMON - 2; ++i)
+							{
+								cout << " ";
+							}
+							break;
+						}
+
+
+					}
+					else if (strcmp(_MAMH, p->MH.getMAMH()) == 0)
+					{
+						break;
+					}
+					else if (kiemTraMH(_MAMH) == NULL &&kiTu == 0)
+					{
+						//Xóa node mã MH cũ
+						XoaNODEMonHoc(root, p->MH.getMAMH());
+						mon.nhapMH(_MAMH, _TENMH, _STCLT, _STCTH);
+						//thêm node có mã MH mới
+						insertNodeMH(root, mon);
+
+						gotoxy(MINX_ALERTTB, 24);
+						cout << "da sua MAMH";
+						Sleep(1000);
+						xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+						gotoxy(MINX_NDSMH + 1 + strlen(_MAMH), y);
+						break;
+					}
+
+					//Mã sinh viên bị trùng
+					else if (kiemTraMH(_MAMH) != NULL && kiTu == 0)
+					{
+						char title[] = "THONG BAO";
+						char message[] = "MAMH bi trung!";
+						char td[2][10] = { "Chinh sua", "Huy" };
+						normal();
+						gotoxy(MINX_ALERTTB, MINY_ALERTTB);
+						int select = veKhungThongBao(title, message, td);
+						if (select == 0)
+						{
+							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
+							continue;
+						}
+						else if (select == 1)
+						{
+							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
+							gotoxy(MINX_NDSMH + 1, y);
+							for (int i = 0; i < widthBANG_XSV - 2; i++)
+							{
+								cout << " ";
+							}
+							break;
+
+						}
+					}
+				} while (1);
+			}
+			else if (viTriChinhSua == 2) {
+				int kiTu = NhapChuoi(_TENMH, 40, XCOT1_NDSMH + 2, y);
+				p->MH.setTENMH(_TENMH);
+				gotoxy(MINX_ALERTTB, 24);
+				cout << " Da sua Ten MH ";
+				Sleep(1000);
+				xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+				gotoxy(XCOT1_NDSMH + 2 + strlen(_TENMH), y);
+			}
+			else if (viTriChinhSua == 3) {
+				int checkSTCLT = NhapSo(c_STCLT, constcSTCLT, XCOT2_NDSMH + 2, y);
+
+				//Nhập thành công
+				if (checkSTCLT != ESC)
+				{
+
+					_STCLT = atoi(c_STCLT);
+					p->MH.setLT(_STCLT);
+					gotoxy(MINX_ALERTTB, 24);
+					cout << " Da sua STCLT ";
+					Sleep(1000);
+					xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+					gotoxy(XCOT2_NDSMH + 2 + strlen(c_STCLT), y);
+
+				}
+			}
+			else if (viTriChinhSua == 4) {
+				int checkSTCTH = NhapSo(c_STCTH, constcSTCTH, XCOT3_NDSMH + 1, y);
+
+				//Nhập thành công
+				if (checkSTCTH != ESC)
+				{
+					_STCTH = atoi(c_STCTH);
+					p->MH.setTH(_STCTH);
+					gotoxy(MINX_ALERTTB, 24);
+					cout << " Da sua STCTH";
+					Sleep(1000);
+					xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+					gotoxy(XCOT3_NDSMH + 1 + strlen(c_STCTH), y);
+
+				}
+			}
+			
+			break;
+		default:
+			break;
+		}
+	} while (1);
+
 
 	char e = getch();
 }
