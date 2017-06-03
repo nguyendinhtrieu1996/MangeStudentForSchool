@@ -90,6 +90,11 @@ int main() {
 			DANHSACHMH.xuatDSLMON();
 			break;
 		}
+		case SUAMH:
+		{
+			DANHSACHMH.suaMON();
+			break;
+		}
 		}
 		} while (true);
 

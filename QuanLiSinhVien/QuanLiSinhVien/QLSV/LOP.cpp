@@ -21,7 +21,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 	tenSV[0] = '\0';
 	phai[0] = '\0';
 	sdt[0] = '\0';
-
+	
 	//gan gia tri
 	strcpy(maSV, p->SV.getMASV());
 	strcpy(hoSV, p->SV.getHO());

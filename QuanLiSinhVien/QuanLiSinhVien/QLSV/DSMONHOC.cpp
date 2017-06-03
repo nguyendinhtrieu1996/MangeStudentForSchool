@@ -258,7 +258,7 @@ void DSMONHOC::xuatDSLMON()
 		duyetMAMHtang(p, conTro, size);
 
 		//xep danh sách tăng dần theo tên môn học
-		xepDSTangTheoTenMH(conTro, 0, size - 1);
+		xepDSTangTheoTenMHdemo(conTro,size);
 
 		//in 10 phần tử đầu tiên
 		if (size >= 10) {
@@ -378,9 +378,9 @@ void DSMONHOC::xuatDSLMON()
 					do
 					{
 						
-						char _MAMH[15];
-						char _TENMH[40];
-						char c_STCLT[3], c_STCTH[3];
+						char _MAMH[constMAMON];
+						char _TENMH[constTENMH];
+						char c_STCLT[constcSTCLT], c_STCTH[constcSTCTH];
 						int _STCLT;
 						int _STCTH;
 						_MAMH[0] = '\0';
@@ -763,8 +763,6 @@ void DSMONHOC::duyetMAMHtang(PTRNODEMH p, PTRNODEMH a[], int &size)
 {
 	if (p != NULL)
 	{
-	/*	gotoxy(10, 60 + size);
-		cout << p->MAMH;*/
 		a[size++] = p;
 		duyetMAMHtang(p->left, a, size);
 		duyetMAMHtang(p->right, a, size);
@@ -831,7 +829,7 @@ void DSMONHOC::XoaNODEMonHoc(PTRNODEMH &p,char maMH[])
 	}
 	else
 	{
-		if (strcmp(maMH, p->MH.getMAMH()) < 0)
+		if (strcmp(maMH, p->MH.getMAMH()) < 0) 
 			XoaNODEMonHoc(p->left, maMH);
 		else if (strcmp(maMH, p->MH.getMAMH()) > 0)
 			XoaNODEMonHoc(p->right, maMH);
@@ -847,9 +845,12 @@ void DSMONHOC::XoaNODEMonHoc(PTRNODEMH &p,char maMH[])
 				XoaTruongHop3(rp, rp->right);
 			}
 			delete rp;
+			rp = NULL;
 		}
 	}
 }
+
+
 
 void DSMONHOC::XoaTruongHop3(PTRNODEMH &rp, PTRNODEMH &r)
 {
@@ -922,6 +923,10 @@ void DSMONHOC::xoaMON()
 			xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
 
 			XoaNODEMonHoc(root,_maMH);
+			
+
+			//xoaNODEtheoConTro(mh);
+
 			char title[] = "THONG BAO";
 			char message[] = "    Xoa thanh cong";
 			char td[2][10] = { "Tiep tuc", "  Thoat" };
@@ -930,7 +935,7 @@ void DSMONHOC::xoaMON()
 			if (select == 0)
 			{
 				xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
-				xoaNoiDungVe(MINX_XDSMH, MINY_XDSMH, 70, 10);
+				xoaNoiDungVe(MINX_NDSMH, MINY_NDSMH, 70, 10);
 			}
 			else
 			{
@@ -946,6 +951,7 @@ void DSMONHOC::xoaMON()
 	} while (1);
 }
 
+
 void DSMONHOC::hienThiTTMON(PTRNODEMH p)
 {
 	veKhungNhapDSMONHOC();
@@ -958,6 +964,52 @@ void DSMONHOC::hienThiTTMON(PTRNODEMH p)
 	cout << p->MH.getLT();
 	gotoxy(XCOT3_NDSMH + 1, MINY_NDSMH + 4);
 	cout << p->MH.getTH();
+}
+
+void DSMONHOC::suaMON()
+{
+	char labelTb[20] = "SUA TT MON HOC";
+	labelTable(labelTb);
+	char title[] = "THONG BAO";
+	char message[] = "Nhap MA MHOC can chinh sua";
+	char _MAMH[constMAMON];
+	PTRNODEMH i = NULL;
+	_MAMH[0] = '\0';
+	do {
+		gotoxy(MINX_ALERTTB, MINY_ALERTNL - 3);
+		switch (veTextFieldNhapKituSo(_MAMH, constMAMON, title, message))
+		{
+		case ESC:
+			return;
+			break;
+		case 0:
+			if (kiemTraMH(_MAMH) == NULL && _MAMH[0] != '\0')
+			{
+				gotoxy(MINX_ALERTTB + 2, MINY_ALERTNL + 3);
+				SetColor(red_hightlight);
+				cout << "MA MHOC khong ton tai ";
+				Sleep(1000);
+				xoaNoiDungVe(MINX_ALERTTB + 2, MINY_ALERTNL + 2, 25, 1);
+
+			}
+			break;
+		default:
+			break;
+		}
+		i = kiemTraMH(_MAMH);
+	} while (i == NULL);
+	Sleep(100);
+	xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL - 3, widthAlert, heightTextField);
+	suaTTMON(_MAMH, i);
+	
+}
+
+void DSMONHOC::suaTTMON(char _MAMH[], PTRNODEMH p)
+{
+	hienThiTTMON(p);
+	MONHOC mh = p->MH;
+
+	char e = getch();
 }
 
 void DSMONHOC::PTRNODEMHPushBack(PTRNODEMH *&a, int &n, PTRNODEMH p)

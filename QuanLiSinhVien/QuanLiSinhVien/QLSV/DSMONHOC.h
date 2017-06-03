@@ -25,8 +25,12 @@ public:
 	void XoaNODEMonHoc(PTRNODEMH &,char[]);
 	void XoaTruongHop3(PTRNODEMH &, PTRNODEMH &);
 	void xoaMON();
+
 	void hienThiTTMON(PTRNODEMH);
 
+	//chỉnh sửa 1 môn học
+	void suaMON();
+	void suaTTMON(char[], PTRNODEMH);
 	//	------------HÀM DÙNG THÊM CON TRỎ VÀO CUỐI MẢNG 
 	//	=> Mảng động cấp phát nới rộng dần
 	//Hàm thêm con trỏ PTRNODEMH vào cuối mảng động chứa con trỏ PTRMODEMH
