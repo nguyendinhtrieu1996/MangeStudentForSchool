@@ -377,6 +377,7 @@ void DSMONHOC::xuatDSLMON()
 					int viTri = firstItem;
 					do
 					{
+						
 						char _MAMH[15];
 						char _TENMH[40];
 						char c_STCLT[3], c_STCTH[3];
@@ -393,6 +394,8 @@ void DSMONHOC::xuatDSLMON()
 						_STCTH = k->MH.getTH();
 						sprintf(c_STCLT, "%d", _STCLT);
 						sprintf(c_STCTH, "%d", _STCTH);
+						MONHOC mon;
+					//	mon.nhapMH(_MAMH, _TENMH, _STCLT, _STCTH);
 						kiTu = 0;
 						fflush(stdin);
 						char temp = getch();
@@ -598,7 +601,11 @@ void DSMONHOC::xuatDSLMON()
 									}
 									else if (kiemTraMH(_MAMH) == NULL && kiTu == 0)
 									{
-										k->MH.setMAMH(_MAMH);
+										XoaNODEMonHoc(root, k->MH.getMAMH());
+										mon.nhapMH(_MAMH, _TENMH, _STCLT, _STCTH);
+										insertNodeMH(root, mon);
+									
+										//k->MH.setMAMH(_MAMH);
 										gotoxy(MINX_ALERTTB, 24);
 										cout << "da sua MAMH";
 										Sleep(1000);
@@ -755,8 +762,8 @@ void DSMONHOC::duyetMAMHtang(PTRNODEMH p, PTRNODEMH a[], int &size)
 {
 	if (p != NULL)
 	{
-		gotoxy(10, 60 + size);
-		cout << p->MAMH;
+	/*	gotoxy(10, 60 + size);
+		cout << p->MAMH;*/
 		a[size++] = p;
 		duyetMAMHtang(p->left, a, size);
 		duyetMAMHtang(p->right, a, size);
@@ -922,7 +929,7 @@ void DSMONHOC::xoaMON()
 			if (select == 0)
 			{
 				xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
-				xoaNoiDungVe(MINX_BSV, MINY_BSV, 70, 10);
+				xoaNoiDungVe(MINX_XDSMH, MINY_XDSMH, 70, 10);
 			}
 			else
 			{
