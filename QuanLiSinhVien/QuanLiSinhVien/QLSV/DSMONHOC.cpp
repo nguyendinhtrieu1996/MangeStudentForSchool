@@ -601,11 +601,12 @@ void DSMONHOC::xuatDSLMON()
 									}
 									else if (kiemTraMH(_MAMH) == NULL && kiTu == 0)
 									{
+										//Xóa node mã MH cũ
 										XoaNODEMonHoc(root, k->MH.getMAMH());
 										mon.nhapMH(_MAMH, _TENMH, _STCLT, _STCTH);
+										//thêm node có mã MH mới
 										insertNodeMH(root, mon);
 									
-										//k->MH.setMAMH(_MAMH);
 										gotoxy(MINX_ALERTTB, 24);
 										cout << "da sua MAMH";
 										Sleep(1000);
@@ -687,8 +688,8 @@ void DSMONHOC::xuatDSLMON()
 								//Nhập thành công
 								if (checkSTCTH != ESC)
 								{
-									_STCLT = atoi(c_STCTH);
-									k->MH.setLT(_STCTH);
+									_STCTH = atoi(c_STCTH);
+									k->MH.setTH(_STCTH);
 									gotoxy(MINX_ALERTTB, 24);
 									cout << " Da sua STCTH";
 									Sleep(1000);
