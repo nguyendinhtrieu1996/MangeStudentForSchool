@@ -396,6 +396,12 @@ void LOP::inDiem(char MAMH[], int lanThi)
 {
 }
 
+void LOP::nhapTTDiem()
+{
+	veKhungNhapTTDiem();
+	char c = getch();
+}
+
 void LOP::PTRNODESVPushBack(PTRNODESV *&a, int &n, PTRNODESV sv)
 {
 	int m = n + 1;

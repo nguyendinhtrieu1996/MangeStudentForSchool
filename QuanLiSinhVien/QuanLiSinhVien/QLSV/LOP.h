@@ -23,6 +23,7 @@ public:
 	//-------------------XU LI CHUC NANG DIEM-----------------
 	void nhapDiem(char MAMH[], int lanThi);
 	void inDiem(char MAMH[], int lanThi);
+	void nhapTTDiem();
 	//-------------------XU LI CHUC NANG SINH VIEN------------
 	//*****************CAC HAM HO TRO SU LI NODESV*************
 	//Thêm con trỏ sinh viên vào cuối mảng động

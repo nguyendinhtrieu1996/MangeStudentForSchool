@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "LOP.h"
 #include "DSMONHOC.h"
 
@@ -27,6 +27,9 @@ public:
 	PTRNODESV searchAllSV(char MSV[], int &);
 	int suaTTSinhVien();
 	void xoaSV();
+
+	//---------xử lý Điểm
+	void themDIEM();
 	~DSLOP();
 	friend class LOP;
 };

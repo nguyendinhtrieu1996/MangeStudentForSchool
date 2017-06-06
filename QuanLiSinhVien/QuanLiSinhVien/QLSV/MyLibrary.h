@@ -115,6 +115,15 @@ const int Y_FIST_MON= MINY_XDSMH + 3;
 const int widthBANG_XMON = 70;
 const int heightBANG_XMON = 14;
 
+//Tọa độ bảng nhập danh sách điểm
+const int MINX_NDIEM = 46;
+const int MAXX_NDIEM = 115;
+const int MINY_NDIEM = 4;
+const int MAXY_NDIEM = 10;
+const int XCOT1_NDIEM = 70;
+const int XCOT2_NDIEM = 95;
+const int XCOT3_NDIEM = 105;
+
 //Khởi tạo mặc định các tham số
 const int SoChuSo = 4;
 
@@ -222,5 +231,6 @@ void veKhungNhapTTSinhVien();
 void veKhungXuatSVTheoLop();
 void veKhungXuatMonHoc();
 
+void veKhungNhapTTDiem();
 
 

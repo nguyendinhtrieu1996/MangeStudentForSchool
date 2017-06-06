@@ -1339,3 +1339,101 @@ void veKhungXuatMonHoc()
 	gotoxy(XCOT4_XDSMH + 1, MINY_XDSMH + 1);
 	cout << titleTH;
 }
+
+void veKhungNhapTTDiem()
+{
+	//Ve cot
+	for (int i = MINY_NDIEM + 1; i < MAXY_NDIEM; ++i)
+	{
+		gotoxy(MINX_NDIEM, i);
+		cout << char(179);
+		//Ve cot 1
+		gotoxy(XCOT1_NDIEM, i);
+		cout << char(179);
+		//Ve cot 2
+		gotoxy(XCOT2_NDIEM, i);
+		cout << char(179);
+		//ve cot 3
+		gotoxy(XCOT3_NDIEM, i);
+		cout << char(179);
+		gotoxy(MAXX_NDIEM, i);
+		cout << char(179);
+	}
+
+	//ve Hang
+	for (int i = MINX_NDIEM + 1; i < MAXX_NDIEM; ++i)
+	{
+		gotoxy(i, MINY_NDIEM);
+		cout << char(196);
+		gotoxy(i, MINY_NDIEM + 2);
+		cout << char(196);
+		gotoxy(i, MAXY_NDIEM);
+		cout << char(196);
+	}
+
+	//Vẽ góc trên bên trái
+	gotoxy(MINX_NDIEM, MINY_NDIEM);
+	cout << char(218);
+
+	//Vẽ góc trên bên phải
+	gotoxy(MAXX_NDIEM, MINY_NDIEM);
+	cout << char(191);
+
+	//Vẽ góc duoi bên trái
+	gotoxy(MINX_NDIEM, MAXY_NDIEM);
+	cout << char(192);
+
+	//Vẽ góc duoi bên phải
+	gotoxy(MAXX_NDIEM, MAXY_NDIEM);
+	cout << char(217);
+
+	//Ve cac diem giao nhau
+	gotoxy(XCOT1_NDIEM, MINY_NDIEM);
+	cout << char(194);
+	gotoxy(XCOT2_NDIEM, MINY_NDIEM);
+	cout << char(194);
+	gotoxy(XCOT3_NDIEM, MINY_NDIEM);
+	cout << char(194);
+
+	gotoxy(XCOT1_NDIEM, MAXY_NDIEM);
+	cout << char(193);
+	gotoxy(XCOT2_NDIEM, MAXY_NDIEM);
+	cout << char(193);
+	gotoxy(XCOT3_NDIEM, MAXY_NDIEM);
+	cout << char(193);
+	gotoxy(XCOT3_NDIEM, MAXY_NDIEM);
+	cout << char(193);
+
+	gotoxy(MINX_NDIEM, MINY_NDIEM + 2);
+	cout << char(195);
+	gotoxy(XCOT1_NDIEM, MINY_NDIEM + 2);
+	cout << char(197);
+	gotoxy(XCOT2_NDIEM, MINY_NDIEM + 2);
+	cout << char(197);
+	gotoxy(XCOT3_NDIEM, MINY_NDIEM + 2);
+	cout << char(197);
+	gotoxy(MAXX_NDIEM, MINY_NDIEM + 2);
+	cout << char(180);
+
+	//title bảng
+	char titleMASV[] = "MA SINH VIEN";
+	char titleMAMH[] = "MA MON HOC";
+	char titleLAN[] = "LAN THI";
+	char titleTH[] = "DIEM";
+
+
+	normal();
+
+	gotoxy(MINX_NDIEM + 4, MINY_NDIEM + 1);
+	cout << titleMASV;
+	gotoxy(XCOT1_NDIEM + 4, MINY_NDIEM + 1);
+	cout << titleMAMH;
+
+	gotoxy(XCOT2_NDIEM + 2, MINY_NDIEM + 1);
+	cout << titleLAN;
+	gotoxy(XCOT3_NDIEM + 2, MINY_NDIEM + 1);
+	cout << titleTH;
+
+}
+
+//-----

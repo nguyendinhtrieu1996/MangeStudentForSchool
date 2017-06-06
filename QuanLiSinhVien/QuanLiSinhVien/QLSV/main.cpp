@@ -95,6 +95,12 @@ int main() {
 			DANHSACHMH.suaMON();
 			break;
 		}
+
+		case THEMDIEM:
+		{
+			dsLOP.themDIEM();
+			break;
+		}
 		}
 		} while (true);
 
