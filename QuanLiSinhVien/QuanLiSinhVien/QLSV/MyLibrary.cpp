@@ -1436,4 +1436,189 @@ void veKhungNhapTTDiem()
 
 }
 
+void veKhungNhapDiemChoLop()
+{
+	//VẼ CỘT ĐỨNG
+	for (int i = MINY_BNMH1 + 1; i < MAXY_BNMH1; ++i)
+	{
+		gotoxy(MINX_BNMH1, i);
+		cout << char(179);
+		//Ve cot 1
+		gotoxy(XCOT1_BNMH1, i);
+		cout << char(179);
+		
+		gotoxy(MAXX_BNMH1, i);
+		cout << char(179);
+	}
+	//ve Hang
+	for (int i = MINX_BNMH1 + 1; i < MAXX_BNMH1; ++i)
+	{
+		gotoxy(i, MINY_BNMH1);
+		cout << char(196);
+		gotoxy(i, YDONG1_BNMH1);
+		cout << char(196);
+		gotoxy(i, YDONG2_BNMH1);
+		cout << char(196);
+		gotoxy(i, MAXY_BNMH1);
+		cout << char(196);
+	}
+	//Vẽ góc trên bên trái
+	gotoxy(MINX_BNMH1, MINY_BNMH1);
+	cout << char(218);
+
+	//Vẽ góc trên bên phải
+	gotoxy(MAXX_BNMH1, MINY_BNMH1);
+	cout << char(191);
+
+	//Vẽ góc duoi bên trái
+	gotoxy(MINX_BNMH1, MAXY_BNMH1);
+	cout << char(192);
+
+	//Vẽ góc duoi bên phải
+	gotoxy(MAXX_BNMH1, MAXY_BNMH1);
+	cout << char(217);
+	
+	//Ve cac diem giao nhau
+	gotoxy(MINX_BNMH1, YDONG1_BNMH1);
+	cout << char(195);
+	gotoxy(MINX_BNMH1, YDONG2_BNMH1);
+	cout << char(195);
+
+	gotoxy(MAXX_BNMH1, YDONG1_BNMH1);
+	cout << char(180);
+	gotoxy(MAXX_BNMH1, YDONG2_BNMH1);
+	cout << char(180);
+	gotoxy(XCOT1_BNMH1, MINY_BNMH1);
+	cout << char(194);
+	gotoxy(XCOT1_BNMH1, YDONG1_BNMH1);
+	cout << char(197);
+	gotoxy(XCOT1_BNMH1, YDONG2_BNMH1);
+	cout << char(197);
+	gotoxy(XCOT1_BNMH1, MAXY_BNMH1);
+	cout << char(193);
+
+	//title bảng
+	char titleML[] = "MA LOP";
+	char titleMAMON[] = "MA MON HOC";
+	char titleLAN[] = "LAN THI";
+	normal();
+
+	gotoxy(MINX_BNMH1 + 3, MINY_BNMH1 + 2);
+	cout << titleML;
+	gotoxy(MINX_BNMH1 + 3, YDONG1_BNMH1 + 2);
+	cout << titleMAMON;
+
+	gotoxy(MINX_BNMH1 + 3, YDONG2_BNMH1 + 2);
+	cout << titleLAN;
+
+
+}
+
+void veKhungNhapDiemTrenDSLop()
+{
+	//Ve cot
+	for (int i = MINY_BNMH2 + 1; i < MAXY_BNMH2; ++i)
+	{
+		gotoxy(MINX_BNMH2, i);
+		cout << char(179);
+		//Ve cot 1
+		gotoxy(XCOT1_BNMH2, i);
+		cout << char(179);
+		//Ve cot 2
+		gotoxy(XCOT2_BNMH2, i);
+		cout << char(179);
+		//ve cot 3
+		gotoxy(XCOT3_BNMH2, i);
+		cout << char(179);
+		//ve cot 4
+		gotoxy(XCOT4_BNMH2, i);
+		cout << char(179);
+		gotoxy(MAXX_BNMH2, i);
+		cout << char(179);
+	}
+
+	//ve Hang
+	for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
+	{
+		gotoxy(i, MINY_BNMH2);
+		cout << char(196);
+		gotoxy(i, MINY_BNMH2 + 2);
+		cout << char(196);
+		gotoxy(i, MAXY_BNMH2);
+		cout << char(196);
+	}
+
+	//Vẽ góc trên bên trái
+	gotoxy(MINX_BNMH2, MINY_BNMH2);
+	cout << char(218);
+
+	//Vẽ góc trên bên phải
+	gotoxy(MAXX_BNMH2, MINY_BNMH2);
+	cout << char(191);
+
+	//Vẽ góc duoi bên trái
+	gotoxy(MINX_BNMH2, MAXY_BNMH2);
+	cout << char(192);
+
+	//Vẽ góc duoi bên phải
+	gotoxy(MAXX_BNMH2, MAXY_BNMH2);
+	cout << char(217);
+
+	//Ve cac diem giao nhau
+	gotoxy(XCOT1_BNMH2, MINY_BNMH2);
+	cout << char(194);
+	gotoxy(XCOT2_BNMH2, MINY_BNMH2);
+	cout << char(194);
+	gotoxy(XCOT3_BNMH2, MINY_BNMH2);
+	cout << char(194);
+	gotoxy(XCOT4_BNMH2, MINY_BNMH2);
+	cout << char(194);
+
+	gotoxy(XCOT1_BNMH2, MAXY_BNMH2);
+	cout << char(193);
+	gotoxy(XCOT2_BNMH2, MAXY_BNMH2);
+	cout << char(193);
+	gotoxy(XCOT3_BNMH2, MAXY_BNMH2);
+	cout << char(193);
+	gotoxy(XCOT3_BNMH2, MAXY_BNMH2);
+	cout << char(193);
+	gotoxy(XCOT4_BNMH2, MAXY_BNMH2);
+	cout << char(193);
+
+	gotoxy(MINX_BNMH2, MINY_BNMH2 + 2);
+	cout << char(195);
+	gotoxy(XCOT1_BNMH2, MINY_BNMH2 + 2);
+	cout << char(197);
+	gotoxy(XCOT2_BNMH2, MINY_BNMH2 + 2);
+	cout << char(197);
+	gotoxy(XCOT3_BNMH2, MINY_BNMH2 + 2);
+	cout << char(197);
+	gotoxy(XCOT4_BNMH2, MINY_BNMH2 + 2);
+	cout << char(197);
+	gotoxy(MAXX_BNMH2, MINY_BNMH2 + 2);
+	cout << char(180);
+
+	//title bảng
+	char titleSTT[] = "STT";
+	char titleMASV[] = "MA SINH VIEN";
+	char titleTENMH[] = "HO SINH VIEN";
+	char titleTEN[] = "TEN";
+	char titleDIEM[] = "DIEM";
+
+
+	normal();
+
+	gotoxy(MINX_BNMH2 + 1, MINY_BNMH2 + 1);
+	cout << titleSTT;
+	gotoxy(XCOT1_BNMH2 + 2, MINY_BNMH2 + 1);
+	cout << titleMASV;
+
+	gotoxy(XCOT2_BNMH2 + 7, MINY_BNMH2 + 1);
+	cout << titleTENMH;
+	gotoxy(XCOT3_BNMH2 + 5, MINY_BNMH2 + 1);
+	cout << titleTEN;
+	gotoxy(XCOT4_BNMH2 + 2, MINY_BNMH2 + 1);
+	cout << titleDIEM;
+}
+
 //-----

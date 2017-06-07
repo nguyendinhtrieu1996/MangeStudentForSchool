@@ -1217,50 +1217,24 @@ void DSLOP::inDiemTongKet(char MLOP[])
 {
 }
 
-void DSLOP::themDIEM()
+void DSLOP::themDIEM(DSMONHOC DSMH) 
 {
-	gotoxy(77, 2);
-	setGreenText();
-	cout << "THEM DIEM";
-	int x = -1;//vị trí lớp trong DSLOP
-	normal();
-	char MLOP[constMALOP];
+	// tiêu đề bảng
+	gotoxy(MINX_BNMH1 + 12, MINY_BNMH1 - 2);
+	SetColor(green);
+	cout << "NHAP DIEM CHO LOP";
+	setNormallText();
+
+	//vẽ bảng nhập gồm MALOP,MAMH, LAN
+	veKhungNhapDiemChoLop();
+
+	/*NHAP MLop tại (XCOT1_BNMH1 +2,MINY_BNMH1+2)
+	MMON tại (XCOT1_BNMH1 +2,YDONG1_BNMH1+2)
+	LAN thi tại (XCOT1_BNMH1 +2,YDONG2_BNMH1+2)
 	
-		MLOP[0] = '\0';
-		char title[] = "THONG BAO";
-		char message[] = " Nhap ma lop can them Diem ";
-		do
-		{
-			gotoxy(MINX_ALERTTB, MINY_ALERTNL - 3);
-			int kiTu = veTextFieldNhapKituSo(MLOP, constMALOP, title, message);
-			if (kiTu == ESC)
-			{
-				return;
-			}
-			gotoxy(MINX_ALERTTB + 4, MINY_ALERTNL + 3);
-			for (int i = 0; i < widthAlert - 4; ++i)
-			{
-				cout << " ";
-			}
-			x = searchLOP(MLOP);
-			if (x == -1)
-			{
-				gotoxy(MINX_ALERTTB + 4, MINY_ALERTNL + 3);
-				SetColor(red_hightlight);
-				cout << "  Ma lop khong hop le!";
-				continue;
-			}
-			else
-			{
-				break;
-			}
-		} while (true);
+	*/
 
-		xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL - 3, widthAlert, heightTextField);
-
-		DANHSACHLOP[x].nhapTTDiem();
-		
-
+	char c = getch();
 }
 
 DSLOP::~DSLOP()

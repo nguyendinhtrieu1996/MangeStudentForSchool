@@ -29,7 +29,7 @@ public:
 	void xoaSV();
 
 	//---------xử lý Điểm
-	void themDIEM();
+	void themDIEM(DSMONHOC);
 	~DSLOP();
 	friend class LOP;
 };

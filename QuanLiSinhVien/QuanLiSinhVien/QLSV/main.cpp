@@ -98,7 +98,10 @@ int main() {
 
 		case THEMDIEM:
 		{
-			dsLOP.themDIEM();
+			//veKhungNhapDiemChoLop();
+			//veKhungNhapDiemTrenDSLop();
+			
+			dsLOP.themDIEM(DANHSACHMH);
 			break;
 		}
 		}

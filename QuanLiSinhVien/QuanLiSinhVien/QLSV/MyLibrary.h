@@ -124,6 +124,28 @@ const int XCOT1_NDIEM = 70;
 const int XCOT2_NDIEM = 95;
 const int XCOT3_NDIEM = 105;
 
+//Tọa độ bảng nhập điểm cho lớp gồm nhập MALOP,MAMH, LanThi
+const int MINX_BNMH1 = 60;
+const int MAXX_BNMH1 = 100;
+const int MINY_BNMH1 = 8;
+const int MAXY_BNMH1 = 20;
+const int XCOT1_BNMH1 = 74;
+const int YDONG1_BNMH1 = 12;
+const int YDONG2_BNMH1 = 16;
+
+//Tọa độ bảng nhập điểm cho danh sách lớp gồm stt, maSV, ho,ten, diem
+const int MINX_BNMH2 = 46;
+const int MAXX_BNMH2 = 115;
+const int MINY_BNMH2 = 5;
+const int MAXY_BNMH2 = 18;
+const int XCOT1_BNMH2 = 50;
+const int XCOT2_BNMH2 = 65;
+const int XCOT3_BNMH2 = 95;
+const int XCOT4_BNMH2 = 108;
+const int Y_FIST_DIEM = MINY_BNMH2 + 3;
+const int widthBANG_BNMH2 = 70;
+const int heightBANG_BNMH2 = 14;
+
 //Khởi tạo mặc định các tham số
 const int SoChuSo = 4;
 
@@ -232,5 +254,9 @@ void veKhungXuatSVTheoLop();
 void veKhungXuatMonHoc();
 
 void veKhungNhapTTDiem();
+
+void veKhungNhapDiemChoLop();
+//khung gồm stt,maSV, hoten, diem
+void veKhungNhapDiemTrenDSLop();
 
 
