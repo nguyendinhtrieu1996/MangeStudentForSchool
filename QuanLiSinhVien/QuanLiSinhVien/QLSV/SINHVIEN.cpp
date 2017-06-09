@@ -1,4 +1,4 @@
-#include "SINHVIEN.h"
+﻿#include "SINHVIEN.h"
 
 SINHVIEN::SINHVIEN()
 {
@@ -46,6 +46,27 @@ void SINHVIEN::insertAfter()
 
 void SINHVIEN::insertLast()
 {
+}
+
+PTRNODEDIEM SINHVIEN::timlanThiLonNhatCuaMH(char MaMonHoc[])
+{
+	int maxLanThi = -1;
+	PTRNODEDIEM temp = NULL;
+	for (PTRNODEDIEM pDiemMH = dsDiem; pDiemMH != NULL; pDiemMH = pDiemMH->next)
+	{
+		DIEM diem = pDiemMH->diem;
+		//Kiểm tra 2 mã môn học trùng nhau
+		if (strcmp(MaMonHoc, diem.getMaMH()) == 0)
+		{
+			//Kiểm tra lần thi lớn hơn lần thi trước đó tìm được
+			if (diem.getLanThi() > maxLanThi)
+			{
+				maxLanThi = diem.getLanThi();
+				temp = pDiemMH;
+			}
+		}
+	}
+	return temp;
 }
 
 bool SINHVIEN::kiemTraMH(char MMH[], int lanThi)

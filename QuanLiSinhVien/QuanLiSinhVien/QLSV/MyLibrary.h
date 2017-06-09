@@ -133,6 +133,9 @@ const int XCOT1_BNMH1 = 74;
 const int YDONG1_BNMH1 = 12;
 const int YDONG2_BNMH1 = 16;
 
+const int MINX_ALERT_TB_NHAPDIEM = 65;
+const int MINY_ALERT_TB_NHAPDIEM = 21;
+
 //Tọa độ bảng nhập điểm cho danh sách lớp gồm stt, maSV, ho,ten, diem
 const int MINX_BNMH2 = 46;
 const int MAXX_BNMH2 = 115;

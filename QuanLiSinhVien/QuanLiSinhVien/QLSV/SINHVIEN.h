@@ -26,12 +26,14 @@ public:
 	void setSDT(char[]);
 	void setTEN(char[]);
 	void xuatSV();
+	//----------------------XU LI TREN DIEM-----------------------
 	double tinhDiemTB();
 	void createDSDIEM();
 	void xuatDSDIEM();
 	void insertFirst();
 	void insertAfter();
 	void insertLast();
+	PTRNODEDIEM timlanThiLonNhatCuaMH(char MaMonHoc[]);
 
 	bool kiemTraMH(char MMH[], int lanThi);
 	void nhapDiem(char MMH[], int lanThi);

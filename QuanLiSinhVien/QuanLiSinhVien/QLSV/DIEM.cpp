@@ -1,5 +1,5 @@
 #include "DIEM.h"
-//eu tin dc :))
+
 DIEM::DIEM()
 {
 }
@@ -18,6 +18,16 @@ void DIEM::nhapDiem()
 
 void DIEM::xuatDiem()
 {
+}
+
+char * DIEM::getMaMH()
+{
+	return MAMH;
+}
+
+int DIEM::getLanThi()
+{
+	return LAN;
 }
 
 DIEM::~DIEM()

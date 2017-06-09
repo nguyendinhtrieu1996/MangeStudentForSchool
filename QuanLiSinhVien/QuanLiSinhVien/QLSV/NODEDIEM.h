@@ -10,5 +10,6 @@ private:
 public:
 	NODEDIEM();
 	~NODEDIEM();
+	friend class SINHVIEN;
 };
 

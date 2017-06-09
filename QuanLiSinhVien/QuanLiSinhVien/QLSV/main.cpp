@@ -101,7 +101,7 @@ int main() {
 			//veKhungNhapDiemChoLop();
 			//veKhungNhapDiemTrenDSLop();
 			
-			dsLOP.themDIEM(DANHSACHMH);
+			dsLOP.nhapDiemLOP(DANHSACHMH);
 			break;
 		}
 		}

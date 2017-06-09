@@ -1,20 +1,20 @@
 #pragma once
 #include "MyLibrary.h"
-#include <iostream>
-using namespace std;
 
 class DIEM
 {
 private:
-	char MAMH[20];
+	char MAMH[constMAMON];
 	int LAN;
-
 public:
 	DIEM();
 	void nhap();
 	void xuat();
 	void nhapDiem();
 	void xuatDiem();
+	char* getMaMH();
+	int getLanThi();
 	~DIEM();
+	friend class NODEDIEM;
 };
 

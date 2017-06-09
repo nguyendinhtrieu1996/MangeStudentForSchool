@@ -16,11 +16,13 @@ public:
 	void chinhSuaTTLOP();
 	void xoaLOP();
 	void inLOPTheoHang(LOP lop, int y, int stt);
+
 	//--------------CAC HAM XU LI TREN DIEM------------------------
-	bool nhapDiemLOP(DSMONHOC ds, char MLOP[], char MAMH[], int lanThi);
+	void nhapDiemLOP(DSMONHOC DSMH);
 	bool inBangDiemTheoLanThi(DSMONHOC ds, char MLOP[], char MAMH[], int lanThi);
 	bool inDiemTrungBinh(char MLOP[]);
 	void inDiemTongKet(char MLOP[]);
+
 	//--------------CAC HAM XU LI TREN SINH VIEN--------------------
 	bool nhapDSSVLOP();
 	bool xuatDSSVLOP();
@@ -28,8 +30,6 @@ public:
 	int suaTTSinhVien();
 	void xoaSV();
 
-	//---------xử lý Điểm
-	void themDIEM(DSMONHOC);
 	~DSLOP();
 	friend class LOP;
 };

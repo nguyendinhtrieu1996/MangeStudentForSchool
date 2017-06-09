@@ -21,3 +21,6 @@ const int constMAMON = 15;
 const int constTENMH = 40;
 const int constcSTCLT = 3;
 const int constcSTCTH = 3;
+
+//Hằng số điểm
+const int constLanThi = 3;

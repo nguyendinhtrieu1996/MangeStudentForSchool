@@ -1510,8 +1510,6 @@ void veKhungNhapDiemChoLop()
 
 	gotoxy(MINX_BNMH1 + 3, YDONG2_BNMH1 + 2);
 	cout << titleLAN;
-
-
 }
 
 void veKhungNhapDiemTrenDSLop()
