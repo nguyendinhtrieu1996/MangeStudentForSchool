@@ -11,5 +11,6 @@ public:
 	NODEDIEM();
 	~NODEDIEM();
 	friend class SINHVIEN;
+	friend class LOP;
 };
 

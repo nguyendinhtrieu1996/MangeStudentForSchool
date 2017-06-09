@@ -5,6 +5,7 @@ class DIEM
 {
 private:
 	char MAMH[constMAMON];
+	float Diem;
 	int LAN;
 public:
 	DIEM();
@@ -14,6 +15,7 @@ public:
 	void xuatDiem();
 	char* getMaMH();
 	int getLanThi();
+	int getDiem();
 	~DIEM();
 	friend class NODEDIEM;
 };

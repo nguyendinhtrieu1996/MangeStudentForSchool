@@ -1322,13 +1322,77 @@ NHAPMALOP:
 				{
 				NHAPLANTHI:
 					int checkLanThi = NhapSo(c_LanThi, constLanThi, XCOT1_BNMH1 + 2, YDONG2_BNMH1 + 2);
+					
+					//Nguời dùng chọn bấm ESC để thoát
 					if (checkLanThi == ESC)
 					{
-
+						char title[10] = "THONG BAO";
+						char message[30] = "Ban co muon thoat?";
+						char td[2][10] = { "    Co", "    Khong" };
+						gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
+						int checkTHONGBAO = veKhungThongBao(title, message, td);
+						//Nguoi dung chon Thoat
+						if (checkTHONGBAO == 0)
+						{
+							return;
+						}
+						//Nguoi dung chon tiep tuc
+						else if (checkTHONGBAO == 1 || checkTHONGBAO == ESC)
+						{
+							xoaNoiDungVe(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM, widthAlert, heightAlert);
+							goto NHAPLANTHI;
+						}
 					}
+					//Người dùng chọn tiếp tục
 					else
 					{
+						lanthi = atoi(c_LanThi);
 
+						//Giới hạn lần thi > 0 và <= 10
+						if (lanthi <= 0 || lanthi > 10)
+						{
+							char title[10] = "THONG BAO";
+							char message[30] = "Lan thi khong hop le";
+							char td[2][10] = { "   Thoat", "Chinh sua" };
+							gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
+							int checkTHONGBAO = veKhungThongBao(title, message, td);
+							//Nguoi dung chon Thoat
+							if (checkTHONGBAO == 0)
+							{
+								return;
+							}
+							//Nguoi dung chon tiep tuc
+							else if (checkTHONGBAO == 1 || checkTHONGBAO == ESC)
+							{
+								xoaNoiDungVe(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM, widthAlert, heightAlert);
+								goto NHAPLANTHI;
+							}
+						}
+						//Nhập Mã lớp, Mã môn học và lần thi thành công
+						else
+						{
+							//Gọi hàm nhập điểm trong lớp
+							int checkNhapDiem = DANHSACHLOP[checkMALOP].nhapDiem(MaMonHoc, lanthi);
+							if (checkNhapDiem == fail)
+							{
+								char title[10] = "THONG BAO";
+								char message[30] = "Khong tim duoc sinh vien";
+								char td[2][10] = { "   Thoat", "Nhap lai" };
+								gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
+								int checkTHONGBAO = veKhungThongBao(title, message, td);
+								//Nguoi dung chon Thoat
+								if (checkTHONGBAO == 0)
+								{
+									return;
+								}
+								//Nguoi dung chon tiep tuc
+								else if (checkTHONGBAO == 1 || checkTHONGBAO == ESC)
+								{
+									xoaNoiDungVe(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM, widthAlert, heightAlert);
+									goto NHAPMALOP;
+								}
+							}
+						}
 					}
 				}
 			}
@@ -1349,7 +1413,6 @@ bool DSLOP::inDiemTrungBinh(char MLOP[])
 void DSLOP::inDiemTongKet(char MLOP[])
 {
 }
-
 
 DSLOP::~DSLOP()
 {

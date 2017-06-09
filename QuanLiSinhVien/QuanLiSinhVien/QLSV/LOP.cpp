@@ -388,8 +388,17 @@ int LOP::getNH()
 	return NAMHOC;
 }
 
-void LOP::nhapDiem(char MAMH[], int lanThi)
+int LOP::nhapDiem(char MAMH[], int lanThi)
 {
+	PTRDIEM_SV *a = NULL;
+	int n = 0;
+	timSinhVienNhapDiem(MAMH, lanThi, a, n);
+	if (a == NULL)
+	{
+		return fail;
+	}
+	
+	return successfull;
 }
 
 void LOP::inDiem(char MAMH[], int lanThi)
@@ -407,6 +416,7 @@ void LOP::PTRNODESVPushBack(PTRNODESV *&a, int &n, PTRNODESV sv)
 	int m = n + 1;
 	PTRNODESV* aNew = (PTRNODESV*)realloc(a, m * sizeof(PTRNODESV));
 	if (aNew != NULL) {
+		aNew[n] = new NODESV;
 		aNew[n] = sv;
 		n++;
 		a = aNew;
@@ -1250,6 +1260,46 @@ void LOP::xuatDSSV(){
 
 	}
 	
+}
+
+void LOP::timSinhVienNhapDiem(char MaMonHoc[], int lanThi, PTRDIEM_SV *& a, int & n)
+{
+	for (PTRNODESV p = First; p != NULL; p = p->next)
+	{
+		PTRNODEDIEM pNodeDiemThiSV = p->SV.timlanThiLonNhatCuaMH(MaMonHoc);
+		//Không tìm được NODE nào
+		if (pNodeDiemThiSV == NULL)
+		{
+			if (lanThi == 1)
+			{
+				pushBackPTRDIEM_SV(a, n, p, pNodeDiemThiSV);
+			}
+		}
+		//Tìm được
+		else
+		{
+			DIEM diemThi = pNodeDiemThiSV->diem;
+			if (diemThi.getLanThi() == (lanThi - 1) && diemThi.getDiem() < 4)
+			{
+				pushBackPTRDIEM_SV(a, n, p, pNodeDiemThiSV);
+			}
+		}
+
+	}
+}
+
+void LOP::pushBackPTRDIEM_SV(PTRDIEM_SV *& a, int & n, PTRNODESV pNodeSv, PTRNODEDIEM pNodeDiem)
+{
+	int m = n + 1;
+	PTRDIEM_SV* anew = (PTRDIEM_SV*)realloc(a, m * sizeof(PTRDIEM_SV));
+	if (anew != NULL)
+	{
+		anew[n] = new DIEM_SV;
+		anew[n]->nodeSV = pNodeSv;
+		anew[n]->diemSV = pNodeDiem;
+		n++;
+		a = anew;
+	}
 }
 
 LOP::~LOP()

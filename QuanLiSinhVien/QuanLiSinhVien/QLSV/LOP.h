@@ -1,6 +1,18 @@
 ﻿#pragma once
 #include "NODESV.h"
 #include "Constant.h"
+typedef struct DIEM_SV* PTRDIEM_SV;
+
+/*
+	struct DIEM_SV dùng để lưu sinh viên và điểm môn học thỏa điều kiện
+	=> Khi duyệt trong danh sách điểm và tìm được sinh viên thảo điều kiện để nhập điểm (Mã môn học trùng lần thi = lanThi - 1 + rớt môn)
+	=> thì lưu con trỏ đến sinh viên đó và con trỏ điểm đó vào PTRDIEM_SV
+*/
+typedef struct DIEM_SV
+{
+	PTRNODESV nodeSV;
+	PTRNODEDIEM diemSV;
+};
 
 class LOP
 {
@@ -21,7 +33,17 @@ public:
 	void getTENLOP(char TENL[]);
 	int getNH();
 	//-------------------XU LI CHUC NANG DIEM-----------------
-	void nhapDiem(char MAMH[], int lanThi);
+	int nhapDiem(char MAMH[], int lanThi);
+
+	/* Hàm này dùng để tìm tất cả sinh viên có mã môn học trùng với môn học người dùng nhập vào
+	và có lần thi = lanThi - 1 đồng thời điểm ở lần thi đó phải < 4 (rớt môn)
+	- Tham số truyền vào: MaMonHoc[] => chuỗi chứa mã môn học
+	- lanThi => lần thi do người dùng nhập vào
+	- a: mảng động cấp phát nới rộng dần lưu PTRDIEM_SV thỏa điều kiện
+	- &n => biến đến cho biết có tất cả bao nhiêu sinh viên thỏa điều kiện
+	*/
+	void timSinhVienNhapDiem(char MaMonHoc[], int lanThi, PTRDIEM_SV *&a, int &n);
+	void pushBackPTRDIEM_SV(PTRDIEM_SV *&a, int &n, PTRNODESV pSv, PTRNODEDIEM pDiem);
 	void inDiem(char MAMH[], int lanThi);
 	void nhapTTDiem();
 	//-------------------XU LI CHUC NANG SINH VIEN------------
@@ -41,6 +63,7 @@ public:
 	void suaSVtheoConTro(PTRNODESV);
 	void xoaSVtheoConTro(PTRNODESV);
 	void hienThiTTSV(PTRNODESV);
+
 	~LOP();
 	friend class DSLOP;
 };

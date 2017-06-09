@@ -30,6 +30,11 @@ int DIEM::getLanThi()
 	return LAN;
 }
 
+int DIEM::getDiem()
+{
+	return Diem;
+}
+
 DIEM::~DIEM()
 {
 }
