@@ -398,6 +398,24 @@ int LOP::nhapDiem(char MAMH[], int lanThi)
 		return fail;
 	}
 	
+	//Trong mảng a lúc này chứa tất cả sinh viên có mã môn học thỏa điều kiện
+	//Xóa bảng nhập điểm
+	xoaNoiDungVe(MINX_NDIEM, 4, 70, 18);
+	
+	//In tiêu đề
+	setGreenText();
+	gotoxy(70, 2);
+	cout << "NHAP DIEM LOP: " << MALOP;
+	gotoxy(74, 3);
+	cout << "Mon Hoc: " << MAMH;
+	normal();
+	gotoxy(75, 4);
+	cout << "Lan thi: " << lanThi;
+
+	//Ve khung nhap Diem
+	veKhungNhapTTDiem();
+
+	Sleep(3000);
 	return successfull;
 }
 
@@ -534,13 +552,13 @@ NHAPTTSV:
 			{
 				return;
 			}
-			else if (check == 0)
+			else if (check == 0 || check == ESC)
 			{
 				xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
 				goto NHAPTTSV;
 			}
 		}
-		//if (searchSV(maSV) == NULL)
+		//Ma  sv hop le
 		else
 		{
 		NHAP_HOSV:
@@ -554,7 +572,7 @@ NHAPTTSV:
 				{
 					return;
 				}
-				else if (check2 == 1)
+				else if (check2 == 1 || check2 == ESC)
 				{
 					xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
 					goto NHAP_HOSV;
@@ -571,7 +589,7 @@ NHAPTTSV:
 				{
 					return;
 				}
-				else if (check3 == 1)
+				else if (check3 == 1 || check3 == ESC)
 				{
 					xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
 					goto NHAP_TENSV;
@@ -588,9 +606,6 @@ NHAPTTSV:
 					xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, 30, 1);
 					goto NHAP_PHAI;
 				}
-				else {
-
-				}
 			}
 			else if (checkPHAI == ESC)
 			{
@@ -600,7 +615,7 @@ NHAPTTSV:
 				{
 					return;
 				}
-				else if (check4 == 1)
+				else if (check4 == 1 || check4 == ESC)
 				{
 					xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
 					goto NHAP_PHAI;
@@ -617,9 +632,6 @@ NHAPTTSV:
 					xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, 30, 1);
 					goto NHAP_SDT;
 				}
-				else {
-
-				}
 			}
 			else if (checkSDT == ESC)
 			{
@@ -629,7 +641,7 @@ NHAPTTSV:
 				{
 					return;
 				}
-				else if (check5 == 1)
+				else if (check5 == 1 || check5 == ESC)
 				{
 					xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
 					goto NHAP_SDT;
@@ -642,12 +654,12 @@ NHAPTTSV:
 	else if (checkMASV == ESC || checkMASV == -1)
 	{
 		gotoxy(MINX_ALERTTB, MINY_ALERTNL);
-		int check2 = veKhungThongBao(title, message, td);
-		if (check2 == 0)
+		int checkThongBao = veKhungThongBao(title, message, td);
+		if (checkThongBao == 0)
 		{
 			return;
 		}
-		else if (check2 == 1)
+		else if (checkThongBao == 1 || checkThongBao == ESC)
 		{
 			xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
 			goto NHAPTTSV;

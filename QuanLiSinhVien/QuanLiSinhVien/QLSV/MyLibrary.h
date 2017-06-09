@@ -127,7 +127,7 @@ const int XCOT3_NDIEM = 105;
 //Tọa độ bảng nhập điểm cho lớp gồm nhập MALOP,MAMH, LanThi
 const int MINX_BNMH1 = 60;
 const int MAXX_BNMH1 = 100;
-const int MINY_BNMH1 = 8;
+const int MINY_BNMH1 = 9;
 const int MAXY_BNMH1 = 20;
 const int XCOT1_BNMH1 = 74;
 const int YDONG1_BNMH1 = 12;
