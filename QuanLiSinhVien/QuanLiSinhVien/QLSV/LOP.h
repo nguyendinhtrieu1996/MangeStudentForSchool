@@ -33,6 +33,7 @@ public:
 	void getTENLOP(char TENL[]);
 	int getNH();
 	//-------------------XU LI CHUC NANG DIEM-----------------
+	void xuatDiemTheoHang(PTRDIEM_SV pDiemSV, int y, int stt);
 	int nhapDiem(char MAMH[], int lanThi);
 
 	/* Hàm này dùng để tìm tất cả sinh viên có mã môn học trùng với môn học người dùng nhập vào

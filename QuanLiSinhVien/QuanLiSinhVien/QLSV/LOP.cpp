@@ -388,6 +388,20 @@ int LOP::getNH()
 	return NAMHOC;
 }
 
+void LOP::xuatDiemTheoHang(PTRDIEM_SV pDiemSV, int y, int stt)
+{
+
+	SINHVIEN sv = pDiemSV->nodeSV->SV;
+	gotoxy(MINX_BNMH2 + 1, y);
+	cout << stt + 1;
+	gotoxy(XCOT1_BNMH2 + 1, y);
+	cout << sv.getMASV();
+	gotoxy(XCOT2_BNMH2 + 1, y);
+	cout << sv.getHO();
+	gotoxy(XCOT3_BNMH2 + 1, y);
+	cout << sv.getTEN();
+}
+
 int LOP::nhapDiem(char MAMH[], int lanThi)
 {
 	PTRDIEM_SV *a = NULL;
@@ -411,11 +425,102 @@ int LOP::nhapDiem(char MAMH[], int lanThi)
 	normal();
 	gotoxy(75, 4);
 	cout << "Lan thi: " << lanThi;
+ 
+	//Cho biết tổng số trang
+	int TSTrang;
+	int trangHT = 1;
 
+	if (n % 10 == 0)
+	{
+		TSTrang = n / 10;
+	}
+	else
+	{
+		TSTrang = n / 10 + 1;
+	}
+
+NHAPDIEMLOP:
+	//Lưu số thứ tự
+	int stt = (trangHT - 1) * 10;
+	//Vị trí mà con nháy đang đứng ở đó
+	int viTriHT = (trangHT - 1) * 10 + 1;
+
+	//Xoa bang nhap diem
+	xoaNoiDungVe(MINX_BNMH2, MINY_BNMH2 - 1, 70, 15);
 	//Ve khung nhap Diem
-	veKhungNhapTTDiem();
+	veKhungNhapDiemTrenDSLop();
 
-	Sleep(3000);
+	gotoxy(XCOT3_BNMH2, MINY_BNMH2 - 1);
+	cout << "Trang: " << trangHT << " / " << TSTrang;
+
+
+	if (trangHT < TSTrang)
+	{
+		for (int i = 0; i < 10; ++i, stt++)
+		{
+			xuatDiemTheoHang(a[stt], Y_FIST_DIEM + i, stt);
+		}
+	}
+	else
+	{
+		for (int i = 0; i < (n % 10); ++i, stt++)
+		{
+			xuatDiemTheoHang(a[stt], Y_FIST_DIEM + i, stt);
+
+		}
+	}
+
+	gotoxy(XCOT4_BNMH2 + 3, Y_FIST_DIEM);
+
+	//Người dùng bắt đầu nhập điểm
+	int kiTu;
+	do
+	{
+		kiTu = 0;
+		char temp = _getch();
+		if (temp == -32 || temp == 0)
+		{
+			temp = _getch();
+			kiTu = temp + 1000;
+		}
+		else
+		{
+			kiTu = temp;
+		}
+
+		switch (kiTu)
+		{
+		case PageDown:
+		{
+			if (viTriHT < stt)
+			{
+				viTriHT++;
+				gotoxy(wherex(), wherey() + 1);
+			}
+			else if (trangHT < TSTrang)
+			{
+				trangHT++;
+				goto NHAPDIEMLOP;
+			}
+			break;
+		}
+		case PageUp:
+		{
+			if (viTriHT > ((trangHT - 1) * 10 - 1))
+			{
+				viTriHT--;
+				gotoxy(wherex(), wherey() - 1);
+			} 
+			else if (trangHT > 1)
+			{
+				trangHT--;
+				goto NHAPDIEMLOP;
+			}
+			break;
+		}
+		} 
+	} while (true);
+
 	return successfull;
 }
 
