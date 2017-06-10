@@ -39,5 +39,7 @@ public:
 	// PTRNODEMH => con trỏ muốn thêm vào mảng động
 	void PTRNODEMHPushBack(PTRNODEMH *&, int &, PTRNODEMH);
 	~DSMONHOC();
+	void ghiMon(PTRNODEMH, ofstream &);
+	void ghiFileMon();
+	void docFile();
 };
-

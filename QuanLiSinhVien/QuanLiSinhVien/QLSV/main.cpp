@@ -30,6 +30,9 @@
 int main() {
 	DSMONHOC DANHSACHMH;
 	DSLOP dsLOP;
+	//đoch file
+	dsLOP.docfile();
+	DANHSACHMH.docFile();
 
 	int mainMenu = 0, childMenu = 0;
 	do
@@ -102,6 +105,17 @@ int main() {
 			//veKhungNhapDiemTrenDSLop();
 			
 			dsLOP.nhapDiemLOP(DANHSACHMH);
+			break;
+		}
+		case DIEMTONG:
+		{
+			dsLOP.ghiFile();
+			DANHSACHMH.ghiFileMon();
+			break;
+		}
+		case DIEMTB:
+		{
+			
 			break;
 		}
 		}

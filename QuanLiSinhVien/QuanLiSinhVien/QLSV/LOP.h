@@ -64,7 +64,12 @@ public:
 	void suaSVtheoConTro(PTRNODESV);
 	void xoaSVtheoConTro(PTRNODESV);
 	void hienThiTTSV(PTRNODESV);
-
+	int demSVTrongLop();
+	//ghi file lớp
+	void ghiFile(ofstream &);
+	void docFile(ifstream &);
+	void ghiFileDSSV(ofstream &);
+	void docFileDSSV(ifstream &);
 	~LOP();
 	friend class DSLOP;
 };

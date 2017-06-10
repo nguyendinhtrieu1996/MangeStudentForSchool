@@ -1576,6 +1576,52 @@ void LOP::pushBackPTRDIEM_SV(PTRDIEM_SV *& a, int & n, PTRNODESV pNodeSv, PTRNOD
 	}
 }
 
+void LOP::ghiFile(ofstream &ofs)
+{
+		ofs.write(reinterpret_cast< const char *> (this), sizeof(LOP));
+		ghiFileDSSV(ofs);
+	
+}
+
+void LOP::docFile(ifstream &ifs)
+{
+	ifs.read(reinterpret_cast< char *> (this), sizeof(LOP));//lấy lớp
+	docFileDSSV(ifs);
+}
+
+void LOP::ghiFileDSSV(ofstream &ofs)
+{
+	int sl = 0;
+	if (First == NULL) {
+		
+		ofs.write(reinterpret_cast< const char *> (&sl), sizeof(int));
+	}
+	else {
+		sl = demSVTrongLop();
+		ofs.write(reinterpret_cast< const char *> (&sl), sizeof(int));
+		for (PTRNODESV p = First; p != NULL; p = p->next)
+		{
+			SINHVIEN sv = p->SV;
+			ofs.write(reinterpret_cast< const char *> (&sv), sizeof(SINHVIEN));
+		}
+	}
+}
+
+void LOP::docFileDSSV(ifstream &ifs)
+{
+	First = NULL;
+	int dem = 0;//số sinh viên
+	ifs.read(reinterpret_cast< char *> (&dem), sizeof(int));
+	for(int i=0;i<dem;i++){
+		SINHVIEN sv;
+		ifs.read(reinterpret_cast< char *> (&sv), sizeof(SINHVIEN));
+		insertLast(sv); 
+	}
+		
+}
+	
+
+
 LOP::~LOP()
 {
 }
@@ -1611,4 +1657,11 @@ void LOP:: hienThiTTSV(PTRNODESV p){
 	gotoxy(svCot4 + 1, MINY_BSV + 4);
 	cout << p->SV.getSDT();
 
+}
+int  LOP::demSVTrongLop() {
+	int k = 0;
+	for (PTRNODESV p = First; p != NULL; p = p->next) {
+		k++;
+	}
+	return k;
 }
