@@ -1616,8 +1616,7 @@ void LOP::docFileDSSV(ifstream &ifs)
 		SINHVIEN sv;
 		ifs.read(reinterpret_cast< char *> (&sv), sizeof(SINHVIEN));
 		insertLast(sv); 
-	}
-		
+	}		
 }
 	
 
