@@ -1373,7 +1373,7 @@ NHAPMALOP:
 						else
 						{
 							//Gọi hàm nhập điểm trong lớp
-							int checkNhapDiem = DANHSACHLOP[checkMALOP].nhapDiem(MaMonHoc, lanthi);
+							int checkNhapDiem = DANHSACHLOP[checkLop].nhapDiem(MaMonHoc, lanthi);
 							if (checkNhapDiem == fail)
 							{
 								char title[10] = "THONG BAO";

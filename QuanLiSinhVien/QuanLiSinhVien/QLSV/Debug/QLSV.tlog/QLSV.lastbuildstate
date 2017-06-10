@@ -1,6 +1,2 @@
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v140:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=8.1
-<<<<<<< HEAD
-Debug|Win32|C:\Users\NGUYEN DINH TRIEU\Desktop\QLSV\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\|
-=======
-Debug|Win32|C:\Users\Huong Thu Tran\Desktop\QLSV\QuanLiSinhVien\QuanLiSinhVien\|
->>>>>>> 20ed0440675490b02dfbbabf790282b3d07fe51f
+Debug|Win32|C:\Users\NGUYEN DINH TRIEU\Desktop\DoAnQLSV\QuanLiSinhVien\QuanLiSinhVien\|
