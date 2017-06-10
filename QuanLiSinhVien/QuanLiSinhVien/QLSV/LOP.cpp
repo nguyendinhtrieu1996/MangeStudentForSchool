@@ -1158,12 +1158,14 @@ void LOP::xuatDSSV(){
 
 							//hightLight dong dau tien trang moi
 							viTri = firstItem;
-							if (viTri < (firstItem + 9) && viTri < stt - 1)
+							if (viTri < (firstItem + 9) && viTri < stt)
 							{
 								int y = Y_FIST_SV;
 								k = conTro[viTri];
 								gotoxy(MINX_XLOP + 1, y);
+								
 								SetBGColor(green_Dark);
+								
 								for (int i = 0; i < widthBANG_XSV - 2; ++i)
 								{
 									cout << " ";
