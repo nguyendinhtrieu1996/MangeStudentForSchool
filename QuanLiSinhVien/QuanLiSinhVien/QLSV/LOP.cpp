@@ -8,7 +8,6 @@ LOP::LOP()
 void LOP::suaSVTheoMaSo(char _MASO[])
 {
 	//veKhungNhapTTSinhVien();
-	
 }
 
 void LOP::suaSVtheoConTro(PTRNODESV p)
@@ -404,6 +403,9 @@ void LOP::xuatDiemTheoHang(PTRDIEM_SV pDiemSV, int y, int stt)
 
 int LOP::nhapDiem(char MAMH[], int lanThi)
 {
+	char c_Diem[constDiemThi];
+	c_Diem[0] = '/0';
+
 	PTRDIEM_SV *a = NULL;
 	int n = 0;
 	timSinhVienNhapDiem(MAMH, lanThi, a, n);
@@ -670,9 +672,12 @@ int LOP::nhapDiem(char MAMH[], int lanThi)
 		}
 		default:
 		{
-			if (kiTu > 0 && kiTu < 9)
+			if (char(kiTu) > '0' && char(kiTu) < '9')
 			{
-
+				c_Diem[0] = char(kiTu);
+				gotoxy(wherex(), wherey());
+				cout << char(kiTu);
+				NhapSoThuc(c_Diem, constDiemThi, wherex(), wherey());
 			}
 		}
 		}
@@ -1526,16 +1531,10 @@ void LOP::xuatDSSV(){
 
 				} while (true);
 				break;
-				
-
-
-			
 			}
 
 		} while (true);
-
 	}
-	
 }
 
 void LOP::timSinhVienNhapDiem(char MaMonHoc[], int lanThi, PTRDIEM_SV *& a, int & n)

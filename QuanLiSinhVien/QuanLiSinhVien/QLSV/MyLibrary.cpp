@@ -495,6 +495,10 @@ int NhapSoThuc(char a[], int MAX, int x, int y)
 			}
 			else if (kiTu == BackSpace && i > 0 && i == n)
 			{
+				if (kiTu == '.')
+				{
+					dem = 0;
+				}
 				gotoxy(wherex() - 1, wherey());
 				a[i] = ' ';
 				cout << a[i--];
@@ -529,6 +533,10 @@ int NhapSoThuc(char a[], int MAX, int x, int y)
 			}
 			else if (kiTu == Delete)
 			{
+				if (kiTu == '.')
+				{
+					dem = 0;
+				}
 				int viTriHT = wherex();
 				xoaKiTu(a, n, i);
 				gotoxy(viTriHT, wherey());
@@ -552,7 +560,19 @@ int NhapSoThuc(char a[], int MAX, int x, int y)
 			i++;
 			gotoxy(viTri + 1, wherey());
 		} 
-		else if (n > 0 )
+		//Kiểm tra không là phẩn tử đầu tiên và chưa có dấu chấm nào
+		else if (n > 0 && dem == 0 && kiTu == '.')
+		{
+			int viTri = wherex();
+			themKiTu(a, n, i, kiTu);
+			gotoxy(viTri, wherey());
+			for (int j = i; j < n; ++j)
+			{
+				cout << a[j];
+			}
+			i++;
+			gotoxy(viTri + 1, wherey());
+		}
 		if (kiTu == ESC)
 		{
 			a[n] = '\0';
