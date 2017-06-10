@@ -1207,7 +1207,7 @@ void LOP::xuatDSSV(){
 										   cout << " ";
 									   }
 									   inSVTheoHang(k, wherey(), viTri + 1);
-									   gotoxy(X_XSV_COT1 + strlen(k->SV.getMASV()) + 2, wherey());// Y_FIST_LOP + viTri);
+									   gotoxy(X_XSV_COT1 + strlen(k->SV.getMASV()) + 2, wherey());
 
 								   }
 								   else if (trangHT > 0 && viTri > 0)
