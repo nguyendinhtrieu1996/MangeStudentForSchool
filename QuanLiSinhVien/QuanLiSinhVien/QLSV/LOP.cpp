@@ -393,7 +393,7 @@ void LOP::xuatDiemTheoHang(PTRDIEM_SV pDiemSV, int y, int stt)
 
 	SINHVIEN sv = pDiemSV->nodeSV->SV;
 	gotoxy(MINX_BNMH2 + 1, y);
-	cout << stt + 1;
+	cout << stt;
 	gotoxy(XCOT1_BNMH2 + 1, y);
 	cout << sv.getMASV();
 	gotoxy(XCOT2_BNMH2 + 1, y);
@@ -439,11 +439,10 @@ int LOP::nhapDiem(char MAMH[], int lanThi)
 		TSTrang = n / 10 + 1;
 	}
 
-NHAPDIEMLOP:
-	//Lưu số thứ tự
-	int stt = (trangHT - 1) * 10;
-	//Vị trí mà con nháy đang đứng ở đó
-	int viTriHT = (trangHT - 1) * 10 + 1;
+	//Lưu số thứ tự lớn nhất của dùng đang hiển thị
+	int stt = 0;
+	//Dong mà con nháy đang đứng ở đó
+	int viTriHT = 1;
 
 	//Xoa bang nhap diem
 	xoaNoiDungVe(MINX_BNMH2, MINY_BNMH2 - 1, 70, 15);
@@ -456,24 +455,39 @@ NHAPDIEMLOP:
 
 	if (trangHT < TSTrang)
 	{
-		for (int i = 0; i < 10; ++i, stt++)
+		for (int i = 0; i < 10; ++i)
 		{
-			xuatDiemTheoHang(a[stt], Y_FIST_DIEM + i, stt);
+			xuatDiemTheoHang(a[i], Y_FIST_DIEM + i, stt++);
 		}
 	}
 	else
 	{
-		for (int i = 0; i < (n % 10); ++i, stt++)
+		for (int i = 0; i < (n % 10); ++i)
 		{
-			xuatDiemTheoHang(a[stt], Y_FIST_DIEM + i, stt);
+			xuatDiemTheoHang(a[i], Y_FIST_DIEM + i, stt++);
 
 		}
 	}
 
+	//Highlight dòng đầu tiên
+	SetBGColor(green_Dark);
+	for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
+	{
+		gotoxy(i, Y_FIST_DIEM);
+		cout << " ";
+	}
+	xuatDiemTheoHang(a[0], Y_FIST_DIEM , 1);
+
 	gotoxy(XCOT4_BNMH2 + 3, Y_FIST_DIEM);
+
+	//Cho biet so thu tu hien tai dang in
+	int sttHienTai = 1;
+	int yHienTai = Y_FIST_DIEM;
+	int phanTuDauTienHT = 1;
 
 	//Người dùng bắt đầu nhập điểm
 	int kiTu;
+
 	do
 	{
 		kiTu = 0;
@@ -494,13 +508,36 @@ NHAPDIEMLOP:
 		{
 			if (viTriHT < stt)
 			{
+				//In lại dòng cũ với BG đen
+				SetBGColor(black);
+				for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
+				{
+					gotoxy(i, yHienTai);
+					cout << " ";
+				}
+				//Ve khung nhap Diem
+				veKhungNhapDiemTrenDSLop();
+				xuatDiemTheoHang(a[sttHienTai - 1], yHienTai, sttHienTai);
+
+				//Highlight dòng mới
 				viTriHT++;
-				gotoxy(wherex(), wherey() + 1);
+				yHienTai++;
+				sttHienTai++;
+
+				SetBGColor(green_Dark);
+				for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
+				{
+					gotoxy(i, yHienTai);
+					cout << " ";
+				}
+				
+				xuatDiemTheoHang(a[sttHienTai - 1], yHienTai, sttHienTai);
+
+				gotoxy(XCOT4_BNMH2 + 3, yHienTai);
 			}
 			else if (trangHT < TSTrang)
 			{
 				trangHT++;
-				goto NHAPDIEMLOP;
 			}
 			break;
 		}
@@ -514,7 +551,6 @@ NHAPDIEMLOP:
 			else if (trangHT > 1)
 			{
 				trangHT--;
-				goto NHAPDIEMLOP;
 			}
 			break;
 		}
