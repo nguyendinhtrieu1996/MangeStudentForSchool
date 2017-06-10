@@ -450,6 +450,118 @@ int NhapSo(char a[], int MAX, int x, int y)
 	}
 	return 0;
 }
+
+//Nhap so thuc
+int NhapSoThuc(char a[], int MAX, int x, int y)
+{
+	int length = strlen(a);
+
+	gotoxy(x + length, y);
+
+	int kiTu = 0;
+
+	// đếm số dấu '.'
+	int dem = 0;
+
+	//Lưu vị trí con nháy
+	int i = length;
+	//n cho biet so luong cac ki tu trong mang a
+	int n = length;
+
+	while (true)
+	{
+		kiTu = 0;
+		fflush(stdin);
+		char temp = _getch();
+		if (temp == -32 || temp == 0)
+		{
+			temp = _getch();
+			kiTu = temp + 1000;
+		}
+		else
+		{
+			kiTu = temp;
+		}
+		if (n >= MAX - 1 && kiTu != Enter && kiTu != BackSpace && kiTu != Left && kiTu != Right && kiTu != ESC)
+		{
+			continue;
+		}
+		else
+		{
+			if (kiTu == Enter && n != 0)
+			{
+				a[n] = '\0';
+				break;
+			}
+			else if (kiTu == BackSpace && i > 0 && i == n)
+			{
+				gotoxy(wherex() - 1, wherey());
+				a[i] = ' ';
+				cout << a[i--];
+				n--;
+				gotoxy(wherex() - 1, wherey());
+				continue;
+			}
+			else if (kiTu == Left && i > 0)
+			{
+				i--;
+				gotoxy(wherex() - 1, wherey());
+				continue;
+			}
+			else if (kiTu == Right && i < n)
+			{
+				i++;
+				gotoxy(wherex() + 1, wherey());
+				continue;
+			}
+			else if (kiTu == BackSpace && i > 0)
+			{
+				int viTriHT = wherex();
+				i--;
+				xoaKiTu(a, n, i);
+				gotoxy(viTriHT - 1, wherey());
+				for (int j = i; j < n; ++j)
+				{
+					cout << a[j];
+				}
+				cout << " ";
+				gotoxy(viTriHT - 1, wherey());
+			}
+			else if (kiTu == Delete)
+			{
+				int viTriHT = wherex();
+				xoaKiTu(a, n, i);
+				gotoxy(viTriHT, wherey());
+				for (int j = i; j < n; ++j)
+				{
+					cout << a[j];
+				}
+				cout << " ";
+				gotoxy(viTriHT, wherey());
+			}
+		}
+		if (kiTu >= '0' && kiTu <= '9')
+		{
+			int viTri = wherex();
+			themKiTu(a, n, i, kiTu);
+			gotoxy(viTri, wherey());
+			for (int j = i; j < n; ++j)
+			{
+				cout << a[j];
+			}
+			i++;
+			gotoxy(viTri + 1, wherey());
+		} 
+		else if (n > 0 )
+		if (kiTu == ESC)
+		{
+			a[n] = '\0';
+			return (int)kiTu;
+		}
+	}
+	return 0;
+}
+
 //Nhap chuoi không khoảng trắng
 int NhapTen(char a[], int MAX, int x, int y)
 {

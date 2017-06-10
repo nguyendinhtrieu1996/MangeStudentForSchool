@@ -52,6 +52,7 @@ const int ESC = 27;
 const int F2 = 1060;
 const int F5 = 1063;
 const int F6 = 1064;
+const int CHAM = 46;
 
 //Dinh nghia mau
 const int red_hightlight = 12;
@@ -196,6 +197,7 @@ int NhapChuoiVaChuSo(char a[], int MAX, int x, int y);
 	=> hàm trả về ESC nếu đang nhập người dùng bấm ESC để dừng việc nhập
 */
 int NhapSo(char a[], int MAX, int x, int y);
+int NhapSoThuc(char a[], int MAX, int x, int y);
 
 /*---------------------------------------------------------------------------
 	Hàm dùng để nhập kí tự không chứa khoảng trắng (không nhận số và các kí tự đặc biệt)
