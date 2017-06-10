@@ -1240,4 +1240,40 @@ void DSMONHOC::PTRNODEMHPushBack(PTRNODEMH *&a, int &n, PTRNODEMH p)
 
 DSMONHOC::~DSMONHOC()
 {
+
+}
+
+//ghi file
+
+void DSMONHOC::ghiMon(PTRNODEMH p, ofstream &ofs)
+{
+	if (p != NULL)
+	{
+		MONHOC mh = p->MH;
+		ofs.write(reinterpret_cast< const char *> (&mh), sizeof(MONHOC));
+		ghiMon(p->left, ofs);
+		ghiMon(p->right, ofs);
+	}
+}
+
+void DSMONHOC::ghiFileMon()
+{
+	ofstream outFile("MON.DAT", ios::out);
+	ghiMon(root, outFile);
+	outFile.close();
+}
+
+void DSMONHOC::docFile()
+{
+	root = NULL;
+	ifstream inFile("MON.DAT", ios::in);
+	if (inFile.fail()) {
+
+	} else 
+	while(!inFile.eof()) {
+		MONHOC mh;
+		inFile.read(reinterpret_cast< char *> (&mh), sizeof(MONHOC));
+		insertNodeMH(root, mh);
+	}
+
 }

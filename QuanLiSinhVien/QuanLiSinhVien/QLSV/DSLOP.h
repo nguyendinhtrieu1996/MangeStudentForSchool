@@ -29,7 +29,9 @@ public:
 	PTRNODESV searchAllSV(char MSV[], int &);
 	int suaTTSinhVien();
 	void xoaSV();
-
+	//------ đọc ghi file
+	void docfile();
+	void ghiFile();
 	~DSLOP();
 	friend class LOP;
 };

@@ -11,6 +11,8 @@
 #include <ctime>
 #include <malloc.h>
 #include "Constant.h"
+#include<cstring>
+#include<fstream>
 using namespace std;
 
 // Tọa độ bảng nhập thông tin của lớp

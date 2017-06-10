@@ -1414,6 +1414,43 @@ void DSLOP::inDiemTongKet(char MLOP[])
 {
 }
 
+void DSLOP::docfile()
+{
+	//nếu danh sách lớp không rỗng
+	if (SL > 0) {
+
+	}
+	//nếu danh sách rỗng mới đọc file
+	else 
+	{
+		
+		ifstream inFile("VD.DAT", ios::in);// mở file
+		if (inFile.fail()) {
+
+		}
+		else {
+			inFile.read(reinterpret_cast< char *> (&SL), sizeof(int));//đọc số lượng lớp
+			for (int i = 0; i < SL; i++) {
+				//đọc từng phần tử của DSLOP
+				DANHSACHLOP[i].docFile(inFile);
+			}
+		}
+		
+		inFile.close();
+	}
+	
+}
+
+void DSLOP::ghiFile()
+{
+	ofstream outFile("VD.DAT", ios::out);
+	outFile.write(reinterpret_cast< const char *> (&SL), sizeof(int));
+	for (int i = 0; i < SL; i++) {
+		DANHSACHLOP[i].ghiFile(outFile);
+	}
+	outFile.close();
+}
+
 DSLOP::~DSLOP()
 {
 }
