@@ -12,9 +12,11 @@ void DIEM::xuat()
 {
 }
 
-void DIEM::nhapDiem(float diemThi)
+void DIEM::nhapDiem(char MaMonHoc[], float diemThi, int lanThi)
 {
+	strcpy(MAMH, MaMonHoc);
 	Diem = diemThi;
+	LAN = lanThi;
 }
 
 void DIEM::xuatDiem()
@@ -31,7 +33,7 @@ int DIEM::getLanThi()
 	return LAN;
 }
 
-int DIEM::getDiem()
+float DIEM::getDiem()
 {
 	return Diem;
 }

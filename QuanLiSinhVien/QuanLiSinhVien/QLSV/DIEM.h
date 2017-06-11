@@ -11,11 +11,11 @@ public:
 	DIEM();
 	void nhap();
 	void xuat();
-	void nhapDiem(float diemThi);
+	void nhapDiem(char MaMonHoc[], float diemThi, int lanThi);;
 	void xuatDiem();
 	char* getMaMH();
 	int getLanThi();
-	int getDiem();
+	float getDiem();
 	~DIEM();
 	friend class NODEDIEM;
 };

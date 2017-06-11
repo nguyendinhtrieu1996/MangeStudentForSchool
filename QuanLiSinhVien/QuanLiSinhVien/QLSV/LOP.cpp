@@ -402,7 +402,7 @@ void LOP::xuatDiemTheoHang(PTRDIEM_SV pDiemSV, int y, int stt)
 	if (pDiemSV->diemSV != NULL)
 	{
 		float diemSV = pDiemSV->diemSV->diem.getDiem();
-		gotoxy(XCOT4_BNMH2 + 1, y);
+		gotoxy(XCOT4_BNMH2 + 2, y);
 		cout << diemSV;
 	}
 }
@@ -485,7 +485,7 @@ int LOP::nhapDiem(char MAMH[], int lanThi)
 	}
 	xuatDiemTheoHang(a[0], Y_FIST_DIEM , 1);
 
-	gotoxy(XCOT4_BNMH2 + 3, Y_FIST_DIEM);
+	gotoxy(XCOT4_BNMH2 + 2, Y_FIST_DIEM);
 
 	//Cho biet toa do y con nhay dang dung
 	int yHienTai = Y_FIST_DIEM;
@@ -538,7 +538,7 @@ int LOP::nhapDiem(char MAMH[], int lanThi)
 
 				xuatDiemTheoHang(a[viTriHT - 1], yHienTai, viTriHT);
 
-				gotoxy(XCOT4_BNMH2 + 3, yHienTai);
+				gotoxy(XCOT4_BNMH2 + 2, yHienTai);
 			}
 			else if (trangHT < TSTrang)
 			{
@@ -577,7 +577,7 @@ int LOP::nhapDiem(char MAMH[], int lanThi)
 				}
 
 				xuatDiemTheoHang(a[viTriHT - 1], yHienTai, viTriHT);
-				gotoxy(XCOT4_BNMH2 + 3, yHienTai);
+				gotoxy(XCOT4_BNMH2 + 2, yHienTai);
 			}
 			break;
 		}
@@ -610,7 +610,7 @@ int LOP::nhapDiem(char MAMH[], int lanThi)
 
 				xuatDiemTheoHang(a[viTriHT - 1], yHienTai, viTriHT);
 
-				gotoxy(XCOT4_BNMH2 + 3, yHienTai);
+				gotoxy(XCOT4_BNMH2 + 2, yHienTai);
 			}
 			else if (trangHT > 1)
 			{
@@ -650,7 +650,7 @@ int LOP::nhapDiem(char MAMH[], int lanThi)
 				}
 
 				xuatDiemTheoHang(a[viTriHT - 1], yHienTai, viTriHT);
-				gotoxy(XCOT4_BNMH2 + 3, yHienTai);
+				gotoxy(XCOT4_BNMH2 + 2, yHienTai);
 			}
 			break;
 		}
@@ -679,26 +679,42 @@ int LOP::nhapDiem(char MAMH[], int lanThi)
 		}
 		default:
 		{
-			if (char(kiTu) >= '0' && char(kiTu) <= '9')
+			if (char(kiTu) >= '0' && char(kiTu) <= '9' || kiTu == F2)
 			{
-				int currentX = wherex();
 				int currentY = wherey();
-				c_Diem[0] = char(kiTu);
-				c_Diem[1] = '\0';
-				cout << char(kiTu);
-				gotoxy(currentX, currentY);
-				NhapSoThuc(c_Diem, constDiemThi, currentX - 1, currentY);
+
+				//Lưu con trỏ trể đến node Điểm và sinh viên hiện tại con nháy đang đứng
+				PTRDIEM_SV p_DiemSV = a[viTriHT - 1];
+
+				//Sinh viên chưa có điểm  
+				if (p_DiemSV->diemSV == NULL && kiTu != F2)
+				{
+					c_Diem[0] = char(kiTu);
+					c_Diem[1] = '\0';
+					cout << c_Diem;
+				}
+				//Điểm tồn tại 
+				else if (p_DiemSV->diemSV != NULL && kiTu == F2)
+				{
+					int tempDiem = p_DiemSV->diemSV->diem.getDiem();
+					char c_tempDiem[constDiemThi];
+					itoa(temp, c_tempDiem, 10);
+					strcpy(c_Diem, c_tempDiem); 
+				}
+
+				NhapSoThuc(c_Diem, constDiemThi, XCOT4_BNMH2 + 2, currentY);
+
 				//Chuyển điểm từ chuỗi sang số
 				f_Diem = atof(c_Diem);
-				if (f_Diem >= 0.0 || f_Diem <= 10.0)
+				if (f_Diem >= 0.0 && f_Diem <= 10.0)
 				{
-					SINHVIEN sv = a[viTriHT - 1]->nodeSV->SV;
-					sv.createDSDIEM();
+					PTRNODESV nodeSV = p_DiemSV->nodeSV;
+					p_DiemSV->diemSV = nodeSV->SV.createDSDIEM(MAMH, f_Diem, lanThi);
 				}
 				//Điểm không hợp lệ
 				else
 				{
-
+					return successfull;
 				}
 			}
 		}

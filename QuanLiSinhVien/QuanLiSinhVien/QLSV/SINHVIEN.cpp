@@ -28,17 +28,26 @@ double SINHVIEN::tinhDiemTB()
 	return 0.0;
 }
 
-void SINHVIEN::createDSDIEM(char MaMH[], float diemThi, int lanThi)
+PTRNODEDIEM SINHVIEN::createDSDIEM(char MaMH[], float diemThi, int lanThi)
 {
-	
+	DIEM diem;
+	diem.nhapDiem(MaMH, diemThi, lanThi);
+
+	PTRNODEDIEM p = insertLast(diem);
+	return p;
 }
 
 void SINHVIEN::xuatDSDIEM()
 {
 }
 
-void SINHVIEN::insertFirst()
+PTRNODEDIEM SINHVIEN::insertFirst(DIEM diemSV)
 {
+	PTRNODEDIEM pDiem = new NODEDIEM;
+	pDiem->diem = diemSV;
+	pDiem->next = dsDiem;
+	dsDiem = pDiem;
+	return pDiem;
 }
 
 void SINHVIEN::insertAfter()
@@ -46,8 +55,26 @@ void SINHVIEN::insertAfter()
 
 }
 
-void SINHVIEN::insertLast()
+PTRNODEDIEM SINHVIEN::insertLast(DIEM diemSV)
 {
+	if (dsDiem == NULL)
+	{
+		PTRNODEDIEM temp = insertFirst(diemSV);
+		return temp;
+	}
+
+	PTRNODEDIEM p = dsDiem;
+	while (p->next != NULL)
+	{
+		p = p->next;
+	}
+
+	PTRNODEDIEM q = new NODEDIEM;
+	q->diem = diemSV;
+	q->next = p->next;
+	p->next = q;
+
+	return q;
 }
 
 PTRNODEDIEM SINHVIEN::timlanThiLonNhatCuaMH(char MaMonHoc[])
