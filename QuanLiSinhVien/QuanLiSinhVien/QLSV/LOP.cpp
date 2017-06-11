@@ -407,7 +407,7 @@ void LOP::xuatDiemTheoHang(PTRDIEM_SV pDiemSV, int y, int stt)
 	}
 }
 
-int LOP::nhapDiem(char MAMH[], int lanThi)
+int LOP::nhapDiem(char MAMH[], int lanThi) 
 {
 	char c_Diem[constDiemThi];
 	c_Diem[0] = '/0';
@@ -469,11 +469,23 @@ int LOP::nhapDiem(char MAMH[], int lanThi)
 	}
 	else
 	{
-		for (int i = 0; i < (n % 10); ++i, stt++)
+		if (n % 10 == 0)
 		{
-			xuatDiemTheoHang(a[stt], Y_FIST_DIEM + i, stt + 1);
+			for (int i = 0; i < 10; ++i, stt++)
+			{
+				xuatDiemTheoHang(a[stt], Y_FIST_DIEM + i, stt + 1);
 
+			}
 		}
+		else
+		{
+			for (int i = 0; i < n % 10; ++i, stt++)
+			{
+				xuatDiemTheoHang(a[stt], Y_FIST_DIEM + i, stt + 1);
+
+			}
+		}
+		
 	}
 
 	//Highlight dòng đầu tiên
@@ -826,10 +838,21 @@ int LOP::inDiemTheoMON(char MAMH[], int lanThi)
 	}
 	else
 	{
-		for (int i = 0; i < (n % 10); ++i, stt++)
+		if (n % 10 == 0)
 		{
-			xuatDiemTheoHang(a[stt], Y_FIST_DIEM + i, stt + 1);
+			for (int i = 0; i < 10; ++i, stt++)
+			{
+				xuatDiemTheoHang(a[stt], Y_FIST_DIEM + i, stt + 1);
 
+			}
+		}
+		else
+		{
+			for (int i = 0; i < n % 10; ++i, stt++)
+			{
+				xuatDiemTheoHang(a[stt], Y_FIST_DIEM + i, stt + 1);
+
+			}
 		}
 	}
 
@@ -1912,7 +1935,6 @@ void LOP::timSinhVienNhapDiem(char MaMonHoc[], int lanThi, PTRDIEM_SV *& a, int 
 				pushBackPTRDIEM_SV(a, n, p, NULL);
 			}
 		}
-
 	}
 }
 
@@ -1925,9 +1947,8 @@ void LOP::timSinhVienXuatDiemTheoMon(char MaMonHoc[], int lanThi, PTRDIEM_SV *& 
 		PTRNODEDIEM pNodeDiemThiSV = p->SV.timNODElanThiTuongUng(MaMonHoc, lanThi);
 		if (pNodeDiemThiSV != NULL) {
 			
-				pushBackPTRDIEM_SV(a, n, p, NULL);
-		}
-			
+				pushBackPTRDIEM_SV(a, n, p, pNodeDiemThiSV);
+		}	
 	}
 
 }

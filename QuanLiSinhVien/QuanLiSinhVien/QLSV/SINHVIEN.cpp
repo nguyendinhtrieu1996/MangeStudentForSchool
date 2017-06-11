@@ -112,6 +112,7 @@ PTRNODEDIEM SINHVIEN::timNODElanThiTuongUng(char MaMonHoc[], int lanThi)
 			if (diem.getLanThi() == lanThi)
 			{
 				temp = pDiemMH;
+				return temp;
 			}
 		}
 	}
