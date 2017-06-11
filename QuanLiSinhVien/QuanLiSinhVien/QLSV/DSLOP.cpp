@@ -404,11 +404,15 @@ void DSLOP::xuatDSLOPNK()
 						int y = wherey();
 						gotoxy(MINX_XLOP + 1, y);
 						SetBGColor(black);
-						for (int i = 0; i < widthBANG_XLOP - 2; ++i)
+						for (int i = MINX_XLOP+1; i <= MAXX_XLOP ; ++i)
 						{
-							cout << " ";
+							if (i == X_XLOP_COT1 || i == X_XLOP_COT2 || i == X_XLOP_COT3 || i == MAXX_XLOP) {
+								cout << (char)179;
+							}
+							else
+								cout << " ";
 						}
-						veKhungXuatLopTheoNK();
+						
 						inLOPTheoHang(DANHSACHLOP[k], y, currentIndex + 1);
 
 						//-------------------HIGHLIGHT DÒNG MỚI--------------------------------
@@ -470,11 +474,14 @@ void DSLOP::xuatDSLOPNK()
 						k = chiSo[currentIndex];
 						gotoxy(MINX_XLOP + 1, y);
 						SetBGColor(black);
-						for (int i = 0; i < widthBANG_XLOP - 2; ++i)
+						for (int i = MINX_XLOP + 1; i <= MAXX_XLOP; ++i)
 						{
-							cout << " ";
+							if (i == X_XLOP_COT1 || i == X_XLOP_COT2 || i == X_XLOP_COT3 || i == MAXX_XLOP) {
+								cout << (char)179;
+							}
+							else
+								cout << " ";
 						}
-						veKhungXuatLopTheoNK();
 						inLOPTheoHang(DANHSACHLOP[k], y, currentIndex + 1);
 
 						//Hight light dòng mới

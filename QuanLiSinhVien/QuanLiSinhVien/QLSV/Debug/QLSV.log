@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  SINHVIEN.cpp
   LOP.cpp
 c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.h(15): warning C4091: 'typedef ': ignored on left of 'DIEM_SV' when no variable is declared
@@ -39,3 +40,23 @@ c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\l
 c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1545): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
   Generating Code...
 LINK : fatal error LNK1168: cannot open C:\Users\NGUYEN DINH TRIEU\Desktop\DoAnQLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe for writing
+=======
+﻿  DSLOP.cpp
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.h(15): warning C4091: 'typedef ': ignored on left of 'DIEM_SV' when no variable is declared
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(361): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(429): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(496): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(529): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(670): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(674): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(686): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(690): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(769): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(801): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(814): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(819): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(871): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(914): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+  QLSV.vcxproj -> C:\Users\Huong Thu Tran\Desktop\QLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe
+  QLSV.vcxproj -> C:\Users\Huong Thu Tran\Desktop\QLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.pdb (Partial PDB)
+>>>>>>> f6ed6b3aa0f4c25cea3c2d098ef474debb094e3f
