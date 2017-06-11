@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+﻿  QLSV.vcxproj -> C:\Users\Huong Thu Tran\Desktop\QLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe
+  QLSV.vcxproj -> C:\Users\Huong Thu Tran\Desktop\QLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.pdb (Partial PDB)
+=======
 ﻿  LOP.cpp
 c:\users\nguyen dinh trieu\desktop\doan_qlsv\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.h(15): warning C4091: 'typedef ': ignored on left of 'DIEM_SV' when no variable is declared
 c:\users\nguyen dinh trieu\desktop\doan_qlsv\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(34): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
@@ -38,3 +42,4 @@ c:\users\nguyen dinh trieu\desktop\doan_qlsv\mangestudentforschool\quanlisinhvie
 cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
   QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\DOAN_QLSV\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe
   QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\DOAN_QLSV\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.pdb (Partial PDB)
+>>>>>>> d8801e54f10f1b525ae83b3df2fcaeb4d1c9eb36

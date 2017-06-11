@@ -34,6 +34,8 @@ public:
 	void insertAfter();
 	PTRNODEDIEM insertLast(DIEM diemSV);
 	PTRNODEDIEM timlanThiLonNhatCuaMH(char MaMonHoc[]);
+	PTRNODEDIEM timNODElanThiTuongUng(char MaMonHoc[],int lanThi);
+	
 
 	bool kiemTraMH(char MMH[], int lanThi);
 	void nhapDiem(char MMH[], int lanThi);

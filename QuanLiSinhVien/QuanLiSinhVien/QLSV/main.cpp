@@ -113,6 +113,13 @@ int main() {
 			DANHSACHMH.ghiFileMon();
 			break;
 		}
+
+		case DIEMMON:
+		{
+			dsLOP.xuatDIEMTheoMon(DANHSACHMH);
+			break;
+		}
+
 		case DIEMTB:
 		{
 			

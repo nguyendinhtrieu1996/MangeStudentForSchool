@@ -44,9 +44,11 @@ public:
 	- &n => biến đến cho biết có tất cả bao nhiêu sinh viên thỏa điều kiện
 	*/
 	void timSinhVienNhapDiem(char MaMonHoc[], int lanThi, PTRDIEM_SV *&a, int &n);
+	void timSinhVienXuatDiemTheoMon(char MaMonHoc[], int lanThi, PTRDIEM_SV *&a, int &n);
 	void pushBackPTRDIEM_SV(PTRDIEM_SV *&a, int &n, PTRNODESV pSv, PTRNODEDIEM pDiem);
-	void inDiem(char MAMH[], int lanThi);
+	int inDiemTheoMON(char MAMH[], int lanThi);
 	void nhapTTDiem();
+
 	//-------------------XU LI CHUC NANG SINH VIEN------------
 	//*****************CAC HAM HO TRO SU LI NODESV*************
 	//Thêm con trỏ sinh viên vào cuối mảng động

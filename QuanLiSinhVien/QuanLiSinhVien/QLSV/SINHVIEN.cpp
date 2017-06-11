@@ -77,6 +77,7 @@ PTRNODEDIEM SINHVIEN::insertLast(DIEM diemSV)
 	return q;
 }
 
+
 PTRNODEDIEM SINHVIEN::timlanThiLonNhatCuaMH(char MaMonHoc[])
 {
 	int maxLanThi = -1;
@@ -91,6 +92,25 @@ PTRNODEDIEM SINHVIEN::timlanThiLonNhatCuaMH(char MaMonHoc[])
 			if (diem.getLanThi() > maxLanThi)
 			{
 				maxLanThi = diem.getLanThi();
+				temp = pDiemMH;
+			}
+		}
+	}
+	return temp;
+}
+
+PTRNODEDIEM SINHVIEN::timNODElanThiTuongUng(char MaMonHoc[], int lanThi)
+{
+	PTRNODEDIEM temp = NULL;
+	for (PTRNODEDIEM pDiemMH = dsDiem; pDiemMH != NULL; pDiemMH = pDiemMH->next)
+	{
+		DIEM diem = pDiemMH->diem; 
+		//Kiểm tra 2 mã môn học trùng nhau
+		if (strcmp(MaMonHoc, diem.getMaMH()) == 0)
+		{
+			//Trùng với lần thi thì lấy
+			if (diem.getLanThi() == lanThi)
+			{
 				temp = pDiemMH;
 			}
 		}

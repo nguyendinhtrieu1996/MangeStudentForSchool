@@ -1422,6 +1422,208 @@ void DSLOP::inDiemTongKet(char MLOP[])
 {
 }
 
+void DSLOP::xuatDIEMTheoMon(DSMONHOC root)
+{
+	char MaLop[constMALOP];
+	char MaMonHoc[constMAMON];
+	char c_LanThi[constLanThi];
+	int lanthi;
+
+	MaLop[0] = '\0';
+	MaMonHoc[0] = '\0';
+	c_LanThi[0] = '\0';
+
+	// tiêu đề bảng
+	gotoxy(MINX_BNMH1 + 12, MINY_BNMH1 - 2);
+	SetColor(green);
+	cout << "NHAP DIEM CHO LOP";
+	setNormallText();
+
+	//vẽ bảng nhập gồm MALOP,MAMH, LAN
+	veKhungNhapDiemChoLop();
+
+	/*NHAP MLop tại (XCOT1_BNMH1 +2,MINY_BNMH1+2)
+	MMON tại (XCOT1_BNMH1 +2,YDONG1_BNMH1+2)
+	LAN thi tại (XCOT1_BNMH1 +2,YDONG2_BNMH1+2
+	*/
+
+NHAPMALOP:
+	int checkMALOP = NhapChuoiVaChuSo(MaLop, constMALOP, XCOT1_BNMH1 + 2, MINY_BNMH1 + 2);
+	if (checkMALOP == fail || checkMALOP == ESC)
+	{
+		char title[10] = "THONG BAO";
+		char message[30] = "Ban co muon thoat?";
+		char td[2][10] = { "    Co", "    Khong" };
+		gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
+		int checkTHONGBAO = veKhungThongBao(title, message, td);
+		//Nguoi dung chon Thoat
+		if (checkTHONGBAO == 0)
+		{
+			return;
+		}
+		//Nguoi dung chon tiep tuc
+		else if (checkTHONGBAO == 1 || checkTHONGBAO == ESC)
+		{
+			xoaNoiDungVe(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM, widthAlert, heightAlert);
+			goto NHAPMALOP;
+		}
+	}
+	else if (checkMALOP == successfull)
+	{
+		//KIểm tra mã lớp có tồn tại hay không
+		int checkLop = searchLOP(MaLop);
+
+		//Mã lớp = -1 không tồn tại lớp
+		if (checkLop == -1) {
+			char title[10] = "THONG BAO";
+			char message[30] = "Ma lop khong ton tai";
+			char td[2][10] = { "   Thoat", "Tiep tuc" };
+			gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
+			int checkTHONGBAO = veKhungThongBao(title, message, td);
+			//Nguoi dung chon Thoat
+			if (checkTHONGBAO == 0)
+			{
+				return;
+			}
+			//Nguoi dung chon tiep tuc
+			else if (checkTHONGBAO == 1 || checkTHONGBAO == ESC)
+			{
+				xoaNoiDungVe(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM, widthAlert, heightAlert);
+				goto NHAPMALOP;
+			}
+		}
+		//Mã lớp tồn tại
+		else
+		{
+		NHAPMAMONHOC:
+			int checkMAMONHOC = NhapChuoiVaChuSo(MaMonHoc, constMAMON, XCOT1_BNMH1 + 2, YDONG1_BNMH1 + 2);
+			//Nhập mã môn học không thành công hoặc người dùng chọn thoát
+			if (checkMAMONHOC == fail || checkMAMONHOC == ESC)
+			{
+				char title[10] = "THONG BAO";
+				char message[30] = "Ban co muon thoat?";
+				char td[2][10] = { "    Co", "    Khong" };
+				gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
+				int checkTHONGBAO = veKhungThongBao(title, message, td);
+				//Nguoi dung chon Thoat
+				if (checkTHONGBAO == 0)
+				{
+					return;
+				}
+				//Nguoi dung chon tiep tuc
+				else if (checkTHONGBAO == 1 || checkTHONGBAO == ESC)
+				{
+					xoaNoiDungVe(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM, widthAlert, heightAlert);
+					goto NHAPMAMONHOC;
+				}
+			}
+			//Nhập mã môn học thành công
+			else
+			{
+				PTRNODEMH p_CheckMonHoc = root.kiemTraMH(MaMonHoc);
+				//Môn học không tồn tại
+				if (p_CheckMonHoc == NULL)
+				{
+					char title[10] = "THONG BAO";
+					char message[30] = "Ma Mon hoc khong ton tai";
+					char td[2][10] = { "   Thoat", "Chinh sua" };
+					gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
+					int checkTHONGBAO = veKhungThongBao(title, message, td);
+					//Nguoi dung chon Thoat
+					if (checkTHONGBAO == 0)
+					{
+						return;
+					}
+					//Nguoi dung chon tiep tuc
+					else if (checkTHONGBAO == 1 || checkTHONGBAO == ESC)
+					{
+						xoaNoiDungVe(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM, widthAlert, heightAlert);
+						goto NHAPMAMONHOC;
+					}
+				}
+				//MÔn học có tồn tại
+				else
+				{
+				NHAPLANTHI:
+					int checkLanThi = NhapSo(c_LanThi, constLanThi, XCOT1_BNMH1 + 2, YDONG2_BNMH1 + 2);
+
+					//Nguời dùng chọn bấm ESC để thoát
+					if (checkLanThi == ESC)
+					{
+						char title[10] = "THONG BAO";
+						char message[30] = "Ban co muon thoat?";
+						char td[2][10] = { "    Co", "    Khong" };
+						gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
+						int checkTHONGBAO = veKhungThongBao(title, message, td);
+						//Nguoi dung chon Thoat
+						if (checkTHONGBAO == 0)
+						{
+							return;
+						}
+						//Nguoi dung chon tiep tuc
+						else if (checkTHONGBAO == 1 || checkTHONGBAO == ESC)
+						{
+							xoaNoiDungVe(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM, widthAlert, heightAlert);
+							goto NHAPLANTHI;
+						}
+					}
+					//Người dùng chọn tiếp tục
+					else
+					{
+						lanthi = atoi(c_LanThi);
+
+						//Giới hạn lần thi > 0 và <= 10
+						if (lanthi <= 0 || lanthi > 10)
+						{
+							char title[10] = "THONG BAO";
+							char message[30] = "Lan thi khong hop le";
+							char td[2][10] = { "   Thoat", "Chinh sua" };
+							gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
+							int checkTHONGBAO = veKhungThongBao(title, message, td);
+							//Nguoi dung chon Thoat
+							if (checkTHONGBAO == 0)
+							{
+								return;
+							}
+							//Nguoi dung chon tiep tuc
+							else if (checkTHONGBAO == 1 || checkTHONGBAO == ESC)
+							{
+								xoaNoiDungVe(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM, widthAlert, heightAlert);
+								goto NHAPLANTHI;
+							}
+						}
+						//Nhập Mã lớp, Mã môn học và lần thi thành công
+						else
+						{
+							//Gọi xuat điểm trong lớp
+							int checkNhapDiem = DANHSACHLOP[checkLop].inDiemTheoMON(MaMonHoc, lanthi);
+							if (checkNhapDiem == fail)
+							{
+								char title[10] = "THONG BAO";
+								char message[30] = "Khong tim duoc sinh vien";
+								char td[2][10] = { "   Thoat", "Nhap lai" };
+								gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
+								int checkTHONGBAO = veKhungThongBao(title, message, td);
+								//Nguoi dung chon Thoat
+								if (checkTHONGBAO == 0)
+								{
+									return;
+								}
+								//Nguoi dung chon tiep tuc
+								else if (checkTHONGBAO == 1 || checkTHONGBAO == ESC)
+								{
+									xoaNoiDungVe(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM, widthAlert, heightAlert);
+									goto NHAPMALOP;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 void DSLOP::docfile()
 {
 	//nếu danh sách lớp không rỗng
