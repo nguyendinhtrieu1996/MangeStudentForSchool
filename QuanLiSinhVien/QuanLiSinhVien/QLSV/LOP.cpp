@@ -981,6 +981,7 @@ void LOP::xuatDSSV(){
 				inSVTheoHang(p, Y_FIST_SV + stt - 1, stt);
 			}
 		}
+
 		int TSTrang;
 		int trangHT = 1;
 		//tinh tong so trang va in ra mang hinh
