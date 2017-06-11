@@ -33,7 +33,7 @@ int DIEM::getLanThi()
 	return LAN;
 }
 
-float DIEM::getDiem()
+int DIEM::getDiem()
 {
 	return Diem;
 }

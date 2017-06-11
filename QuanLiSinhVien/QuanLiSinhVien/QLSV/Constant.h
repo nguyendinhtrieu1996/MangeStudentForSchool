@@ -24,4 +24,4 @@ const int constcSTCTH = 3;
 
 //Hằng số điểm
 const int constLanThi = 3;
-const int constDiemThi = 4;
+const int constDiemThi = 3;

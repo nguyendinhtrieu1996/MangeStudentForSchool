@@ -28,7 +28,7 @@ public:
 	void xuatSV();
 	//----------------------XU LI TREN DIEM-----------------------
 	double tinhDiemTB();
-	PTRNODEDIEM createDSDIEM(char MaMH[], float diemThi, int lanThi);
+	PTRNODEDIEM createDSDIEM(char MaMH[], int diemThi, int lanThi);
 	void xuatDSDIEM();
 	PTRNODEDIEM insertFirst(DIEM diemSV);
 	void insertAfter();

@@ -28,7 +28,7 @@ double SINHVIEN::tinhDiemTB()
 	return 0.0;
 }
 
-PTRNODEDIEM SINHVIEN::createDSDIEM(char MaMH[], float diemThi, int lanThi)
+PTRNODEDIEM SINHVIEN::createDSDIEM(char MaMH[], int diemThi, int lanThi)
 {
 	DIEM diem;
 	diem.nhapDiem(MaMH, diemThi, lanThi);
