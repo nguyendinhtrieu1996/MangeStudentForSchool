@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-﻿  QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe
-  QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.pdb (Partial PDB)
-=======
 ﻿  LOP.cpp
 c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.h(15): warning C4091: 'typedef ': ignored on left of 'DIEM_SV' when no variable is declared
 c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(35): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
@@ -36,6 +32,22 @@ c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(
 c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1510): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
 c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1514): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
 c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1518): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+  DSLOP.cpp
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.h(15): warning C4091: 'typedef ': ignored on left of 'DIEM_SV' when no variable is declared
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(361): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(425): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(489): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(522): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(663): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(667): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(679): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(683): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(762): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(794): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(807): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(812): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(864): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(907): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+  Generating Code...
   QLSV.vcxproj -> C:\Users\Huong Thu Tran\Desktop\QLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe
   QLSV.vcxproj -> C:\Users\Huong Thu Tran\Desktop\QLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.pdb (Partial PDB)
->>>>>>> b0bd771b4c7501fcb9ea4e1d0fc514b0fe8156cb

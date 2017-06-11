@@ -445,7 +445,7 @@ void DSLOP::xuatDSLOPNK()
 
 						//-----------HIGHLIGHT DÒNG ĐẦU TIÊN CỦA TRANG MỚI--------------
 						currentIndex = firstItem;
-						if (currentIndex < (firstItem + 9) && currentIndex < stt - 1)
+						if (currentIndex < (firstItem + 9) && currentIndex < stt )
 						{
 
 							k = chiSo[currentIndex];
@@ -526,12 +526,13 @@ void DSLOP::xuatDSLOPNK()
 				}
 				case F2:
 				{
+					int y = Y_FIST_LOP + currentIndex - (trangHT - 1) * 10;
 					if (viTriChinhSua == 1)
 					{
 						do
 						{
 							SetBGColor(green_Dark);
-							int kiTu = NhapChuoiVaChuSo(ML, constMALOP, X_XLOP_COT1 + 2, Y_FIST_LOP + currentIndex);
+							int kiTu = NhapChuoiVaChuSo(ML, constMALOP, X_XLOP_COT1 + 2, y);
 							//Chuỗi mã lớp trả về bị rỗng
 							if (kiTu == -1)
 							{
@@ -609,7 +610,7 @@ void DSLOP::xuatDSLOPNK()
 					else if (viTriChinhSua == 2)
 					{
 						SetBGColor(green_Dark);
-						int kiTu = NhapChuoi(TENL, constTENLOP, X_XLOP_COT2 + 3, Y_FIST_LOP + currentIndex);
+						int kiTu = NhapChuoi(TENL, constTENLOP, X_XLOP_COT2 + 3, y);
 						DANHSACHLOP[k].setTENL(TENL);
 					}
 					else if (viTriChinhSua == 3)
@@ -617,7 +618,7 @@ void DSLOP::xuatDSLOPNK()
 						int NHOC;
 						do
 						{
-							NhapSo(namhoc, constNAMHOC, X_XLOP_COT3 + 2, Y_FIST_LOP + currentIndex);
+							NhapSo(namhoc, constNAMHOC, X_XLOP_COT3 + 2, y);
 							NHOC = atoi(namhoc);
 							if (NHOC > namHT)
 							{
