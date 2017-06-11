@@ -121,7 +121,6 @@
     <ClCompile Include="NODEMH.cpp" />
     <ClCompile Include="NODESV.cpp" />
     <ClCompile Include="SINHVIEN.cpp" />
-    <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constant.h" />

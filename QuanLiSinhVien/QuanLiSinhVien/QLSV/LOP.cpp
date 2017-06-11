@@ -411,7 +411,7 @@ int LOP::nhapDiem(char MAMH[], int lanThi)
 {
 	char c_Diem[constDiemThi];
 	c_Diem[0] = '/0';
-	float f_Diem;
+	int i_Diem;
 
 	PTRDIEM_SV *a = NULL;
 	int n = 0;
@@ -674,6 +674,7 @@ int LOP::nhapDiem(char MAMH[], int lanThi)
 			{
 				xoaNoiDungVe(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM, widthAlert, heightAlert);
 				gotoxy(currentX, currentY);
+				SetBGColor(green_Dark);
 			}
 			break;
 		}
@@ -697,24 +698,63 @@ int LOP::nhapDiem(char MAMH[], int lanThi)
 				else if (p_DiemSV->diemSV != NULL && kiTu == F2)
 				{
 					int tempDiem = p_DiemSV->diemSV->diem.getDiem();
-					char c_tempDiem[constDiemThi];
-					itoa(temp, c_tempDiem, 10);
-					strcpy(c_Diem, c_tempDiem); 
+					itoa(tempDiem, c_Diem, 10);
+				}
+				NHAPDIEMLOP:
+				int checkNhapLop = NhapSo(c_Diem, constDiemThi, XCOT4_BNMH2 + 2, currentY);
+				//Đang nhập người dùng bấm ESC
+				if (checkNhapLop == ESC)
+				{
+					SetBGColor(black);
+					char title[10] = "THONG BAO";
+					char message[30] = "Ban co muon thoat?";
+					char td[2][10] = { "    Co", "    Khong" };
+					gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
+					int checkTHONGBAO = veKhungThongBao(title, message, td);
+					//Nguoi dung chon Thoat
+					if (checkTHONGBAO == 0)
+					{
+						return successfull;
+					}
+					//Nguoi dung chon tiep tuc
+					else if (checkTHONGBAO == 1 || checkTHONGBAO == ESC)
+					{
+						xoaNoiDungVe(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM, widthAlert, heightAlert);
+						SetBGColor(green_Dark);
+						goto NHAPDIEMLOP;
+					}
 				}
 
-				NhapSoThuc(c_Diem, constDiemThi, XCOT4_BNMH2 + 2, currentY);
+				i_Diem = atoi(c_Diem);
 
 				//Chuyển điểm từ chuỗi sang số
-				f_Diem = atof(c_Diem);
-				if (f_Diem >= 0.0 && f_Diem <= 10.0)
+				if (i_Diem >= 0 && i_Diem <= 10)
 				{
 					PTRNODESV nodeSV = p_DiemSV->nodeSV;
-					p_DiemSV->diemSV = nodeSV->SV.createDSDIEM(MAMH, f_Diem, lanThi);
+					p_DiemSV->diemSV = nodeSV->SV.createDSDIEM(MAMH, i_Diem, lanThi);
 				}
 				//Điểm không hợp lệ
 				else
 				{
-					return successfull;
+					
+					SetBGColor(black);
+					char title[10] = "THONG BAO";
+					char message[30] = "Diem khong hop le?";
+					char td[2][10] = { "  Thoat", "Chinh sua" };
+					gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
+					int checkTHONGBAO = veKhungThongBao(title, message, td);
+					//Nguoi dung chon Thoat
+					if (checkTHONGBAO == 0)
+					{
+						return successfull;
+					}
+					//Nguoi dung chon tiep tuc
+					else if (checkTHONGBAO == 1 || checkTHONGBAO == ESC)
+					{
+						xoaNoiDungVe(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM, widthAlert, heightAlert);
+						SetBGColor(green_Dark);
+						goto NHAPDIEMLOP;
+					}
 				}
 			}
 		}
