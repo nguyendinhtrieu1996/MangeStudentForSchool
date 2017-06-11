@@ -22,7 +22,7 @@ public:
 	bool inBangDiemTheoLanThi(DSMONHOC ds, char MLOP[], char MAMH[], int lanThi);
 	bool inDiemTrungBinh(char MLOP[]);
 	void inDiemTongKet(char MLOP[]);
-
+	void xuatDIEMTheoMon(DSMONHOC);
 	//--------------CAC HAM XU LI TREN SINH VIEN--------------------
 	bool nhapDSSVLOP();
 	bool xuatDSSVLOP();
