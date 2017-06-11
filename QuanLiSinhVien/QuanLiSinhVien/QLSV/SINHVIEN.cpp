@@ -146,17 +146,14 @@ void SINHVIEN::ghiFileMon(ofstream &ofs)
 
 void SINHVIEN::docFileDiem(ifstream &ifs)
 {
-	
 	int dem = 0;//số lượng điểm
-	
+	dsDiem = NULL;
 	ifs.read(reinterpret_cast< char *> (&dem), sizeof(int));
-	if (dem == 0) {
-		dsDiem = NULL;
-	} else 
+	
 	for (int i = 0; i<dem; i++) {
 		DIEM diem;
 		ifs.read(reinterpret_cast< char *> (&diem), sizeof(DIEM));
-		//insertLast(diem);
+		insertLast(diem);
 	}
 }
 

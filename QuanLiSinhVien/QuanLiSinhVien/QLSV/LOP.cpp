@@ -2004,12 +2004,11 @@ void LOP::docFileDSSV(ifstream &ifs)
 	First = NULL;
 	int dem = 0;//số sinh viên
 	ifs.read(reinterpret_cast< char *> (&dem), sizeof(int));
-	for(int i=0;i<dem;i++){
+	for(int i=0; i < dem; i++){
 		SINHVIEN sv;
 		ifs.read(reinterpret_cast< char *> (&sv), sizeof(SINHVIEN));
-		insertLast(sv); 
-		
 		sv.docFileDiem(ifs);
+		insertLast(sv); 
 	}		
 }
 	
