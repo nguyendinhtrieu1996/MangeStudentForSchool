@@ -12,8 +12,9 @@ void DIEM::xuat()
 {
 }
 
-void DIEM::nhapDiem()
+void DIEM::nhapDiem(float diemThi)
 {
+	Diem = diemThi;
 }
 
 void DIEM::xuatDiem()

@@ -1,2 +1,41 @@
-﻿  QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\DoAnQLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe
-  QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\DoAnQLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.pdb (Partial PDB)
+﻿  SINHVIEN.cpp
+  LOP.cpp
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.h(15): warning C4091: 'typedef ': ignored on left of 'DIEM_SV' when no variable is declared
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(34): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(61): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(65): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(69): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(73): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(85): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(89): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(93): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(97): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(149): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(220): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(263): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(300): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(336): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(404): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(413): warning C4305: '=': truncation from 'int' to 'char'
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(413): warning C4309: '=': truncation of constant value
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(692): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1097): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1162): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1201): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1237): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1271): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1330): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1381): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1402): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1448): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1493): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1508): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1512): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1516): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1520): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1533): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1537): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1541): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\nguyen dinh trieu\desktop\doanqlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1545): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+  Generating Code...
+LINK : fatal error LNK1168: cannot open C:\Users\NGUYEN DINH TRIEU\Desktop\DoAnQLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe for writing

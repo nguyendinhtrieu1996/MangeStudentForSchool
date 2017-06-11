@@ -561,7 +561,7 @@ int NhapSoThuc(char a[], int MAX, int x, int y)
 			gotoxy(viTri + 1, wherey());
 		} 
 		//Kiểm tra không là phẩn tử đầu tiên và chưa có dấu chấm nào
-		else if (n > 0 && dem == 0 && kiTu == '.')
+		else if (n > 0 && dem == 0 && kiTu == '.' && i != 0)
 		{
 			int viTri = wherex();
 			themKiTu(a, n, i, kiTu);

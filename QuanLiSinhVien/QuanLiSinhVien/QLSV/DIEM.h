@@ -11,7 +11,7 @@ public:
 	DIEM();
 	void nhap();
 	void xuat();
-	void nhapDiem();
+	void nhapDiem(float diemThi);
 	void xuatDiem();
 	char* getMaMH();
 	int getLanThi();

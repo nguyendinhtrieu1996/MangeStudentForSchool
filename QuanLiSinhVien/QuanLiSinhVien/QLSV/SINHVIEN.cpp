@@ -28,8 +28,9 @@ double SINHVIEN::tinhDiemTB()
 	return 0.0;
 }
 
-void SINHVIEN::createDSDIEM()
+void SINHVIEN::createDSDIEM(char MaMH[], float diemThi, int lanThi)
 {
+	
 }
 
 void SINHVIEN::xuatDSDIEM()
@@ -42,6 +43,7 @@ void SINHVIEN::insertFirst()
 
 void SINHVIEN::insertAfter()
 {
+
 }
 
 void SINHVIEN::insertLast()

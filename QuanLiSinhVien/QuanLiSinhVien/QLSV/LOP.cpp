@@ -399,12 +399,19 @@ void LOP::xuatDiemTheoHang(PTRDIEM_SV pDiemSV, int y, int stt)
 	cout << sv.getHO();
 	gotoxy(XCOT3_BNMH2 + 1, y);
 	cout << sv.getTEN();
+	if (pDiemSV->diemSV != NULL)
+	{
+		float diemSV = pDiemSV->diemSV->diem.getDiem();
+		gotoxy(XCOT4_BNMH2 + 1, y);
+		cout << diemSV;
+	}
 }
 
 int LOP::nhapDiem(char MAMH[], int lanThi)
 {
 	char c_Diem[constDiemThi];
 	c_Diem[0] = '/0';
+	float f_Diem;
 
 	PTRDIEM_SV *a = NULL;
 	int n = 0;
@@ -672,12 +679,27 @@ int LOP::nhapDiem(char MAMH[], int lanThi)
 		}
 		default:
 		{
-			if (char(kiTu) > '0' && char(kiTu) < '9')
+			if (char(kiTu) >= '0' && char(kiTu) <= '9')
 			{
+				int currentX = wherex();
+				int currentY = wherey();
 				c_Diem[0] = char(kiTu);
-				gotoxy(wherex(), wherey());
+				c_Diem[1] = '\0';
 				cout << char(kiTu);
-				NhapSoThuc(c_Diem, constDiemThi, wherex(), wherey());
+				gotoxy(currentX, currentY);
+				NhapSoThuc(c_Diem, constDiemThi, currentX - 1, currentY);
+				//Chuyển điểm từ chuỗi sang số
+				f_Diem = atof(c_Diem);
+				if (f_Diem >= 0.0 || f_Diem <= 10.0)
+				{
+					SINHVIEN sv = a[viTriHT - 1]->nodeSV->SV;
+					sv.createDSDIEM();
+				}
+				//Điểm không hợp lệ
+				else
+				{
+
+				}
 			}
 		}
 		}
@@ -1541,6 +1563,7 @@ void LOP::timSinhVienNhapDiem(char MaMonHoc[], int lanThi, PTRDIEM_SV *& a, int 
 {
 	for (PTRNODESV p = First; p != NULL; p = p->next)
 	{
+		//Tìm lần thi lớn nhất đã có điểm ứng với môn hoc đó
 		PTRNODEDIEM pNodeDiemThiSV = p->SV.timlanThiLonNhatCuaMH(MaMonHoc);
 		//Không tìm được NODE nào
 		if (pNodeDiemThiSV == NULL)
@@ -1556,7 +1579,7 @@ void LOP::timSinhVienNhapDiem(char MaMonHoc[], int lanThi, PTRDIEM_SV *& a, int 
 			DIEM diemThi = pNodeDiemThiSV->diem;
 			if (diemThi.getLanThi() == (lanThi - 1) && diemThi.getDiem() < 4)
 			{
-				pushBackPTRDIEM_SV(a, n, p, pNodeDiemThiSV);
+				pushBackPTRDIEM_SV(a, n, p, NULL);
 			}
 		}
 
