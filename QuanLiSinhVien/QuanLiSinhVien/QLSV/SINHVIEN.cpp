@@ -176,11 +176,11 @@ int SINHVIEN::suaDiem(char MMH[], int lanThi)
 	int kiTu;
 	do {
 		char cdiem[constDiemThi];
-		int diem = pDiem->diem.getDiem();
+		int diem = pDiem->diem.getDiem(); 
 
 		cdiem[0] = '/0';
 
-		itoa(diem, cdiem, constDiemThi);
+		itoa(diem, cdiem, 10);
 		kiTu = 0;
 		fflush(stdin);
 		char temp = _getch();
@@ -220,7 +220,7 @@ int SINHVIEN::suaDiem(char MMH[], int lanThi)
 
 						cdiem[0] = '/0';
 
-						itoa(diem, cdiem, constDiemThi);
+						itoa(diem, cdiem, 10);
 						cout << diem;
 						continue;
 					}
@@ -230,7 +230,6 @@ int SINHVIEN::suaDiem(char MMH[], int lanThi)
 
 						xoaNoiDungVe(MINX_BLOP - 1, MINY_BLOP - 1, 70, 7);
 						return 1;
-
 					}
 				 }
 				else {
@@ -266,7 +265,7 @@ int SINHVIEN::suaDiem(char MMH[], int lanThi)
 
 								cdiem[0] = '/0';
 
-								itoa(diem, cdiem, constDiemThi);
+								itoa(diem, cdiem, 10);
 								cout << diem;
 								continue;
 							}
@@ -290,17 +289,11 @@ int SINHVIEN::suaDiem(char MMH[], int lanThi)
 							
 						}
 					}
-				}
-				
-				
+				}	
 		}
 
 	} while (true);
 	return 1;
-
-	
-
-	
 }
 
 bool SINHVIEN::kiemTraMH(char MMH[], int lanThi)
