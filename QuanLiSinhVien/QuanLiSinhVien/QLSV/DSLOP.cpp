@@ -1115,7 +1115,7 @@ void DSLOP::xoaLOP()
 	} while (true);
 }
 
-bool DSLOP::nhapDSSVLOP()
+void DSLOP::nhapDSSVLOP()
 {
 	char labelTb[20] = "NHAP SINH VIEN LOP";
 	labelTable(labelTb);
@@ -1127,10 +1127,11 @@ bool DSLOP::nhapDSSVLOP()
 	maLop[0] = '\0';
 	do {
 		gotoxy(MINX_ALERTTB, 9);
+
 		switch (veTextFieldNhapKituSo(maLop, constMALOP, title, message))
 		{
 		case ESC:
-			return false;
+			return;
 		
 		//hàm vẽ textfield return 0 đã nhận được kết quả
 		case 0:
@@ -1157,11 +1158,9 @@ bool DSLOP::nhapDSSVLOP()
 	xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL - 3, widthAlert, heightTextField);
 
 	DANHSACHLOP[i].createDSSV();
-
-	return true;
 }
 
-bool DSLOP::xuatDSSVLOP()
+void DSLOP::xuatDSSVLOP()
 {
 	char labelTb[20] = "NHAP SINH VIEN LOP";
 	labelTable(labelTb);
@@ -1177,7 +1176,7 @@ bool DSLOP::xuatDSSVLOP()
 		switch (veTextFieldNhapKituSo(maLop, constMALOP, title, message)) 
 		{
 		case ESC:
-			return false;
+			return;
 			break;
 		case 0:
 			if (maLop[0] == '/0'){
@@ -1203,7 +1202,7 @@ bool DSLOP::xuatDSSVLOP()
 	Sleep(100);
 	xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL - 3, widthAlert, heightTextField);
 	DANHSACHLOP[i].xuatDSSV();
-	return false;
+	return;
 }
 
 int DSLOP::searchLOP(char MLOP[])
@@ -1425,13 +1424,103 @@ bool DSLOP::inBangDiemTheoLanThi(DSMONHOC ds, char MLOP[], char MAMH[], int lanT
 	return false;
 }
 
-bool DSLOP::inDiemTrungBinh(char MLOP[])
+void DSLOP::inDiemTrungBinh()
 {
-	return false;
+	SetColor(green);
+	char labelTitle[50] = "BANG THONG KE DIEM TRUNG BINH KHOA HOC";
+	gotoxy(62, 2);
+	cout << labelTitle;
+
+	char title[] = "THONG BAO";
+	char message[] = "Nhap Ma Lop de in diem TB";
+	char maLop[constMALOP];
+	// i lưu chỉ số lớp khi sreach trả về
+	int i = -1;
+	maLop[0] = '\0';
+	do {
+		gotoxy(MINX_ALERTTB, 9);
+
+		int checkMALOP = veTextFieldNhapKituSo(maLop, constMALOP, title, message);
+
+		switch (checkMALOP)
+		{
+		case ESC:
+			return;
+
+			//hàm vẽ textfield return 0 đã nhận được kết quả
+		case 0:
+			i = searchLOP(maLop);
+			//Tại sao malopp[0] != '\0' khi veTextField trả về không đã nhận được mã lớp rồi
+			//=> kiểm tra lại
+
+			if (i == -1)
+			{
+				gotoxy(MINX_ALERTTB + 4, MINY_ALERTNL + 3);
+				SetColor(red_hightlight);
+				cout << "Ma lop khong ton tai ";
+				Sleep(1000);
+				xoaNoiDungVe(MINX_ALERTTB + 4, MINY_ALERTNL + 3, 25, 1);
+			}
+			break;
+		default:
+			break;
+		}
+
+	} while (i == -1);
+	Sleep(100);
+	//Xóa TextField
+	xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL - 3, widthAlert, heightTextField);
+
+	DANHSACHLOP[i].inDiemTBLOP();
 }
 
-void DSLOP::inDiemTongKet(char MLOP[])
+void DSLOP::inDiemTongKet()
 {
+	SetColor(green);
+	char labelTitle[50] = "BANG TONG KET KHOA HOC";
+	gotoxy(70, 2);
+	cout << labelTitle;
+
+	char title[] = "THONG BAO";
+	char message[] = " Nhap MALOP in diem tong ket";
+	char maLop[constMALOP];
+	// i lưu chỉ số lớp khi sreach trả về
+	int i = -1;
+	maLop[0] = '\0';
+	do {
+		gotoxy(MINX_ALERTTB, 9);
+
+		int checkMALOP = veTextFieldNhapKituSo(maLop, constMALOP, title, message);
+
+		switch (checkMALOP)
+		{
+		case ESC:
+			return;
+
+			//hàm vẽ textfield return 0 đã nhận được kết quả
+		case 0:
+			i = searchLOP(maLop);
+			//Tại sao malopp[0] != '\0' khi veTextField trả về không đã nhận được mã lớp rồi
+			//=> kiểm tra lại
+
+			if (i == -1)
+			{
+				gotoxy(MINX_ALERTTB + 4, MINY_ALERTNL + 3);
+				SetColor(red_hightlight);
+				cout << "Ma lop khong ton tai ";
+				Sleep(1000);
+				xoaNoiDungVe(MINX_ALERTTB + 4, MINY_ALERTNL + 3, 25, 1);
+			}
+			break;
+		default:
+			break;
+		}
+
+	} while (i == -1);
+	Sleep(100);
+	//Xóa TextField
+	xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL - 3, widthAlert, heightTextField);
+	DANHSACHLOP[i].inDiemTongketLOP();
 }
 
 void DSLOP::xuatDIEMTheoMon(DSMONHOC root)

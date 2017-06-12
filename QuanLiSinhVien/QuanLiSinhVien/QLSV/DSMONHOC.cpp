@@ -850,8 +850,6 @@ void DSMONHOC::XoaNODEMonHoc(PTRNODEMH &p,char maMH[])
 	}
 }
 
-
-
 void DSMONHOC::XoaTruongHop3(PTRNODEMH &rp, PTRNODEMH &r)
 {
 	if (r->left == NULL)
@@ -950,7 +948,6 @@ void DSMONHOC::xoaMON()
 
 	} while (1);
 }
-
 
 void DSMONHOC::hienThiTTMON(PTRNODEMH p)
 {

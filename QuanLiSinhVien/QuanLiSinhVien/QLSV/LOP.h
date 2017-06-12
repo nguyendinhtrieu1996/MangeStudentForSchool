@@ -48,6 +48,9 @@ public:
 	void pushBackPTRDIEM_SV(PTRDIEM_SV *&a, int &n, PTRNODESV pSv, PTRNODEDIEM pDiem);
 	int inDiemTheoMON(char MAMH[], int lanThi);
 	void nhapTTDiem();
+	void inDiemTBLOP();
+	void inDiemTongketLOP();
+
 
 	//-------------------XU LI CHUC NANG SINH VIEN------------
 	//*****************CAC HAM HO TRO SU LI NODESV*************

@@ -7,6 +7,7 @@ class DSLOP
 private:
 	int SL;
 	LOP DANHSACHLOP[constNumberDSLOP];
+
 public:
 	DSLOP();
 	//---------------CAC HAM XU LI TREN DSLOP------------------
@@ -21,14 +22,14 @@ public:
 	//--------------CAC HAM XU LI TREN DIEM------------------------
 	void nhapDiemLOP(DSMONHOC DSMH);
 	bool inBangDiemTheoLanThi(DSMONHOC ds, char MLOP[], char MAMH[], int lanThi);
-	bool inDiemTrungBinh(char MLOP[]);
-	void inDiemTongKet(char MLOP[]);
+	void inDiemTrungBinh();
+	void inDiemTongKet();
 	void xuatDIEMTheoMon(DSMONHOC);
 	void suaDIEMSVTheoMon(DSMONHOC);
 	void xoaDIEMSVTheoMon(DSMONHOC);
 	//--------------CAC HAM XU LI TREN SINH VIEN--------------------
-	bool nhapDSSVLOP();
-	bool xuatDSSVLOP();
+	void nhapDSSVLOP();
+	void xuatDSSVLOP();
 	PTRNODESV searchAllSV(char MSV[], int &);
 	int suaTTSinhVien();
 	void xoaSV();

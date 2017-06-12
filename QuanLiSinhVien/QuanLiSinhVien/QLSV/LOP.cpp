@@ -1070,6 +1070,15 @@ void LOP::nhapTTDiem()
 	char c = getch();
 }
 
+void LOP::inDiemTBLOP()
+{
+
+}
+
+void LOP::inDiemTongketLOP()
+{
+}
+
 void LOP::PTRNODESVPushBack(PTRNODESV *&a, int &n, PTRNODESV sv)
 {
 	int m = n + 1;
@@ -2012,8 +2021,6 @@ void LOP::docFileDSSV(ifstream &ifs)
 	}		
 }
 	
-
-
 LOP::~LOP()
 {
 }
@@ -2050,6 +2057,7 @@ void LOP:: hienThiTTSV(PTRNODESV p){
 	cout << p->SV.getSDT();
 
 }
+
 int  LOP::demSVTrongLop() {
 	int k = 0;
 	for (PTRNODESV p = First; p != NULL; p = p->next) {

@@ -30,11 +30,13 @@
 int main() {
 	DSMONHOC DANHSACHMH;
 	DSLOP dsLOP;
-	//đoch file
+
+	//đoc file
 	dsLOP.docfile();
 	DANHSACHMH.docFile();
 
 	int mainMenu = 0, childMenu = 0;
+
 	do
 	{
 		int chon = veMenu(mainMenu, childMenu);
@@ -99,10 +101,8 @@ int main() {
 			break;
 		}
 		
-
 		case THEMDIEM:
 		{
-			
 			dsLOP.nhapDiemLOP(DANHSACHMH);
 			break;
 		}
@@ -118,20 +118,17 @@ int main() {
 		}
 		case DIEMTONG:
 		{
-			dsLOP.ghiFile();
-			DANHSACHMH.ghiFileMon();
+			dsLOP.inDiemTongKet();
 			break;
 		}
-
 		case DIEMMON:
 		{
 			dsLOP.xuatDIEMTheoMon(DANHSACHMH);
 			break;
 		}
-
 		case DIEMTB:
 		{
-			
+			dsLOP.inDiemTrungBinh();
 			break;
 		}
 		}

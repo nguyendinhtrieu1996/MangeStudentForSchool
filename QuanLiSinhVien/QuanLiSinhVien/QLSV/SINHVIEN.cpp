@@ -85,6 +85,7 @@ int SINHVIEN::demSLdiemCuaSV() {
 	}
 	return dem;
 }
+
 PTRNODEDIEM SINHVIEN::timlanThiLonNhatCuaMH(char MaMonHoc[])
 {
 	int maxLanThi = -1;
@@ -392,42 +393,51 @@ void SINHVIEN::xoaNODEDiem(PTRNODEDIEM p)
 	}
 }
 
-
 SINHVIEN::~SINHVIEN()
 {
 }
+
 char* SINHVIEN::getMASV(){
 	return MASV;
 }
+
 char*SINHVIEN::getHO()
 {
 	return HO;
 }
+
 char*SINHVIEN::getPHAI(){
 	return PHAI;
 }
+
 char*SINHVIEN::getTEN(){
 	return TEN;
 }
+
 char* SINHVIEN::getSDT(){
 	return SDT;
 }
+
 void SINHVIEN::setMASV(char _MASV[])
 {
 	strcpy(MASV, _MASV);
 }
+
 void SINHVIEN::setHO(char _HO[])
 {
 	strcpy(HO, _HO);
 }
+
 void SINHVIEN::setPHAI(char _PHAI[])
 {
 	strcpy(PHAI, _PHAI);
 }
+
 void SINHVIEN::setSDT(char _SDT[])
 {
 	strcpy(SDT, _SDT);
 }
+
 void SINHVIEN::setTEN(char _TEN[])
 {
 	strcpy(TEN, _TEN);
