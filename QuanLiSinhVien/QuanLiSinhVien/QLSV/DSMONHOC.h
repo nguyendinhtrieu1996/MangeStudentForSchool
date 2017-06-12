@@ -16,7 +16,7 @@ public:
 	//	=> kết quả trả về con trỏ trỏ đến NODE môn học đó
 	PTRNODEMH kiemTraMH(char maMH[]);
 
-	void xuatDSLMON();
+	void xuatDSMON();
 	void duyetMAMHtang(PTRNODEMH, PTRNODEMH *&a, int&);
 	void xepDSTangTheoTenMH(PTRNODEMH *&a, int, int);
 	void xepDSTangTheoTenMHdemo(PTRNODEMH *&a, int);

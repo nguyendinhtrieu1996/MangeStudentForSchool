@@ -90,7 +90,7 @@ int main() {
 		}
 		case INDSMH:
 		{
-			DANHSACHMH.xuatDSLMON();
+			DANHSACHMH.xuatDSMON();
 			break;
 		}
 		case SUAMH:

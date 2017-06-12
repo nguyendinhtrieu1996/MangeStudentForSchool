@@ -238,7 +238,7 @@ PTRNODEMH DSMONHOC::kiemTraMH(char maMH[])
 
 }
 
-void DSMONHOC::xuatDSLMON()
+void DSMONHOC::xuatDSMON()
 {
 	labelTable("DANH SACH MON HOC");
 
@@ -258,7 +258,7 @@ void DSMONHOC::xuatDSLMON()
 		duyetMAMHtang(p, conTro, size);
 
 		//xep danh sách tăng dần theo tên môn học
-		xepDSTangTheoTenMHdemo(conTro,size);
+		xepDSTangTheoTenMH(conTro, 0, size - 1);
 
 		//in 10 phần tử đầu tiên
 		if (size >= 10) {
@@ -779,7 +779,7 @@ void DSMONHOC::xepDSTangTheoTenMH(PTRNODEMH *&a, int q, int r)
 	strcpy(x, a[(q + r) / 2]->MH.getTENMH());
 	do {
 		while (strcmp(x, a[i]->MH.getTENMH()) > 0) i++;
-		while (strcmp(x, a[i]->MH.getTENMH()) < 0) j--;
+		while (strcmp(x, a[j]->MH.getTENMH()) < 0) j--;
 		if (i <= j) {
 			temp = a[i];
 			a[i] = a[j];
