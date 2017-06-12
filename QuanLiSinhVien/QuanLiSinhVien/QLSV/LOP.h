@@ -14,6 +14,13 @@ typedef struct DIEM_SV
 	PTRNODEDIEM diemSV;
 };
 
+typedef struct DANHSACH_DIEMSV
+{
+	PTRNODESV nodeSV;
+	int size;
+	PTRNODEDIEM *diemSV;
+};
+
 class LOP
 {
 private:
