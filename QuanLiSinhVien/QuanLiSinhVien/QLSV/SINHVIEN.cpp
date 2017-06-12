@@ -77,7 +77,14 @@ PTRNODEDIEM SINHVIEN::insertLast(DIEM diemSV)
 	return q;
 }
 
-
+int SINHVIEN::demSLdiemCuaSV() {
+	int dem = 0;
+	for (PTRNODEDIEM pDiemMH = dsDiem; pDiemMH != NULL; pDiemMH = pDiemMH->next)
+	{
+		dem++;
+	}
+	return dem;
+}
 PTRNODEDIEM SINHVIEN::timlanThiLonNhatCuaMH(char MaMonHoc[])
 {
 	int maxLanThi = -1;
@@ -117,6 +124,40 @@ PTRNODEDIEM SINHVIEN::timNODElanThiTuongUng(char MaMonHoc[], int lanThi)
 		}
 	}
 	return temp;
+}
+
+void SINHVIEN::ghiFileMon(ofstream &ofs)
+{
+	int sl = 0;
+	if (dsDiem == NULL) {
+
+		ofs.write(reinterpret_cast< const char *> (&sl), sizeof(int));
+	}
+	else {
+		sl = demSLdiemCuaSV();
+		ofs.write(reinterpret_cast< const char *> (&sl), sizeof(int));
+		for (PTRNODEDIEM pDiemMH = dsDiem; pDiemMH != NULL; pDiemMH = pDiemMH->next)
+		{
+			DIEM diem = pDiemMH->diem;
+			ofs.write(reinterpret_cast< const char *> (&diem), sizeof(DIEM));
+		}
+	}
+}
+
+void SINHVIEN::docFileDiem(ifstream &ifs)
+{
+	
+	int dem = 0;//số lượng điểm
+	
+	ifs.read(reinterpret_cast< char *> (&dem), sizeof(int));
+	if (dem == 0) {
+		dsDiem = NULL;
+	} else 
+	for (int i = 0; i<dem; i++) {
+		DIEM diem;
+		ifs.read(reinterpret_cast< char *> (&diem), sizeof(DIEM));
+		//insertLast(diem);
+	}
 }
 
 bool SINHVIEN::kiemTraMH(char MMH[], int lanThi)

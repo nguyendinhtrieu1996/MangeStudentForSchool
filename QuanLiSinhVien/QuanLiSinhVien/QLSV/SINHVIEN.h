@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "NODEDIEM.h"
 #include "Constant.h"
 
@@ -35,7 +35,10 @@ public:
 	PTRNODEDIEM insertLast(DIEM diemSV);
 	PTRNODEDIEM timlanThiLonNhatCuaMH(char MaMonHoc[]);
 	PTRNODEDIEM timNODElanThiTuongUng(char MaMonHoc[],int lanThi);
-	
+	int demSLdiemCuaSV();
+	//ghi file điểm
+	void ghiFileMon(ofstream &);
+	void docFileDiem(ifstream &);
 
 	bool kiemTraMH(char MMH[], int lanThi);
 	void nhapDiem(char MMH[], int lanThi);

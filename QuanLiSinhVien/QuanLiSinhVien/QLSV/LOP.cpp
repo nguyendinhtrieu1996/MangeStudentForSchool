@@ -1994,6 +1994,7 @@ void LOP::ghiFileDSSV(ofstream &ofs)
 		{
 			SINHVIEN sv = p->SV;
 			ofs.write(reinterpret_cast< const char *> (&sv), sizeof(SINHVIEN));
+			sv.ghiFileMon(ofs);
 		}
 	}
 }
@@ -2007,6 +2008,8 @@ void LOP::docFileDSSV(ifstream &ifs)
 		SINHVIEN sv;
 		ifs.read(reinterpret_cast< char *> (&sv), sizeof(SINHVIEN));
 		insertLast(sv); 
+		
+		sv.docFileDiem(ifs);
 	}		
 }
 	

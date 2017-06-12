@@ -11,7 +11,7 @@ public:
 	DIEM();
 	void nhap();
 	void xuat();
-	void nhapDiem(char MaMonHoc[], float diemThi, int lanThi);;
+	void nhapDiem(char MaMonHoc[], int diemThi, int lanThi);;
 	void xuatDiem();
 	char* getMaMH();
 	int getLanThi();

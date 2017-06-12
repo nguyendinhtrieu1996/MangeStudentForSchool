@@ -12,7 +12,7 @@ void DIEM::xuat()
 {
 }
 
-void DIEM::nhapDiem(char MaMonHoc[], float diemThi, int lanThi)
+void DIEM::nhapDiem(char MaMonHoc[], int diemThi, int lanThi)
 {
 	strcpy(MAMH, MaMonHoc);
 	Diem = diemThi;
