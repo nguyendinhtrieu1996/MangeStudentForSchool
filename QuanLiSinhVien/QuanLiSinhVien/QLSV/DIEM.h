@@ -16,6 +16,7 @@ public:
 	char* getMaMH();
 	int getLanThi();
 	int getDiem();
+	void setDiem(int);
 	~DIEM();
 	friend class NODEDIEM;
 };

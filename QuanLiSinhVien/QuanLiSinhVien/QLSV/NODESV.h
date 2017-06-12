@@ -11,5 +11,6 @@ public:
 	NODESV();
 	~NODESV();
 	friend class LOP;
+	friend class DSLOP;
 };
 
