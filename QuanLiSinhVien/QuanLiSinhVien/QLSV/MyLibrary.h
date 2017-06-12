@@ -266,4 +266,7 @@ void veKhungNhapDiemChoLop();
 //khung gồm stt,maSV, hoten, diem
 void veKhungNhapDiemTrenDSLop();
 
+//Khung gồm nhập MaSV, MAMON,LAN
+void veKhungSuaDiemChoSV();
+
 
