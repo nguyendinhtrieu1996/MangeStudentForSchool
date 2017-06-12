@@ -16,6 +16,7 @@ public:
 	void chinhSuaTTLOP();
 	void xoaLOP();
 	void inLOPTheoHang(LOP lop, int y, int stt);
+	void pushBackChiSoDSLOP(int *&a, int &n, int i);;
 
 	//--------------CAC HAM XU LI TREN DIEM------------------------
 	void nhapDiemLOP(DSMONHOC DSMH);

@@ -1347,9 +1347,9 @@ void LOP::xuatDSSV(){
 
 		veKhungXuatSVTheoLop();
 		int stt = 0;
-		PTRNODESV conTro[50];
+		PTRNODESV *conTro = NULL;
 		for (p = First; p != NULL; p = p->next){
-			conTro[stt++] = p;
+			PTRNODESVPushBack(conTro, stt, p);
 			if (stt <= 10)
 			{
 				inSVTheoHang(p, Y_FIST_SV + stt - 1, stt);

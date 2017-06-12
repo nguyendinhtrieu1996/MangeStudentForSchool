@@ -252,7 +252,7 @@ void DSMONHOC::xuatDSLMON()
 		
 		int stt = 0;
 		int size = 0;
-		PTRNODEMH conTro[50];
+		PTRNODEMH *conTro = NULL;
 
 		PTRNODEMH p = root;
 		duyetMAMHtang(p, conTro, size);
@@ -759,18 +759,18 @@ void DSMONHOC::xuatDSLMON()
 	}
 }
 
-void DSMONHOC::duyetMAMHtang(PTRNODEMH p, PTRNODEMH a[], int &size)
+void DSMONHOC::duyetMAMHtang(PTRNODEMH p, PTRNODEMH *&a, int &size)
 {
 	if (p != NULL)
 	{
-		a[size++] = p;
+		PTRNODEMHPushBack(a, size, p);
 		duyetMAMHtang(p->left, a, size);
 		duyetMAMHtang(p->right, a, size);
 	}
 }
 
 //xếp qicksort :)) nhiều phần tử bị đứng ko biết sao hết :))
-void DSMONHOC::xepDSTangTheoTenMH(PTRNODEMH a[], int q, int r)
+void DSMONHOC::xepDSTangTheoTenMH(PTRNODEMH *&a, int q, int r)
 {
 	PTRNODEMH temp;
 	int i = q;
@@ -793,7 +793,7 @@ void DSMONHOC::xepDSTangTheoTenMH(PTRNODEMH a[], int q, int r)
 }
 
 //cách xếp củ chuối :))) củ chuối nhưng chạy ổn định 
-void DSMONHOC::xepDSTangTheoTenMHdemo(PTRNODEMH a[], int size)
+void DSMONHOC::xepDSTangTheoTenMHdemo(PTRNODEMH *&a, int size)
 {
 	PTRNODEMH temp;
 	
@@ -1232,6 +1232,7 @@ void DSMONHOC::PTRNODEMHPushBack(PTRNODEMH *&a, int &n, PTRNODEMH p)
 	PTRNODEMH* aNew = (PTRNODEMH*)realloc(a, m * sizeof(PTRNODEMH));
 	//Cấp phát thành công
 	if (aNew != NULL) {
+		aNew[n] = new NODEMH;
 		aNew[n] = p;
 		n++;
 		a = aNew;

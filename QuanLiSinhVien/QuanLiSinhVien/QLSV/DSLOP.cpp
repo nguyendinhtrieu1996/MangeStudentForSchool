@@ -177,6 +177,18 @@ void DSLOP::inLOPTheoHang(LOP lop, int y, int stt)
 	cout << lop.getNH();
 }
 
+void DSLOP::pushBackChiSoDSLOP(int *& a, int & n, int i)
+{
+	int m = n + 1;
+	int* aNew = (int*)realloc(a, m * sizeof(int));
+	if (aNew != NULL)
+	{
+		aNew[n] = i;
+		n++;
+		a = aNew;
+	}
+}
+
 void DSLOP::xuatDSLOPNK()
 {
 	int TSTrang;
@@ -254,12 +266,12 @@ void DSLOP::xuatDSLOPNK()
 	//Luu tong so LOP thoa dieu kien
 	int stt = 0;
 	//Mảng chiSo dùng để lưu chỉ số các phan tu trong mang DANHSACHLOP có năm nhap hoc = nam do do nguoi dung nhap
-	int chiSo[constNumberDSLOP];
+	int *chiSo = NULL;
 	for (int i = 0; i < SL; ++i)
 	{
 		if (NH == DANHSACHLOP[i].NAMHOC)
 		{
-			chiSo[stt++] = i;
+			pushBackChiSoDSLOP(chiSo, stt, i);
 			if (stt <= 10)
 			{
 				inLOPTheoHang(DANHSACHLOP[i], Y_FIST_LOP + stt - 1, stt);
