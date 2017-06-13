@@ -152,6 +152,15 @@ const int Y_FIST_DIEM = MINY_BNMH2 + 3;
 const int widthBANG_BNMH2 = 70;
 const int heightBANG_BNMH2 = 14;
 
+//Tọa độ bảng sửa điểm cho sinh viên gồm maSV, MAMH, Lan, Diem
+const int MINX_BSDIEM = 46;
+const int MAXX_BSDIEM = 115;
+const int MINY_BSDIEM = 4;
+const int MAXY_BSDIEM = 10;
+const int BSDIEMCot1 = 58; //Cột đứng thứ hai 
+const int BSDIEMCot2 = 85;//Cột đứng thứ ba 
+const int BSDIEMCot3 = 97;//Cột đứng thứ tư
+
 //Khởi tạo mặc định các tham số
 const int SoChuSo = 4;
 
@@ -269,4 +278,6 @@ void veKhungNhapDiemTrenDSLop();
 //Khung gồm nhập MaSV, MAMON,LAN
 void veKhungSuaDiemChoSV();
 
+//khung bao gồm MSV,MAMH,LAN,DIEM
+void veKhungSuaTTDiem();
 

@@ -40,6 +40,7 @@ public:
 	void ghiFileMon(ofstream &);
 	void docFileDiem(ifstream &);
 
+	int suaDiem(char MMH[], int lanThi);
 	bool kiemTraMH(char MMH[], int lanThi);
 	void nhapDiem(char MMH[], int lanThi);
 	~SINHVIEN();

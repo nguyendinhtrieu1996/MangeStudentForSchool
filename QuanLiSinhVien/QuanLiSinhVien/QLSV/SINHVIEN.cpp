@@ -157,6 +157,152 @@ void SINHVIEN::docFileDiem(ifstream &ifs)
 	}
 }
 
+int SINHVIEN::suaDiem(char MMH[], int lanThi)
+{
+	PTRNODEDIEM pDiem = timNODElanThiTuongUng(MMH, lanThi);
+	if(pDiem==NULL) return fail;
+
+	xoaNoiDungVe(MINX_NDIEM, 4, 70, 18);
+	veKhungSuaTTDiem();
+	
+	gotoxy(MINX_BSDIEM +2, MINY_BSDIEM + 4);
+	cout << this->getMASV();
+	gotoxy(BSDIEMCot1 + 2, MINY_BSDIEM + 4);
+	cout << MMH;
+	gotoxy(BSDIEMCot2 + 2, MINY_BSDIEM + 4);
+	cout << lanThi;
+	gotoxy(BSDIEMCot3 + 3, MINY_BSDIEM + 4);
+	cout << pDiem->diem.getDiem();;
+	int kiTu;
+	do {
+		char cdiem[constDiemThi];
+		int diem = pDiem->diem.getDiem();
+
+		cdiem[0] = '/0';
+
+		itoa(diem, cdiem, constDiemThi);
+		kiTu = 0;
+		fflush(stdin);
+		char temp = _getch();
+		if (temp == 0 || temp == -32)
+		{
+			temp = _getch();
+			kiTu = temp + 1000;
+		}
+		else
+		{
+			kiTu = temp;
+		}
+
+		if (kiTu == ESC)
+		{
+			return 1;
+		}
+		if (kiTu == F2)
+		{
+			
+				int check = NhapSo(cdiem, constDiemThi, BSDIEMCot3 + 3, MINY_BSDIEM + 4);
+				diem = atoi(cdiem);
+				if (diem > 10) {
+					char title[10] = "THONG BAO";
+					char message[30] = "Diem khong hop le!";
+					char td[2][10] = { "Chinh sua", "    Huy" };
+					gotoxy(MINX_ALERTTB, MINY_ALERTNL);
+					int check2 = veKhungThongBao(title, message, td);
+					//Nguoi dung chon chinh sua diem
+					if (check2 == 0)
+					{
+						//Xóa bảng thông báo vừa in ra
+						xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+						xoaNoiDungVe(BSDIEMCot3 + 2, MINY_BSDIEM + 4, 3, 1);
+						gotoxy(BSDIEMCot3 + 3, MINY_BSDIEM + 4);
+						diem = pDiem->diem.getDiem();
+
+						cdiem[0] = '/0';
+
+						itoa(diem, cdiem, constDiemThi);
+						cout << diem;
+						continue;
+					}
+					else if (check2 == 1)
+					{
+						xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+
+						xoaNoiDungVe(MINX_BLOP - 1, MINY_BLOP - 1, 70, 7);
+						return 1;
+
+					}
+				 }
+				else {
+					//tim lan thi cao nhat
+					PTRNODEDIEM pNodeDiemThiSV = timlanThiLonNhatCuaMH(MMH);
+					int MaxLan = pNodeDiemThiSV->diem.getLanThi();
+					if (lanThi == MaxLan) {
+
+						pDiem->diem.setDiem(diem);
+						gotoxy(MINX_ALERTTB, 24);
+						cout << "Da sua Diem";
+						Sleep(1000);
+						xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+						gotoxy(BSDIEMCot3 + 3 + strlen(cdiem), MINY_BSDIEM + 4);
+					}
+					//điểm hiện tại không phải lần thi sau cùng
+					else {
+						if (diem > 4)
+						{
+							char title[10] = "THONG BAO";
+							char message[30] = "Diem khong hop le!";
+							char td[2][10] = { "Chinh sua", "    Huy" };
+							gotoxy(MINX_ALERTTB, MINY_ALERTNL);
+							int check2 = veKhungThongBao(title, message, td);
+							//Nguoi dung chon chinh sua diem
+							if (check2 == 0)
+							{
+								//Xóa bảng thông báo vừa in ra
+								xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+								xoaNoiDungVe(BSDIEMCot3 + 2, MINY_BSDIEM + 4, 3, 1);
+								gotoxy(BSDIEMCot3 + 3, MINY_BSDIEM + 4);
+								diem = pDiem->diem.getDiem();
+
+								cdiem[0] = '/0';
+
+								itoa(diem, cdiem, constDiemThi);
+								cout << diem;
+								continue;
+							}
+							else if (check2 == 1)
+							{
+								xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+
+								xoaNoiDungVe(MINX_BLOP - 1, MINY_BLOP - 1, 70, 7);
+								return 1;
+
+							}
+						}
+						else
+						{
+							pDiem->diem.setDiem(diem);
+							gotoxy(MINX_ALERTTB, 24);
+							cout << "Da sua Diem";
+							Sleep(1000);
+							xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
+							gotoxy(BSDIEMCot3 + 3 + strlen(cdiem), MINY_BSDIEM + 4);
+							
+						}
+					}
+				}
+				
+				
+		}
+
+	} while (true);
+	return 1;
+
+	
+
+	
+}
+
 bool SINHVIEN::kiemTraMH(char MMH[], int lanThi)
 {
 	return false;

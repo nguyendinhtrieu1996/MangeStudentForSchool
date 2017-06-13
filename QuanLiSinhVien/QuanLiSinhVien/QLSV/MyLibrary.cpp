@@ -1756,7 +1756,7 @@ void veKhungSuaDiemChoSV()
 	//VẼ CỘT ĐỨNG
 	for (int i = MINY_BNMH1 + 1; i < MAXY_BNMH1; ++i)
 	{
-		gotoxy(MINX_BNMH1, i);
+		gotoxy(MINX_BNMH1-2, i);
 		cout << char(179);
 		//Ve cot 1
 		gotoxy(XCOT1_BNMH1, i);
@@ -1766,7 +1766,7 @@ void veKhungSuaDiemChoSV()
 		cout << char(179);
 	}
 	//ve Hang
-	for (int i = MINX_BNMH1 + 1; i < MAXX_BNMH1; ++i)
+	for (int i = MINX_BNMH1 - 1; i < MAXX_BNMH1; ++i)
 	{
 		gotoxy(i, MINY_BNMH1);
 		cout << char(196);
@@ -1778,7 +1778,7 @@ void veKhungSuaDiemChoSV()
 		cout << char(196);
 	}
 	//Vẽ góc trên bên trái
-	gotoxy(MINX_BNMH1, MINY_BNMH1);
+	gotoxy(MINX_BNMH1-2, MINY_BNMH1);
 	cout << char(218);
 
 	//Vẽ góc trên bên phải
@@ -1786,7 +1786,7 @@ void veKhungSuaDiemChoSV()
 	cout << char(191);
 
 	//Vẽ góc duoi bên trái
-	gotoxy(MINX_BNMH1, MAXY_BNMH1);
+	gotoxy(MINX_BNMH1-2, MAXY_BNMH1);
 	cout << char(192);
 
 	//Vẽ góc duoi bên phải
@@ -1794,9 +1794,9 @@ void veKhungSuaDiemChoSV()
 	cout << char(217);
 
 	//Ve cac diem giao nhau
-	gotoxy(MINX_BNMH1, YDONG1_BNMH1);
+	gotoxy(MINX_BNMH1-2, YDONG1_BNMH1);
 	cout << char(195);
-	gotoxy(MINX_BNMH1, YDONG2_BNMH1);
+	gotoxy(MINX_BNMH1-2, YDONG2_BNMH1);
 	cout << char(195);
 
 	gotoxy(MAXX_BNMH1, YDONG1_BNMH1);
@@ -1818,13 +1818,95 @@ void veKhungSuaDiemChoSV()
 	char titleLAN[] = "LAN THI";
 	normal();
 
-	gotoxy(MINX_BNMH1 + 3, MINY_BNMH1 + 2);
+	gotoxy(MINX_BNMH1 + 1, MINY_BNMH1 + 2);
 	cout << titleMSV;
-	gotoxy(MINX_BNMH1 + 3, YDONG1_BNMH1 + 2);
+	gotoxy(MINX_BNMH1 + 1, YDONG1_BNMH1 + 2);
 	cout << titleMAMON;
 
-	gotoxy(MINX_BNMH1 + 3, YDONG2_BNMH1 + 2);
+	gotoxy(MINX_BNMH1 + 1, YDONG2_BNMH1 + 2);
 	cout << titleLAN;
+}
+
+void veKhungSuaTTDiem()
+{
+	for (int i = MINY_BSDIEM + 1; i < MAXY_BSDIEM; ++i)
+	{
+		gotoxy(MINX_BSDIEM, i);
+		cout << char(179);
+		gotoxy(MAXX_BSDIEM, i);
+		cout << char(179);
+		gotoxy(MINX_BSDIEM, i);
+		cout << char(179);
+		//Ve Cot 1
+		gotoxy(BSDIEMCot1, i);
+		cout << char(179);
+
+		//Ve Cot 2
+		gotoxy(BSDIEMCot2, i);
+		cout << char(179);
+
+		//Ve Cot 3
+		gotoxy(BSDIEMCot3, i);
+		cout << char(179);
+
+	}
+	for (int i = MINX_BSDIEM + 1; i < MAXX_BSDIEM; ++i)
+	{
+		gotoxy(i, MINY_BSDIEM);
+		cout << char(196);
+		gotoxy(i, MAXY_BSDIEM);
+		cout << char(196);
+		gotoxy(i, MINY_BSDIEM + 2);
+		cout << char(196);
+	}
+	//Ve them thanh ngang
+	gotoxy(MINX_BSDIEM, MINY_BSDIEM + 2);
+	cout << char(195);
+	gotoxy(MAXX_BSDIEM, MINY_BSDIEM + 2);
+	cout << char(180);
+
+	//Ve 4 goc
+	gotoxy(MINX_BSDIEM, MINY_BSDIEM);
+	cout << char(218);
+	gotoxy(MINX_BSDIEM, MAXY_BSDIEM);
+	cout << char(192);
+	gotoxy(MAXX_BSDIEM, MINY_BSDIEM);
+	cout << char(191);
+	gotoxy(MAXX_BSDIEM, MAXY_BSDIEM);
+	cout << char(217);
+
+	//Ve Them cac giao diem cot 1
+	gotoxy(BSDIEMCot1, MINY_BSDIEM);
+	cout << char(194);
+	gotoxy(BSDIEMCot1, MINY_BSDIEM + 2);
+	cout << char(197);
+	gotoxy(BSDIEMCot1, MAXY_BSDIEM);
+	cout << char(193);
+
+	//Ve Them cac giao diem cot 2
+	gotoxy(BSDIEMCot2, MINY_BSDIEM);
+	cout << char(194);
+	gotoxy(BSDIEMCot2, MINY_BSDIEM + 2);
+	cout << char(197);
+	gotoxy(BSDIEMCot2, MAXY_BSDIEM);
+	cout << char(193);
+	//Ve Them cac giao diem cot 3
+	gotoxy(BSDIEMCot3, MINY_BSDIEM);
+	cout << char(194);
+	gotoxy(BSDIEMCot3, MINY_BSDIEM + 2);
+	cout << char(197);
+	gotoxy(BSDIEMCot3, MAXY_BSDIEM);
+	cout << char(193);
+	
+	//text
+	gotoxy(MINX_BSDIEM + 4, MINY_BSDIEM + 1);
+	cout << "MA SV";
+	gotoxy(BSDIEMCot1 + 4, MINY_BSDIEM + 1);
+	cout << "MA MON HOC";
+	gotoxy(BSDIEMCot2 + 4, MINY_BSDIEM + 1);
+	cout << "LAN THI";
+	gotoxy(BSDIEMCot3 + 1, MINY_BSDIEM + 1);
+	cout << "DIEM";
 }
 
 //-----

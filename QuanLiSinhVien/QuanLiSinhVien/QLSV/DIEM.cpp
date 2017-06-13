@@ -38,6 +38,11 @@ int DIEM::getDiem()
 	return Diem;
 }
 
+void DIEM::setDiem(int _diem)
+{
+	Diem = _diem;
+}
+
 DIEM::~DIEM()
 {
 }

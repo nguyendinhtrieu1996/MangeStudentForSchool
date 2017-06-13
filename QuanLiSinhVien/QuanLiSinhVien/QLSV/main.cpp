@@ -101,10 +101,13 @@ int main() {
 
 		case THEMDIEM:
 		{
-			//veKhungNhapDiemChoLop();
-			//veKhungNhapDiemTrenDSLop();
 			
 			dsLOP.nhapDiemLOP(DANHSACHMH);
+			break;
+		}
+		case SUADIEM:
+		{
+			dsLOP.suaDIEMSVTheoMon(DANHSACHMH);
 			break;
 		}
 		case DIEMTONG:

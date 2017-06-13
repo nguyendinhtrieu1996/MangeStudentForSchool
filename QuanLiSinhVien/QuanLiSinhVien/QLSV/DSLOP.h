@@ -24,6 +24,7 @@ public:
 	bool inDiemTrungBinh(char MLOP[]);
 	void inDiemTongKet(char MLOP[]);
 	void xuatDIEMTheoMon(DSMONHOC);
+	void suaDIEMSVTheoMon(DSMONHOC);
 	//--------------CAC HAM XU LI TREN SINH VIEN--------------------
 	bool nhapDSSVLOP();
 	bool xuatDSSVLOP();
