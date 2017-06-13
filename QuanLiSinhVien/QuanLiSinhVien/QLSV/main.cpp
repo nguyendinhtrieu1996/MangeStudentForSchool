@@ -26,7 +26,7 @@
 #define DIEMMON 52
 #define DIEMTB 53
 
-
+#define THOAT 61
 int main() {
 	DSMONHOC DANHSACHMH;
 	DSLOP dsLOP;
@@ -129,6 +129,29 @@ int main() {
 		case DIEMTB:
 		{
 			dsLOP.inDiemTrungBinh();
+			break;
+		}
+		case THOAT:
+		{
+			setNormallText();
+			char title[10] = "THONG BAO";
+			char message[30] = "Ban co muon luu FIFE";
+			char td[2][10] = { "   Co  ", "   Khong" };
+			gotoxy(MINX_ALERTTB, MINY_ALERTTB-10);
+			int checkTHONGBAO = veKhungThongBao(title, message, td);
+			//Nguoi dung chon luu
+			if (checkTHONGBAO == 0)
+			{
+				dsLOP.ghiFile();
+				DANHSACHMH.ghiFileMon();
+				exit(0);
+			}
+			//Nguoi dung chon khong
+			else if (checkTHONGBAO == 1 )
+			{
+				exit(0);
+			}
+			
 			break;
 		}
 		}

@@ -178,7 +178,8 @@ void mainMenuDong(char td[so_item][20], int &main, int child = 0) {
 		{
 			if (main == so_item - 1)
 			{
-				exit(0);
+				
+
 			}
 			main++;
 			return;
@@ -436,6 +437,11 @@ menu:
 	{
 		child = 2;
 		xuatChildMenu(inMenu, xCotChild, wherey() - 9, child);
+	}
+	else if (main == 6)
+	{
+		child = 1;
+		
 	}
 	else
 	{

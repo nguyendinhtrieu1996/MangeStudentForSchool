@@ -280,4 +280,3 @@ void veKhungSuaDiemChoSV();
 
 //khung bao gồm MSV,MAMH,LAN,DIEM
 void veKhungSuaTTDiem();
-
