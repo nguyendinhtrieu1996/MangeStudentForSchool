@@ -58,11 +58,12 @@ public:
 	int inDiemTheoMON(char MAMH[], int lanThi);
 	void nhapTTDiem();
 
+	void xuatDiemTBtheoHang(PTRDANHSACH_DIEMSV diemSV, int y, int stt);
 	int inDiemTBLOP();
 	int inDiemTongketLOP();
 	PTRDANHSACH_DIEMSV timDS_SVvaDiemThiLonNhat();
 	void timSVInDiemTB(PTRDANHSACH_DIEMSV *&pDSDiemSV, int &SL);
-	void pushbackDSDiemSV(PTRDANHSACH_DIEMSV *&dsDiemSV, int &size, PTRNODESV nodeSV, PTRNODEDIEM* dsNodeDiem);
+	void pushbackDSDiemSV(PTRDANHSACH_DIEMSV *&dsDiemSV, int &size, PTRNODESV nodeSV, int SLDiem, PTRNODEDIEM* dsNodeDiem);
 
 	//-------------------XU LI CHUC NANG SINH VIEN------------
 	//*****************CAC HAM HO TRO SU LI NODESV*************

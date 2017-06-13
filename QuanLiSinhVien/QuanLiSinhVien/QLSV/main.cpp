@@ -40,6 +40,7 @@ int main() {
 
 	do
 	{
+		setNormallText();
 		int chon = veMenu(mainMenu, childMenu);
 		mainMenu = chon / 10;
 		childMenu = chon % 10;

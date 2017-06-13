@@ -1477,7 +1477,22 @@ void DSLOP::inDiemTrungBinh()
 	
 	if (checkInDiemTB == fail)
 	{
-
+		char title[10] = "THONG BAO";
+		char message[30] = "Khong tim duoc sinh vien";
+		char td[2][10] = { "    Thoat", "Tiep tuc" };
+		gotoxy(MINX_ALERTTB, MINY_ALERTNL);
+		int checkTHONGBAO = veKhungThongBao(title, message, td);
+		//Nguoi dung chon Thoat
+		if (checkTHONGBAO == 0)
+		{
+			return;
+		}
+		//Nguoi dung chon tiep tuc
+		else if (checkTHONGBAO == 1 || checkTHONGBAO == ESC)
+		{
+			xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+			goto NHAPMALOP;
+		}
 	}
 }
 
@@ -1491,6 +1506,7 @@ void DSLOP::inDiemTongKet()
 	char title[] = "THONG BAO";
 	char message[] = " Nhap MALOP in diem tong ket";
 	char maLop[constMALOP];
+	NHAPMALOP:
 	// i lưu chỉ số lớp khi sreach trả về
 	int i = -1;
 	maLop[0] = '\0';
@@ -1527,7 +1543,28 @@ void DSLOP::inDiemTongKet()
 	Sleep(100);
 	//Xóa TextField
 	xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL - 3, widthAlert, heightTextField);
-	DANHSACHLOP[i].inDiemTongketLOP();
+
+	int checkInDiemTK = DANHSACHLOP[i].inDiemTongketLOP();
+
+	if (checkInDiemTK == fail)
+	{
+		char title[10] = "THONG BAO";
+		char message[30] = "Khong tim duoc sinh vien";
+		char td[2][10] = { "    Thoat", "Tiep tuc" };
+		gotoxy(MINX_ALERTTB, MINY_ALERTNL);
+		int checkTHONGBAO = veKhungThongBao(title, message, td);
+		//Nguoi dung chon Thoat
+		if (checkTHONGBAO == 0)
+		{
+			return;
+		}
+		//Nguoi dung chon tiep tuc
+		else if (checkTHONGBAO == 1 || checkTHONGBAO == ESC)
+		{
+			xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+			goto NHAPMALOP;
+		}
+	}
 }
 
 void DSLOP::xuatDIEMTheoMon(DSMONHOC root)

@@ -1064,16 +1064,17 @@ int LOP::inDiemTheoMON(char MAMH[], int lanThi)
 	return successfull;
 }
 
-void LOP::pushbackDSDiemSV(PTRDANHSACH_DIEMSV *&dsDiemSV, int & size, PTRNODESV nodeSV, PTRNODEDIEM * dsNodeDiem)
+void LOP::pushbackDSDiemSV(PTRDANHSACH_DIEMSV *&dsDiemSV, int & size, PTRNODESV nodeSV, int SLDiem, PTRNODEDIEM * dsNodeDiem)
 {
 	int m = size + 1;
 	
-	PTRDANHSACH_DIEMSV *aNew = (PTRDANHSACH_DIEMSV *)realloc(dsDiemSV, sizeof(PTRDANHSACH_DIEMSV));
+	PTRDANHSACH_DIEMSV *aNew = (PTRDANHSACH_DIEMSV *)realloc(dsDiemSV, m * sizeof(PTRDANHSACH_DIEMSV));
 
 	if (aNew != NULL)
 	{
 		aNew[size] = new DANHSACH_DIEMSV;
 		aNew[size]->nodeSV = nodeSV;
+		aNew[size]->n - SLDiem;
 		aNew[size]->pDiemSV = dsNodeDiem;
 		size++;
 		dsDiemSV = aNew;
@@ -1087,6 +1088,20 @@ void LOP::nhapTTDiem()
 	char c = getch();
 }
 
+void LOP::xuatDiemTBtheoHang(PTRDANHSACH_DIEMSV diemSV, int y, int stt)
+{
+	SINHVIEN sv = diemSV->nodeSV->SV;
+	gotoxy(MINX_BNMH2 + 1, y);
+	cout << stt;
+	gotoxy(XCOT1_BNMH2 + 1, y);
+	cout << sv.getMASV();
+	gotoxy(XCOT2_BNMH2 + 1, y);
+	cout << sv.getHO();
+	gotoxy(XCOT3_BNMH2 + 1, y);
+	cout << sv.getTEN();
+	
+}
+
 int LOP::inDiemTBLOP()
 {
 	//Mảng động chứa danh sách sinh viên và điểm môn học cao nhất
@@ -1097,40 +1112,318 @@ int LOP::inDiemTBLOP()
 	
 	if (pDSDiemSV != NULL)
 	{
-		PTRDANHSACH_DIEMSV* temp = pDSDiemSV;
-		
+		//In tiêu đề
+		setGreenText();
+		gotoxy(65, 3);
+		cout << "Lop: " << MALOP;
+		normal();
+		gotoxy(80, 3);
+		cout << "Nam nhap hoc: " << NAMHOC;
+
+		//Cho biết tổng số trang
+		int TSTrang;
+		int trangHT = 1;
+
+		if (SL % 10 == 0)
+		{
+			TSTrang = SL / 10;
+		}
+		else
+		{
+			TSTrang = SL / 10 + 1;
+		}
+
+		//Lưu số thứ tự lớn nhất của dùng đang hiển thị
+		int stt = 0;
+
+		//Xoa bang nhap diem
+		xoaNoiDungVe(MINX_BNMH2, MINY_BNMH2 - 1, 70, 15);
+		//Ve khung nhap Diem
+		veKhungNhapDiemTrenDSLop();
+
+		gotoxy(XCOT3_BNMH2, MINY_BNMH2 - 1);
+		cout << "Trang: " << trangHT << " / " << TSTrang;
+
+
+		if (trangHT < TSTrang)
+		{
+			for (int i = 0; i < 10; ++i, stt++)
+			{
+				xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+			}
+		}
+		else
+		{
+			if (SL % 10 == 0)
+			{
+				for (int i = 0; i < 10; ++i, stt++)
+				{
+					xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+
+				}
+			}
+			else
+			{
+				for (int i = 0; i < SL % 10; ++i, stt++)
+				{
+					xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+				}
+			}
+
+		}
+
+		//Highlight dòng đầu tiên
+		SetBGColor(green_Dark);
+		for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
+		{
+			gotoxy(i, Y_FIST_DIEM);
+			cout << " ";
+		}
+		xuatDiemTBtheoHang(pDSDiemSV[0], Y_FIST_DIEM, 1);
+
+		gotoxy(XCOT4_BNMH2 + 2, Y_FIST_DIEM);
+
+		//Cho biet toa do y con nhay dang dung
+		int yHienTai = Y_FIST_DIEM;
+		//Cho biết số thứ tự tại dòng conn nháy đang đứng
+		int viTriHT = 1;
+
+		//Người dùng bắt đầu nhập điểm
+		int kiTu;
+
+		do
+		{
+			kiTu = 0;
+			char temp = _getch();
+			if (temp == -32 || temp == 0)
+			{
+				temp = _getch();
+				kiTu = temp + 1000;
+			}
+			else
+			{
+				kiTu = temp;
+			}
+			switch (kiTu)
+			{
+			case PageDown:
+			{
+				if (viTriHT < stt)
+				{
+					//In lại dòng cũ với BG đen
+					SetBGColor(black);
+					for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
+					{
+						gotoxy(i, yHienTai);
+						cout << " ";
+					}
+					//Ve khung nhap Diem
+					veKhungNhapDiemTrenDSLop();
+					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT);
+
+					//Highlight dòng mới
+					viTriHT++;
+					yHienTai++;
+
+					SetBGColor(green_Dark);
+					for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
+					{
+						gotoxy(i, yHienTai);
+						cout << " ";
+					}
+
+					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT);
+
+					gotoxy(XCOT4_BNMH2 + 2, yHienTai);
+				}
+				else if (trangHT < TSTrang)
+				{
+					xoaNoiDungVe(MINX_BNMH2, MINY_BNMH2 - 1, 70, 14);
+					trangHT++;
+					gotoxy(XCOT3_BNMH2, MINY_BNMH2 - 1);
+					cout << "Trang: " << trangHT << " / " << TSTrang;
+
+					yHienTai = Y_FIST_DIEM;
+					viTriHT = (trangHT - 1) * 10 + 1;
+
+					//In lại các dòng nhập điểm mới
+					if (trangHT < TSTrang)
+					{
+						for (int i = 0; i < 10; ++i, stt++)
+						{
+							xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+						}
+					}
+					else
+					{
+						for (int i = 0; i < (SL % 10); ++i, stt++)
+						{
+							xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+						}
+					}
+					//Ve khung nhap Diem
+					veKhungNhapDiemTrenDSLop();
+
+					//Highlight dong dau tien
+					SetBGColor(green_Dark);
+					for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
+					{
+						gotoxy(i, yHienTai);
+						cout << " ";
+					}
+
+					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT);
+					gotoxy(XCOT4_BNMH2 + 2, yHienTai);
+				}
+				break;
+			}
+			case PageUp:
+			{
+				//Vị trí hiện tại bé hơn stt dòng đầu tiên đang in
+				if (viTriHT > (trangHT - 1) * 10 + 1)
+				{
+					//In lại dòng cũ với BG đen
+					SetBGColor(black);
+					for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
+					{
+						gotoxy(i, yHienTai);
+						cout << " ";
+					}
+					//Ve khung nhap Diem
+					veKhungNhapDiemTrenDSLop();
+					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT);
+
+					//Highlight dòng mới
+					viTriHT--;
+					yHienTai--;
+
+					SetBGColor(green_Dark);
+					for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
+					{
+						gotoxy(i, yHienTai);
+						cout << " ";
+					}
+
+					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT);
+
+					gotoxy(XCOT4_BNMH2 + 2, yHienTai);
+				}
+				else if (trangHT > 1)
+				{
+					xoaNoiDungVe(MINX_BNMH2, MINY_BNMH2 - 1, 70, 14);
+					trangHT--;
+					gotoxy(XCOT3_BNMH2, MINY_BNMH2 - 1);
+					cout << "Trang: " << trangHT << " / " << TSTrang;
+
+					yHienTai = Y_FIST_DIEM + 9;
+					viTriHT = trangHT * 10;
+					stt = viTriHT - 10;
+
+					//In lại các dòng nhập điểm mới
+					if (trangHT < TSTrang)
+					{
+						for (int i = 0; i < 10; ++i, stt++)
+						{
+							xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+						}
+					}
+					else
+					{
+						for (int i = 0; i < (SL % 10); ++i, stt++)
+						{
+							xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+						}
+					}
+					//Ve khung nhap Diem
+					veKhungNhapDiemTrenDSLop();
+
+					//Highlight dong dau tien
+					SetBGColor(green_Dark);
+					for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
+					{
+						gotoxy(i, yHienTai);
+						cout << " ";
+					}
+
+					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT);
+					gotoxy(XCOT4_BNMH2 + 2, yHienTai);
+				}
+				break;
+			}
+			case ESC:
+			{
+				SetBGColor(black);
+				int currentX = wherex();
+				int currentY = wherey();
+				char title[10] = "THONG BAO";
+				char message[30] = "Ban co muon thoat?";
+				char td[2][10] = { "    Co", "    Khong" };
+				gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
+				int checkTHONGBAO = veKhungThongBao(title, message, td);
+				//Nguoi dung chon Thoat
+				if (checkTHONGBAO == 0)
+				{
+					return successfull;
+				}
+				//Nguoi dung chon tiep tuc
+				else if (checkTHONGBAO == 1 || checkTHONGBAO == ESC)
+				{
+					xoaNoiDungVe(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM, widthAlert, heightAlert);
+					gotoxy(currentX, currentY);
+					SetBGColor(green_Dark);
+				}
+				break;
+			}
+			default:
+			{
+				break;
+			}
+			}
+		} while (true);
+
 		return successfull;
 	} 
 	else
 	{
 		return fail;
 	}
-	
 }
 
 int LOP::inDiemTongketLOP()
 {
+	//Mảng động chứa danh sách sinh viên và điểm môn học cao nhất
 	PTRDANHSACH_DIEMSV* pDSDiemSV = NULL;
 	int SL = 0;
-	int SoMon = 6;
 
-	
+	timSVInDiemTB(pDSDiemSV, SL);
 
-	normal();
-	
-	int l = MAXX_BTKET - BTKETCot3;
-	veKhungXuatDiemTongKetMon();
+	if (pDSDiemSV != NULL)
+	{
 
-	for (int i = 1; i < SoMon; i++) {
-		int x = (l / SoMon)*i + BTKETCot3;
+		int SoMon = 6;
+
+		normal();
+
+		int l = MAXX_BTKET - BTKETCot3;
+		veKhungXuatDiemTongKetMon();
+
+		for (int i = 1; i < SoMon; i++) {
+			int x = (l / SoMon)*i + BTKETCot3;
 			veCotXuatDiemTongKetMon(x);
-	}
-	//In tiêu đề
-	setGreenText();
-	gotoxy(45, 2);
-	cout << "DIEM TONG KET LOP: " << MALOP;
+		}
+		//In tiêu đề
+		setGreenText();
+		gotoxy(45, 2);
+		cout << "DIEM TONG KET LOP: " << MALOP;
 
-	getch();
+		getch();
+
+		return successfull;
+	}
+	else
+	{
+		return fail;
+	}
 
 	return successfull;
 }
@@ -1159,11 +1452,11 @@ void LOP::timSVInDiemTB(PTRDANHSACH_DIEMSV *& pDSDiemSV, int & SL)
 		PTRNODEDIEM *dsDiem = NULL;
 		int size = 0;
 		nodeSV->SV.timDSDiemThiLonNhatSV(dsDiem, size);
-
-		//Tìm được danh sách điểm của sinh viên đó thoải điều kiện
+		
+		//Tìm được danh sách điểm của sinh viên đó thoả điều kiện
 		if (dsDiem != NULL)
 		{
-			pushbackDSDiemSV(pDSDiemSV, SL, nodeSV, dsDiem);
+			pushbackDSDiemSV(pDSDiemSV, SL, nodeSV, size, dsDiem);
 		}
 	}
 }

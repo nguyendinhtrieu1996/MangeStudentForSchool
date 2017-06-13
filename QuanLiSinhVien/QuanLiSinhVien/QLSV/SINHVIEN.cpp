@@ -117,17 +117,17 @@ int SINHVIEN::kiemTraDiemTrongDSDIEM(PTRNODEDIEM *& pNodeDiem, int & size, PTRNO
 			if (nodeDiem->diem.getDiem() > pNodeDiem[i]->diem.getDiem())
 			{
 				pNodeDiem[i] = nodeDiem;
-				return 1;
 			}
+			return -1;
 		}
 	}
-	return -1;
+	return 1;
 }
 
 void SINHVIEN::pushbackDSDIEM(PTRNODEDIEM *& pNodeDiem, int & size, PTRNODEDIEM nodeDiem)
 {
 	int m = size + 1;
-	PTRNODEDIEM * aNew = (PTRNODEDIEM *)realloc(pNodeDiem, sizeof(PTRNODEDIEM));
+	PTRNODEDIEM * aNew = (PTRNODEDIEM *)realloc(pNodeDiem, m * sizeof(PTRNODEDIEM));
 
 	if (aNew != NULL)
 	{
