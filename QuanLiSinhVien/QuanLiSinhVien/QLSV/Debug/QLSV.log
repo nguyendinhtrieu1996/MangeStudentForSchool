@@ -7,5 +7,7 @@ c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\sinhvien
 c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\sinhvien.cpp(267): warning C4305: '=': truncation from 'int' to 'char'
 c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\sinhvien.cpp(267): warning C4309: '=': truncation of constant value
 c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\sinhvien.cpp(289): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+  MyLibrary.cpp
+  Generating Code...
   QLSV.vcxproj -> C:\Users\Huong Thu Tran\Desktop\QLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe
   QLSV.vcxproj -> C:\Users\Huong Thu Tran\Desktop\QLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.pdb (Partial PDB)

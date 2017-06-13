@@ -165,13 +165,13 @@ int SINHVIEN::suaDiem(char MMH[], int lanThi)
 	xoaNoiDungVe(MINX_NDIEM, 4, 70, 18);
 	veKhungSuaTTDiem();
 	
-	gotoxy(MINX_BSDIEM +2, MINY_BSDIEM + 4);
+	gotoxy(MINX_BSDIEM +5, MINY_BSDIEM + 4);
 	cout << this->getMASV();
-	gotoxy(BSDIEMCot1 + 2, MINY_BSDIEM + 4);
+	gotoxy(BSDIEMCot1 + 5, MINY_BSDIEM + 4);
 	cout << MMH;
-	gotoxy(BSDIEMCot2 + 2, MINY_BSDIEM + 4);
+	gotoxy(BSDIEMCot2 + 7, MINY_BSDIEM + 4);
 	cout << lanThi;
-	gotoxy(BSDIEMCot3 + 3, MINY_BSDIEM + 4);
+	gotoxy(BSDIEMCot3 + 5, MINY_BSDIEM + 4);
 	cout << pDiem->diem.getDiem();;
 	int kiTu;
 	do {
@@ -201,7 +201,7 @@ int SINHVIEN::suaDiem(char MMH[], int lanThi)
 		if (kiTu == F2)
 		{
 			
-				int check = NhapSo(cdiem, constDiemThi, BSDIEMCot3 + 3, MINY_BSDIEM + 4);
+				int check = NhapSo(cdiem, constDiemThi, BSDIEMCot3 + 5, MINY_BSDIEM + 4);
 				diem = atoi(cdiem);
 				if (diem > 10) {
 					char title[10] = "THONG BAO";
@@ -214,8 +214,8 @@ int SINHVIEN::suaDiem(char MMH[], int lanThi)
 					{
 						//Xóa bảng thông báo vừa in ra
 						xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
-						xoaNoiDungVe(BSDIEMCot3 + 2, MINY_BSDIEM + 4, 3, 1);
-						gotoxy(BSDIEMCot3 + 3, MINY_BSDIEM + 4);
+						xoaNoiDungVe(BSDIEMCot3 + 4, MINY_BSDIEM + 4, 3, 1);
+						gotoxy(BSDIEMCot3 + 5, MINY_BSDIEM + 4);
 						diem = pDiem->diem.getDiem();
 
 						cdiem[0] = '/0';
@@ -244,7 +244,7 @@ int SINHVIEN::suaDiem(char MMH[], int lanThi)
 						cout << "Da sua Diem";
 						Sleep(1000);
 						xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
-						gotoxy(BSDIEMCot3 + 3 + strlen(cdiem), MINY_BSDIEM + 4);
+						gotoxy(BSDIEMCot3 + 5 + strlen(cdiem), MINY_BSDIEM + 4);
 					}
 					//điểm hiện tại không phải lần thi sau cùng
 					else {
@@ -260,8 +260,8 @@ int SINHVIEN::suaDiem(char MMH[], int lanThi)
 							{
 								//Xóa bảng thông báo vừa in ra
 								xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
-								xoaNoiDungVe(BSDIEMCot3 + 2, MINY_BSDIEM + 4, 3, 1);
-								gotoxy(BSDIEMCot3 + 3, MINY_BSDIEM + 4);
+								xoaNoiDungVe(BSDIEMCot3 + 4, MINY_BSDIEM + 4, 3, 1);
+								gotoxy(BSDIEMCot3 + 5, MINY_BSDIEM + 4);
 								diem = pDiem->diem.getDiem();
 
 								cdiem[0] = '/0';
@@ -286,7 +286,7 @@ int SINHVIEN::suaDiem(char MMH[], int lanThi)
 							cout << "Da sua Diem";
 							Sleep(1000);
 							xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
-							gotoxy(BSDIEMCot3 + 3 + strlen(cdiem), MINY_BSDIEM + 4);
+							gotoxy(BSDIEMCot3 + 4 + strlen(cdiem), MINY_BSDIEM + 4);
 							
 						}
 					}

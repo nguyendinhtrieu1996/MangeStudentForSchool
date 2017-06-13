@@ -1899,13 +1899,13 @@ void veKhungSuaTTDiem()
 	cout << char(193);
 	
 	//text
-	gotoxy(MINX_BSDIEM + 4, MINY_BSDIEM + 1);
+	gotoxy(MINX_BSDIEM + 8, MINY_BSDIEM + 1);
 	cout << "MA SV";
-	gotoxy(BSDIEMCot1 + 4, MINY_BSDIEM + 1);
+	gotoxy(BSDIEMCot1 + 5, MINY_BSDIEM + 1);
 	cout << "MA MON HOC";
 	gotoxy(BSDIEMCot2 + 4, MINY_BSDIEM + 1);
 	cout << "LAN THI";
-	gotoxy(BSDIEMCot3 + 1, MINY_BSDIEM + 1);
+	gotoxy(BSDIEMCot3 + 5, MINY_BSDIEM + 1);
 	cout << "DIEM";
 }
 
