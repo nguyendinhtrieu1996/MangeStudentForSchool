@@ -58,8 +58,8 @@ public:
 	int inDiemTheoMON(char MAMH[], int lanThi);
 	void nhapTTDiem();
 
-	void inDiemTBLOP();
-	void inDiemTongketLOP();
+	int inDiemTBLOP();
+	int inDiemTongketLOP();
 	PTRDANHSACH_DIEMSV timDS_SVvaDiemThiLonNhat();
 	void timSVInDiemTB(PTRDANHSACH_DIEMSV *&pDSDiemSV, int &SL);
 	void pushbackDSDiemSV(PTRDANHSACH_DIEMSV *&dsDiemSV, int &size, PTRNODESV nodeSV, PTRNODEDIEM* dsNodeDiem);

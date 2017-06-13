@@ -1434,6 +1434,8 @@ void DSLOP::inDiemTrungBinh()
 	char title[] = "THONG BAO";
 	char message[] = "Nhap Ma Lop de in diem TB";
 	char maLop[constMALOP];
+
+	NHAPMALOP:
 	// i lưu chỉ số lớp khi sreach trả về
 	int i = -1;
 	maLop[0] = '\0';
@@ -1471,7 +1473,12 @@ void DSLOP::inDiemTrungBinh()
 	//Xóa TextField
 	xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL - 3, widthAlert, heightTextField);
 
-	DANHSACHLOP[i].inDiemTBLOP();
+	int checkInDiemTB = DANHSACHLOP[i].inDiemTBLOP();
+	
+	if (checkInDiemTB == fail)
+	{
+
+	}
 }
 
 void DSLOP::inDiemTongKet()

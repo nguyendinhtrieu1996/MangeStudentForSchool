@@ -1064,7 +1064,6 @@ int LOP::inDiemTheoMON(char MAMH[], int lanThi)
 	return successfull;
 }
 
-
 void LOP::pushbackDSDiemSV(PTRDANHSACH_DIEMSV *&dsDiemSV, int & size, PTRNODESV nodeSV, PTRNODEDIEM * dsNodeDiem)
 {
 	int m = size + 1;
@@ -1088,7 +1087,7 @@ void LOP::nhapTTDiem()
 	char c = getch();
 }
 
-void LOP::inDiemTBLOP()
+int LOP::inDiemTBLOP()
 {
 	//Mảng động chứa danh sách sinh viên và điểm môn học cao nhất
 	PTRDANHSACH_DIEMSV* pDSDiemSV = NULL;
@@ -1099,15 +1098,17 @@ void LOP::inDiemTBLOP()
 	if (pDSDiemSV != NULL)
 	{
 		PTRDANHSACH_DIEMSV* temp = pDSDiemSV;
+		
+		return successfull;
 	} 
 	else
 	{
-
+		return fail;
 	}
 	
 }
 
-void LOP::inDiemTongketLOP()
+int LOP::inDiemTongketLOP()
 {
 	PTRDANHSACH_DIEMSV* pDSDiemSV = NULL;
 	int SL = 0;
@@ -1131,6 +1132,7 @@ void LOP::inDiemTongketLOP()
 
 	getch();
 
+	return successfull;
 }
 
 PTRDANHSACH_DIEMSV LOP::timDS_SVvaDiemThiLonNhat()
