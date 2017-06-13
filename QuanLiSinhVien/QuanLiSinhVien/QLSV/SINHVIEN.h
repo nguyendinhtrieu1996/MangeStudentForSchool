@@ -43,6 +43,8 @@ public:
 	int suaDiem(char MMH[], int lanThi);
 	bool kiemTraMH(char MMH[], int lanThi);
 	void nhapDiem(char MMH[], int lanThi);
+	int xoaDiem(char MMH[], int lanThi);
+	void xoaNODEDiem(PTRNODEDIEM );
 	~SINHVIEN();
 	//friend class NODESV;
 };

@@ -98,6 +98,7 @@ int main() {
 			DANHSACHMH.suaMON();
 			break;
 		}
+		
 
 		case THEMDIEM:
 		{
@@ -108,6 +109,11 @@ int main() {
 		case SUADIEM:
 		{
 			dsLOP.suaDIEMSVTheoMon(DANHSACHMH);
+			break;
+		}
+		case XOADIEM:
+		{
+			dsLOP.xoaDIEMSVTheoMon(DANHSACHMH);
 			break;
 		}
 		case DIEMTONG:

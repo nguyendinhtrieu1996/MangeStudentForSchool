@@ -312,6 +312,93 @@ void SINHVIEN::nhapDiem(char MMH[], int lanThi)
 {
 }
 
+int SINHVIEN::xoaDiem(char MMH[], int lanThi)
+{
+	PTRNODEDIEM pDiem = timNODElanThiTuongUng(MMH, lanThi);
+	if (pDiem == NULL) return fail;
+
+	xoaNoiDungVe(MINX_NDIEM, 4, 70, 18);
+	veKhungSuaTTDiem();
+
+	gotoxy(MINX_BSDIEM + 5, MINY_BSDIEM + 4);
+	cout << this->getMASV();
+	gotoxy(BSDIEMCot1 + 5, MINY_BSDIEM + 4);
+	cout << MMH;
+	gotoxy(BSDIEMCot2 + 7, MINY_BSDIEM + 4);
+	cout << lanThi;
+	gotoxy(BSDIEMCot3 + 5, MINY_BSDIEM + 4);
+	cout << pDiem->diem.getDiem();
+
+	char message1[] = "Ban co chac chan xoa?";
+	char title[] = "THONG BAO";
+	char td[2][10] = { "  Co", "   Khong" };
+	gotoxy(MINX_ALERTTB, MINY_ALERTNL);
+	int select = veKhungThongBao(title, message1, td);
+	if (select == 0)
+	{
+		xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+
+		PTRNODEDIEM pNodeDiemThiSV = timlanThiLonNhatCuaMH(MMH);
+		int MaxLan = pNodeDiemThiSV->diem.getLanThi();
+		if (lanThi == MaxLan) 
+		{  
+
+			xoaNODEDiem(pDiem);
+			char title[] = "THONG BAO";
+			char message[] = "    Xoa thanh cong";
+			char td[2][10] = { "Tiep tuc", "  Thoat" };
+			gotoxy(MINX_ALERTTB, MINY_ALERTNL);
+			int select = veKhungThongBao(title, message, td);
+			if (select == 0)
+			{
+				xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+				xoaNoiDungVe(MINX_BSV, MINY_BSV, 70, 10);
+				return 0;
+			}
+			else
+			{
+				return 1;
+			}
+		}
+		else {
+			char title[] = "THONG BAO";
+			char message[] = " Xoa khong thanh cong";
+			char td[2][10] = { "Tiep tuc", "  Thoat" };
+			gotoxy(MINX_ALERTTB, MINY_ALERTNL);
+			int select = veKhungThongBao(title, message, td);
+			if (select == 0)
+			{
+				xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
+				xoaNoiDungVe(MINX_BSV, MINY_BSV, 70, 10);
+				return 0;
+			}
+			else
+			{
+				return 1;
+			}
+		}
+
+		
+
+	}
+	return 1;
+}
+
+void SINHVIEN::xoaNODEDiem(PTRNODEDIEM p)
+{
+	if (dsDiem == p) {
+
+		dsDiem = p->next;
+		delete p;
+	}
+	else {
+		PTRNODEDIEM q;
+		for (q = dsDiem; q->next != p; q = q->next) {}
+		q->next = p->next;
+		delete p;
+	}
+}
+
 
 SINHVIEN::~SINHVIEN()
 {
