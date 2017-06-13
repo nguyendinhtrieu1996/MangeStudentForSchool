@@ -27,6 +27,7 @@ public:
 	void xoaMON();
 
 	void hienThiTTMON(PTRNODEMH);
+	int getTongSoTinChi(char* MaMonHoc);
 
 	//chỉnh sửa 1 môn học
 	void suaMON();

@@ -963,6 +963,44 @@ void DSMONHOC::hienThiTTMON(PTRNODEMH p)
 	cout << p->MH.getTH();
 }
 
+
+
+int DSMONHOC::getTongSoTinChi(char* MaMonHoc)
+{
+	const int STACKSIZE = 500;
+	PTRNODEMH Stack[STACKSIZE];
+	int sp = -1;
+	PTRNODEMH p = root;
+
+	while (p != NULL)
+	{
+		if (strcmp(p->getMAMH(), MaMonHoc) == 0)
+		{
+			int TS_TC = p->MH.getLT() + p->MH.getTH();
+			return TS_TC;
+		}
+
+		if (p->right != NULL)
+		{
+			Stack[++sp] = p->right;
+		}
+
+		if (p->left != NULL)
+		{
+			p = p->left;
+		}
+		else if (sp == -1)
+		{
+			break;
+		}
+		else
+		{
+			p = Stack[sp--];
+		}
+	}
+	return 0;
+}
+
 void DSMONHOC::suaMON()
 {
 	char labelTb[20] = "SUA TT MON HOC";

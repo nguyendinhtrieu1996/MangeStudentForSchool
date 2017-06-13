@@ -4,23 +4,11 @@ DIEM::DIEM()
 {
 }
 
-void DIEM::nhap()
-{
-}
-
-void DIEM::xuat()
-{
-}
-
 void DIEM::nhapDiem(char MaMonHoc[], int diemThi, int lanThi)
 {
 	strcpy(MAMH, MaMonHoc);
 	Diem = diemThi;
 	LAN = lanThi;
-}
-
-void DIEM::xuatDiem()
-{
 }
 
 char * DIEM::getMaMH()
@@ -31,6 +19,11 @@ char * DIEM::getMaMH()
 int DIEM::getLanThi()
 {
 	return LAN;
+}
+
+char * DIEM::getMAMONHOC()
+{
+	return MAMH;
 }
 
 int DIEM::getDiem()

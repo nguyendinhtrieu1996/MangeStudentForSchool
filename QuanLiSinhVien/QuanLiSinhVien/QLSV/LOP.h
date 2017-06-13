@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "NODESV.h"
+#include "DSMONHOC.h"
 #include "Constant.h"
 typedef struct DIEM_SV* PTRDIEM_SV;
 typedef struct DANHSACH_DIEMSV* PTRDANHSACH_DIEMSV;
@@ -58,12 +59,13 @@ public:
 	int inDiemTheoMON(char MAMH[], int lanThi);
 	void nhapTTDiem();
 
-	void xuatDiemTBtheoHang(PTRDANHSACH_DIEMSV diemSV, int y, int stt);
-	int inDiemTBLOP();
+	void xuatDiemTBtheoHang(PTRDANHSACH_DIEMSV diemSV, int y, int stt, DSMONHOC root);
+	int inDiemTBLOP(DSMONHOC root);
 	int inDiemTongketLOP();
 	PTRDANHSACH_DIEMSV timDS_SVvaDiemThiLonNhat();
 	void timSVInDiemTB(PTRDANHSACH_DIEMSV *&pDSDiemSV, int &SL);
 	void pushbackDSDiemSV(PTRDANHSACH_DIEMSV *&dsDiemSV, int &size, PTRNODESV nodeSV, int SLDiem, PTRNODEDIEM* dsNodeDiem);
+	float tinhDiemTBSinhVien(PTRNODEDIEM* dsNodeDiem, int n, DSMONHOC root);
 
 	//-------------------XU LI CHUC NANG SINH VIEN------------
 	//*****************CAC HAM HO TRO SU LI NODESV*************

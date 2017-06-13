@@ -1445,7 +1445,7 @@ bool DSLOP::inBangDiemTheoLanThi(DSMONHOC ds, char MLOP[], char MAMH[], int lanT
 	return false;
 }
 
-void DSLOP::inDiemTrungBinh()
+void DSLOP::inDiemTrungBinh(DSMONHOC root)
 {
 	SetColor(green);
 	char labelTitle[50] = "BANG THONG KE DIEM TRUNG BINH KHOA HOC";
@@ -1494,7 +1494,7 @@ void DSLOP::inDiemTrungBinh()
 	//Xóa TextField
 	xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL - 3, widthAlert, heightTextField);
 
-	int checkInDiemTB = DANHSACHLOP[i].inDiemTBLOP();
+	int checkInDiemTB = DANHSACHLOP[i].inDiemTBLOP(root);
 	
 	if (checkInDiemTB == fail)
 	{

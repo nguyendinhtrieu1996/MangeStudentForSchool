@@ -22,7 +22,7 @@ public:
 	//--------------CAC HAM XU LI TREN DIEM------------------------
 	void nhapDiemLOP(DSMONHOC DSMH);
 	bool inBangDiemTheoLanThi(DSMONHOC ds, char MLOP[], char MAMH[], int lanThi);
-	void inDiemTrungBinh();
+	void inDiemTrungBinh(DSMONHOC root);
 	void inDiemTongKet();
 	void xuatDIEMTheoMon(DSMONHOC);
 	void suaDIEMSVTheoMon(DSMONHOC);

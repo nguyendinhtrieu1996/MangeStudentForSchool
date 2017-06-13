@@ -40,11 +40,8 @@ int main() {
 
 	do
 	{
-<<<<<<< HEAD
 		setNormallText();
-=======
-		
->>>>>>> a4d5251b8787fe01b2dce754f0b0e80daa7f5bcc
+
 		int chon = veMenu(mainMenu, childMenu);
 		mainMenu = chon / 10;
 		childMenu = chon % 10;
@@ -136,7 +133,7 @@ int main() {
 		}
 		case DIEMTB:
 		{
-			dsLOP.inDiemTrungBinh();
+			dsLOP.inDiemTrungBinh(DANHSACHMH);
 			
 			break;
 		}

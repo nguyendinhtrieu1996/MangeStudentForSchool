@@ -9,12 +9,10 @@ private:
 	int LAN;
 public:
 	DIEM();
-	void nhap();
-	void xuat();
 	void nhapDiem(char MaMonHoc[], int diemThi, int lanThi);;
-	void xuatDiem();
 	char* getMaMH();
 	int getLanThi();
+	char* getMAMONHOC();
 	int getDiem();
 	void setDiem(int);
 	~DIEM();

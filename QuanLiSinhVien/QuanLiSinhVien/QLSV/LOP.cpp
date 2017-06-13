@@ -1084,12 +1084,37 @@ void LOP::pushbackDSDiemSV(PTRDANHSACH_DIEMSV *&dsDiemSV, int & size, PTRNODESV 
 	{
 		aNew[size] = new DANHSACH_DIEMSV;
 		aNew[size]->nodeSV = nodeSV;
-		aNew[size]->n - SLDiem;
+		aNew[size]->n = SLDiem;
 		aNew[size]->pDiemSV = dsNodeDiem;
 		size++;
 		dsDiemSV = aNew;
 	}
 
+}
+
+float LOP::tinhDiemTBSinhVien(PTRNODEDIEM * dsNodeDiem, int n, DSMONHOC root)
+{
+	float diemTB = 0;
+	int TS_TinChi = 0;
+	float temp = 0;
+
+	for (int i = 0; i < n; ++i)
+	{
+		DIEM diem = dsNodeDiem[i]->diem;
+		float diemThanhPhan = diem.getDiem();
+		char* MaMonHoc = diem.getMAMONHOC();
+
+		int n = root.getTongSoTinChi(MaMonHoc);
+
+		temp += diemThanhPhan * n;
+		TS_TinChi += n;
+	}
+
+	diemTB = temp / TS_TinChi;
+
+	float a = diemTB;
+
+	return diemTB;
 }
 
 void LOP::nhapTTDiem()
@@ -1098,7 +1123,7 @@ void LOP::nhapTTDiem()
 	char c = getch();
 }
 
-void LOP::xuatDiemTBtheoHang(PTRDANHSACH_DIEMSV diemSV, int y, int stt)
+void LOP::xuatDiemTBtheoHang(PTRDANHSACH_DIEMSV diemSV, int y, int stt, DSMONHOC root)
 {
 	SINHVIEN sv = diemSV->nodeSV->SV;
 	gotoxy(MINX_BNMH2 + 1, y);
@@ -1109,10 +1134,17 @@ void LOP::xuatDiemTBtheoHang(PTRDANHSACH_DIEMSV diemSV, int y, int stt)
 	cout << sv.getHO();
 	gotoxy(XCOT3_BNMH2 + 1, y);
 	cout << sv.getTEN();
+
+	PTRNODEDIEM *dsDiem = diemSV->pDiemSV;
+	int n = diemSV->n;
+
+	float diemTB = tinhDiemTBSinhVien(dsDiem, n, root);
 	
+	gotoxy(XCOT4_BNMH2 + 2, y);
+	cout << diemTB;
 }
 
-int LOP::inDiemTBLOP()
+int LOP::inDiemTBLOP(DSMONHOC root)
 {
 	//Mảng động chứa danh sách sinh viên và điểm môn học cao nhất
 	PTRDANHSACH_DIEMSV* pDSDiemSV = NULL;
@@ -1159,7 +1191,7 @@ int LOP::inDiemTBLOP()
 		{
 			for (int i = 0; i < 10; ++i, stt++)
 			{
-				xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+				xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1, root);
 			}
 		}
 		else
@@ -1168,7 +1200,7 @@ int LOP::inDiemTBLOP()
 			{
 				for (int i = 0; i < 10; ++i, stt++)
 				{
-					xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+					xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1, root);
 
 				}
 			}
@@ -1176,7 +1208,7 @@ int LOP::inDiemTBLOP()
 			{
 				for (int i = 0; i < SL % 10; ++i, stt++)
 				{
-					xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+					xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1, root);
 				}
 			}
 
@@ -1189,7 +1221,7 @@ int LOP::inDiemTBLOP()
 			gotoxy(i, Y_FIST_DIEM);
 			cout << " ";
 		}
-		xuatDiemTBtheoHang(pDSDiemSV[0], Y_FIST_DIEM, 1);
+		xuatDiemTBtheoHang(pDSDiemSV[0], Y_FIST_DIEM, 1, root);
 
 		gotoxy(XCOT4_BNMH2 + 2, Y_FIST_DIEM);
 
@@ -1229,7 +1261,7 @@ int LOP::inDiemTBLOP()
 					}
 					//Ve khung nhap Diem
 					veKhungNhapDiemTrenDSLop();
-					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT);
+					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT, root);
 
 					//Highlight dòng mới
 					viTriHT++;
@@ -1242,7 +1274,7 @@ int LOP::inDiemTBLOP()
 						cout << " ";
 					}
 
-					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT);
+					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT, root);
 
 					gotoxy(XCOT4_BNMH2 + 2, yHienTai);
 				}
@@ -1261,14 +1293,14 @@ int LOP::inDiemTBLOP()
 					{
 						for (int i = 0; i < 10; ++i, stt++)
 						{
-							xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+							xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1, root);
 						}
 					}
 					else
 					{
 						for (int i = 0; i < (SL % 10); ++i, stt++)
 						{
-							xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+							xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1, root);
 						}
 					}
 					//Ve khung nhap Diem
@@ -1282,7 +1314,7 @@ int LOP::inDiemTBLOP()
 						cout << " ";
 					}
 
-					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT);
+					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT, root);
 					gotoxy(XCOT4_BNMH2 + 2, yHienTai);
 				}
 				break;
@@ -1301,7 +1333,7 @@ int LOP::inDiemTBLOP()
 					}
 					//Ve khung nhap Diem
 					veKhungNhapDiemTrenDSLop();
-					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT);
+					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT, root);
 
 					//Highlight dòng mới
 					viTriHT--;
@@ -1314,7 +1346,7 @@ int LOP::inDiemTBLOP()
 						cout << " ";
 					}
 
-					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT);
+					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT, root);
 
 					gotoxy(XCOT4_BNMH2 + 2, yHienTai);
 				}
@@ -1334,14 +1366,14 @@ int LOP::inDiemTBLOP()
 					{
 						for (int i = 0; i < 10; ++i, stt++)
 						{
-							xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+							xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1, root);
 						}
 					}
 					else
 					{
 						for (int i = 0; i < (SL % 10); ++i, stt++)
 						{
-							xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+							xuatDiemTBtheoHang(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1, root);
 						}
 					}
 					//Ve khung nhap Diem
@@ -1355,7 +1387,7 @@ int LOP::inDiemTBLOP()
 						cout << " ";
 					}
 
-					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT);
+					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT, root);
 					gotoxy(XCOT4_BNMH2 + 2, yHienTai);
 				}
 				break;
