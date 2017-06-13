@@ -86,6 +86,57 @@ int SINHVIEN::demSLdiemCuaSV() {
 	return dem;
 }
 
+void SINHVIEN::timDSDiemThiLonNhatSV(PTRNODEDIEM *&pNodeDiem, int &size)
+{
+	for (PTRNODEDIEM p = dsDiem; p != NULL; p = p->next)
+	{
+		if (pNodeDiem == NULL)
+		{
+			pushbackDSDIEM(pNodeDiem, size, p);
+			continue;
+		}
+
+		int check = kiemTraDiemTrongDSDIEM(pNodeDiem, size, p);
+
+		//Mã môn học trùng và bị thay thế
+		if (check == 1)
+		{
+			pushbackDSDIEM(pNodeDiem, size, p);
+		}
+	}
+}
+
+int SINHVIEN::kiemTraDiemTrongDSDIEM(PTRNODEDIEM *& pNodeDiem, int & size, PTRNODEDIEM nodeDiem)
+{
+	for (int i = 0; i < size; ++i)
+	{
+		//Kiểm tra xem 2 mã môn học có trùng nhau không
+		if (strcmp(pNodeDiem[i]->diem.getMaMH(), nodeDiem->diem.getMaMH()) == 0) // 2 mã môn học trùng nhau
+		{
+			//Môn học có điểm thi lớn hơn
+			if (nodeDiem->diem.getDiem() > pNodeDiem[i]->diem.getDiem())
+			{
+				pNodeDiem[i] = nodeDiem;
+				return 1;
+			}
+		}
+	}
+	return -1;
+}
+
+void SINHVIEN::pushbackDSDIEM(PTRNODEDIEM *& pNodeDiem, int & size, PTRNODEDIEM nodeDiem)
+{
+	int m = size + 1;
+	PTRNODEDIEM * aNew = (PTRNODEDIEM *)realloc(pNodeDiem, sizeof(PTRNODEDIEM));
+
+	if (aNew != NULL)
+	{
+		aNew[size] = nodeDiem;
+		size++;
+		pNodeDiem = aNew;
+	}
+}
+
 PTRNODEDIEM SINHVIEN::timlanThiLonNhatCuaMH(char MaMonHoc[])
 {
 	int maxLanThi = -1;

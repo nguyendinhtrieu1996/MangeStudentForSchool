@@ -2,6 +2,7 @@
 #include "NODESV.h"
 #include "Constant.h"
 typedef struct DIEM_SV* PTRDIEM_SV;
+typedef struct DANHSACH_DIEMSV* PTRDANHSACH_DIEMSV;
 
 /*
 	struct DIEM_SV dùng để lưu sinh viên và điểm môn học thỏa điều kiện
@@ -17,8 +18,9 @@ typedef struct DIEM_SV
 typedef struct DANHSACH_DIEMSV
 {
 	PTRNODESV nodeSV;
-	int size;
-	PTRNODEDIEM *diemSV;
+	//Lưu số lượng điểm
+	int n;
+	PTRNODEDIEM *pDiemSV;
 };
 
 class LOP
@@ -55,9 +57,12 @@ public:
 	void pushBackPTRDIEM_SV(PTRDIEM_SV *&a, int &n, PTRNODESV pSv, PTRNODEDIEM pDiem);
 	int inDiemTheoMON(char MAMH[], int lanThi);
 	void nhapTTDiem();
+
 	void inDiemTBLOP();
 	void inDiemTongketLOP();
-
+	PTRDANHSACH_DIEMSV timDS_SVvaDiemThiLonNhat();
+	void timSVInDiemTB(PTRDANHSACH_DIEMSV *&pDSDiemSV, int &SL);
+	void pushbackDSDiemSV(PTRDANHSACH_DIEMSV *&dsDiemSV, int &size, PTRNODESV nodeSV, PTRNODEDIEM* dsNodeDiem);
 
 	//-------------------XU LI CHUC NANG SINH VIEN------------
 	//*****************CAC HAM HO TRO SU LI NODESV*************
@@ -85,4 +90,18 @@ public:
 	~LOP();
 	friend class DSLOP;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

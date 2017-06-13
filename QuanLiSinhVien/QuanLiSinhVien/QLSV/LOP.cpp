@@ -1064,6 +1064,24 @@ int LOP::inDiemTheoMON(char MAMH[], int lanThi)
 	return successfull;
 }
 
+
+void LOP::pushbackDSDiemSV(PTRDANHSACH_DIEMSV *&dsDiemSV, int & size, PTRNODESV nodeSV, PTRNODEDIEM * dsNodeDiem)
+{
+	int m = size + 1;
+	
+	PTRDANHSACH_DIEMSV *aNew = (PTRDANHSACH_DIEMSV *)realloc(dsDiemSV, sizeof(PTRDANHSACH_DIEMSV));
+
+	if (aNew != NULL)
+	{
+		aNew[size] = new DANHSACH_DIEMSV;
+		aNew[size]->nodeSV = nodeSV;
+		aNew[size]->pDiemSV = dsNodeDiem;
+		size++;
+		dsDiemSV = aNew;
+	}
+
+}
+
 void LOP::nhapTTDiem()
 {
 	veKhungNhapTTDiem();
@@ -1072,11 +1090,60 @@ void LOP::nhapTTDiem()
 
 void LOP::inDiemTBLOP()
 {
+	//Mảng động chứa danh sách sinh viên và điểm môn học cao nhất
+	PTRDANHSACH_DIEMSV* pDSDiemSV = NULL;
+	int SL = 0;
 
+	timSVInDiemTB(pDSDiemSV, SL);
+	
+	if (pDSDiemSV != NULL)
+	{
+		PTRDANHSACH_DIEMSV* temp = pDSDiemSV;
+	} 
+	else
+	{
+
+	}
+	
 }
 
 void LOP::inDiemTongketLOP()
 {
+	PTRDANHSACH_DIEMSV* pDSDiemSV = NULL;
+	int SL = 0;
+}
+
+PTRDANHSACH_DIEMSV LOP::timDS_SVvaDiemThiLonNhat()
+{
+	PTRDANHSACH_DIEMSV pDSDIEM = NULL;
+	pDSDIEM->n = 0;
+
+	for (PTRNODESV p = First; p != NULL; p = p->next)
+	{
+		p->SV.timDSDiemThiLonNhatSV(pDSDIEM->pDiemSV, pDSDIEM->n);
+		if (pDSDIEM->pDiemSV != NULL)
+		{
+			pDSDIEM->nodeSV = p;
+		}
+	}
+
+	return pDSDIEM;
+}
+
+void LOP::timSVInDiemTB(PTRDANHSACH_DIEMSV *& pDSDiemSV, int & SL)
+{
+	for (PTRNODESV nodeSV = First; nodeSV != NULL; nodeSV = nodeSV->next)
+	{
+		PTRNODEDIEM *dsDiem = NULL;
+		int size = 0;
+		nodeSV->SV.timDSDiemThiLonNhatSV(dsDiem, size);
+
+		//Tìm được danh sách điểm của sinh viên đó thoải điều kiện
+		if (dsDiem != NULL)
+		{
+			pushbackDSDiemSV(pDSDiemSV, SL, nodeSV, dsDiem);
+		}
+	}
 }
 
 void LOP::PTRNODESVPushBack(PTRNODESV *&a, int &n, PTRNODESV sv)

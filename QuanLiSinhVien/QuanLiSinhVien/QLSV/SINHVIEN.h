@@ -36,16 +36,31 @@ public:
 	PTRNODEDIEM timlanThiLonNhatCuaMH(char MaMonHoc[]);
 	PTRNODEDIEM timNODElanThiTuongUng(char MaMonHoc[],int lanThi);
 	int demSLdiemCuaSV();
-	//ghi file điểm
-	void ghiFileMon(ofstream &);
-	void docFileDiem(ifstream &);
+	void timDSDiemThiLonNhatSV(PTRNODEDIEM *&pNodeDiem, int &size);
+
+	//Hàm này kiểm tra Node Điểm có trong DS điểm chưa nếu tồn tại kiểm tra nếu điểm lớn hơn thì thay thế
+	// => hàm trả về 1 nếu MAMH trùng và điểm lớn hay  và trả về 0 nếu không thay đổi gì
+	int kiemTraDiemTrongDSDIEM(PTRNODEDIEM *&pNodeDiem, int &size, PTRNODEDIEM nodeDiem);
+	void pushbackDSDIEM(PTRNODEDIEM *&pNodeDiem, int &size, PTRNODEDIEM nodeDiem);
 
 	int suaDiem(char MMH[], int lanThi);
 	bool kiemTraMH(char MMH[], int lanThi);
 	void nhapDiem(char MMH[], int lanThi);
 	int xoaDiem(char MMH[], int lanThi);
 	void xoaNODEDiem(PTRNODEDIEM );
+
+	//ghi file điểm
+	void ghiFileMon(ofstream &);
+	void docFileDiem(ifstream &);
+
 	~SINHVIEN();
 	//friend class NODESV;
 };
+
+
+
+
+
+
+
 
