@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  LOP.cpp
 c:\users\nguyen dinh trieu\desktop\doan_qlsv\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.h(16): warning C4091: 'typedef ': ignored on left of 'DIEM_SV' when no variable is declared
 c:\users\nguyen dinh trieu\desktop\doan_qlsv\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.h(24): warning C4091: 'typedef ': ignored on left of 'DANHSACH_DIEMSV' when no variable is declared
@@ -59,3 +60,10 @@ c:\users\nguyen dinh trieu\desktop\doan_qlsv\mangestudentforschool\quanlisinhvie
   Generating Code...
   QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\DOAN_QLSV\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe
   QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\DOAN_QLSV\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.pdb (Partial PDB)
+=======
+﻿  main.cpp
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.h(16): warning C4091: 'typedef ': ignored on left of 'DIEM_SV' when no variable is declared
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.h(24): warning C4091: 'typedef ': ignored on left of 'DANHSACH_DIEMSV' when no variable is declared
+  QLSV.vcxproj -> C:\Users\Huong Thu Tran\Desktop\QLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe
+  QLSV.vcxproj -> C:\Users\Huong Thu Tran\Desktop\QLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.pdb (Partial PDB)
+>>>>>>> 36f44b935618c166ad0a7af48cae71b6bf9f09a2
