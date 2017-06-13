@@ -261,6 +261,7 @@ int SINHVIEN::suaDiem(char MMH[], int lanThi)
 					char td[2][10] = { "Chinh sua", "    Huy" };
 					gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 					int check2 = veKhungThongBao(title, message, td);
+					setNormallText();
 					//Nguoi dung chon chinh sua diem
 					if (check2 == 0)
 					{
@@ -306,6 +307,7 @@ int SINHVIEN::suaDiem(char MMH[], int lanThi)
 							char td[2][10] = { "Chinh sua", "    Huy" };
 							gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 							int check2 = veKhungThongBao(title, message, td);
+							setNormallText();
 							//Nguoi dung chon chinh sua diem
 							if (check2 == 0)
 							{
@@ -379,6 +381,7 @@ int SINHVIEN::xoaDiem(char MMH[], int lanThi)
 	char td[2][10] = { "  Co", "   Khong" };
 	gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 	int select = veKhungThongBao(title, message1, td);
+	setNormallText();
 	if (select == 0)
 	{
 		xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
@@ -394,6 +397,7 @@ int SINHVIEN::xoaDiem(char MMH[], int lanThi)
 			char td[2][10] = { "Tiep tuc", "  Thoat" };
 			gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 			int select = veKhungThongBao(title, message, td);
+			setNormallText();
 			if (select == 0)
 			{
 				xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
@@ -411,6 +415,7 @@ int SINHVIEN::xoaDiem(char MMH[], int lanThi)
 			char td[2][10] = { "Tiep tuc", "  Thoat" };
 			gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 			int select = veKhungThongBao(title, message, td);
+			setNormallText();
 			if (select == 0)
 			{
 				xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
