@@ -1567,10 +1567,8 @@ int LOP::inDiemTongketLOP()
 		setGreenText();
 		gotoxy(45, 2);
 		cout << "DIEM TONG KET LOP: " << MALOP;
-
-		//in DS Diem
-
 		setNormallText();
+
 		int TSTrang;
 		int trangHT = 1;
 
@@ -1589,33 +1587,118 @@ int LOP::inDiemTongketLOP()
 		gotoxy(100, 3);
 		cout << "Trang: " << trangHT << " / " << TSTrang;
 
-
-		if (trangHT < TSTrang)
+		for (int i = 0; i < 10; ++i, stt++)
 		{
-			for (int i = 0; i < 10; ++i, stt++)
-			{
-				indiemTongKetTheoDong(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1, dsMaMon, SL_MonHoc);
-			}
+			if (stt < SL)
+			indiemTongKetTheoDong(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1, dsMaMon, SL_MonHoc);
 		}
-		else
-		{
-			if (SL % 10 == 0)
+
+		//Cho phép người dùng pageup pagedown
+
+		int kiTu;
+		do {
+			kiTu = 0;
+			char temp = _getch();
+			if (temp == -32 || temp == 0)
 			{
-				for (int i = 0; i < 10; ++i, stt++)
-				{
-					indiemTongKetTheoDong(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1, dsMaMon, SL_MonHoc);
-				}
+				temp = _getch();
+				kiTu = temp + 1000;
 			}
 			else
 			{
-				for (int i = 0; i < SL % 10; ++i, stt++)
-				{
-					indiemTongKetTheoDong(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1, dsMaMon, SL_MonHoc);
-				}
+				kiTu = temp;
 			}
-		}
 
-		getch();
+			switch (kiTu)
+			{
+			case PageUp:
+			{
+				if (trangHT > 1)
+				{
+					xoaNoiDungVe(1, 4, 116, 14);
+
+					veKhungXuatDiemTongKetMon();
+					trangHT--;
+
+					for (int i = 1; i < SL_MonHoc; i++) {
+						int x = distance * i + BTKETCot3;
+						veCotXuatDiemTongKetMon(x);
+					}
+
+					//In tiêu đề
+					setGreenText();
+					gotoxy(45, 2);
+					cout << "DIEM TONG KET LOP: " << MALOP;
+					setNormallText();
+
+					//In ma Mon hoc
+					for (int i = 0; i < SL_MonHoc; ++i)
+					{
+						int x = BTKETCot3 + distance * (i + 0.5) - strlen(dsMaMon[i]->maMon) / 2;
+						gotoxy(x, MINY_BTKET + 1);
+						cout << dsMaMon[i]->maMon;
+					}
+
+					gotoxy(100, 3);
+					cout << "Trang: " << trangHT << " / " << TSTrang;
+
+					stt = (trangHT - 1) * 10;
+					for (int i = 0; i < 10; ++i, stt++)
+					{
+						indiemTongKetTheoDong(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1, dsMaMon, SL_MonHoc);
+					}
+				}
+				break;
+			}
+			case PageDown:
+			{
+				if (trangHT < TSTrang)
+				{
+					xoaNoiDungVe(1, 4, 116, 14);
+					veKhungXuatDiemTongKetMon();
+
+					trangHT++;
+
+					for (int i = 1; i < SL_MonHoc; i++) {
+						int x = distance * i + BTKETCot3;
+						veCotXuatDiemTongKetMon(x);
+					}
+
+					//In tiêu đề
+					setGreenText();
+					gotoxy(45, 2);
+					cout << "DIEM TONG KET LOP: " << MALOP;
+					setNormallText();
+
+					//In ma Mon hoc
+					for (int i = 0; i < SL_MonHoc; ++i)
+					{
+						int x = BTKETCot3 + distance * (i + 0.5) - strlen(dsMaMon[i]->maMon) / 2;
+						gotoxy(x, MINY_BTKET + 1);
+						cout << dsMaMon[i]->maMon;
+					}
+
+					gotoxy(100, 3);
+					cout << "Trang: " << trangHT << " / " << TSTrang;
+
+					stt = (trangHT - 1) * 10;
+					for (int i = 0; i < 10; ++i, stt++)
+					{
+						if (stt < SL)
+						{
+							indiemTongKetTheoDong(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1, dsMaMon, SL_MonHoc);
+						}
+					}
+				}
+				break;
+			}
+
+			case ESC:
+			{
+				return successfull;
+			}
+			}
+		} while (true);
 
 		return successfull;
 	}

@@ -1911,7 +1911,7 @@ void veKhungSuaTTDiem()
 
 void veKhungXuatDiemTongKetMon()
 {
-	system("cls"); //xoa man hinh 
+	system("cls");
 	for (int i = MINY_BTKET + 1; i < MAXY_BTKET; ++i)
 	{
 		gotoxy(MINX_BTKET, i);
