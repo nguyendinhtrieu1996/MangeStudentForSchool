@@ -4,6 +4,7 @@
 #include "Constant.h"
 typedef struct DIEM_SV* PTRDIEM_SV;
 typedef struct DANHSACH_DIEMSV* PTRDANHSACH_DIEMSV;
+typedef struct MAMONHOC* PTRMAMON;
 
 /*
 	struct DIEM_SV dùng để lưu sinh viên và điểm môn học thỏa điều kiện
@@ -23,6 +24,11 @@ typedef struct DANHSACH_DIEMSV
 	int n;
 	PTRNODEDIEM *pDiemSV;
 };
+
+typedef struct MAMONHOC {
+	char maMon[constMAMON];
+};
+
 
 class LOP
 {
@@ -66,6 +72,16 @@ public:
 	void timSVInDiemTB(PTRDANHSACH_DIEMSV *&pDSDiemSV, int &SL);
 	void pushbackDSDiemSV(PTRDANHSACH_DIEMSV *&dsDiemSV, int &size, PTRNODESV nodeSV, int SLDiem, PTRNODEDIEM* dsNodeDiem);
 	float tinhDiemTBSinhVien(PTRNODEDIEM* dsNodeDiem, int n, DSMONHOC root);
+	void indiemTongKetTheoDong(PTRDANHSACH_DIEMSV diemSV, int y, int stt);
+	void timTatCaMonHocTrongDSSV(PTRDANHSACH_DIEMSV* dsSVDiem, int SLSV, PTRMAMON* &dsMaMon, int&n);
+
+	//Hàm kiểm tra mã môn học có trong danh sách môn học chưa
+	//Nếu có rồi return -1 chưa có return 1
+	int kiemTraMonHocDSMONHOC(PTRMAMON* dsMaMon, int n, char MaMon[]);
+
+	//Hàm thêm một mã môn học bào danh sách môn học
+	//=> dùng mảng động cấp phát nới rộng dần
+	void pushBackMaMonHoc(PTRMAMON* &dsMaMon, int&n, char MaMon[]);
 
 	//-------------------XU LI CHUC NANG SINH VIEN------------
 	//*****************CAC HAM HO TRO SU LI NODESV*************

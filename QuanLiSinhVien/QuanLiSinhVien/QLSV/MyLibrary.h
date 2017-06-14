@@ -165,7 +165,7 @@ const int BSDIEMCot3 = 100;//Cột đứng thứ tư
 //Tọa độ bảng điểm tổng kết cho sinh viên gồm maSV, stt, hote
 const int MINX_BTKET = 1;
 const int MAXX_BTKET = 117;
-const int MINY_BTKET = 4;
+const int MINY_BTKET = 5;
 const int MAXY_BTKET = 18;
 const int BTKETCot1 = 5; //Cột đứng thứ hai 
 const int BTKETCot2 = 18;//Cột đứng thứ ba 
@@ -294,3 +294,11 @@ void veKhungSuaTTDiem();
 //khung gồm stt, hoten, mã sv
 void veKhungXuatDiemTongKetMon();
 void veCotXuatDiemTongKetMon(int);
+
+float round2Decimal(float a);
+
+
+
+
+
+

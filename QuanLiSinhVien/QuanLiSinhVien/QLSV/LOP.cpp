@@ -1117,6 +1117,74 @@ float LOP::tinhDiemTBSinhVien(PTRNODEDIEM * dsNodeDiem, int n, DSMONHOC root)
 	return diemTB;
 }
 
+void LOP::indiemTongKetTheoDong(PTRDANHSACH_DIEMSV diemSV, int y, int stt)
+{
+	SINHVIEN sv = diemSV->nodeSV->SV;
+	gotoxy(MINX_BTKET + 1, y);
+	cout << stt;
+	gotoxy(BTKETCot1 + 1, y);
+	cout << sv.getMASV();
+	gotoxy(BTKETCot2 + 1, y);
+	cout << sv.getHO() << " " << sv.getTEN();
+
+	PTRNODEDIEM *dsDiem = diemSV->pDiemSV;
+	int n = diemSV->n;
+
+	int SL_Diem = diemSV->n;
+	normal();
+	int l = MAXX_BTKET - BTKETCot3;
+}
+
+void LOP::timTatCaMonHocTrongDSSV(PTRDANHSACH_DIEMSV* dsSVDiem, int SLSV, PTRMAMON* &dsMaMon, int & n)
+{
+	for (int i = 0; i < SLSV; i++)
+	{
+		int SLDiem = dsSVDiem[i]->n;
+		PTRNODEDIEM* dsDiem = dsSVDiem[i]->pDiemSV;
+		for (int j = 0; j < SLDiem; ++j)
+		{
+			char *MaMonHoc = dsDiem[j]->diem.getMAMONHOC();
+
+			int checkMAMON = kiemTraMonHocDSMONHOC(dsMaMon, n, MaMonHoc);
+
+			//Mã môn học chưa tồn tại
+			if (checkMAMON == -1)
+			{
+				pushBackMaMonHoc(dsMaMon, n, MaMonHoc);
+			}
+		}
+	}
+}
+
+int LOP::kiemTraMonHocDSMONHOC(PTRMAMON * dsMaMon, int n, char MaMon[])
+{
+	for (int i = 0; i < n; ++i)
+	{
+		char* temp = dsMaMon[i]->maMon;
+		if (strcmp(temp, MaMon) == 0)
+		{
+			return 1;
+		}
+	}
+	return -1;
+}
+
+void LOP::pushBackMaMonHoc(PTRMAMON *& dsMaMon, int & n, char MaMon[])
+{
+	int m = n + 1;
+
+	PTRMAMON *aNew = (PTRMAMON *)realloc(dsMaMon, m * sizeof(PTRMAMON));
+
+	if (aNew != NULL)
+	{
+		aNew[n] = new MAMONHOC;
+		strcpy(aNew[n]->maMon, MaMon);
+		n++;
+		dsMaMon = aNew;
+	}
+}
+
+
 void LOP::nhapTTDiem()
 {
 	veKhungNhapTTDiem();
@@ -1141,7 +1209,7 @@ void LOP::xuatDiemTBtheoHang(PTRDANHSACH_DIEMSV diemSV, int y, int stt, DSMONHOC
 	float diemTB = tinhDiemTBSinhVien(dsDiem, n, root);
 	
 	gotoxy(XCOT4_BNMH2 + 2, y);
-	cout << diemTB;
+	cout << setw(3) << round2Decimal(diemTB);
 }
 
 int LOP::inDiemTBLOP(DSMONHOC root)
@@ -1441,22 +1509,79 @@ int LOP::inDiemTongketLOP()
 
 	if (pDSDiemSV != NULL)
 	{
-
-		int SoMon = 6;
-
+		//vẽ các cột in điểm
+		PTRMAMON* dsMaMon = NULL;
+		int SL_MonHoc = 0;
+		timTatCaMonHocTrongDSSV(pDSDiemSV, SL, dsMaMon, SL_MonHoc);
 		normal();
-
-		int l = MAXX_BTKET - BTKETCot3;
+		int distance = (MAXX_BTKET - BTKETCot3) / SL_MonHoc;
 		veKhungXuatDiemTongKetMon();
 
-		for (int i = 1; i < SoMon; i++) {
-			int x = (l / SoMon)*i + BTKETCot3;
+		for (int i = 1; i < SL_MonHoc; i++) {
+			int x = distance * i + BTKETCot3;
 			veCotXuatDiemTongKetMon(x);
 		}
+
+		//In ma Mon hoc
+		for (int i = 0; i < SL_MonHoc; ++i)
+		{
+			int x = BTKETCot3 + distance * (i + 0.5) - strlen(dsMaMon[i]->maMon) / 2;
+			gotoxy(x, MINY_BTKET + 1);
+			cout << dsMaMon[i]->maMon;
+		}
+
 		//In tiêu đề
 		setGreenText();
 		gotoxy(45, 2);
 		cout << "DIEM TONG KET LOP: " << MALOP;
+
+		//in DS Diem
+
+		setNormallText();
+		int TSTrang;
+		int trangHT = 1;
+
+		if (SL % 10 == 0)
+		{
+			TSTrang = SL / 10;
+		}
+		else
+		{
+			TSTrang = SL / 10 + 1;
+		}
+
+		//Lưu số thứ tự lớn nhất của dùng đang hiển thị
+		int stt = 0;
+
+		gotoxy(100, 3);
+		cout << "Trang: " << trangHT << " / " << TSTrang;
+
+
+		if (trangHT < TSTrang)
+		{
+			for (int i = 0; i < 10; ++i, stt++)
+			{
+				indiemTongKetTheoDong(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+			}
+		}
+		else
+		{
+			if (SL % 10 == 0)
+			{
+				for (int i = 0; i < 10; ++i, stt++)
+				{
+					indiemTongKetTheoDong(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+				}
+			}
+			else
+			{
+				for (int i = 0; i < SL % 10; ++i, stt++)
+				{
+					indiemTongKetTheoDong(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+				}
+			}
+		}
+
 
 		getch();
 
@@ -1751,8 +1876,6 @@ NHAPTTSV:
 
 void LOP::inSVTheoHang(PTRNODESV sv, int y, int stt)
 {
-
-
 	gotoxy(MINX_XSV + 1, y);
 	cout << setw(3) << left << stt;
 	gotoxy(X_XSV_COT1 + 2, y);

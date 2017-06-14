@@ -2011,6 +2011,21 @@ void veCotXuatDiemTongKetMon(int x)
 	
 }
 
+float round2Decimal(float a)
+{
+	int n = (int)(a * 1000);
+	int x = n % 10;
+	int y;
+	if (x > 5)
+	{
+		y = n / 10 + 1;
+	}
+	else
+	{
+		y = n / 10;
+	}
+	return (float)y / 100;
+}
 
 
-//-----
+

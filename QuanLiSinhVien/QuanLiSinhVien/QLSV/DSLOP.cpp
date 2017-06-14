@@ -2347,7 +2347,6 @@ void DSLOP::xoaSV(){
 
 		DANHSACHLOP[lop].hienThiTTSV(SV);
 		
-
 		char message1[] = "Ban co chac chan xoa?";
 		char td[2][10] = { "  Co", "   Khong" };
 		gotoxy(MINX_ALERTTB, MINY_ALERTNL);
@@ -2373,7 +2372,6 @@ void DSLOP::xoaSV(){
 				{
 					return;
 				}
-			
 		}
 		else
 		{
