@@ -161,6 +161,16 @@ const int BSDIEMCot1 = 66; //Cột đứng thứ hai
 const int BSDIEMCot2 = 86;//Cột đứng thứ ba 
 const int BSDIEMCot3 = 100;//Cột đứng thứ tư
 
+						   
+//Tọa độ bảng điểm tổng kết cho sinh viên gồm maSV, stt, hote
+const int MINX_BTKET = 1;
+const int MAXX_BTKET = 117;
+const int MINY_BTKET = 4;
+const int MAXY_BTKET = 18;
+const int BTKETCot1 = 5; //Cột đứng thứ hai 
+const int BTKETCot2 = 18;//Cột đứng thứ ba 
+const int BTKETCot3 = 50;//Cột đứng thứ ba
+
 //Khởi tạo mặc định các tham số
 const int SoChuSo = 4;
 
@@ -280,3 +290,7 @@ void veKhungSuaDiemChoSV();
 
 //khung bao gồm MSV,MAMH,LAN,DIEM
 void veKhungSuaTTDiem();
+
+//khung gồm stt, hoten, mã sv
+void veKhungXuatDiemTongKetMon();
+void veCotXuatDiemTongKetMon(int);

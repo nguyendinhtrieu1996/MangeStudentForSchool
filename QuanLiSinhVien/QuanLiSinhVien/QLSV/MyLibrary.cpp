@@ -1909,5 +1909,108 @@ void veKhungSuaTTDiem()
 	cout << "DIEM";
 }
 
+void veKhungXuatDiemTongKetMon()
+{
+	system("cls"); //xoa man hinh 
+	for (int i = MINY_BTKET + 1; i < MAXY_BTKET; ++i)
+	{
+		gotoxy(MINX_BTKET, i);
+		cout << char(179);
+		gotoxy(MAXX_BTKET, i);
+		cout << char(179);
+		gotoxy(MINX_BTKET, i);
+		cout << char(179);
+		//Ve Cot 1
+		gotoxy(BTKETCot1, i);
+		cout << char(179);
+
+		//Ve Cot 2
+		gotoxy(BTKETCot2, i);
+		cout << char(179);
+
+		//Ve Cot 3
+		gotoxy(BTKETCot3, i);
+		cout << char(179);
+
+	}
+	for (int i = MINX_BTKET + 1; i < MAXX_BTKET; ++i)
+	{
+		gotoxy(i, MINY_BTKET);
+		cout << char(196);
+		gotoxy(i, MAXY_BTKET);
+		cout << char(196);
+		gotoxy(i, MINY_BTKET + 2);
+		cout << char(196);
+	}
+	//Ve them thanh ngang
+	gotoxy(MINX_BTKET, MINY_BTKET + 2);
+	cout << char(195);
+	gotoxy(MAXX_BTKET, MINY_BTKET + 2);
+	cout << char(180);
+
+	//Ve 4 goc
+	gotoxy(MINX_BTKET, MINY_BTKET);
+	cout << char(218);
+	gotoxy(MINX_BTKET, MAXY_BTKET);
+	cout << char(192);
+	gotoxy(MAXX_BTKET, MINY_BTKET);
+	cout << char(191);
+	gotoxy(MAXX_BTKET, MAXY_BTKET);
+	cout << char(217);
+
+	//Ve Them cac giao diem cot 1
+	gotoxy(BTKETCot1, MINY_BTKET);
+	cout << char(194);
+	gotoxy(BTKETCot1, MINY_BTKET + 2);
+	cout << char(197);
+	gotoxy(BTKETCot1, MAXY_BTKET);
+	cout << char(193);
+
+	//Ve Them cac giao diem cot 2
+	gotoxy(BTKETCot2, MINY_BTKET);
+	cout << char(194);
+	gotoxy(BTKETCot2, MINY_BTKET + 2);
+	cout << char(197);
+	gotoxy(BTKETCot2, MAXY_BTKET);
+	cout << char(193);
+	//Ve Them cac giao diem cot 3
+	gotoxy(BTKETCot3, MINY_BTKET);
+	cout << char(194);
+	gotoxy(BTKETCot3, MINY_BTKET + 2);
+	cout << char(197);
+	gotoxy(BTKETCot3, MAXY_BTKET);
+	cout << char(193);
+
+	//text
+	gotoxy(MINX_BTKET + 1, MINY_BTKET + 1);
+	cout << "STT";
+	gotoxy(BTKETCot1 + 4, MINY_BTKET + 1);
+	cout << "MA SV";
+	gotoxy(BTKETCot2 + 8, MINY_BTKET + 1);
+	cout << "HO TEN SV";
+	//độ dài để hiển thị điểm:67
+
+}
+
+void veCotXuatDiemTongKetMon(int x)
+{
+	for (int i = MINY_BTKET + 1; i < MAXY_BTKET; ++i)
+	{
+		//Ve Cot 
+		gotoxy(x, i);
+		cout << char(179);
+
+	}
+	//Ve Them cac giao diem
+	gotoxy(x, MINY_BTKET);
+	cout << char(194);
+	gotoxy(x, MINY_BTKET + 2);
+	cout << char(197);
+	gotoxy(x, MAXY_BTKET);
+	cout << char(193);
+	
+}
+
+
 
 //-----

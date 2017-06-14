@@ -1111,6 +1111,26 @@ void LOP::inDiemTongketLOP()
 {
 	PTRDANHSACH_DIEMSV* pDSDiemSV = NULL;
 	int SL = 0;
+	int SoMon = 6;
+
+	
+
+	normal();
+	
+	int l = MAXX_BTKET - BTKETCot3;
+	veKhungXuatDiemTongKetMon();
+
+	for (int i = 1; i < SoMon; i++) {
+		int x = (l / SoMon)*i + BTKETCot3;
+			veCotXuatDiemTongKetMon(x);
+	}
+	//In tiêu đề
+	setGreenText();
+	gotoxy(45, 2);
+	cout << "DIEM TONG KET LOP: " << MALOP;
+
+	getch();
+
 }
 
 PTRDANHSACH_DIEMSV LOP::timDS_SVvaDiemThiLonNhat()

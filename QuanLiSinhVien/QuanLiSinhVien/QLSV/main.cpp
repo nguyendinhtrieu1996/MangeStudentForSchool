@@ -119,6 +119,7 @@ int main() {
 		case DIEMTONG:
 		{
 			dsLOP.inDiemTongKet();
+			
 			break;
 		}
 		case DIEMMON:
@@ -129,6 +130,7 @@ int main() {
 		case DIEMTB:
 		{
 			dsLOP.inDiemTrungBinh();
+			
 			break;
 		}
 		case THOAT:
