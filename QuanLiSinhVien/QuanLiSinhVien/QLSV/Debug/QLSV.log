@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  DSLOP.cpp
 c:\users\nguyen dinh trieu\desktop\qlsv_doan\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.h(18): warning C4091: 'typedef ': ignored on left of 'DIEM_SV' when no variable is declared
 c:\users\nguyen dinh trieu\desktop\qlsv_doan\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\lop.h(26): warning C4091: 'typedef ': ignored on left of 'DANHSACH_DIEMSV' when no variable is declared
@@ -18,3 +19,7 @@ c:\users\nguyen dinh trieu\desktop\qlsv_doan\mangestudentforschool\quanlisinhvie
 c:\users\nguyen dinh trieu\desktop\qlsv_doan\mangestudentforschool\quanlisinhvien\quanlisinhvien\qlsv\dslop.cpp(936): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
   QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\QLSV_DOAN\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe
   QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\QLSV_DOAN\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.pdb (Partial PDB)
+=======
+﻿  QLSV.vcxproj -> C:\Users\Huong Thu Tran\Desktop\QLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe
+  QLSV.vcxproj -> C:\Users\Huong Thu Tran\Desktop\QLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.pdb (Partial PDB)
+>>>>>>> a58b4de64c60be7c93e27bc308701299f1279f07
