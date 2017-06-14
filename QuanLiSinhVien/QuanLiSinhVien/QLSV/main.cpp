@@ -40,9 +40,11 @@ int main() {
 
 	do
 	{
+		
 		int chon = veMenu(mainMenu, childMenu);
 		mainMenu = chon / 10;
 		childMenu = chon % 10;
+	
 		switch (chon)
 		{
 		case THEMLOP:

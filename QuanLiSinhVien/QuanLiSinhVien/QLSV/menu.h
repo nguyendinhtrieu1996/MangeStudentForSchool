@@ -95,6 +95,7 @@ void paintStroke() {
 	printf("%c", 217);
 
 	normal();
+	
 }
 
 //td: danh sách thực đơn, main dang chon cai nao trong maniMenu, child (select) dang chon cai nao trong child menu
@@ -419,7 +420,7 @@ void childMenu(char td[4][10], int x, int y, int &select)
 int veMenu(int main, int child)
 {
 	paintStroke();// vẽ khung
-
+	
 menu:
 	if (main != 0)
 	{

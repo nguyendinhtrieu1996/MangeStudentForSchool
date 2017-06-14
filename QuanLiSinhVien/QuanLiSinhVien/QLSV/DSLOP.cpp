@@ -52,6 +52,7 @@ void DSLOP::nhapDSLOP()
 					char td[2][10] = { "    Co", "    Khong" };
 					gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 					int checkTHONGBAO = veKhungThongBao(title, message, td);
+					setNormallText();
 					//Nguoi dung chon Thoat
 					if (checkTHONGBAO == 0)
 					{
@@ -77,6 +78,7 @@ void DSLOP::nhapDSLOP()
 						char td[2][10] = { "    Co", "    Khong" };
 						gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 						int checkEXit = veKhungThongBao(title, message, td);
+						setNormallText();
 						if (checkEXit == 0)
 						{
 							normal();
@@ -103,6 +105,7 @@ void DSLOP::nhapDSLOP()
 						char td[2][10] = { "Chinh sua", "    Thoat" };
 						gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 						int checkNAMHOC = veKhungThongBao(title, message, td);
+						setNormallText();
 						//Nguoi dung chon chinh sua noi dung bi trung
 						if (checkNAMHOC == 0 || checkNAMHOC == ESC)
 						{
@@ -126,6 +129,7 @@ void DSLOP::nhapDSLOP()
 				char td[2][10] = { "Chinh sua", "    Thoat" };
 				gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 				int check2 = veKhungThongBao(title, message, td);
+				setNormallText();
 				//Nguoi dung chon chinh sua noi dung bi trung
 				if (check2 == 0 || check2 == ESC)
 				{
@@ -146,6 +150,7 @@ void DSLOP::nhapDSLOP()
 			char td[2][10] = { "    Co", "    Khong" };
 			gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 			int check2 = veKhungThongBao(title, message, td);
+			setNormallText();
 			if (check2 == 0)
 			{
 				return;
@@ -562,6 +567,7 @@ void DSLOP::xuatDSLOPNK()
 								normal();
 								gotoxy(MINX_ALERTTB, MINY_ALERTTB);
 								int select = veKhungThongBao(title, message, td);
+								setNormallText();
 								if (select == 0)
 								{
 									//Cho biet chuoi dang rong
@@ -604,6 +610,7 @@ void DSLOP::xuatDSLOPNK()
 								normal();
 								gotoxy(MINX_ALERTTB, MINY_ALERTTB);
 								int select = veKhungThongBao(title, message, td);
+								setNormallText();
 								if (select == 0)
 								{
 									xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
@@ -647,6 +654,7 @@ void DSLOP::xuatDSLOPNK()
 								normal();
 								gotoxy(MINX_ALERTTB, MINY_ALERTTB);
 								int select = veKhungThongBao(title, message, td);
+								setNormallText();
 								if (select == 0)
 								{
 									xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
@@ -847,6 +855,7 @@ void DSLOP::chinhSuaTTLOP()
 						normal();
 						gotoxy(MINX_ALERTTB, MINY_ALERTTB);
 						int select = veKhungThongBao(title, message, td);
+						setNormallText();
 						if (select == 0)
 						{
 							//Cho biet chuoi dang rong
@@ -902,6 +911,7 @@ void DSLOP::chinhSuaTTLOP()
 						normal();
 						gotoxy(MINX_ALERTTB, MINY_ALERTTB);
 						int select = veKhungThongBao(title, message, td);
+						setNormallText();
 						if (select == 0)
 						{
 							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
@@ -966,6 +976,7 @@ void DSLOP::chinhSuaTTLOP()
 						char td[2][10] = { "Chinh sua", "    Huy" };
 						gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 						int check2 = veKhungThongBao(title, message, td);
+						setNormallText();
 						//Nguoi dung chon chinh sua noi dung bi trung
 						if (check2 == 0)
 						{
@@ -1068,6 +1079,7 @@ void DSLOP::xoaLOP()
 		char td[2][10] = { "  Co", "   Khong" };
 		gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 		int select = veKhungThongBao(title, message1, td);
+		setNormallText();
 		if (select == 0)
 		{
 			xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
@@ -1078,6 +1090,7 @@ void DSLOP::xoaLOP()
 				char td[2][10] = { "Nhap lai", "  Thoat" };
 				gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 				int select = veKhungThongBao(title, message, td);
+				setNormallText();
 				if (select == 0)
 				{
 					xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
@@ -1096,6 +1109,7 @@ void DSLOP::xoaLOP()
 				char td[2][10] = { "Tiep tuc", "  Thoat" };
 				gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 				int select = veKhungThongBao(title, message, td);
+				setNormallText();
 				if (select == 0)
 				{
 					xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
@@ -1251,6 +1265,7 @@ NHAPMALOP:
 		char td[2][10] = { "    Co", "    Khong" };
 		gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 		int checkTHONGBAO = veKhungThongBao(title, message, td);
+		setNormallText();
 		//Nguoi dung chon Thoat
 		if (checkTHONGBAO == 0)
 		{
@@ -1275,6 +1290,7 @@ NHAPMALOP:
 			char td[2][10] = { "   Thoat", "Tiep tuc" };
 			gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 			int checkTHONGBAO = veKhungThongBao(title, message, td);
+			setNormallText();
 			//Nguoi dung chon Thoat
 			if (checkTHONGBAO == 0)
 			{
@@ -1300,6 +1316,7 @@ NHAPMALOP:
 				char td[2][10] = { "    Co", "    Khong" };
 				gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 				int checkTHONGBAO = veKhungThongBao(title, message, td);
+				setNormallText();
 				//Nguoi dung chon Thoat
 				if (checkTHONGBAO == 0)
 				{
@@ -1324,6 +1341,7 @@ NHAPMALOP:
 					char td[2][10] = { "   Thoat", "Chinh sua" };
 					gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 					int checkTHONGBAO = veKhungThongBao(title, message, td);
+					setNormallText();
 					//Nguoi dung chon Thoat
 					if (checkTHONGBAO == 0)
 					{
@@ -1350,6 +1368,7 @@ NHAPMALOP:
 						char td[2][10] = { "    Co", "    Khong" };
 						gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 						int checkTHONGBAO = veKhungThongBao(title, message, td);
+						setNormallText();
 						//Nguoi dung chon Thoat
 						if (checkTHONGBAO == 0)
 						{
@@ -1375,6 +1394,7 @@ NHAPMALOP:
 							char td[2][10] = { "   Thoat", "Chinh sua" };
 							gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 							int checkTHONGBAO = veKhungThongBao(title, message, td);
+							setNormallText();
 							//Nguoi dung chon Thoat
 							if (checkTHONGBAO == 0)
 							{
@@ -1399,6 +1419,7 @@ NHAPMALOP:
 								char td[2][10] = { "   Thoat", "Nhap lai" };
 								gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 								int checkTHONGBAO = veKhungThongBao(title, message, td);
+								setNormallText();
 								//Nguoi dung chon Thoat
 								if (checkTHONGBAO == 0)
 								{
@@ -1564,6 +1585,7 @@ NHAPMALOP:
 		char td[2][10] = { "    Co", "    Khong" };
 		gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 		int checkTHONGBAO = veKhungThongBao(title, message, td);
+		setNormallText();
 		//Nguoi dung chon Thoat
 		if (checkTHONGBAO == 0)
 		{
@@ -1588,6 +1610,7 @@ NHAPMALOP:
 			char td[2][10] = { "   Thoat", "Tiep tuc" };
 			gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 			int checkTHONGBAO = veKhungThongBao(title, message, td);
+			setNormallText();
 			//Nguoi dung chon Thoat
 			if (checkTHONGBAO == 0)
 			{
@@ -1613,6 +1636,7 @@ NHAPMALOP:
 				char td[2][10] = { "    Co", "    Khong" };
 				gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 				int checkTHONGBAO = veKhungThongBao(title, message, td);
+				setNormallText();
 				//Nguoi dung chon Thoat
 				if (checkTHONGBAO == 0)
 				{
@@ -1637,6 +1661,7 @@ NHAPMALOP:
 					char td[2][10] = { "   Thoat", "Chinh sua" };
 					gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 					int checkTHONGBAO = veKhungThongBao(title, message, td);
+					setNormallText();
 					//Nguoi dung chon Thoat
 					if (checkTHONGBAO == 0)
 					{
@@ -1663,6 +1688,7 @@ NHAPMALOP:
 						char td[2][10] = { "    Co", "    Khong" };
 						gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 						int checkTHONGBAO = veKhungThongBao(title, message, td);
+						setNormallText();
 						//Nguoi dung chon Thoat
 						if (checkTHONGBAO == 0)
 						{
@@ -1688,6 +1714,7 @@ NHAPMALOP:
 							char td[2][10] = { "   Thoat", "Chinh sua" };
 							gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 							int checkTHONGBAO = veKhungThongBao(title, message, td);
+							setNormallText();
 							//Nguoi dung chon Thoat
 							if (checkTHONGBAO == 0)
 							{
@@ -1712,6 +1739,7 @@ NHAPMALOP:
 								char td[2][10] = { "   Thoat", "Nhap lai" };
 								gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 								int checkTHONGBAO = veKhungThongBao(title, message, td);
+								setNormallText();
 								//Nguoi dung chon Thoat
 								if (checkTHONGBAO == 0)
 								{
@@ -1760,6 +1788,7 @@ NHAPMASV:
 		char td[2][10] = { "    Co", "    Khong" };
 		gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 		int checkTHONGBAO = veKhungThongBao(title, message, td);
+		setNormallText();
 		//Nguoi dung chon Thoat
 		if (checkTHONGBAO == 0)
 		{
@@ -1784,6 +1813,7 @@ NHAPMASV:
 			char td[2][10] = { "   Thoat", "Tiep tuc" };
 			gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 			int checkTHONGBAO = veKhungThongBao(title, message, td);
+			setNormallText();
 			//Nguoi dung chon Thoat
 			if (checkTHONGBAO == 0)
 			{
@@ -1809,6 +1839,7 @@ NHAPMASV:
 				char td[2][10] = { "    Co", "    Khong" };
 				gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 				int checkTHONGBAO = veKhungThongBao(title, message, td);
+				setNormallText();
 				//Nguoi dung chon Thoat
 				if (checkTHONGBAO == 0)
 				{
@@ -1833,6 +1864,7 @@ NHAPMASV:
 					char td[2][10] = { "   Thoat", "Chinh sua" };
 					gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 					int checkTHONGBAO = veKhungThongBao(title, message, td);
+					setNormallText();
 					//Nguoi dung chon Thoat
 					if (checkTHONGBAO == 0)
 					{
@@ -1859,6 +1891,7 @@ NHAPMASV:
 						char td[2][10] = { "    Co", "    Khong" };
 						gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 						int checkTHONGBAO = veKhungThongBao(title, message, td);
+						setNormallText();
 						//Nguoi dung chon Thoat
 						if (checkTHONGBAO == 0)
 						{
@@ -1884,6 +1917,7 @@ NHAPMASV:
 							char td[2][10] = { "   Thoat", "Chinh sua" };
 							gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 							int checkTHONGBAO = veKhungThongBao(title, message, td);
+							setNormallText();
 							//Nguoi dung chon Thoat
 							if (checkTHONGBAO == 0)
 							{
@@ -1909,6 +1943,8 @@ NHAPMASV:
 								char td[2][10] = { "   Thoat", "Nhap lai" };
 								gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 								int checkTHONGBAO = veKhungThongBao(title, message, td);
+								setNormallText();
+
 								//Nguoi dung chon Thoat
 								if (checkTHONGBAO == 0)
 								{
@@ -1958,6 +1994,7 @@ NHAPMASV:
 		char td[2][10] = { "    Co", "    Khong" };
 		gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 		int checkTHONGBAO = veKhungThongBao(title, message, td);
+		setNormallText();
 		//Nguoi dung chon Thoat
 		if (checkTHONGBAO == 0)
 		{
@@ -1982,6 +2019,7 @@ NHAPMASV:
 			char td[2][10] = { "   Thoat", "Tiep tuc" };
 			gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 			int checkTHONGBAO = veKhungThongBao(title, message, td);
+			setNormallText();
 			//Nguoi dung chon Thoat
 			if (checkTHONGBAO == 0)
 			{
@@ -2007,6 +2045,7 @@ NHAPMASV:
 				char td[2][10] = { "    Co", "    Khong" };
 				gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 				int checkTHONGBAO = veKhungThongBao(title, message, td);
+				setNormallText();
 				//Nguoi dung chon Thoat
 				if (checkTHONGBAO == 0)
 				{
@@ -2031,6 +2070,7 @@ NHAPMASV:
 					char td[2][10] = { "   Thoat", "Chinh sua" };
 					gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 					int checkTHONGBAO = veKhungThongBao(title, message, td);
+					setNormallText();
 					//Nguoi dung chon Thoat
 					if (checkTHONGBAO == 0)
 					{
@@ -2057,6 +2097,7 @@ NHAPMASV:
 						char td[2][10] = { "    Co", "    Khong" };
 						gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 						int checkTHONGBAO = veKhungThongBao(title, message, td);
+						setNormallText();
 						//Nguoi dung chon Thoat
 						if (checkTHONGBAO == 0)
 						{
@@ -2082,6 +2123,7 @@ NHAPMASV:
 							char td[2][10] = { "   Thoat", "Chinh sua" };
 							gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 							int checkTHONGBAO = veKhungThongBao(title, message, td);
+							setNormallText();
 							//Nguoi dung chon Thoat
 							if (checkTHONGBAO == 0)
 							{
@@ -2107,6 +2149,7 @@ NHAPMASV:
 								char td[2][10] = { "   Thoat", "Nhap lai" };
 								gotoxy(MINX_ALERT_TB_NHAPDIEM, MINY_ALERT_TB_NHAPDIEM);
 								int checkTHONGBAO = veKhungThongBao(title, message, td);
+								setNormallText();
 								//Nguoi dung chon Thoat
 								if (checkTHONGBAO == 0)
 								{
@@ -2272,6 +2315,7 @@ void DSLOP::xoaSV(){
 		char td[2][10] = { "  Co", "   Khong" };
 		gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 		int select = veKhungThongBao(title, message1, td);
+		setNormallText();
 		if (select == 0)
 		{
 			xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
@@ -2282,6 +2326,7 @@ void DSLOP::xoaSV(){
 				char td[2][10] = { "Tiep tuc", "  Thoat" };
 				gotoxy(MINX_ALERTTB, MINY_ALERTNL);
 				int select = veKhungThongBao(title, message, td);
+				setNormallText();
 				if (select == 0)
 				{
 					xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTNL, widthAlert, heightAlert);
