@@ -984,11 +984,12 @@ void DSMONHOC::suaTTMON(char cMAMH[], PTRNODEMH p)
 		{
 			kiTu = temp;
 		}
+
 		switch (kiTu)
 		{
 		case ESC:
 			return;
-			break;
+
 		case Left:
 		{
 			if (viTriChinhSua >1)
@@ -1094,9 +1095,10 @@ void DSMONHOC::suaTTMON(char cMAMH[], PTRNODEMH p)
 						normal();
 						gotoxy(MINX_ALERTTB, MINY_ALERTTB);
 						int select = veKhungThongBao(title, message, td);
-						if (select == 0)
+						if (select == 0 || select == ESC)
 						{
 							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
+							setNormallText();
 							continue;
 						}
 						else if (select == 1)
@@ -1199,9 +1201,12 @@ void DSMONHOC::ghiMon(PTRNODEMH p, ofstream &ofs)
 
 void DSMONHOC::ghiFileMon()
 {
-	ofstream outFile("MON.DAT", ios::out);
-	ghiMon(root, outFile);
-	outFile.close();
+	if (root != NULL)
+	{
+		ofstream outFile("MON.DAT", ios::out);
+		ghiMon(root, outFile);
+		outFile.close();
+	}
 }
 
 void DSMONHOC::docFile()
