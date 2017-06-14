@@ -1126,7 +1126,7 @@ float LOP::tinhDiemTBSinhVien(PTRNODEDIEM * dsNodeDiem, int n, DSMONHOC root)
 	return diemTB;
 }
 
-void LOP::indiemTongKetTheoDong(PTRDANHSACH_DIEMSV diemSV, int y, int stt)
+void LOP::indiemTongKetTheoDong(PTRDANHSACH_DIEMSV diemSV, int y, int stt, PTRMAMON* dsMonHoc, int SLMonHoc)
 {
 	SINHVIEN sv = diemSV->nodeSV->SV;
 	gotoxy(MINX_BTKET + 1, y);
@@ -1137,11 +1137,21 @@ void LOP::indiemTongKetTheoDong(PTRDANHSACH_DIEMSV diemSV, int y, int stt)
 	cout << sv.getHO() << " " << sv.getTEN();
 
 	PTRNODEDIEM *dsDiem = diemSV->pDiemSV;
-	int n = diemSV->n;
+	int SL_DIEM = diemSV->n;
 
-	int SL_Diem = diemSV->n;
-	normal();
-	int l = MAXX_BTKET - BTKETCot3;
+	for (int i = 0; i < SLMonHoc; ++i)
+	{
+		char *temp = dsMonHoc[i]->maMon;
+		int diem = kiemtraMonHocDSDiem(dsDiem, SL_DIEM, temp);
+
+		if (diem != -1)
+		{
+			int distance = (MAXX_BTKET - BTKETCot3) / SLMonHoc;
+			int x = BTKETCot3 + distance * (i + 0.5) - 1;
+			gotoxy(x, y);
+			cout << diem;
+		}
+	}
 }
 
 void LOP::timTatCaMonHocTrongDSSV(PTRDANHSACH_DIEMSV* dsSVDiem, int SLSV, PTRMAMON* &dsMaMon, int & n)
@@ -1193,6 +1203,18 @@ void LOP::pushBackMaMonHoc(PTRMAMON *& dsMaMon, int & n, char MaMon[])
 	}
 }
 
+int LOP::kiemtraMonHocDSDiem(PTRNODEDIEM * dsDiem, int SL_Diem, char * MaMonHoc)
+{
+	for (int i = 0; i < SL_Diem; ++i)
+	{
+		char *tempMAMON = dsDiem[i]->diem.getMaMH();
+		if (strcmp(tempMAMON, MaMonHoc) == 0)
+		{
+			return (dsDiem[i]->diem.getDiem());
+		}
+	}
+	return -1;
+}
 
 void LOP::nhapTTDiem()
 {
@@ -1521,7 +1543,9 @@ int LOP::inDiemTongketLOP()
 		//vẽ các cột in điểm
 		PTRMAMON* dsMaMon = NULL;
 		int SL_MonHoc = 0;
+
 		timTatCaMonHocTrongDSSV(pDSDiemSV, SL, dsMaMon, SL_MonHoc);
+
 		normal();
 		int distance = (MAXX_BTKET - BTKETCot3) / SL_MonHoc;
 		veKhungXuatDiemTongKetMon();
@@ -1570,7 +1594,7 @@ int LOP::inDiemTongketLOP()
 		{
 			for (int i = 0; i < 10; ++i, stt++)
 			{
-				indiemTongKetTheoDong(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+				indiemTongKetTheoDong(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1, dsMaMon, SL_MonHoc);
 			}
 		}
 		else
@@ -1579,18 +1603,17 @@ int LOP::inDiemTongketLOP()
 			{
 				for (int i = 0; i < 10; ++i, stt++)
 				{
-					indiemTongKetTheoDong(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+					indiemTongKetTheoDong(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1, dsMaMon, SL_MonHoc);
 				}
 			}
 			else
 			{
 				for (int i = 0; i < SL % 10; ++i, stt++)
 				{
-					indiemTongKetTheoDong(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1);
+					indiemTongKetTheoDong(pDSDiemSV[stt], Y_FIST_DIEM + i, stt + 1, dsMaMon, SL_MonHoc);
 				}
 			}
 		}
-
 
 		getch();
 

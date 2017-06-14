@@ -1773,6 +1773,7 @@ NHAPMALOP:
 						{
 							//Gọi xuat điểm trong lớp
 							int checkNhapDiem = DANHSACHLOP[checkLop].inDiemTheoMON(MaMonHoc, lanthi);
+
 							if (checkNhapDiem == fail)
 							{
 								char title[10] = "THONG BAO";
