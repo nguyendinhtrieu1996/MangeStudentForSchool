@@ -170,12 +170,8 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 						else if (select == 1)
 						{
 							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
-							gotoxy(MINX_XSV + 1, y);
-							for (int i = 0; i < widthBANG_XSV - 2; i++)
-							{
-								cout << " ";
-							}
-							//inSVTheoHang(k, y, viTri + 1);
+							xoaNoiDungVe(MINX_BSV, MINY_BSV, MAXX_BSV- MINX_BSV, MAXY_BSV-MINY_BSV);
+							return;
 							break;
 
 						}
@@ -187,27 +183,30 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 				{
 					int kiTu = NhapChuoi(hoSV, constHO, svCot1 + 2, y);
 					//Chuỗi ho Sinh viên trả về bị rỗng
-					if (kiTu == -1)
+					if (kiTu == ESC )
 					{
-						char title[] = "THONG BAO";
-						char message[] = "Ho SV khong duoc rong!";
-						char td[2][10] = { "Chinh sua", "    Huy" };
-						normal();
-						gotoxy(MINX_ALERTTB, MINY_ALERTTB);
-						int select = veKhungThongBao(title, message, td);
-						setNormallText();
-						if (select == 0)
-						{
-							//Cho biet chuoi dang rong
-							hoSV[0] = '\0';
-							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
-							continue;
+						if (hoSV[0] == '/0') {
+							char title[] = "THONG BAO";
+							char message[] = "Ho SV khong duoc rong!";
+							char td[2][10] = { "Chinh sua", "    Huy" };
+							normal();
+							gotoxy(MINX_ALERTTB, MINY_ALERTTB);
+							int select = veKhungThongBao(title, message, td);
+							setNormallText();
+							if (select == 0)
+							{
+								//Cho biet chuoi dang rong
+								hoSV[0] = '\0';
+								xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
+								continue;
+							}
+							else if (select == 1)
+							{
+								return;
+
+							}
 						}
-						else if (select == 1)
-						{
-							return;
-							
-						}
+						
 					}
 					else if (strcmp(hoSV, p->SV.getHO()) == 0)
 					{
@@ -220,7 +219,7 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 						cout << "Da sua Ho";
 						Sleep(1000);
 						xoaNoiDungVe(MINX_ALERTTB, 24, 30, 1);
-						gotoxy(MINX_BSV + 1 + strlen(hoSV), y);
+						gotoxy(svCot1 + 2 + strlen(hoSV), y);
 						break;
 
 					}
@@ -231,26 +230,29 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 			else if (viTriChinhSua == 3){
 				do{
 					int kiTu = NhapChuoi(tenSV, constTENSV, svCot2 + 2, y);
-					if (tenSV[0]=='/0')
+					if (kiTu==ESC)
 					{
-						char title[] = "THONG BAO";
-						char message[] = "TEN SV khong duoc rong!";
-						char td[2][10] = { "Chinh sua", "    Huy" };
-						normal();
-						gotoxy(MINX_ALERTTB, MINY_ALERTTB);
-						int select = veKhungThongBao(title, message, td);
-						setNormallText();
-						if (select == 0)
-						{
-							//Cho biet chuoi dang rong
-							tenSV[0] = '\0';
-							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
-							continue;
+						if (tenSV[0] == '/0') {
+							char title[] = "THONG BAO";
+							char message[] = "TEN SV khong duoc rong!";
+							char td[2][10] = { "Chinh sua", "    Huy" };
+							normal();
+							gotoxy(MINX_ALERTTB, MINY_ALERTTB);
+							int select = veKhungThongBao(title, message, td);
+							setNormallText();
+							if (select == 0)
+							{
+								//Cho biet chuoi dang rong
+								tenSV[0] = '\0';
+								xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
+								continue;
+							}
+							else if (select == 1)
+							{
+								return;
+							}
 						}
-						else if (select == 1)
-						{
-							return;
-						}
+						
 
 					}
 					else if (strcmp(tenSV, p->SV.getTEN()) == 0) {
@@ -290,7 +292,11 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 						}
 						else if (select == 1)
 						{
-							return;
+							strcpy(phai, p->SV.getPHAI());
+							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
+							gotoxy(svCot3 + 1, y); cout << phai;
+							break;
+
 						}
 
 
@@ -327,7 +333,10 @@ void LOP::suaSVtheoConTro(PTRNODESV p)
 						}
 						else if (select == 1)
 						{
-							return;
+							strcpy(sdt, p->SV.getSDT());
+							xoaNoiDungVe(MINX_ALERTTB, MINY_ALERTTB, widthAlert, heightAlert);
+							gotoxy(svCot4 + 1, y); cout << sdt;
+							break;
 						}
 
 

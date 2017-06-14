@@ -946,7 +946,11 @@ void DSLOP::chinhSuaTTLOP()
 					int check = NhapChuoi(TENL, constTENLOP, xCot1 + 2, MINY_BLOP + 4);
 					if (check == ESC)
 					{
+						
 						TENL[0] = '\0';
+						DANHSACHLOP[x].getTENLOP(TENL);
+						gotoxy(xCot1 + 2, MINY_BLOP + 4);
+						cout << TENL;
 						continue;
 					}
 					else
