@@ -12,7 +12,7 @@ const int soItemMenuLop = 4;
 const int soItemMenuSV = 4;
 const int soItemMenuMon = 4;
 const int soItemMenuDiem = 3;
-const int soItemMenuXuat = 3;
+const int soItemMenuXuat = 4;
 const int xCotChild = 26;
 
 const int x_MainButton = 4;
@@ -48,7 +48,8 @@ char diemMenu[soItemMenuDiem][10] = { "THEM MOI",
 "XOA" };
 char inMenu[soItemMenuXuat][20] = { "DIEM TONG",
 "DIEM THEO MON",
-"DIEM TB" };
+"DIEM TB",
+"GHIFILE"};
 
 //vẽ khung
 void paintStroke() {
@@ -264,7 +265,7 @@ void diemChildMenu(char td[3][10], int x, int y, int &select) {
 void xuatChildMenu(char td[soItemMenuXuat][20], int x, int y, int &select) {
 	int i;
 	int y_btn;
-	for (i = 0; i < 3; i++)
+	for (i = 0; i < 4; i++)
 	{
 		y_btn = y + i * (heightChildMenu + 1);
 		paintNormalButton(x, y_btn, td[i], widthChildButton + 3, heightChildMenu);

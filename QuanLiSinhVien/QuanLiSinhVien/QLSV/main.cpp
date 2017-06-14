@@ -25,6 +25,7 @@
 #define DIEMTONG 51
 #define DIEMMON 52
 #define DIEMTB 53
+#define GHIFILE 54
 
 #define THOAT 61
 int main() {
@@ -133,6 +134,17 @@ int main() {
 			
 			break;
 		}
+		case GHIFILE:
+		{
+			dsLOP.ghiFile();
+			DANHSACHMH.ghiFileMon();
+			gotoxy(68, 7);
+			SetColor(green);
+			cout << "GHI FILE THANH CONG";
+			_getch();
+
+			break;
+		}
 		case THOAT:
 		{
 			setNormallText();
@@ -142,6 +154,7 @@ int main() {
 			gotoxy(MINX_ALERTTB, MINY_ALERTTB-10);
 			int checkTHONGBAO = veKhungThongBao(title, message, td);
 			//Nguoi dung chon luu
+			setNormallText();
 			if (checkTHONGBAO == 0)
 			{
 				dsLOP.ghiFile();
