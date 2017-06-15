@@ -879,7 +879,7 @@ int LOP::inDiemTheoMON(char MAMH[], int lanThi)
 	for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
 	{
 		gotoxy(i, Y_FIST_DIEM);
-		cout << " ";
+		cout << " "; 
 	}
 	xuatDiemTheoHang(a[0], Y_FIST_DIEM, 1);
 
@@ -917,10 +917,16 @@ int LOP::inDiemTheoMON(char MAMH[], int lanThi)
 				for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
 				{
 					gotoxy(i, yHienTai);
-					cout << " ";
+					if (i == XCOT1_BNMH2 || i == XCOT2_BNMH2 || i == XCOT3_BNMH2 || i == XCOT4_BNMH2) {
+						cout << (char)179;
+					}
+					else {
+						cout << " ";
+					}
+						
 				}
 				//Ve khung nhap Diem
-				veKhungNhapDiemTrenDSLop();
+				//veKhungNhapDiemTrenDSLop();
 				xuatDiemTheoHang(a[viTriHT - 1], yHienTai, viTriHT);
 
 				//Highlight dòng mới
@@ -931,7 +937,12 @@ int LOP::inDiemTheoMON(char MAMH[], int lanThi)
 				for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
 				{
 					gotoxy(i, yHienTai);
-					cout << " ";
+					if (i == XCOT1_BNMH2 || i == XCOT2_BNMH2 || i == XCOT3_BNMH2 || i == XCOT4_BNMH2) {
+						cout << (char)179;
+					}
+					else {
+						cout << " ";
+					}
 				}
 
 				xuatDiemTheoHang(a[viTriHT - 1], yHienTai, viTriHT);
@@ -989,10 +1000,15 @@ int LOP::inDiemTheoMON(char MAMH[], int lanThi)
 				for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
 				{
 					gotoxy(i, yHienTai);
-					cout << " ";
+					if (i == XCOT1_BNMH2 || i == XCOT2_BNMH2 || i == XCOT3_BNMH2 || i == XCOT4_BNMH2) {
+						cout << (char)179;
+					}
+					else {
+						cout << " ";
+					}
 				}
 				//Ve khung nhap Diem
-				veKhungNhapDiemTrenDSLop();
+			//	veKhungNhapDiemTrenDSLop();
 				xuatDiemTheoHang(a[viTriHT - 1], yHienTai, viTriHT);
 
 				//Highlight dòng mới
@@ -1356,10 +1372,15 @@ int LOP::inDiemTBLOP(DSMONHOC root)
 					for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
 					{
 						gotoxy(i, yHienTai);
-						cout << " ";
+						if (i == XCOT1_BNMH2 || i == XCOT2_BNMH2 || i == XCOT3_BNMH2 || i == XCOT4_BNMH2) {
+							cout << (char)179;
+						}
+						else {
+							cout << " ";
+						}
 					}
 					//Ve khung nhap Diem
-					veKhungNhapDiemTrenDSLop();
+					//veKhungNhapDiemTrenDSLop();
 					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT, root);
 
 					//Highlight dòng mới
@@ -1428,10 +1449,15 @@ int LOP::inDiemTBLOP(DSMONHOC root)
 					for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
 					{
 						gotoxy(i, yHienTai);
-						cout << " ";
+						if (i == XCOT1_BNMH2 || i == XCOT2_BNMH2 || i == XCOT3_BNMH2 || i == XCOT4_BNMH2) {
+							cout << (char)179;
+						}
+						else {
+							cout << " ";
+						}
 					}
 					//Ve khung nhap Diem
-					veKhungNhapDiemTrenDSLop();
+					//veKhungNhapDiemTrenDSLop();
 					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT, root);
 
 					//Highlight dòng mới
@@ -1442,7 +1468,12 @@ int LOP::inDiemTBLOP(DSMONHOC root)
 					for (int i = MINX_BNMH2 + 1; i < MAXX_BNMH2; ++i)
 					{
 						gotoxy(i, yHienTai);
-						cout << " ";
+						if (i == XCOT1_BNMH2 || i == XCOT2_BNMH2 || i == XCOT3_BNMH2 || i == XCOT4_BNMH2) {
+							cout << (char)179;
+						}
+						else {
+							cout << " ";
+						}
 					}
 
 					xuatDiemTBtheoHang(pDSDiemSV[viTriHT - 1], yHienTai, viTriHT, root);

@@ -1,33 +1,48 @@
-<<<<<<< HEAD
-﻿  DSMONHOC.cpp
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(374): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(444): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(482): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(517): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(552): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(573): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(591): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(609): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(625): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(629): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(644): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(648): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(244): warning C4102: 'CHINHSUA': unreferenced label
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(982): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(1010): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(1014): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(1018): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(1031): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(1035): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(1039): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(1095): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(1135): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(1150): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
-c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(1166): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+﻿  LOP.cpp
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.h(18): warning C4091: 'typedef ': ignored on left of 'DIEM_SV' when no variable is declared
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.h(26): warning C4091: 'typedef ': ignored on left of 'DANHSACH_DIEMSV' when no variable is declared
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.h(30): warning C4091: 'typedef ': ignored on left of 'MAMONHOC' when no variable is declared
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(34): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(61): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(65): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(69): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(73): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(85): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(89): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(93): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(97): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(150): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(222): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(269): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(311): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(351): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(419): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(428): warning C4305: '=': truncation from 'int' to 'char'
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(428): warning C4309: '=': truncation of constant value
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(801): warning C4305: '=': truncation from 'int' to 'char'
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(801): warning C4309: '=': truncation of constant value
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1129): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1166): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1592): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1668): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(1707): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2158): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2223): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2262): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2298): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2332): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2392): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2444): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2465): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2512): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2558): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2573): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2577): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2581): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2585): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2598): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2602): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2606): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\lop.cpp(2610): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
   QLSV.vcxproj -> C:\Users\Huong Thu Tran\Desktop\QLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe
   QLSV.vcxproj -> C:\Users\Huong Thu Tran\Desktop\QLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.pdb (Partial PDB)
-=======
-﻿  MyLibrary.cpp
-  QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\DOAN\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe
-  QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\DOAN\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.pdb (Partial PDB)
->>>>>>> 5b1682b94d7a7ca8c841e159951c12ee433ac8d9
