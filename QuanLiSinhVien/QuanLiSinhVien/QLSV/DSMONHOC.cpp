@@ -617,12 +617,13 @@ void DSMONHOC::xuatDSMON()
 						case Left:
 						{
 							int y = Y_FIST_MON + viTri - (trangHT - 1) * 10;
-							if (viTriChinhSua >2)
+							if (viTriChinhSua >= 3)
 							{
 								viTriChinhSua--;
 								if (viTriChinhSua == 2)
 								{
 									gotoxy(XCOT2_XDSMH + strlen(_TENMH) + 2, y);
+								
 								}
 								else if (viTriChinhSua == 3)
 								{
@@ -635,11 +636,11 @@ void DSMONHOC::xuatDSMON()
 						case Right:
 						{
 							int y = Y_FIST_MON + viTri - (trangHT - 1) * 10;
-							if (viTriChinhSua <4)
+							if (viTriChinhSua <= 3)
 							{
 								viTriChinhSua++;
-								}
-								else if (viTriChinhSua == 4)
+
+								if (viTriChinhSua == 4)
 								{
 									gotoxy(XCOT4_XDSMH + strlen(c_STCTH) + 1, y);
 								}
@@ -647,6 +648,7 @@ void DSMONHOC::xuatDSMON()
 								{
 									gotoxy(XCOT3_XDSMH + strlen(c_STCLT) + 1, y);
 								}
+							}
 								
 
 							}
