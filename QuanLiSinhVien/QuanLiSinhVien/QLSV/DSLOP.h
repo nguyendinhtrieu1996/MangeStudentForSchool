@@ -27,6 +27,7 @@ public:
 	void xuatDIEMTheoMon(DSMONHOC);
 	void suaDIEMSVTheoMon(DSMONHOC);
 	void xoaDIEMSVTheoMon(DSMONHOC);
+
 	//--------------CAC HAM XU LI TREN SINH VIEN--------------------
 	void nhapDSSVLOP();
 	void xuatDSSVLOP();

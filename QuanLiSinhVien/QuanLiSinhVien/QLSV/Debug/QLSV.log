@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  DSMONHOC.cpp
 c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(374): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
 c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(444): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
@@ -25,3 +26,8 @@ c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc
 c:\users\huong thu tran\desktop\qlsv\quanlisinhvien\quanlisinhvien\qlsv\dsmonhoc.cpp(1166): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
   QLSV.vcxproj -> C:\Users\Huong Thu Tran\Desktop\QLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe
   QLSV.vcxproj -> C:\Users\Huong Thu Tran\Desktop\QLSV\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.pdb (Partial PDB)
+=======
+﻿  MyLibrary.cpp
+  QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\DOAN\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.exe
+  QLSV.vcxproj -> C:\Users\NGUYEN DINH TRIEU\Desktop\DOAN\MangeStudentForSchool\QuanLiSinhVien\QuanLiSinhVien\Debug\QLSV.pdb (Partial PDB)
+>>>>>>> 5b1682b94d7a7ca8c841e159951c12ee433ac8d9
