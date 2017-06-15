@@ -906,6 +906,16 @@ int DSMONHOC::getTongSoTinChi(char* MaMonHoc)
 	return 0;
 }
 
+void DSMONHOC::demTongSoMon(PTRNODEMH p, int&sl)
+{
+	if (p != NULL)
+	{
+		sl++;
+		demTongSoMon(p->left, sl);
+		demTongSoMon(p->right, sl);
+	}
+}
+
 void DSMONHOC::suaMON()
 {
 	char labelTb[20] = "SUA TT MON HOC";
@@ -1190,6 +1200,7 @@ DSMONHOC::~DSMONHOC()
 
 void DSMONHOC::ghiMon(PTRNODEMH p, ofstream &ofs)
 {
+	
 	if (p != NULL)
 	{
 		MONHOC mh = p->MH;
@@ -1197,29 +1208,47 @@ void DSMONHOC::ghiMon(PTRNODEMH p, ofstream &ofs)
 		ghiMon(p->left, ofs);
 		ghiMon(p->right, ofs);
 	}
+	
+	
+
 }
 
 void DSMONHOC::ghiFileMon()
 {
+	ofstream outFile("MONDEMO.DAT", ios::out);
+	int sl = 0;
 	if (root != NULL)
 	{
-		ofstream outFile("MON.DAT", ios::out);
+		
+		demTongSoMon(root, sl);
+		outFile.write(reinterpret_cast< const char *> (&sl), sizeof(int));
 		ghiMon(root, outFile);
-		outFile.close();
+	} 
+	else {
+		outFile.write(reinterpret_cast< const char *> (&sl), sizeof(int));
+		
 	}
+	outFile.close();
+
 }
 
 void DSMONHOC::docFile()
 {
 	root = NULL;
-	ifstream inFile("MON.DAT", ios::in);
+	ifstream inFile("MONDEMO.DAT", ios::in);
 	if (inFile.fail()) {
 
-	} else 
-	while(!inFile.eof()) {
-		MONHOC mh;
-		inFile.read(reinterpret_cast< char *> (&mh), sizeof(MONHOC));
-		insertNodeMH(root, mh);
 	}
+	else
+	{
+		int sl = 0;
+		inFile.read(reinterpret_cast< char *> (&sl), sizeof(int));
+		for (int i = 0; i < sl; i++) {
+			MONHOC mh;
+			inFile.read(reinterpret_cast< char *> (&mh), sizeof(MONHOC));
+			insertNodeMH(root, mh);
+		}
+	}
+	
 
 }
